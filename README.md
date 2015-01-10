@@ -1,2 +1,2 @@
 # File Encryption
-Protection Profile File Encryption
+Protection Profile for File Encryption
