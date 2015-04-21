@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 <PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="File Encryption">
   <PPReference title="PP Reference" id="ID003">
     <ReferenceTable>
-      <PPTitle>Application Software Protection Profile (ASPP) Extended Package: File Encryption:
-        Mitigating the Risk of Disclosure of Sensitive Data on a System</PPTitle>
+      <PPTitle>Application Software Extended Package for File Encryption </PPTitle>
       <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>10 November 2014</PPPubDate>
-      <PPCertificationID>NIAP-whoknows</PPCertificationID>
+      <PPPubDate>2014-11-10</PPPubDate>
+      <PPCertificationID>unassigned</PPCertificationID>
       <CCVersion>Version 1.0</CCVersion>
       <Keywords>file encryption; encryption</Keywords>
       <entry>
@@ -20,42 +19,218 @@
   <RevisionHistory>
     <entry>
       <version>v 0.1</version>
-      <date>25 July 2014</date>
+      <date>2014-07-25</date>
       <subject>Initial Release</subject>
     </entry>
     <entry>
       <version>v 1.0</version>
-      <date>10 November 2014</date>
+      <date>2014-11-10</date>
       <subject>Public release, incorporating comments received</subject>
     </entry>
   </RevisionHistory>
-  <chapter title="Introduction" id="int">This Extended Package (EP) describes security requirements
-    for an encryption product that is configurable for the data it encrypts and is intended to
-    provide a minimal, baseline set of requirements that are targeted at mitigating well defined and
-    described threats. However, this EP is not complete in itself, but rather extends the Protection
-    Profile for Application Software (AS PP). This introduction will describe the features of a
-    compliant Target of Evaluation, and will also discuss how this EP is to be used in conjunction
-    with the AS PP. <section title="Conformance Claims" id="confclaims"> The Application Software
-      Protection Profile (AS PP) defines the baseline Security Functional Requirements (SFRs) and
-      Security Assurance Requirements (SARs) for application software products. This EP serves to
-      extend the AS PP baseline with additional SFRs and associated ‘Assurance Activities’ specific
-      to File Encryption products. Assurance Activities are the actions that the evaluator performs
-      in order to determine a TOE’s compliance to the SFRs. <br/> This EP conforms to Common
-      Criteria for Information Technology Security Evaluation, Version 3.1, Revision 4. It is CC
-      Part 2 extended and CC Part 3 conformant. <br/> In order to be conformant to this EP, a TOE
-      must demonstrate Exact Compliance. Exact Compliance, a subset of Strict Compliance as defined
-      by the CC, is defined as the ST containing all of the requirements in section 4 of the AS PP,
-      and potentially requirements from Appendix C of the AS PP. While iteration is allowed, no
-      additional requirements (from the CC parts 2 or 3) are allowed to be included in the ST.
-      Further, no requirements in section 4 of the AS PP are allowed to be omitted.<br/>
+  <chapter title="Introduction" id="int">
+    <section title="Overview" id="ppoverview"> This Extended Package (EP) describes security
+      requirements for an encryption product that is configurable for the data it encrypts and is
+      intended to provide a minimal, baseline set of requirements that are targeted at mitigating
+      well defined and described threats. However, this EP is not complete in itself, but rather
+      extends the Protection Profile for Application Software (<cite linkend="bibAppPP"/>). This
+      introduction will describe the features of a compliant Target of Evaluation, and will also
+      discuss how this EP is to be used in conjunction with the <cite linkend="bibAppPP"/>. </section>
+    <section id="glossary" title="Terms">The following sections provide both Common Criteria and
+      technology terms used in this Extended Package. <subsection title="Common Criteria Terms"
+        id="ccterms">
+        <glossary>
+          <entry>
+            <term><abbr title="Common Criteria">CC</abbr></term>
+            <description>Common Criteria for Information Technology Security
+              Evaluation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Extended Package">EP</abbr></term>
+            <description>An implementation-independent set of security requirements for a category
+              of products, which extends those in a Protection Profile.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Protection Profile">PP</abbr></term>
+            <description>An implementation-independent set of security requirements for a category
+              of products.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Target">ST</abbr></term>
+            <description>A set of implementation-dependent security requirements for a specific
+              product.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Target of Evaluation">TOE</abbr></term>
+            <description>The product under evaluation. In this case, application software and its
+              supporting documentation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="TOE Security Functionality">TSF</abbr></term>
+            <description>The security functionality of the product under evaluation.</description>
+          </entry>
+          <entry>
+            <term><abbr title="TOE Security Policy">TSP</abbr></term>
+            <description>The set of rules that regulate how assets are managed, protected and
+              distributed within a TOE.</description>
+          </entry>
+          <entry>
+            <term><abbr title="TOE Summary Specification">TSS</abbr></term>
+            <description>A description of how a <abbr linkend="TOE"/> satisfies the SFRs in a <abbr
+                linkend="ST"/>. </description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Functional Requirement">SFR</abbr></term>
+            <description>A requirement for security enforcement by the <abbr linkend="TOE"/>.
+            </description>
+          </entry>
+          <entry>
+            <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
+            <description>A requirement to assure the security of the <abbr linkend="TOE"/>.
+            </description>
+          </entry>
+        </glossary>
+      </subsection>
+      <subsection id="techterms" title="Technology Terms">
+        <glossary>
+          <entry>
+            <term>Administrator</term>
+            <description> Authorized Users with higher privileges and typically handle configuration
+              and management functions, such as configuring and updating the TOE. </description>
+          </entry>
+          <entry>
+            <term>Authorization factor (AF) </term>
+            <description> a value submitted by the user, present on the host, or present on a
+              separate protected hardware physical device used to establish that the user (and
+              potentially the host) is in the community authorized to use the TOE. The authorization
+              factors are used to generate the KEK. Note that these AFs are not used to establish
+              the particular identity of the user. </description>
+          </entry>
+          <entry>
+            <term>Authorized User </term>
+            <description> a user who has been provided Authorization factors by the administrator to
+              use the TOE. </description>
+          </entry>
+          <entry>
+            <term>Data Encryption </term>
+            <description> the process of encrypting all user data written to volatile memory.
+            </description>
+          </entry>
+          <entry>
+            <term>Deterministic Random Bit Generator (DRBG)</term>
+            <description> a cryptographic algorithm that produces a sequence of bits from a secret
+              initial seed value. Without knowledge of the seed value, the output sequence should be
+              unpredictable up to the security level of the DRBG. </description>
+          </entry>
+          <entry>
+            <term>Entropy Source </term>
+            <description> this cryptographic function provides a seed for a random bit generator by
+              accumulating the outputs from one or more noise sources. The functionality includes a
+              measure of the minimum work required to guess a given output and tests to ensure that
+              the noise sources are operating properly. </description>
+          </entry>
+          <entry>
+            <term>File/Set of files </term>
+            <description> the user data that is selected to be encrypted, which can include
+              individual file encryption (with a FEK per file) or a set of files encrypted with a
+              single FEK. </description>
+          </entry>
+          <entry>
+            <term>File Authentication Key (FAK) </term>
+            <description> the secret value used as input when a keyed hash function is used to
+              perform data authentication. </description>
+          </entry>
+          <entry>
+            <term>File Encryption Key (FEK) </term>
+            <description> the key that is used by the encryption algorithm to encrypt the selected
+              user data on the host machine. </description>
+          </entry>
+          <entry>
+            <term>Key Encryption Key (KEK) </term>
+            <description> the key that is used to encrypt the FEK. </description>
+          </entry>
+          <entry>
+            <term>Keying material </term>
+            <description> the KEK, FEK, authorization factors and random numbers or any other values
+              from which keys are derived. </description>
+          </entry>
+          <entry>
+            <term>Noise Source </term>
+            <description> the component of an RBG that contains the non-deterministic,
+              entropy-producing activity. </description>
+          </entry>
+          <entry>
+            <term>Operational Environment </term>
+            <description> hardware and software that are outside the TOE boundary that support the
+              TOE functionality and security policy, including the host platform, its firmware, and
+              the operating system. </description>
+          </entry>
+          <entry>
+            <term>Password </term>
+            <description> A short string of characters used for authorization to the data on the
+              device. </description>
+          </entry>
+          <entry>
+            <term>Passphrase</term>
+            <description> A long string of characters that may be used for authorization to the data
+              on the device. </description>
+          </entry>
+          <entry>
+            <term>Random Bit Generator (RBG) </term>
+            <description> a cryptographic function composed of an entropy source and DRBG that is
+              invoked for random bits needed to produce keying material </description>
+          </entry>
+          <entry>
+            <term>Sensitive Data </term>
+            <description> Any data of which the compromise with respect to loss, misuse, or
+              unauthorized access to or modification of could adversely affect the interest of the
+              TOE user. </description>
+          </entry>
+          <entry>
+            <term>Shutdown </term>
+            <description> power down or unintentional loss of power of the TOE or host platform.
+            </description>
+          </entry>
+          <entry>
+            <term>System files </term>
+            <description> Files that reside on the host machine that are used in the operation of
+              the file encryption software. </description>
+          </entry>
+          <entry>
+            <term>Temporary File - </term>
+            <description> a file created by an application for short term storage of sensitive data.
+            </description>
+          </entry>
+          <entry>
+            <term>Trusted Host </term>
+            <description> Source/destination host configured and maintained to provide the TOE with
+              appropriate IT security commensurate with the value of the user data protected by the
+              TOE. </description>
+          </entry>
+          <entry>
+            <term>Unauthorized User </term>
+            <description> a user who has not been authorized to use the TOE and decrypt encrypted
+              user data. </description>
+          </entry>
+          <entry>
+            <term>User Data </term>
+            <description> All data that originate on the host, or is derived from data that
+              originate on the host, excluding system files and signed firmware updates from the TOE
+              manufacturer. </description>
+          </entry>
+          <entry>
+            <term>Volatile memory </term>
+            <description> memory that loses its content when power is turned off. </description>
+          </entry>
+          <entry>
+            <term>Zeroize</term>
+            <description> this term is used to make a distinction between dereferencing a memory
+              location and actively overwriting it with a constant. Keying material needs to be
+              overwritten when it is no longer needed. </description>
+          </entry>
+        </glossary>
+      </subsection>
     </section>
-    <section title="How to Use This Extended Package" id="howto"> As an EP of the AS PP, it is
-      expected that the content of both this EP and the AS PP be appropriately combined in the
-      context of each product-specific Security Target. This EP has been specifically defined such
-      that there should be no difficulty or ambiguity in so doing. An ST must identify the
-      applicable versions of the AS PP (see http://www.niap-ccevs.org/pp/ for the current version)
-      and this EP in its conformance claims. When requirements are referenced from the AS PP, a
-      short notation is included. </section>
     <section title="Compliant Targets of Evaluation" id="complianttargets"> This EP specifically
       addresses encryption of a set of data. This EP addresses the primary threat that an
       unauthorized user will obtain access to a host machine containing encrypted information and be
@@ -66,23 +241,24 @@
       volumes, containers, etc.).<br/> There are two use cases for this EP. First, the traditional
       ability to encrypt files and power down the machine and know the data is securely protected.
       Second, the ability to encrypt a file on a machine and then send the encrypted file securely
-      using a non-encrypted data in transit method. <subsection
-        title="Usage and Major Security Features of the Target of Evaluation (TOE)" id="secfeatures"
-        > File encryption is the process of encrypting individual files or sets of files (or
-        volumes, or containers, etc.) on an end user device and permitting access to the encrypted
-        data only after proper authentication is provided. Encryption products that conform to this
-        EP must render information inaccessible to anyone (or, in the case of other software on the
-        machine, anything) that does not have the proper authentication credential. For the purposes
-        of this EP, “set of files” describes implementations that use one encryption key to encrypt
-        more than one file. <br/> The foremost security objective of file encryption is to force an
-        adversary to perform a cryptographic exhaust against a prohibitively large key space. Note
-        that this can be achieved only if the authorized user of the file encryption product follows
-        good security practices and does not store an authorization factor in the clear. <br/>
-        Technology is changing at a rapid rate and the definition of mobile devices and traditional
-        laptop/PC devices is quickly merging. Requirements will diverge slightly for Mobile vs
-        Laptop/PC and the Assurance Activities will describe any differences. For this EP, the
-        following table will be used to explain the general principles for several key concepts,
-        including power state and memory management.<br/>
+      using a non-encrypted data in transit method. </section>
+    <section title="Use Cases" id="usecases">
+      <subsection title="Usage and Major Security Features of the Target of Evaluation (TOE)"
+        id="usagetoe"> File encryption is the process of encrypting individual files or sets of
+        files (or volumes, or containers, etc.) on an end user device and permitting access to the
+        encrypted data only after proper authentication is provided. Encryption products that
+        conform to this EP must render information inaccessible to anyone (or, in the case of other
+        software on the machine, anything) that does not have the proper authentication credential.
+        For the purposes of this EP, “set of files” describes implementations that use one
+        encryption key to encrypt more than one file. <br/> The foremost security objective of file
+        encryption is to force an adversary to perform a cryptographic exhaust against a
+        prohibitively large key space. Note that this can be achieved only if the authorized user of
+        the file encryption product follows good security practices and does not store an
+        authorization factor in the clear. <br/> Technology is changing at a rapid rate and the
+        definition of mobile devices and traditional laptop/PC devices is quickly merging.
+        Requirements will diverge slightly for Mobile vs Laptop/PC and the Assurance Activities will
+        describe any differences. For this EP, the following table will be used to explain the
+        general principles for several key concepts, including power state and memory management.<br/>
         <table>
           <tr class="header">
             <TH>Topic</TH>
@@ -93,8 +269,9 @@
             <TD>Memory Management - when the TOE is running</TD>
             <TD>The TOE must initiate the request to clear the cryptographic keys and plaintext
               data, but the TOE Platform will handle the actual instruction through memory
-              management queue. (AS PP or MDF PP) (The assurance is dependent on the TOE Platform to
-              perform the action of clearing the plaintext data and cryptographic keys.)</TD>
+              management queue. (<cite linkend="bibAppPP"/> or MDF PP) (The assurance is dependent
+              on the TOE Platform to perform the action of clearing the plaintext data and
+              cryptographic keys.)</TD>
             <TD>The TOE is responsible for handling the clearing of cryptographic keys and plaintext
               in volatile memory by overwrite or zeroization. (Risk: Non-volatile memory (page
               files) may still contain the original plaintext data and keys. Reboot is required to
@@ -105,8 +282,9 @@
             <TD>Memory Management - when the TOE application cleanly closes</TD>
             <TD>The TOE must initiate the request to clear the cryptographic keys and plaintext
               data, but the TOE Platform will handle the actual instruction through memory
-              management queue. (AS PP or MDF PP) (The assurance is dependent on the TOE Platform to
-              perform the action of clearing the plaintext data and cryptographic keys.)</TD>
+              management queue. (<cite linkend="bibAppPP"/> or MDF PP) (The assurance is dependent
+              on the TOE Platform to perform the action of clearing the plaintext data and
+              cryptographic keys.)</TD>
             <TD>The TOE's application memory space is gone and all volatile memory associated with
               the application no longer exists. All plaintext data and plaintext keys have been
               destroyed. (Risk: Non-volatile memory (page files) may still contain the original
@@ -225,9 +403,9 @@
         product that is conformant to this EP.<br/> The data being secured by the file encryption
         product must be encrypted using a FEK. If the FEK is protected by the KEK, the FEK will be
         generated using a Deterministic Random Bit Generator (DRBG) that meets the requirements of
-        FCS_RBG_EXT.1 (from the AS PP). The DRBG comprises an entropy source and the DRBG algorithm.
-        A properly seeded DRBG provides enough entropy to be of equal or greater value than the
-        exhaust space of the KEK.<br/>
+        FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>). The DRBG comprises an entropy source
+        and the DRBG algorithm. A properly seeded DRBG provides enough entropy to be of equal or
+        greater value than the exhaust space of the KEK.<br/>
         <b>Administration</b> The base requirements of the TOE do not require the TOE to maintain an
         administrative role (the notion of an administrator of the TOE is that there exists a subset
         of the users of the TOE that have greater “trust” than the general user population and who
@@ -258,9 +436,10 @@
         the FEK. The primary requirement dictating implementation of data authentication using a
         keyed hash function is FDP_AUT_EXT.2.<br/> Lastly, asymmetric signing in conjunction with a
         secure hash function may be used to authenticate the data. The implementation must use an
-        approved signing algorithm in accordance with FCS_COP.1(2) (from the AS PP) and an approved
-        secure hashing function in accordance with FCS_COP.1(3) (from the AS PP). The primary
-        requirement addressing data authentication via asymmetric signing is FDP_AUT_EXT.3. </subsection>
+        approved signing algorithm in accordance with FCS_COP.1(2) (from the <cite
+          linkend="bibAppPP"/>) and an approved secure hashing function in accordance with
+        FCS_COP.1(3) (from the <cite linkend="bibAppPP"/>). The primary requirement addressing data
+        authentication via asymmetric signing is FDP_AUT_EXT.3. </subsection>
       <subsection title="The TOE and Its Supporting Environment" id="supenv"> Since the TOE is
         purely a software solution, it must rely on the TOE Operational Environment (system
         hardware, firmware, and operating system) for its execution domain and its proper usage. The
@@ -304,27 +483,55 @@
         the end user of the software. </subsection>
     </section>
   </chapter>
-  <chapter title="Security Problem Definition" id="def">The primary asset that is being protected is
-    the sensitive user data stored on a system. The threat model thus focuses on a host machine that
-    has been compromised by an unauthorized user. This section addresses threats to the TOE only.
-      <section title="Threats" id="threats"> A threat consists of a threat agent, an asset, and an
-      adverse action of that threat agent on that asset. The model in this EP only addresses risks
-      that arise from the host machine being compromised by an unauthorized user.<br/> For this EP,
-      the TOE is not expected to defend against all threats related to malicious software that may
-      reside in user data files. For instance, the TOE is not responsible for detecting malware in
-      the data selected by the user for encryption (that is a responsibility of the host
+  <chapter title="Conformance Claims" id="conf">
+    <cclaims>
+      <cclaim id="Conformance Statement">
+        <description> The Protection Profile for Application Software (App PP) defines the baseline
+          Security Functional Requirements (SFRs) and Security Assurance Requirements (SARs) for
+          application software products. This EP serves to extend the App PP baseline with
+          additional SFRs and associated Assurance Activities specific to an email client. Assurance
+          Activities are the actions that the evaluator performs in order to determine an email
+          client’s compliance to the SFRs.<br/> This EP conforms to Common Criteria <cite
+            linkend="bibCC"/> for Information Technology Security Evaluation, Version 3.1, Revision
+          4. It is CC Part 2 extended and CC Part 3 conformant. In order to be conformant to this
+          EP, the ST must include all components in this EP and the associated App PP that are:
+              <ul><li>unconditional (which are always required)</li>
+            <li>selection-based (which are required when certain selections are chosen in the
+              unconditional requirements)</li>
+          </ul> and may include optional and/or objective components that are desirable but not
+          required for conformance. </description>
+      </cclaim>
+    </cclaims>
+    <section title="How to Use This Extended Package" id="howto"> As an EP of the <cite
+        linkend="bibAppPP"/>, it is expected that the content of both this EP and the <cite
+        linkend="bibAppPP"/> be appropriately combined in the context of each product-specific
+      Security Target. This EP has been specifically defined such that there should be no difficulty
+      or ambiguity in so doing. An ST must identify the applicable versions of the <cite
+        linkend="bibAppPP"/> (see http://www.niap-ccevs.org/pp/ for the current version) and this EP
+      in its conformance claims. When requirements are referenced from the <cite linkend="bibAppPP"
+      />, a short notation is included. </section>
+  </chapter>
+  <chapter title="Security Problem Description" id="spd"> The primary asset that is being protected
+    is the sensitive user data stored on a system. The threat model thus focuses on a host machine
+    that has been compromised by an unauthorized user. This section addresses threats to the TOE
+    only. <section title="Threats" id="threats"> A threat consists of a threat agent, an asset, and
+      an adverse action of that threat agent on that asset. The model in this EP only addresses
+      risks that arise from the host machine being compromised by an unauthorized user.<br/> For
+      this EP, the TOE is not expected to defend against all threats related to malicious software
+      that may reside in user data files. For instance, the TOE is not responsible for detecting
+      malware in the data selected by the user for encryption (that is a responsibility of the host
       environment). Once the file encryption product is operational in a host system, the threats
       against the data from potentially malicious software on the host are also not in the threat
       model of this EP. For example, there are no requirements in this EP addressing a malicious
       host capturing a password-based authorization factor, nor a malicious process reading the
       memory of an application program that is operating on a decrypted file.<br/> Note that this EP
-      does not repeat the threats identified in the AS PP, though they all apply given the
-      conformance and hence dependence of this EP on the AS PP. Note also that while the AS PP
-      contains only threats to the ability of the TOE to provide its security functions, this EP
-      focuses on threats to resources in the operational environment. Together the threats of the AS
-      PP and those defined in this EP define the comprehensive set of security threats addressed by
-      a file encryption TOE.<br/>
-      <threats>
+      does not repeat the threats identified in the <cite linkend="bibAppPP"/>, though they all
+      apply given the conformance and hence dependence of this EP on the <cite linkend="bibAppPP"/>.
+      Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
+      the TOE to provide its security functions, this EP focuses on threats to resources in the
+      operational environment. Together the threats of the AS PP and those defined in this EP define
+      the comprehensive set of security threats addressed by a file encryption TOE. <threats
+        id="threats" title="Threats">
         <threat id="T.KEYING_MATERIAL_COMPROMISE">
           <description>
             <b>Compromise of Keying Material:</b> Attacks against the encryption product could take
@@ -427,57 +634,59 @@
           </description>
         </threat>
       </threats>
+      <section title="Assumptions" id="assumptions">
+        <assumptions>
+          <assumption id="A.AUTHORIZED_USER">
+            <description>Authorized users of the host machine are well-trained, not actively working
+              against the protection of the data, and will follow all provided
+              guidance.</description>
+          </assumption>
+          <assumption id="A.AUTH_FACTOR">
+            <description>An authorized user will be responsible for ensuring that all externally
+              derived authorization factors have sufficient strength and entropy to reflect the
+              sensitivity of the data being protected. This can apply to password- or
+              passphrase-based, ECC CDH, and RSA authorization factors.</description>
+          </assumption>
+          <assumption id="A.EXTERNAL_FEK_PROTECTION">
+            <description>External entities that implement ECC CDH or RSA that are used to encrypt
+              and decrypt a FEK have the following characteristics: <br/>meet National requirements
+              for the cryptographic mechanisms implemented; <br/>require authentication via a pin or
+              other mechanisms prior to allowing access to protected information (the decrypted FEK,
+              or the private key); <br/>implement anti-hammer provisions where appropriate (for
+              example, when a pin is the authentication factor). </description>
+          </assumption>
+          <assumption id="A.SHUTDOWN">
+            <description>An authorized user will not leave the machine in a mode where sensitive
+              information persists in non-volatile storage (e.g., power it down or enter a power
+              managed state, such as a “hibernation mode”).</description>
+          </assumption>
+          <assumption id="A.STRONG_OE_CRYPTO">
+            <description>All cryptography implemented in the Operational Environment and used by the
+              TOE will meet the requirements listed in Appendix C of this EP. This includes
+              generation of external token authorization factors by a RBG.</description>
+          </assumption>
+          <assumption id="A.PLATFORM_STATE">
+            <description>The platform on which the TOE resides is free of malware that could
+              interfere with the correct operation of the product.</description>
+          </assumption>
+          <assumption id="A.AUTHORIZED_CONFIGURATION">
+            <description>Access and ability to modify the cryptographic configuration files may be
+              done only by authorized users.</description>
+          </assumption>
+          <assumption id="A.KEK_SECURITY">
+            <description>The KEK will be derived from a strong entropy source, attaining equal or
+              greater bit strength to that of the block cipher it is used in.</description>
+          </assumption>
+          <assumption id="A.FILE_INTEGRITY ">
+            <description>When the file is in transit, it is not modified, otherwise if that
+              possibility exists, the appropriate selections in Appendix B are chosen for Data
+              Authentication.</description>
+          </assumption>
+        </assumptions>
+      </section>
+      <section title="Organizational Security Policy" id="orgpolicy"> There are no additional OSPs
+        for the File Encryption product.</section>
     </section>
-    <section title="Assumptions" id="assumptions">
-      <assumptions>
-        <assumption id="A.AUTHORIZED_USER">
-          <description>Authorized users of the host machine are well-trained, not actively working
-            against the protection of the data, and will follow all provided guidance.</description>
-        </assumption>
-        <assumption id="A.AUTH_FACTOR">
-          <description>An authorized user will be responsible for ensuring that all externally
-            derived authorization factors have sufficient strength and entropy to reflect the
-            sensitivity of the data being protected. This can apply to password- or
-            passphrase-based, ECC CDH, and RSA authorization factors.</description>
-        </assumption>
-        <assumption id="A.EXTERNAL_FEK_PROTECTION">
-          <description>External entities that implement ECC CDH or RSA that are used to encrypt and
-            decrypt a FEK have the following characteristics: <br/>meet National requirements for
-            the cryptographic mechanisms implemented; <br/>require authentication via a pin or other
-            mechanisms prior to allowing access to protected information (the decrypted FEK, or the
-            private key); <br/>implement anti-hammer provisions where appropriate (for example, when
-            a pin is the authentication factor). </description>
-        </assumption>
-        <assumption id="A.SHUTDOWN">
-          <description>An authorized user will not leave the machine in a mode where sensitive
-            information persists in non-volatile storage (e.g., power it down or enter a power
-            managed state, such as a “hibernation mode”).</description>
-        </assumption>
-        <assumption id="A.STRONG_OE_CRYPTO">
-          <description>All cryptography implemented in the Operational Environment and used by the
-            TOE will meet the requirements listed in Appendix C of this EP. This includes generation
-            of external token authorization factors by a RBG.</description>
-        </assumption>
-        <assumption id="A.PLATFORM_STATE">
-          <description>The platform on which the TOE resides is free of malware that could interfere
-            with the correct operation of the product.</description>
-        </assumption>
-        <assumption id="A.AUTHORIZED_CONFIGURATION">
-          <description>Access and ability to modify the cryptographic configuration files may be
-            done only by authorized users.</description>
-        </assumption>
-        <assumption id="A.KEK_SECURITY">
-          <description>The KEK will be derived from a strong entropy source, attaining equal or
-            greater bit strength to that of the block cipher it is used in.</description>
-        </assumption>
-        <assumption id="A.FILE_INTEGRITY ">
-          <description>When the file is in transit, it is not modified, otherwise if that
-            possibility exists, the appropriate selections in Appendix B are chosen for Data
-            Authentication.</description>
-        </assumption>
-      </assumptions> </section>
-    <section title="Organizational Security Policy" id="orgpolicy"> There are no additional OSPs for
-      the File Encryption product.  </section>
   </chapter>
   <chapter title="Security Objectives" id="obj">
     <section title="Security Objectives for the TOE" id="objtoe"> The Security Problem described in
@@ -485,12 +694,12 @@
       will provide security functionality that addresses threats to the TOE and enforces policies
       that are imposed by law and regulation. The following subsections provide a description of the
       security objectives required to meet the threats/policies previously discussed. The
-      description of these security objectives are in addition to that described in the AS PP.<br/>
-      Note: in each subsection below particular security objectives are identified (highlighted by
-      O.) and they are matched with the associated security functional requirements (SFRs) that
-      provide the mechanisms to satisfy the objectives.<br/> The Security Objectives are the
-      requirements for the Target of Evaluation (TOE) and for the Operational Environment derived
-      from the threats in Section 2. <SOs>
+      description of these security objectives are in addition to that described in the <cite
+        linkend="bibAppPP"/>.<br/> Note: in each subsection below particular security objectives are
+      identified (highlighted by O.) and they are matched with the associated security functional
+      requirements (SFRs) that provide the mechanisms to satisfy the objectives.<br/> The Security
+      Objectives are the requirements for the Target of Evaluation (TOE) and for the Operational
+      Environment derived from the threats in Section 2. <SOs>
         <SO id="O.KEY_MATERIAL_PROTECTION">
           <description>
             <b>Protection of Key Material:</b> The TOE must ensure that plaintext key material used
@@ -568,8 +777,8 @@
       objectives for the TOE). The security objectives for the Operational Environment consist of a
       set of statements describing the goals that the Operational Environment should achieve.<br/>
       This section defines the security objectives that are to be addressed by the IT domain or by
-      non-technical or procedural means. The assumptions identified in Section <!-- HERE ??? --> are
-      incorporated as security objectives for the environment. <SOs>
+      non-technical or procedural means. The assumptions identified in Section 3 are incorporated as
+      security objectives for the environment. <SOs>
         <SO id="OE.AUTHORIZATION_FACTOR_STRENGTH">
           <description>An authorized user will be responsible for ensuring that all externally
             derived authorization factors have sufficient strength and entropy to reflect the
@@ -595,35 +804,32 @@
         </SO>
       </SOs>
     </section>
-  </chapter>
-  <chapter title="Security Functional Requirements" id="sfr">The Security Functional Requirements
-    included in this section are derived from Part 2 of the Common Criteria for Information
-    Technology Security Evaluation, Version 3.1, Revision 4 (the CC), with additional extended
-    functional components. The Security Assurance Requirements included in this section are derived
-    from Part 3 of the CC. Supplemental Guidance is provided in the form of Assurance Activities
-    associated with the functional requirements in Sections 4.2 and 4.3, as well as with the
-    Security Assurance Requirements themselves in Section 4.4. <section title="Conventions"
-      id="conventions"> The CC defines operations on Security Functional Requirements: assignments,
-      selections, assignments within selections and refinements. This document uses the following
-      font conventions to identify the operations defined by the CC:<br/>
-      <ul>
-        <li>Refinement operation (denoted by <b>bold</b> text): used to add details to a
-          requirement, and thus further restricts a requirement.</li>
-        <li>Selection (denoted by <u>underlined</u> text): used to select one or more options
-          provided by the [CC] in stating a requirement.</li>
-        <li>Assignment operation (denoted by <i>italicized</i> text): used to assign a specific
-          value to an unspecified parameter, such as the length of a password. </li>
-        <li>Assignment within a selection (denoted by <i><u>italicized, underlined</u></i> text):
-          used to make an assignment within the context of a selection </li>
-        <li>Iteration operation: are identified with a number inside parentheses (e.g. "(1)")</li>
-      </ul>
+    <section title="Security Objectives Rationale" id="SOR">This section describes how the
+      assumptions, threats, and organizational security policies map to the security objectives.
+      <InsertSPDCorrespondence/>
     </section>
+  </chapter>
+
+  <chapter title="Security Requirements" id="req">This chapter describes the security requirements
+    which have to be fulfilled by the email client. Those requirements comprise functional
+    components from Part 2 of <cite linkend="bibCC"/>. The following notations are used: <ul>
+      <li>
+        <b>Selection</b> (denoted by <i>italicized text</i>): is used to select one or more options
+        provided by the [CC] in stating a requirement.</li>
+      <li>
+        <b>Assignment</b> operation (denoted by <i>italicized text</i>): is used to assign a
+        specific value to an unspecified parameter, such as the length of a password. Showing the
+        value in square brackets indicates assignment.</li>
+      <li>
+        <b>Iteration</b> operation: are identified with a number inside parentheses (e.g.
+        "(1)").</li>
+    </ul>
     <section title="Security Functional Requirements for the File Encryption Application (TOE)"
-      id="sfrtoe"> As indicated in Section 1.3.2, security functional requirements in the main body
-      of the EP are divided into those that must be satisfied by the file encryption application
-      (the TOE), and those that must be satisfied by either the TOE or the platform on which it
-      runs. This section contains the requirements that must be met by the TOE. <subsection
-        title="Class: Cryptographic Support (FCS)" id="fcs">
+      id="sfr1"> As indicated in Section 1.3.2, security functional requirements in the main body of
+      the EP are divided into those that must be satisfied by the file encryption application (the
+      TOE), and those that must be satisfied by either the TOE or the platform on which it runs.
+      This section contains the requirements that must be met by the TOE. <subsection
+        title="Cryptographic Support (FCS)" id="fcs">
         <b>Cryptographic Key Management (FCS_CKM)</b><br/> Conformant implementations will use a
         File Encryption Key (FEK) conditioned from a password/passphrase, or randomly generated and
         protected by a Key Encryption Key (KEK). A KEK is either produced by the TOE, or composed of
@@ -651,15 +857,16 @@
               mechanism on the client as specified in FCS_CKM_EXT.2.1.</title>
           </f-element>
           <f-element id="FCS_CKM_EXT.2.3">
-            <title>The FEKs must be generated by the TOE.</title> <note role="application"> For the
-              first selection, the key generation capability of the TOE uses a RBG implemented on
-              the TOE device (FCS_RBG_EXT.1 from the AS PP). Either 128-bit or 256-bit (or both) are
-              allowed for the FEK; the ST author makes the selection appropriate for the device. For
-              the second selection, the key is generated by the conditioning of a
-              password/passphrase.<br/> FCS_CKM_EXT.2.2 requires that each resource to be encrypted
-              has a unique FEK, and that this FEK is generated by the TSF. If the encrypted resource
-              is a set of files encrypted under one FEK, additional requirements on the
-              initialization vectors and cipher modes must be adhered to in Section 4.2. </note>
+            <title>The FEKs must be generated by the TOE.</title>
+            <note role="application"> For the first selection, the key generation capability of the
+              TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
+                linkend="bibAppPP"/>). Either 128-bit or 256-bit (or both) are allowed for the FEK;
+              the ST author makes the selection appropriate for the device. For the second
+              selection, the key is generated by the conditioning of a password/passphrase.<br/>
+              FCS_CKM_EXT.2.2 requires that each resource to be encrypted has a unique FEK, and that
+              this FEK is generated by the TSF. If the encrypted resource is a set of files
+              encrypted under one FEK, additional requirements on the initialization vectors and
+              cipher modes must be adhered to in Section 4.2. </note>
             <aactivity>
               <h4>TSS</h4> FCS_CKM_EXT.2.1: The evaluator shall review the TSS to determine that a
               description covering how and when a FEK are generated exists. The description must
@@ -670,30 +877,30 @@
               platforms are taken into account. This assurance activity may be combined with
               activities for FCS_COP.1(5) and FCS_CKM_EXT.2.1. <br/> For the first selection, the
               evaluator shall review the TSS to determine that it describes how the functionality
-              described by FCS_RBG_EXT.1 (from the AS PP) is invoked to generate FEK. To the extent
-              possible from the description of the RBG functionality in FCS_RBG_EXT.1 (from the AS
-              PP), the evaluator shall determine that the key size being requested is identical to
-              the key size and mode to be used for the decryption/encryption of the user data
-              (FCS_COP.1(1)). <br/> For the second selection, password/passphrase-based factors, the
-              examination of the TSS section is performed as part of FCS_CKM.1(A) assurance
-              activities. <br/> FCS_CKM_EXT.2.2: The evaluator shall examine the TSS to determine
-              that it describes how a FEK is created for a protected resource and associated with
-              that resource; protection of the FEK itself is covered by FIA_AUT_EXT.1 and
-              FCS_COP.1(5). The evaluator confirms that—per this description—the FEK is unique per
-              resource (file or set of files) and that the FEK is created using the mechanisms
-              specified in ). <br/> FCS_CKM_EXT.2.3: The evaluator shall review the TSS to verify it
-              details that the FEKs are generated on the client machine and are not generated on an
-              external server. <h4>Guidance</h4> The evaluator shall review the instructions in the
-              AGD guidance to determine that any explicit actions that need to be taken by the user
-              to create a FEK exist—taking into account any differences that arise from different
-              platforms—and are consistent with the description in the TSS. <h4>Tests</h4> None.
-            </aactivity>
+              described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
+              generate FEK. To the extent possible from the description of the RBG functionality in
+              FCS_RBG_EXT.1 (from the AS PP), the evaluator shall determine that the key size being
+              requested is identical to the key size and mode to be used for the
+              decryption/encryption of the user data (FCS_COP.1(1)). <br/> For the second selection,
+              password/passphrase-based factors, the examination of the TSS section is performed as
+              part of FCS_CKM.1(A) assurance activities. <br/> FCS_CKM_EXT.2.2: The evaluator shall
+              examine the TSS to determine that it describes how a FEK is created for a protected
+              resource and associated with that resource; protection of the FEK itself is covered by
+              FIA_AUT_EXT.1 and FCS_COP.1(5). The evaluator confirms that—per this description—the
+              FEK is unique per resource (file or set of files) and that the FEK is created using
+              the mechanisms specified in ). <br/> FCS_CKM_EXT.2.3: The evaluator shall review the
+              TSS to verify it details that the FEKs are generated on the client machine and are not
+              generated on an external server. <h4>Guidance</h4> The evaluator shall review the
+              instructions in the AGD guidance to determine that any explicit actions that need to
+              be taken by the user to create a FEK exist—taking into account any differences that
+              arise from different platforms—and are consistent with the description in the TSS.
+                <h4>Tests</h4> None. </aactivity>
           </f-element>
         </f-component>
       </subsection>
-      <subsection title="Class: User Data Protection (FDP)" id="fdp">This stipulates encryption,
-        decryption and authentication of user-selected files or sets of files. There are several
-        more requirements in Section 4.2 and Appendix B that also address plaintext data being
+      <subsection title="User Data Protection (FDP)" id="fdp">This stipulates encryption, decryption
+        and authentication of user-selected files or sets of files. There are several more
+        requirements in Section 4.2 and Appendix B that also address plaintext data being
         successfully removed and sharing resources between users. There are requirements in Appendix
         C discussing specific methods for authenticating the data, as this is dependent on the
         choice of encryption mode.<br/>
@@ -745,11 +952,11 @@
           </f-element>
         </f-component>
       </subsection>
-      <subsection title="Class: Security Management (FMT)" id="fmt"> The primary intent in this
-        section is to call out critical activities that must be performed by the user (or
-        administrator) in order to use the TOE in a safe manner. The critical activities are defined
-        as those that reference the Cryptographic Support items in Section 4.2.1. <h4>Specification
-          of Management Functions (FMT_SMF)</h4>
+      <subsection title="Security Management (FMT)" id="fmt"> The primary intent in this section is
+        to call out critical activities that must be performed by the user (or administrator) in
+        order to use the TOE in a safe manner. The critical activities are defined as those that
+        reference the Cryptographic Support items in Section 4.2.1. <h4>Specification of Management
+          Functions (FMT_SMF)</h4>
         <f-component id="FMT_SMF.1" name="Specification of Management Functions">
           <f-element id="FMT_SMF.1.1">
             <title>The TSF shall be capable of performing the following management functions:
@@ -821,7 +1028,7 @@
           </f-element>
         </f-component>
       </subsection>
-      <subsection title="Class: Protection of the TSF (FPT)" id="fpta">
+      <subsection title="Protection of the TSF (FPT)" id="fpt">
         <h4>Extended: Protection of FEK (FPT_FEK_EXT)</h4>
         <f-component id="FPT_FEK_EXT.1" name="File Encryption Key (FEK) Support">
           <f-element id="FPT_FEK_EXT.1.1">
@@ -867,7 +1074,7 @@
           </f-element>
         </f-component>
       </subsection>
-      <subsection title="Class: Protection of the TSF (FPT)" id="fptb">
+      <subsection title="Protection of the TSF (FPT)" id="fpt">
         <f-component id="FPT_KYP_EXT.1"
           name="Extended: Protection of Key and Key Material (FPT_KYP_EXT)">
           <f-element id="FPT_KYP_EXT.1.1">
@@ -909,17 +1116,17 @@
     </section>
     <section
       title="Security Functional Requirements for the Software File Encryption Application or Client Platform"
-      id="sfrclient"> As indicated in Section 1.3.2, security functional requirements in the main
-      body of the EP are divided into those that must be satisfied by the file encryption
-      application (the TOE), and those that must be satisfied by either the TOE or the platform on
-      which it runs. This section contains requirements that must be met, but they can either be met
-      by the TOE or the platform on which the TOE operates. Assurance activities are therefore
-      constructed such that those that apply when the requirements are met by the TOE are
-      identified, and those that are performed when the platform on which the TOE operates
-      implements the required functionality are likewise identified. If a test or documentation
-      assurance activity is specified that is not specifically associated with either the TOE or the
-      TOE platform, then it applies regardless of where the requirement is implemented. <subsection
-        title="Class: Cryptographic Support (FCS)" id="fcsa">
+      id="sfr2"> As indicated in Section 1.3.2, security functional requirements in the main body of
+      the EP are divided into those that must be satisfied by the file encryption application (the
+      TOE), and those that must be satisfied by either the TOE or the platform on which it runs.
+      This section contains requirements that must be met, but they can either be met by the TOE or
+      the platform on which the TOE operates. Assurance activities are therefore constructed such
+      that those that apply when the requirements are met by the TOE are identified, and those that
+      are performed when the platform on which the TOE operates implements the required
+      functionality are likewise identified. If a test or documentation assurance activity is
+      specified that is not specifically associated with either the TOE or the TOE platform, then it
+      applies regardless of where the requirement is implemented. <subsection
+        title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.4" name="Extended: Cryptographic Key Destruction">
           <f-element id="FCS_CKM_EXT.4.1">
             <title>The application shall <selectables linebreak="yes">
@@ -1378,7 +1585,7 @@
           </f-element>
         </f-component>
       </subsection>
-      <subsection title="Class: Identification and Authentication (FIA)" id="fia">
+      <subsection title="Identification and Authentication (FIA)" id="fia">
         <f-component id="FIA_AUT_EXT.1" name="User Authorization">
           <f-element id="FIA_AUT_EXT.1.1">
             <title>The application shall <selectables>
@@ -1416,7 +1623,7 @@
           </f-element>
         </f-component>
       </subsection>
-      <subsection title="Class: User Data Protection (FDP)" id="fdpb">
+      <subsection title="User Data Protection (FDP)" id="fdp">
         <h4>Extended: Protection of Selected User Data (FDP_PRT_EXT)</h4>
         <f-component id="FDP_PRT_EXT.1" name="Extended: Protection of Selected User Data ">
           <f-element id="FDP_PRT_EXT.1.2">
@@ -1466,21 +1673,9 @@
           </f-element>
         </f-component>
       </subsection>
-      <subsection title="Rationale for Security Functional Requirements" id="sfrrationale"> The
-        rationale for choosing these security functional requirements is that this is the first U.S.
-        Government Protection Profile for this technology. If vulnerabilities are found in these
-        types of products, then more stringent security assurance requirements will be mandated
-        based on actual vendor practices. </subsection>
     </section>
   </chapter>
-  <appendix id="rationale" title="Rationale"> In this EP, the focus in the initial sections of the
-    document is to use a narrative presentation in an attempt to increase the overall
-    comprehensibility of the threats addressed by a File Encryption product; the methods used to
-    mitigate those threats; and the extent of the mitigation achieved by compliant TOEs. This
-    presentation style does not readily lend itself to a formalized evaluation activity, so this
-    section contains the tabular artifacts that can be used for the evaluation activities associated
-    with this document. Note that the rationale for threats, objectives, and requirements is
-    contained in the narrative in the body of the document. </appendix>
+
   <appendix id="optreqs" title="Optional Requirements"> As indicated in the introduction to this EP,
     the baseline requirements (those that must be performed by the TOE or its underlying platform)
     are contained in the body of this EP. Additionally, there are three other types of requirements
@@ -1773,19 +1968,20 @@
             requirements of the ST that are described in the Operational Guidance are consistent
             with those listed in the ST, and those tested by the assurance activities of this EP.
               <h4>Tests</h4> The evaluator shall also perform the following tests. These tests may
-            be performed in conjunction with the tests listed for FCS_COP.1(2) (from the AS PP),
-            FCS_COP.1(3) (from the AS PP), and FCS_COP.1(4). These tests must be performed for each
-            data authentication feature and platform claimed in the ST; all instructions for
-            configuring the TOE and each of the environments must be included in the Operational
-            Guidance and used to establish the test configuration. <br/>For each resource and data
-            authentication scenario listed in the TSS, the evaluator shall ensure that the TSF is
-            able to successfully add authentication measures and authenticate the resource using the
-            following methodology. <br/>Monitor the temporary resources being created (if any) and
-            deleted by the TSF—the tools used to perform the monitoring (e.g., procmon for a Windows
-            system) shall be identified in the test report. The evaluator shall ensure that these
-            resources are consistent with those identified in the TSS, and that they are protected
-            as specified in the Operational Guidance and are deleted when the decryption/encryption
-            and authentication operations are completed. </aactivity>
+            be performed in conjunction with the tests listed for FCS_COP.1(2) (from the <cite
+              linkend="bibAppPP"/>), FCS_COP.1(3) (from the <cite linkend="bibAppPP"/>), and
+            FCS_COP.1(4). These tests must be performed for each data authentication feature and
+            platform claimed in the ST; all instructions for configuring the TOE and each of the
+            environments must be included in the Operational Guidance and used to establish the test
+            configuration. <br/>For each resource and data authentication scenario listed in the
+            TSS, the evaluator shall ensure that the TSF is able to successfully add authentication
+            measures and authenticate the resource using the following methodology. <br/>Monitor the
+            temporary resources being created (if any) and deleted by the TSF—the tools used to
+            perform the monitoring (e.g., procmon for a Windows system) shall be identified in the
+            test report. The evaluator shall ensure that these resources are consistent with those
+            identified in the TSS, and that they are protected as specified in the Operational
+            Guidance and are deleted when the decryption/encryption and authentication operations
+            are completed. </aactivity>
         </f-element>
       </f-component>
     </section>
@@ -1896,13 +2092,14 @@
         name="Extended: Data Authentication using asymmetric signing and verification">
         <f-element id="FDP_AUT_EXT.3.1">
           <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(3) (from the
-            AS PP) with the entire ciphertext file as input to create a hash.</title>
+              <cite linkend="bibAppPP"/>) with the entire ciphertext file as input to create a
+            hash.</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.3.2">
           <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(2)
-            (from the AS PP) and must use the hash generated in accordance with FDP_AUT_EXT.3.1 as
-            input to the signing process. Additionally, use of ephemeral key for signing purposes is
-            prohibited.</title>
+            (from the <cite linkend="bibAppPP"/>) and must use the hash generated in accordance with
+            FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
+            signing purposes is prohibited.</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.3.3">
           <title>The TSF shall use a public and private key pair generated in accordance with
@@ -1956,7 +2153,7 @@
       FCS_CKM_EXT.1. In order to be conformant with this EP for password-based and passphrase-based
       authorization factors. <br/>If password/passphrase-based authorization factors are supported,
       the ST author will include this requirement and the associated application notes and assurance
-      activities. <f-component id="FCS_CKM.1(A)	"
+      activities. <f-component id="FCS_CKM.1(A)"
         name="Cryptographic key generation (Password/Passphrase conditioning)">
         <f-element id="FCS_CKM.1.1(A)">
           <title>
@@ -2021,8 +2218,8 @@
             described in the TSS. <br/>No explicit testing of the formation of the submask from the
             input password is required. <br/> FCS_CKM_1.2(A): The ST author shall provide a
             description in the TSS regarding the salt generation. The evaluator shall confirm that
-            the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the AS PP).
-              <h4>Guidance</h4>
+            the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <cite
+              linkend="bibAppPP"/>). <h4>Guidance</h4>
             <b>Support for minimum length:</b> The evaluators shall also check the Operational
             Guidance to determine that there are instructions for guidance on how to generate large
             passwords/passphrases external to the TOE and instructions for how to configure the
@@ -2263,13 +2460,16 @@
           name="Extended: User Authorization with Password/Passphrase Authorization Factors">
           <f-element id="FIA_FCT_EXT.1.1(2)">
             <title>The TSF shall provide a mechanism as defined in FCS_CKM_EXT.1 and FCS_COP.1(4) to
-              perform user authorization. </title> </f-element>
+              perform user authorization. </title>
+          </f-element>
           <f-element id="FIA_FCT_EXT.1.2(2)">
             <title>The TSF shall perform user authorization using the mechanism provided in
-              FIA_FCT_EXT.1.1(2) before allowing decryption of user data.</title> </f-element>
+              FIA_FCT_EXT.1.1(2) before allowing decryption of user data.</title>
+          </f-element>
           <f-element id="FIA_FCT_EXT.1.3(2)">
             <title>The TSF shall support the use of multiple instances of authorization factors that
-              result in unique encryption keys.</title> </f-element>
+              result in unique encryption keys.</title>
+          </f-element>
           <f-element id="FIA_FCT_EXT.1.4(2)">
             <title>The TSF shall verify that the user-entered authorization factors are valid before
               decrypting the user’s encrypted files. </title>
@@ -2477,182 +2677,89 @@
     will transition from objective requirements to baseline requirements in future versions of this
     EP. <br/> These requirements may be included in the ST and the TOE will still be able to claim
     conformance to this EP. <br/> There are no objective requirements at this time. </appendix>
-  <appendix id="glossary" title="Glossary of Terms">
-    <glossary>
-      <entry>
-        <term>Administrator</term>
-        <description> Authorized Users with higher privileges and typically handle configuration and
-          management functions, such as configuring and updating the TOE. </description>
-      </entry>
-      <entry>
-        <term>Authorization factor (AF) </term>
-        <description> a value submitted by the user, present on the host, or present on a separate
-          protected hardware physical device used to establish that the user (and potentially the
-          host) is in the community authorized to use the TOE. The authorization factors are used to
-          generate the KEK. Note that these AFs are not used to establish the particular identity of
-          the user. </description>
-      </entry>
-      <entry>
-        <term>Authorized User </term>
-        <description> a user who has been provided Authorization factors by the administrator to use
-          the TOE. </description>
-      </entry>
-      <entry>
-        <term>Data Encryption </term>
-        <description> the process of encrypting all user data written to volatile memory.
-        </description>
-      </entry>
-      <entry>
-        <term>Deterministic Random Bit Generator (DRBG)</term>
-        <description> a cryptographic algorithm that produces a sequence of bits from a secret
-          initial seed value. Without knowledge of the seed value, the output sequence should be
-          unpredictable up to the security level of the DRBG. </description>
-      </entry>
-      <entry>
-        <term>Entropy Source </term>
-        <description> this cryptographic function provides a seed for a random bit generator by
-          accumulating the outputs from one or more noise sources. The functionality includes a
-          measure of the minimum work required to guess a given output and tests to ensure that the
-          noise sources are operating properly. </description>
-      </entry>
-      <entry>
-        <term>File/Set of files </term>
-        <description> the user data that is selected to be encrypted, which can include individual
-          file encryption (with a FEK per file) or a set of files encrypted with a single FEK.
-        </description>
-      </entry>
-      <entry>
-        <term>File Authentication Key (FAK) </term>
-        <description> the secret value used as input when a keyed hash function is used to perform
-          data authentication. </description>
-      </entry>
-      <entry>
-        <term>File Encryption Key (FEK) </term>
-        <description> the key that is used by the encryption algorithm to encrypt the selected user
-          data on the host machine. </description>
-      </entry>
-      <entry>
-        <term>Key Encryption Key (KEK) </term>
-        <description> the key that is used to encrypt the FEK. </description>
-      </entry>
-      <entry>
-        <term>Keying material </term>
-        <description> the KEK, FEK, authorization factors and random numbers or any other values
-          from which keys are derived. </description>
-      </entry>
-      <entry>
-        <term>Noise Source </term>
-        <description> the component of an RBG that contains the non-deterministic, entropy-producing
-          activity. </description>
-      </entry>
-      <entry>
-        <term>Operational Environment </term>
-        <description> hardware and software that are outside the TOE boundary that support the TOE
-          functionality and security policy, including the host platform, its firmware, and the
-          operating system. </description>
-      </entry>
-      <entry>
-        <term>Password </term>
-        <description> A short string of characters used for authorization to the data on the device.
-        </description>
-      </entry>
-      <entry>
-        <term>Passphrase</term>
-        <description> A long string of characters that may be used for authorization to the data on
-          the device. </description>
-      </entry>
-      <entry>
-        <term>Random Bit Generator (RBG) </term>
-        <description> a cryptographic function composed of an entropy source and DRBG that is
-          invoked for random bits needed to produce keying material </description>
-      </entry>
-      <entry>
-        <term>SAR (Security Assurance Requirements) </term>
-        <description> describes the development and evaluation methodologies for the developer and
-          the lab to demonstrate compliance with the Security Functional Requirements.
-        </description>
-      </entry>
-      <entry>
-        <term>Sensitive Data </term>
-        <description> Any data of which the compromise with respect to loss, misuse, or unauthorized
-          access to or modification of could adversely affect the interest of the TOE user.
-        </description>
-      </entry>
-      <entry>
-        <term>SFR (Security Functional Requirement) </term>
-        <description> describes security functions that must be met by the TOE. </description>
-      </entry>
-      <entry>
-        <term>ST (Security Target) </term>
-        <description> describes and identifies the security properties of the TOE. </description>
-      </entry>
-      <entry>
-        <term>Shutdown </term>
-        <description> power down or unintentional loss of power of the TOE or host platform.
-        </description>
-      </entry>
-      <entry>
-        <term>System files </term>
-        <description> Files that reside on the host machine that are used in the operation of the
-          file encryption software. </description>
-      </entry>
-      <entry>
-        <term>Target of Evaluation (TOE) </term>
-        <description> refers to a product or set of products that fulfill the requirements to
-          decrypt/encrypt user data on a host machine. This includes all hardware, firmware and
-          software used to satisfy the requirements of this EP. </description>
-      </entry>
-      <entry>
-        <term>Temporary File - </term>
-        <description> a file created by an application for short term storage of sensitive data.
-        </description>
-      </entry>
-      <entry>
-        <term>TOE Security Functionality (TSF) </term>
-        <description> a set consisting of all hardware, software, and firmware of the TOE that must
-          be relied upon for the correct enforcement of the TSP. </description>
-      </entry>
-      <entry>
-        <term>TOE Security Policy (TSP) </term>
-        <description> a set of rules that regulate how assets are managed, protected and distributed
-          within a TOE. </description>
-      </entry>
-      <entry>
-        <term>TOE Summary Specification (TSS) </term>
-        <description> a narrative describing how the TOE meets the SFRs in enough detail so that one
-          can understand the operation of the TOE and the implementation of the security functional
-          requirements. </description>
-      </entry>
-      <entry>
-        <term>Trusted Host </term>
-        <description> Source/destination host configured and maintained to provide the TOE with
-          appropriate IT security commensurate with the value of the user data protected by the TOE.
-        </description>
-      </entry>
-      <entry>
-        <term>Unauthorized User </term>
-        <description> a user who has not been authorized to use the TOE and decrypt encrypted user
-          data. </description>
-      </entry>
-      <entry>
-        <term>User Data </term>
-        <description> All data that originate on the host, or is derived from data that originate on
-          the host, excluding system files and signed firmware updates from the TOE manufacturer.
-        </description>
-      </entry>
-      <entry>
-        <term>Volatile memory </term>
-        <description> memory that loses its content when power is turned off. </description>
-      </entry>
-      <entry>
-        <term>Zeroize</term>
-        <description> this term is used to make a distinction between dereferencing a memory
-          location and actively overwriting it with a constant. Keying material needs to be
-          overwritten when it is no longer needed. </description>
-      </entry>
-    </glossary>
-  </appendix>
 
+  <appendix id="biblio" title="References">
+    <bibliography>
+      <entry id="bibCC">
+        <tag>CC</tag>
+        <description>Common Criteria for Information Technology Security Evaluation - <ul>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
+                1: Introduction and General Model</a>, CCMB-2012-09-001, Version 3.1 Revision 4,
+              September 2012.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
+                2: Security Functional Components</a>, CCMB-2012-09-002, Version 3.1 Revision 4,
+              September 2012.</li>
+            <li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
+                3: Security Assurance Components</a>, CCMB-2012-09-003, Version 3.1 Revision 4,
+              September 2012.</li>
+          </ul></description>
+      </entry>
+      <entry id="bibAppPP">
+        <tag>AppPP</tag>
+        <description>
+          <a href="https://www.niap-ccevs.org/pp/">Protection Profile for Application Software</a>
+        </description>
+      </entry>
+      <entry id="140-2">
+        <tag>FIPS140-2</tag>
+        <description> Federal Information Processing Standard Publication (FIPS-PUB) 140-2, Security
+          Requirements for Cryptographic Modules, National Institute of Standards and Technology,
+          March 19, 2007 </description>
+      </entry>
+      <entry id="180-4">
+        <tag>FIPS180-4</tag>
+        <description> Federal Information Processing Standards Publication (FIPS-PUB) 180-4, Secure
+          Hash Standard, March, 2012 </description>
+      </entry>
+      <entry id="186-4">
+        <tag>FIPS186-4</tag>
+        <description> Federal Information Processing Standard Publication (FIPS-PUB) 186-4, Digital
+          Signature Standard (DSS), National Institute of Standards and Technology, July 2013
+        </description>
+      </entry>
+      <entry id="197">
+        <tag>FIPS197</tag>
+        <description>Federal Information Processing Standards Publication (FIPS-PUB) 197,
+          Specification for the Advanced Encryption Standard (AES), November 26, 2001 </description>
+      </entry>
+      <entry id="198-1">
+        <tag>FIPS198-1</tag>
+        <description>Federal Information Processing Standards Publication (FIPS-PUB) 198-1, The
+          Keyed-Hash Message Authentication Code (HMAC), July 2008 </description>
+      </entry>
+      <entry id="800-38A">
+        <tag>NIST800-38A</tag>
+        <description>NIST Special Publication 800-38A, Recommendation for Block Cipher Modes of
+          Operation: Methods and Techniques, 2001 Edition </description>
+      </entry>
+      <entry id="800-56A">
+        <tag>NIST800-56A</tag>
+        <description>NIST Special Publication 800-56A, Recommendation for Pair-Wise Key
+          Establishment Schemes Using Discrete Logarithm Cryptography (Revised), March 2007
+        </description>
+      </entry>
+      <entry id="800-56B">
+        <tag>NIST800-56B</tag>
+        <description>NIST Special Publication 800-56B, Recommendation for Pair-Wise Key
+          Establishment Schemes Using Integer Factorization Cryptography, August 2009 </description>
+      </entry>
+      <entry id="800-90">
+        <tag>NIST800-90</tag>
+        <description>NIST Special Publication 800-90, Recommendation for Random Number Generation
+          Using Deterministic Random Bit Generators (Revised), March 2007 </description>
+      </entry>
+      <entry id="800-132">
+        <tag>NIST800-132</tag>
+        <description>NIST Special Publication 800-132, Recommendation for Password-Based Key
+          Derivation, December 2010 </description>
+      </entry>
+      <entry id="800-38F">
+        <tag>NIST800-38F</tag>
+        <description>NIST Special Publication 800-38F,Recommendation for Block Cipher Modes of
+          Operation: Methods for Key Wrapping, December 2012 </description>
+      </entry>
+    </bibliography>
+  </appendix>
   <appendix id="acronyms" title="Acronyms">
     <acronyms>
       <entry>
@@ -2774,139 +2881,5 @@
       </entry>
     </acronyms>
   </appendix>
-  <appendix id="refs" title="References">
-    <bibliography>
-      <entry id="140-2">
-        <tag>1</tag>
-        <description> Federal Information Processing Standard Publication (FIPS-PUB) 140-2, Security
-          Requirements for Cryptographic Modules, National Institute of Standards and Technology,
-          March 19, 2007 </description>
-      </entry>
-      <entry id="180-4">
-        <tag>2</tag>
-        <description> Federal Information Processing Standards Publication (FIPS-PUB) 180-4, Secure
-          Hash Standard, March, 2012 </description>
-      </entry>
-      <entry id="186-4">
-        <tag>3</tag>
-        <description> Federal Information Processing Standard Publication (FIPS-PUB) 186-4, Digital
-          Signature Standard (DSS), National Institute of Standards and Technology, July 2013
-        </description>
-      </entry>
-      <entry id="197">
-        <tag>4</tag>
-        <description> Federal Information Processing Standards Publication (FIPS-PUB) 197,
-          Specification for the Advanced Encryption Standard (AES), November 26, 2001 </description>
-      </entry>
-      <entry id="198-1">
-        <tag>5</tag>
-        <description> Federal Information Processing Standards Publication (FIPS-PUB) 198-1, The
-          Keyed-Hash Message Authentication Code (HMAC), July 2008 </description>
-      </entry>
-      <entry id="800-38A">
-        <tag>6</tag>
-        <description> NIST Special Publication 800-38A, Recommendation for Block Cipher Modes of
-          Operation: Methods and Techniques, 2001 Edition </description>
-      </entry>
-      <entry id="800-56A">
-        <tag>7</tag>
-        <description> NIST Special Publication 800-56A, Recommendation for Pair-Wise Key
-          Establishment Schemes Using Discrete Logarithm Cryptography (Revised), March 2007
-        </description>
-      </entry>
-      <entry id="800-56B">
-        <tag>8</tag>
-        <description> NIST Special Publication 800-56B, Recommendation for Pair-Wise Key
-          Establishment Schemes Using Integer Factorization Cryptography, August 2009 </description>
-      </entry>
-      <entry id="800-90">
-        <tag>9</tag>
-        <description> NIST Special Publication 800-90, Recommendation for Random Number Generation
-          Using Deterministic Random Bit Generators (Revised), March 2007 </description>
-      </entry>
-      <entry id="800-132">
-        <tag>10</tag>
-        <description> NIST Special Publication 800-132, Recommendation for Password-Based Key
-          Derivation, December 2010 </description>
-      </entry>
-      <entry id="800-38F">
-        <tag>11</tag>
-        <description> NIST Special Publication 800-38F,Recommendation for Block Cipher Modes of
-          Operation: Methods for Key Wrapping, December 2012 </description>
-      </entry>
-    </bibliography>
-  </appendix>
-  <appendix id="epi" title="Extended Package Identification">
-    <table>
-      <tr>
-        <TD>Title:</TD>
-        <TD>Protection Profile for Application Software Extended Package: File Encryption</TD>
-      </tr>
-      <tr>
-        <TD>Version:</TD>
-        <TD>1.0 </TD>
-      </tr>
-      <tr>
-        <TD>Sponsor:</TD>
-        <TD>National Security Agency (NSA)</TD>
-      </tr>
-      <tr>
-        <TD>CC Version:</TD>
-        <TD>Common Criteria for Information Technology Security Evaluation (CC) Version 3.1 Revision
-          3, July 2009</TD>
-      </tr>
-      <tr>
-        <TD>Evaluation Level:</TD>
-        <TD>Evaluation Assurance Level (EAL) 1</TD>
-      </tr>
-      <tr>
-        <TD>Keywords:</TD>
-        <TD>authorization factor, FEK, KEK, entropy, noise source, file encryption </TD>
-      </tr>
-    </table>
-  </appendix>
-</PP>
-<!-- 
 
-<appendix title="Acronyms" id="acronyms">
-    <acronyms>
-      <entry>
-        <term>ADB</term>
-        <description>Android Debug Bridge</description>
-      </entry>
-      <entry>
-        <term>AES</term>
-        <description>Advanced Encryption Standard</description>
-      </entry>
-      <entry>
-        <term>ANSI</term>
-        <description>American National Standards Institute</description>
-      </entry>
--->
-<!-- 
-  <selectables linebreak="yes">
-                  <selectable></selectable>
-                  <selectable></selectable>
-                </selectables> 
-<selectables>
-                  <selectable></selectable>
-                  <selectable></selectable>
-                </selectables>
--->
-<!--
-<f-component id="" name="">
-  <f-element id="">
-    <title></title>
-    <note role="application"></note>
-    <aactivity>
-      <h4>TSS</h4> 
-      <h4>Guidance</h4> 
-      <h4>Tests</h4> The evaluator shall perform the following
-      tests: <testlist>
-        <test></test>
-        <test></test>
-      </testlist>
-    </aactivity>
-  </f-element>
-</f-component>
--->
+</PP>
