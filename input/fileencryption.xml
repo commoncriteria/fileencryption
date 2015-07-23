@@ -842,7 +842,7 @@
         so those capabilities are specified in Section 4.2. If a FEK and KEK are used,
         authentication factors (especially the Password Authentication Factor) can be changed
         without having to re-encrypt all of the user data on the device.<br/>
-        <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
+        <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)" status="threshold">
           <f-element id="FCS_CKM_EXT.2.1">
             <title> The TSF shall generate FEK cryptographic keys <br/><selectables linebreak="yes">
                 <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from the AS
@@ -905,7 +905,7 @@
         C discussing specific methods for authenticating the data, as this is dependent on the
         choice of encryption mode.<br/>
         <h4>Extended: Protection of Selected User Data (FDP_PRT_EXT)</h4>
-        <f-component id="FDP_PRT_EXT.1" name="Extended: Protection of Selected User Data">
+        <f-component id="FDP_PRT_EXT.1" name="Extended: Protection of Selected User Data" status="threshold">
           <f-element id="FDP_PRT_EXT.1.1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
               of files) in accordance with FCS_COP.1(1). </title>
@@ -957,7 +957,7 @@
         order to use the TOE in a safe manner. The critical activities are defined as those that
         reference the Cryptographic Support items in Section 4.2.1. <h4>Specification of Management
           Functions (FMT_SMF)</h4>
-        <f-component id="FMT_SMF.1" name="Specification of Management Functions">
+        <f-component id="FMT_SMF.1" name="Specification of Management Functions" status="threshold">
           <f-element id="FMT_SMF.1.1">
             <title>The TSF shall be capable of performing the following management functions:
                 <selectables linebreak="yes">
@@ -1030,7 +1030,7 @@
       </subsection>
       <subsection title="Protection of the TSF (FPT)" id="fpt">
         <h4>Extended: Protection of FEK (FPT_FEK_EXT)</h4>
-        <f-component id="FPT_FEK_EXT.1" name="File Encryption Key (FEK) Support">
+        <f-component id="FPT_FEK_EXT.1" name="File Encryption Key (FEK) Support" status="threshold">
           <f-element id="FPT_FEK_EXT.1.1">
             <title> The TSF shall <selectables linebreak="yes">
                 <selectable>Never store a FEK conditioned from a Password/Passphrase in non-volatile
@@ -1076,7 +1076,7 @@
       </subsection>
       <subsection title="Protection of the TSF (FPT)" id="fpt">
         <f-component id="FPT_KYP_EXT.1"
-          name="Extended: Protection of Key and Key Material (FPT_KYP_EXT)">
+          name="Extended: Protection of Key and Key Material (FPT_KYP_EXT)" status="threshold">
           <f-element id="FPT_KYP_EXT.1.1">
             <title>The TSF shall [selection: not store keys in non-volatile memory, only store keys
               in non-volatile memory when wrapped, as specified in FCS_COP.1(5 unless the key meets
@@ -1127,7 +1127,7 @@
       specified that is not specifically associated with either the TOE or the TOE platform, then it
       applies regardless of where the requirement is implemented. <subsection
         title="Cryptographic Support (FCS)" id="fcs">
-        <f-component id="FCS_CKM_EXT.4" name="Extended: Cryptographic Key Destruction">
+        <f-component id="FCS_CKM_EXT.4" name="Extended: Cryptographic Key Destruction" status="threshold">
           <f-element id="FCS_CKM_EXT.4.1">
             <title>The application shall <selectables linebreak="yes">
                 <selectable>invoke platform-provided key destruction</selectable>
@@ -1236,7 +1236,7 @@
         </f-component>
         <h4>Cryptographic Operation (FCS_COP)</h4> This requirement is used to specify the symmetric
         decryption/encryption algorithm that is used to encrypt and decrypt the data. <f-component
-          id="FCS_COP.1(1)" name="Cryptographic operation (Data Encryption)">
+          id="FCS_COP.1(1)" name="Cryptographic operation (Data Encryption)" status="threshold">
           <f-element id="FCS_COP.1.1(1)">
             <title>
               <b>Refinement:</b> The application shall <selectables>
@@ -1368,7 +1368,7 @@
         <h4>FEK decryption and encryption (Key Wrapping)</h4> This requirement specifies the
         operations to be used if the FEK are encrypted and decrypted using a KEK. If intermediate
         keys are used, the ST author iterates this requirement to specify the operations used in
-        those cases. <f-component id="FCS_COP.1(5)" name="Cryptographic operation (Key Wrapping)">
+        those cases. <f-component id="FCS_COP.1(5)" name="Cryptographic operation (Key Wrapping)" status="threshold">
           <f-element id="FCS_COP.1.1(5)">
             <title>
               <b>Refinement:</b> The application shall <selectables>
@@ -1501,7 +1501,7 @@
               implementation verifying that the TOE detects these errors. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FCS_IV_EXT.1" name="Extended: Initialization Vector Generation">
+        <f-component id="FCS_IV_EXT.1" name="Extended: Initialization Vector Generation" status="threshold">
           <f-element id="FCS_IV_EXT.1.1 ">
             <title>The application shall <selectables>
                 <selectable>implement platform-provided functionality to generate IVs</selectable>
@@ -1524,7 +1524,7 @@
                 <h4>Guidance</h4>None. <h4>Tests</h4>None. </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FCS_KYC_EXT.1" name="Key Chaining and Key Storage">
+        <f-component id="FCS_KYC_EXT.1" name="Key Chaining and Key Storage" status="threshold">
           <f-element id="FCS_KYC_EXT.1.1">
             <title/>
             <note role="application"/>
@@ -1538,7 +1538,7 @@
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FCS_KYC_EXT.1" name="Key Chaining and Key Storage">
+        <f-component id="FCS_KYC_EXT.1" name="Key Chaining and Key Storage" status="threshold">
           <f-element id="FCS_KYC_EXT.1.1">
             <title> The TSF shall maintain a key chain of: <selectables linebreak="yes">
                 <selectable>One;</selectable>
@@ -1586,7 +1586,7 @@
         </f-component>
       </subsection>
       <subsection title="Identification and Authentication (FIA)" id="fia">
-        <f-component id="FIA_AUT_EXT.1" name="User Authorization">
+        <f-component id="FIA_AUT_EXT.1" name="User Authorization" status="threshold">
           <f-element id="FIA_AUT_EXT.1.1">
             <title>The application shall <selectables>
                 <selectable>implement platform-provided functionality to provide user
@@ -1625,7 +1625,7 @@
       </subsection>
       <subsection title="User Data Protection (FDP)" id="fdp">
         <h4>Extended: Protection of Selected User Data (FDP_PRT_EXT)</h4>
-        <f-component id="FDP_PRT_EXT.1" name="Extended: Protection of Selected User Data ">
+        <f-component id="FDP_PRT_EXT.1" name="Extended: Protection of Selected User Data" status="threshold">
           <f-element id="FDP_PRT_EXT.1.2">
             <title> The application shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
@@ -2670,6 +2670,7 @@
       </f-component>
     </section>
   </appendix>
+  
   <appendix id="objreq" title="Objective Requirements"> As indicated in the introduction to this EP,
     the baseline requirements (those that must be performed by the TOE) are contained in the body of
     this EP. There are additional requirements that specify security functionality that is desirable
