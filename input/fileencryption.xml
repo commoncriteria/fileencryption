@@ -2170,7 +2170,9 @@
             output cryptographic key sizes <selectables>
               <selectable>128</selectable>
               <selectable>256</selectable>
-            </selectables> that meet the following: [NIST SP 800-132]. </title>
+            </selectables> that meet the following: [NIST SP 800-132]. 
+            The TOE shall not accept passwords outside of the minimum and maximum supported ranges 
+            defined in the ST.</title>
         </f-element>
         <f-element id="FCS_CKM.1.2(A)">
           <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 (from the AS
@@ -2228,11 +2230,13 @@
             not meet the necessary entropy needed as specified in this EP. <h4>Tests</h4> Support
             for minimum length: In addition to the analysis above, the evaluator shall also perform
             the following tests on a TOE configured according to the AGD_PRE guidance: <testlist>
-              <test>Ensure that the TOE supports passwords/passphrases of 64 characters. </test>
-              <test>Try entering a password/passphrase less than 64 characters. </test>
-              <test>If the TOE supports a password/passphrase length up to a maximum number of
-                characters, n (which would be greater than 64), then ensure that the TOE will not
-                accept more than n characters.</test>
+              <test>Ensure that the TOE supports passwords/passphrases of a minimum length of 64 characters. </test>
+              <test>If the TOE supports a password/passphrase length up to a maximum number of characters, n, 
+              then ensure that the TOE will not accept more than n characters. </test>
+              <test>If the TOE supports a password/passphrase length over a minimum number of characters, n, 
+              then ensure that the TOE will not accept fewer than n characters.</test>
+              <test>Ensure that the TOE supports passwords consisting of all characters assigned and supported 
+              by the ST author.</test>
             </testlist>
             <b>Conditioning:</b> No explicit testing of the formation of the authorization factor
             from the input password/passphrase is required. <b>Iteration count:</b> The evaluator
