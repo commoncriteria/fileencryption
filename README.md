@@ -1,4 +1,4 @@
-# File Encryption
+## File Encryption
 Protection Profile for File Encryption
 
 ## Links
