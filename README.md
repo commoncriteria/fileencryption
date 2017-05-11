@@ -1,16 +1,19 @@
 ## File Encryption
-Protection Profile for File Encryption
+Extended Package for Software File Encryption Version
 
-## Links
-[Protection Profile for File Encryption](http://common-criteria.rhcloud.com/fileencryption/output/fileencryption-release.html)
+## Working Draft
+Essential Security Requirements (ESR)
 
-[Help working with Transforms Submodule](https://github.com/commoncriteria/transforms/wiki/Working-with-Transforms-as-a-Submodule)
+[Extended Package for Software File Encryption Version](http://common-criteria.rhcloud.com/fileencryption/output/fileencryption-release.html)
+
+## Release Version
+[Extended Package for Software File Encryption Version 1.0](https://www.niap-ccevs.org/Profile/Info.cfm?id=318)
 
 ## Quickstart
 To clone this project along with its _transforms_ submodule run:
 
 ````
-  git clone --recursive git@github.com:commoncriteria/operatingsystem.git
+  git clone --recursive https://github.com/commoncriteria/fileencryption.git
 ````
 To pull updates from the upstream _transforms_ submodule and commit them run:
 ````
