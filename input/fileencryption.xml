@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
+
+<?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCProtectionProfile.rng"
+ type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+
 <PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="File Encryption">
     <PPReference title="PP Reference" id="ID003">
         <ReferenceTable>
-            <PPTitle>Application Software Extended Package for File Encryption </PPTitle>
+            <PPTitle>Extended Package for File Encryption</PPTitle>
             <PPVersion>1.0</PPVersion>
             <PPAuthor>National Information Assurance Partnership</PPAuthor>
             <PPPubDate>2014-11-10</PPPubDate>
@@ -27,6 +31,11 @@
             <date>2014-11-10</date>
             <subject>Public release, incorporating comments received</subject>
         </entry>
+         <entry>
+            <version>v 2.0</version>
+            <date>2017-07-10</date>
+            <subject>Inluding TRRTs, Enterprise management</subject>
+        </entry>
     </RevisionHistory>
     <chapter title="Introduction" id="int">
         <section title="Overview" id="ppoverview"> This Extended Package (EP) describes security
@@ -38,8 +47,8 @@
             Target of Evaluation, and will also discuss how this EP is to be used in conjunction
             with the <cite linkend="bibAppPP"/>. </section>
         <section id="glossary" title="Terms">The following sections provide both Common Criteria and
-            technology terms used in this Extended Package. <subsection
-                title="Common Criteria Terms" id="ccterms">
+            technology terms used in this Extended Package. 
+            <subsection title="Common Criteria Terms" id="ccterms">
                 <glossary>
                     <entry>
                         <term><abbr title="Common Criteria">CC</abbr></term>
@@ -1935,7 +1944,7 @@
         </section>
     </chapter>
 
-    <appendix id="optreqs" title="Optional Requirements"> As indicated in the introduction to this
+    <appendix id="optional" title="Optional Requirements"> As indicated in the introduction to this
         EP, the baseline requirements (those that must be performed by the TOE or its underlying
         platform) are contained in the body of this EP. Additionally, there are three other types of
         requirements specified in Appendices B, C, and D. <br/> The first type (in this Appendix)
@@ -1947,7 +1956,8 @@
         baseline requirements in future versions of this EP, so adoption by File Encryption Product
         vendors is encouraged. Note that the ST author is responsible for ensuring that requirements
         that may be associated with those in Appendix B, Appendix C, and/or Appendix D but are not
-        listed (e.g., FMT-type requirements) are also included in the ST. <section id="sharing"
+        listed (e.g., FMT-type requirements) are also included in the ST. 
+        <section id="sharing"
             title="Sharing Encrypted Resources"> An optional feature that may be claimed by a TOE is
             the ability to share encrypted resources. In order to claim this capability, the TOE
             must allow sharing of at least one encrypted resource among different users of the TOE
@@ -2489,11 +2499,12 @@
         </section>
     </appendix>
 
-    <appendix id="sbr" title="Selection Based Requirements">As indicated in the introduction to this
+    <appendix id="sel-based" title="Selection Based Requirements">As indicated in the introduction to this
         EP, the baseline requirements (those that must be performed by the TOE) are contained in the
         body of this EP. There are additional requirements based on selections in the body of the
         EP: if certain selections are made, then additional requirements below will need to be
-        included. <section id="authfactors" title="Authorization Factors "> The TOE may support
+        included. 
+        <section id="authfactors" title="Authorization Factors "> The TOE may support
             password/passphrase-based, ECC CDH, and RSA authorization factors. One or more of these
             factors are used to derive the KEK. TOE-supported authorization factors are specified in
             FCS_CKM_EXT.1. In order to be conformant with this EP for password-based and
@@ -3108,14 +3119,15 @@
         </section>
     </appendix>
 
-    <appendix id="objreq" title="Objective Requirements"> As indicated in the introduction to this
+    <appendix id="objective" title="Objective Requirements"> As indicated in the introduction to this
         EP, the baseline requirements (those that must be performed by the TOE) are contained in the
         body of this EP. There are additional requirements that specify security functionality that
         is desirable and these requirements are contained in this Appendix. It is expected that
         these requirements will transition from objective requirements to baseline requirements in
         future versions of this EP. <br/> These requirements may be included in the ST and the TOE
-        will still be able to claim conformance to this EP. <br/> There are no objective
-        requirements at this time. </appendix>
+        will still be able to claim conformance to this EP.
+        <br/> There are no objective requirements at this time.
+    </appendix>
 
     <appendix id="biblio" title="References">
         <bibliography>
