@@ -4,8 +4,8 @@
 <ESR xmlns="http://common-criteria.rhcloud.com/ns/esr" name="Operating System Fundamentals">
   
 	<intro>
-		<esrtitle>General Purpose Operating System</esrtitle>
-		<maintainer>NIAP and CESG</maintainer>
+		<esrtitle>Extended Package for File Encryption</esrtitle>
+		<maintainer>NIAP</maintainer>
 		<identifier>42</identifier>
 		<version>0.8</version>
 		<status>draft</status>
@@ -54,7 +54,7 @@
 	    <li> An attacker is able to acquire their own copy of the target product and study its
 	    behavior on a platform that they control. </li>
 	  </ul>
-	  <p/> The attacker is expected to engage in the following general classes of attack: <!-- added in order to allow for rather direct flow to Threats section in PP -->
+	  <p/> The attacker is expected to engage in the following general classes of attack: 
 	  <ul>
 	    <li> Network eavesdropping, in which an attacker may monitor and gain access to data
 	    exchanged between the product and other endpoints. </li>
