@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
 
 <?xml-model href="CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="CCProtectionProfile.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 
 <!-- fixes
@@ -3461,7 +3460,7 @@
         vendors is encouraged. Note that the ST author is responsible for ensuring that requirements
         that may be associated with those in Appendix B, Appendix C, and/or Appendix D but are not
         listed (e.g., FMT-type requirements) are also included in the ST. 
-        <section id="sharing" title="Sharing Encrypted Resources"> 
+  <!--      <section id="sharing" title="Sharing Encrypted Resources"> 
             An optional feature that may be claimed by a TOE is
             the ability to share encrypted resources. In order to claim this capability, the TOE
             must allow sharing of at least one encrypted resource among different users of the TOE
@@ -3469,7 +3468,7 @@
             different passwords, one using a password and another using a smartcard). If this
             capability is supported, then the ST author adds FDP_PRT_EXT.2 (and the associated
             application notes and assurance activities) to the ST. <htm:BR/>
-            <!-- HERE I don't know what to do about this header -->
+            <!-\- HERE I don't know what to do about this header -\->
             <htm:b>Extended: Protection of Selected User Data (FDP_PRT_EXT)</htm:b>
             
         </section>
@@ -3483,7 +3482,7 @@
             platform is in a lower power mode (and no sensitive information is maintained
             in-memory). In these cases, the following requirements should be used by the ST Author
             to specify this capability <htm:br/>
-            <!-- HERE I don't know what to do about this header -->
+            <!-\- HERE I don't know what to do about this header -\->
             <htm:b>Extended: Protection of Data in Power Managed States (FDP_PM_EXT)</htm:b><htm:br/>
             
         </section>
@@ -3491,9 +3490,9 @@
             achieved depending on the use of an authenticated block cipher, keyed hashing function
             or asymmetric verification method, a different set of requirements will be levied on the
             TOE depending on the selected choice. <htm:br/>
-            <!-- HERE I don't know what to do about this header -->
+            <!-\- HERE I don't know what to do about this header -\->
             <htm:b>Data Authentication with cryptographic, keyed hashing functions</htm:b>
-            <!-- HERE I don't know what to do about this header -->
+            <!-\- HERE I don't know what to do about this header -\->
             <htm:b>Extended: Authentication of Selected User Data (FDP_AUT_EXT)</htm:b>
             
         </section>
@@ -3508,7 +3507,7 @@
                     </section>
         <section id="configmechanism" title="Configuration Options">
             
-        </section>
+        </section>-->
     </appendix>
 
     <appendix id="sel-based" title="Selection Based Requirements">As indicated in the introduction to this
@@ -3516,7 +3515,7 @@
         body of this EP. There are additional requirements based on selections in the body of the
         EP: if certain selections are made, then additional requirements below will need to be
         included. 
-        <section id="authfactors" title="Authorization Factors "> The TOE may support
+<!--        <section id="authfactors" title="Authorization Factors "> The TOE may support
             password/passphrase-based, ECC CDH, and RSA authorization factors. One or more of these
             factors are used to derive the KEK. TOE-supported authorization factors are specified in
             FCS_CKM_EXT.1. In order to be conformant with this EP for password-based and
@@ -3550,7 +3549,7 @@
         </section>
         <section id="kekgen" title="KEK Generation">
             
-        </section>
+        </section>-->
     </appendix>
 
     <appendix id="objective" title="Objective Requirements"> As indicated in the introduction to this
