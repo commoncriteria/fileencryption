@@ -3452,6 +3452,10 @@
         </section>
     </chapter>
 
+    <!-- 
+       Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
+       To make an SFR optional tag it above as status="optional" 
+    -->
     <appendix id="optional" title="Optional Requirements"> As indicated in the introduction to this
         EP, the baseline requirements (those that must be performed by the TOE or its underlying
         platform) are contained in the body of this EP. Additionally, there are three other types of
@@ -3467,6 +3471,10 @@
         listed (e.g., FMT-type requirements) are also included in the ST. 
     </appendix>
 
+    <!-- 
+       Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
+       To make an SFR optional tag it above as status="sel-based" 
+    -->
     <appendix id="sel-based" title="Selection Based Requirements">As indicated in the introduction to this
         EP, the baseline requirements (those that must be performed by the TOE) are contained in the
         body of this EP. There are additional requirements based on selections in the body of the
@@ -3474,6 +3482,10 @@
         included. 
     </appendix>
 
+     <!-- 
+       Do NOT put SFRs in this section. All SFR belong up above in SFR section. 
+       To make an SFR optional tag it above as status="objective" 
+     -->
     <appendix id="objective" title="Objective Requirements"> As indicated in the introduction to this
         EP, the baseline requirements (those that must be performed by the TOE) are contained in the
         body of this EP. There are additional requirements that specify security functionality that
