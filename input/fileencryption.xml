@@ -56,6 +56,23 @@
             </entry>
         </ReferenceTable>
     </PPReference>
+    <RevisionHistory role="draft">
+        <entry>
+            <version>v 0.1</version>
+            <date>2014-07-25</date>
+            <subject>Initial Release</subject>
+        </entry>
+        <entry>
+            <version>v 1.0</version>
+            <date>2014-11-10</date>
+            <subject>Public release, incorporating comments received</subject>
+        </entry>
+        <entry>
+            <version>v 2.0</version>
+            <date>2017-05-15</date>
+            <subject>Inluding TRRTs, Enterprise management</subject>
+        </entry>
+    </RevisionHistory>
     <RevisionHistory role="final">
         <entry>
             <version>v 0.1</version>
@@ -73,6 +90,7 @@
             <subject>Inluding TRRTs, Enterprise management</subject>
         </entry>
     </RevisionHistory>
+
     <chapter title="Introduction" id="int">
         <section title="Overview" id="ppoverview"> This Extended Package (EP) describes security
             requirements for an encryption product that is configurable for the data it encrypts and
