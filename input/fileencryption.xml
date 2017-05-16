@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 
-<?xml-model href="CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-
+<?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 <!-- fixes
     - the PP tag must have xmlns:htm="http://www.w3.org/1999/xhtml" to be able to use html tags, and then each html tag
@@ -40,6 +39,7 @@
     - in the bibliography, the id attributes had a - in them, so I changed those ids.
     
     -->
+
 <PP xmlns="http://common-criteria.rhcloud.com/ns/cc" name="File Encryption" xmlns:htm="http://www.w3.org/1999/xhtml">
     <PPReference title="PP Reference" id="ID003">
         <ReferenceTable>
@@ -81,7 +81,8 @@
             itself, but rather extends the Protection Profile for Application Software (<cite
                 linkend="bibAppPP"/>). This introduction will describe the features of a compliant
             Target of Evaluation, and will also discuss how this EP is to be used in conjunction
-            with the <cite linkend="bibAppPP"/>. </section>
+            with the <cite linkend="bibAppPP"/>. 
+        </section>
         <section id="glossary" title="Terms">The following sections provide both Common Criteria and
             technology terms used in this Extended Package. 
                 <glossary>
@@ -3556,6 +3557,7 @@
             
         </bibliography>
     </appendix>
+    
     <appendix id="acronyms" title="Acronyms">
         <acronyms>
             <entry>
