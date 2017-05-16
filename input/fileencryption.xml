@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../transforms/pp2html.xsl"?>
+<?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 
 <?xml-model href="CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
@@ -2627,22 +2627,8 @@
                             plaintext and IV values shall be 128-bit blocks. For each 3-tuple, 1000
                             iterations shall be run as follows:
                             
-                            <!-- HERE code - this is not going to be properly indented but I don't 
-                know if we have a code tag, so I made an image of the code sample -->
                             <figure entity="images/codeSample.jpg" title="" id="code"/>
-                            
-                            <!--
-                            <pre>
-                # Input: PT, IV, Key <htm:br/>
-                for i = 1 to 1000: <htm:br/>
-                  if i == 1: <htm:br/>
-                    CT[1] = AES-CBC-Encrypt(Key, IV, PT)<htm:br/> 
-                    PT = IV <htm:br/>
-                  else: <htm:br/>
-                    CT[i] = AES-CBC-Encrypt(Key, PT) <htm:br/>
-                    PT = CT[i-1] <htm:br/>
-							</pre> -->
-                            
+                                                 
                             The ciphertext computed in the 1000th iteration (i.e., CT[1000]) is the
                             result for that trial. This result shall be compared to the result of
                             running 1000 iterations with the same values using a known good
@@ -3460,54 +3446,6 @@
         vendors is encouraged. Note that the ST author is responsible for ensuring that requirements
         that may be associated with those in Appendix B, Appendix C, and/or Appendix D but are not
         listed (e.g., FMT-type requirements) are also included in the ST. 
-  <!--      <section id="sharing" title="Sharing Encrypted Resources"> 
-            An optional feature that may be claimed by a TOE is
-            the ability to share encrypted resources. In order to claim this capability, the TOE
-            must allow sharing of at least one encrypted resource among different users of the TOE
-            who possess different authorization factors (e.g., two different smartcards, two
-            different passwords, one using a password and another using a smartcard). If this
-            capability is supported, then the ST author adds FDP_PRT_EXT.2 (and the associated
-            application notes and assurance activities) to the ST. <htm:BR/>
-            <!-\- HERE I don't know what to do about this header -\->
-            <htm:b>Extended: Protection of Selected User Data (FDP_PRT_EXT)</htm:b>
-            
-        </section>
-        <section id="power" title="Power Management Function"> As indicated above, a platform on
-            which the TOE runs may support one or more modes of "powering down" that is something
-            less than a full shutdown by the user. In cases where these modes leave data in volatile
-            memory, they may cause the security policies to be circumvented if the device (e.g.,
-            laptop) is taken by the attacker in this state. <htm:br/> Some TOEs may provide the
-            facilities to cause information being transferred from volatile memory to disk to be
-            encrypted as per FDP.PRT_EXT.1.1, leaving the information correctly protected whilst the
-            platform is in a lower power mode (and no sensitive information is maintained
-            in-memory). In these cases, the following requirements should be used by the ST Author
-            to specify this capability <htm:br/>
-            <!-\- HERE I don't know what to do about this header -\->
-            <htm:b>Extended: Protection of Data in Power Managed States (FDP_PM_EXT)</htm:b><htm:br/>
-            
-        </section>
-        <section id="auth" title="Data Authentication Methods"> Because data authentication can be
-            achieved depending on the use of an authenticated block cipher, keyed hashing function
-            or asymmetric verification method, a different set of requirements will be levied on the
-            TOE depending on the selected choice. <htm:br/>
-            <!-\- HERE I don't know what to do about this header -\->
-            <htm:b>Data Authentication with cryptographic, keyed hashing functions</htm:b>
-            <!-\- HERE I don't know what to do about this header -\->
-            <htm:b>Extended: Authentication of Selected User Data (FDP_AUT_EXT)</htm:b>
-            
-        </section>
-        <section id="support" title="FAK Support">
-            
-            
-        </section>
-        <section id="authasym" title="Data Authentication using asymmetric signing and verification">
-            
-        </section>
-        <section id="aughsign" title="Data Authentication using asymmetric signing and verification">
-                    </section>
-        <section id="configmechanism" title="Configuration Options">
-            
-        </section>-->
     </appendix>
 
     <appendix id="sel-based" title="Selection Based Requirements">As indicated in the introduction to this
@@ -3515,41 +3453,6 @@
         body of this EP. There are additional requirements based on selections in the body of the
         EP: if certain selections are made, then additional requirements below will need to be
         included. 
-<!--        <section id="authfactors" title="Authorization Factors "> The TOE may support
-            password/passphrase-based, ECC CDH, and RSA authorization factors. One or more of these
-            factors are used to derive the KEK. TOE-supported authorization factors are specified in
-            FCS_CKM_EXT.1. In order to be conformant with this EP for password-based and
-            passphrase-based authorization factors. <htm:br/>If password/passphrase-based authorization
-            factors are supported, the ST author will include this requirement and the associated
-            application notes and assurance activities. 
-            
-        </section>
-        <section id="ckg" title="Cryptographic Key Generation">
-            If ECC CDH is one of the
-            methods used to protect the FEK as specified in FCS_COP.1(5) by the ST author,
-            ephemeral keys are required to be generated and used to generate the shared secret
-            used to protect the FEK. The following component will be included by the ST author
-            when this selection is made. 
-            
-        </section>
-        <section id="userauth" title="User Authorization">Because the actions of the TSF are fairly
-            different depending on whether password/passphrase or external entity authorization
-            factors are used (see Section 1.1.2, Authorization), different user authorization
-            components are needed for each type of authorization factor supported by the TOE. The ST
-            author will include FIA_AUT_EXT.1 in the ST if the TOE supports external entity
-            authorization factors and will include FIA_FCT_EXT.2 in the ST if the TOE supports
-            password/passphrase authorization factors. 
-            <subsection id="extentity"
-                title="Extended: External Entity Authorization Factors">
-                
-            </subsection>
-            <subsection id="extpassword" title="Extended: Password/Passphrase Authorization Factors">
-                
-            </subsection>
-        </section>
-        <section id="kekgen" title="KEK Generation">
-            
-        </section>-->
     </appendix>
 
     <appendix id="objective" title="Objective Requirements"> As indicated in the introduction to this
