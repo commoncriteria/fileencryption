@@ -4,11 +4,6 @@
 <?xml-model href="https://github.com/commoncriteria/transforms/raw/master/schemas/CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 
 <!-- fixes
-    - the PP tag must have xmlns:htm="http://www.w3.org/1999/xhtml" to be able to use html tags, and then each html tag
-    has to be prefaced with htm: like this <htm:br/>
-    
-    - glossary cannot be in a subsection, it has to be in a section. I combined the glossaries into one, but the terms
-    need to be sorted.
     
     -  <threats> tag has no attributes
     
@@ -46,9 +41,9 @@
             <PPTitle>Extended Package for File Encryption</PPTitle>
             <PPVersion>1.0</PPVersion>
             <PPAuthor>National Information Assurance Partnership</PPAuthor>
-            <PPPubDate>2014-11-10</PPPubDate>
+            <PPPubDate>2017-5-17</PPPubDate>
             <PPCertificationID>unassigned</PPCertificationID>
-            <CCVersion>Version 1.0</CCVersion>
+            <CCVersion>Version 2.0</CCVersion>
             <Keywords>file encryption; encryption</Keywords>
             <entry>
                 <name>Registration</name>
@@ -86,7 +81,7 @@
         </entry>
          <entry>
             <version>v 2.0</version>
-            <date>2017-05-15</date>
+            <date>2017-05-17</date>
             <subject>Inluding TRRTs, Enterprise management</subject>
         </entry>
     </RevisionHistory>
@@ -96,8 +91,8 @@
             requirements for an encryption product that is configurable for the data it encrypts and
             is intended to provide a minimal, baseline set of requirements that are targeted at
             mitigating well defined and described threats. However, this EP is not complete in
-            itself, but rather extends the Protection Profile for Application Software (<cite
-                linkend="bibAppPP"/>). This introduction will describe the features of a compliant
+            itself, but rather extends the Protection Profile for Application Software <cite
+                linkend="bibAppPP"/>. This introduction will describe the features of a compliant
             Target of Evaluation, and will also discuss how this EP is to be used in conjunction
             with the <cite linkend="bibAppPP"/>. 
         </section>
@@ -354,7 +349,7 @@
                         <htm:td>Memory Management - when the TOE is running</htm:td>
                         <htm:td>The TOE must initiate the request to clear the cryptographic keys and
                             plaintext data, but the TOE Platform will handle the actual instruction
-                            through memory management queue. (<cite linkend="bibAppPP"/> or MDF PP)
+                            through memory management queue. <cite linkend="bibAppPP"/> or <cite linkend="bibMDF"/>
                             (The assurance is dependent on the TOE Platform to perform the action of
                             clearing the plaintext data and cryptographic keys.)</htm:td>
                         <htm:td>The TOE is responsible for handling the clearing of cryptographic keys
@@ -368,7 +363,7 @@
                         <htm:td>Memory Management - when the TOE application cleanly closes</htm:td>
                         <htm:td>The TOE must initiate the request to clear the cryptographic keys and
                             plaintext data, but the TOE Platform will handle the actual instruction
-                            through memory management queue. (<cite linkend="bibAppPP"/> or MDF PP)
+                            through memory management queue. <cite linkend="bibAppPP"/> or <cite linkend="bibMDF"/>
                             (The assurance is dependent on the TOE Platform to perform the action of
                             clearing the plaintext data and cryptographic keys.)</htm:td>
                         <htm:td>The TOE's application memory space is gone and all volatile memory
@@ -592,8 +587,8 @@
     <chapter title="Conformance Claims" id="conf">
         <cclaims>
             <cclaim id="Conformance Statement">
-                <description> The Protection Profile for Application Software (App PP) defines the
-                    baseline Security Functional Requirements (SFRs) and Security Assurance
+                <description> The Protection Profile for Application Software <cite linkend="bibAppPP"/> defines
+                    the baseline Security Functional Requirements (SFRs) and Security Assurance
                     Requirements (SARs) for application software products. This EP serves to extend
                     the App PP baseline with additional SFRs and associated Assurance Activities
                     specific to an email client. Assurance Activities are the actions that the
@@ -659,8 +654,9 @@
                         able to recreate the encryption key and access encrypted files.
                     </description>
                     <!-- HERE -->
-                    <objective-refer ref="O.APPLY_POLICY">
-                        <rationale>???
+                    <objective-refer ref="O.KEY_MATERIAL_PROTECTION">
+                        <rationale>The threat T.KEYING_MATERIAL_COMPROMISE is countered by O.KEY_MATERIAL_PROTECTION as this
+                            provides protection of key material.
                         </rationale>
                     </objective-refer>
                 </threat>
@@ -3520,6 +3516,12 @@
                 <description>
                     <htm:a href="https://www.niap-ccevs.org/pp/">Protection Profile for Application
                         Software</htm:a>
+                </description>
+            </entry>
+            <entry id="bibMDF">
+                <tag>MDF PP</tag>
+                <description>
+                    <htm:a href="https://www.niap-ccevs.org/pp/">Protection Profile for Mobile Device Fundamentals</htm:a>
                 </description>
             </entry>
             
