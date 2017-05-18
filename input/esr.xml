@@ -28,7 +28,7 @@
 		in a timely manner. Another factor is to ensure the security functionality
 	    prescribed is not well beyond the current best practices and is achievable
 		by multiple developer products.
-
+        <br/>
         File Encryption applies to software solutions that encrypt data on a end
 		user device. File Encryption is the process of encrypting individual 
 		files or sets of file and permitting access to the encrypted data only
@@ -38,7 +38,7 @@
 		not have the proper authentication credential.  For the purposes of this 
 		PP, “set of files” describes implementations that use one encryption key
 		to encrypt more than one file.
-
+        <br/>
         The ESR expects products to employ approved cryptographic algorithms
 		to protect data on the drive from unauthorized disclosures.  
 		The ESR allows the product to invoke cryptographic functionality
@@ -49,17 +49,17 @@
 		that the FE must implement and those that either the product or the 
 		operational environment can implement.  Any functionality the product is
 		relying on the OE for will have to be validated against the requirements. 
-
+        <br/>
 		The following discussion of terminology will aid in understanding 
 		the ESR text.
-
+        <br/>
 		The files are encrypted using a file encryption key (FEK). 
 		The FEK may be masked using one or more key encryption keys 
 		(KEKs) or derived directly from user authorization factors.  
 		The foremost security objective of encrypting the storage devices is to
 		force an adversary to perform a cryptographic exhaust against a 
 		prohibitively large key space.
-
+        <br/>
 		Authorization factors can include a variety of mechanisms, some 
 		of which are mandatory, and some of which are optional. 
 	</section>
