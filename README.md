@@ -1,4 +1,4 @@
-## File Encryption
+## File Encryption [![Build Status](https://jenkins-criteria.rhcloud.com/buildStatus/icon?job=protection-profiles/fileencryption)](https://jenkins-criteria.rhcloud.com/job/protection-profiles/job/fileencryption/)
 Extended Package for Software File Encryption Version
 
 ## Working Draft
