@@ -5,15 +5,15 @@ Protection Profile for File Encryption
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
 This repository hosts the draft version of the Extended Package for Software File Encryption Version based on the 
-[Essential Security Requirements (ESR)](http://common-criteria.rhcloud.com/fileencryption/output/fileencryption-esr.html) for this technology class of 
+[Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/fileencryption/fileencryption-esr.html) for this technology class of 
 products. This repository is used to facilitate collaboration and development on the draft document. 
 See the [release](#Release-Version) section if you are looking for the officially released version for evaluations. 
 A list of products that have passed evaluation against this Protection Profile can be found [here](https://www.niap-ccevs.org/Product/PCL.cfm).
 
 ## Draft Version
 
-* [Extended Package for Software File Encryption Version](http://common-criteria.rhcloud.com/fileencryption/output/fileencryption-release.html) (html)
-* [Extended Package for Software File Encryption Version](http://common-criteria.rhcloud.com/fileencryption/output/fileencryption-release.pdf) (pdf)
+* [Extended Package for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-release.html) (html)
+* [Extended Package for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-release.pdf) (pdf)
 
 ## Release Version
 * [Extended Package for Software File Encryption Version 1.0](https://www.niap-ccevs.org/Profile/Info.cfm?id=318)
