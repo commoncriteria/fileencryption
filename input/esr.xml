@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../transforms/esr2html.xsl"?>
+
+<ESR xmlns="http://common-criteria.rhcloud.com/ns/esr" name="File Encryption">
+  
+	<intro>
+		<esrtitle>Extended Package for File Encryption</esrtitle>
+		<maintainer>NIAP</maintainer>
+		<identifier>42</identifier>
+		<version>0.1</version>
+		<status>final</status>
+		<issuedate>30 June 2014</issuedate>
+		<approver/>
+		<supercedes/>
+	</intro>
+
+	<section title="Background and Purpose" id="purpose">
+		This document describes the high-level security requirements for File 
+		Encryption (FE). It provides a minimal, baseline set of requirements 
+		targeted at mitigating well defined and described threats. The ESR 
+		identifies aspects that are outside the required scope so as to limit
+		the final set of security functional requirements.  The File Encryption
+		Extended Package (EP) is an extension of the Applications on OS Protection 
+	    Profile (Apps on OS PP).  The FE EP inherits all of the requirements 
+		from the Apps on OS PP and also requires additional requirements related 
+		to File Encryption. The main goal is to ensure that objective and repeatable
+		evaluation activities can be captured in the EP while still delivering a EP 
+		in a timely manner. Another factor is to ensure the security functionality
+	    prescribed is not well beyond the current best practices and is achievable
+		by multiple developer products.
+        <br/>
+        File Encryption applies to software solutions that encrypt data on a end
+		user device. File Encryption is the process of encrypting individual 
+		files or sets of file and permitting access to the encrypted data only
+		after proper authentication is provided.  File encryption products that 
+		conform to this PP must both render information inaccessible to anyone 
+		(or, in the case of other software on the machine, anything) who does
+		not have the proper authentication credential.  For the purposes of this 
+		PP, “set of files” describes implementations that use one encryption key
+		to encrypt more than one file.
+        <br/>
+        The ESR expects products to employ approved cryptographic algorithms
+		to protect data on the drive from unauthorized disclosures.  
+		The ESR allows the product to invoke cryptographic functionality
+		in the Operational Environment (OE) (for example, using a cryptographic 
+		library resident on the platform on which the product runs), or this 
+		cryptographic functionality can be implemented by the product itself. 
+		Therefore, the ESR is divided into two sections; those requirements 
+		that the FE must implement and those that either the product or the 
+		operational environment can implement.  Any functionality the product is
+		relying on the OE for will have to be validated against the requirements. 
+        <br/>
+		The following discussion of terminology will aid in understanding 
+		the ESR text.
+        <br/>
+		The files are encrypted using a file encryption key (FEK). 
+		The FEK may be masked using one or more key encryption keys 
+		(KEKs) or derived directly from user authorization factors.  
+		The foremost security objective of encrypting the storage devices is to
+		force an adversary to perform a cryptographic exhaust against a 
+		prohibitively large key space.
+        <br/>
+		Authorization factors can include a variety of mechanisms, some 
+		of which are mandatory, and some of which are optional. 
+	</section>
+	<section title="Use Cases" id="usecases">
+	    The product will encrypt all files such that if an adversary 
+		obtains the device in a powered-down state, they will not be 
+		able to recover the data, authorization factors, submasks, or 
+		keys without performing a complete cryptographic exhaust against 
+		the keyspace of the FEK.
+	</section>
+
+	<section title="Resources to be protected" id="resourcesprotected">
+    	 
+	   <ul>
+	    <li>All files selected to be encrypted by the FE product. </li>
+	    <li>All data used to access the encrypted files, such as
+		  authorization factors, keys, and key material. </li>
+	  </ul> 
+          
+	</section>
+
+	<section title="Attacker access" id="attackeraccess"> 
+	  The following assumptions are made about attackers' ability to develop attacks: 
+	  <ul>
+	    <li>Arbitrary amount of time to examine the encrypted files on disk. </li>
+	    <li>A copy of the product and the skills to reverse-engineer the 
+		code for the product, run it in a debugger, etc..</li>
+	    <li>Commercially and/or publicly available software/knowledge/equipment 
+		(including electron microscopes and focused ion beam instruments). The
+		 tools available to attackers are expected to be sophisticated enough 
+		 such that cryptographic will need to be used to protect the data, since
+		 direct examination of the physical disk is possible.
+       </li>
+	  </ul>
+
+	  <p/> The attacker is expected to engage in the following general classes of attack: 
+	  <ul>
+	    <li> An attacker gains physical access to a powered-down end 
+		user device and can attempt to physically and logically access the
+		encrypted files on the disk/system, including booting the system 
+		off of an external drive or installing the drive in a system under
+		the attacker’s control.
+	    </li>
+	  </ul>
+	</section>
+	
+    <section title="Boundary of Device" id="boundaryofdevice">	 
+	   <ul>
+	    <li>The software, including any libraries that are directly 
+		linked in or supplied by the product as part of product 
+		installation form the logical boundary.
+        </li>
+	    <li>It is allowable for the product to invoke certain 
+		functionality supplied by the platform on which it executes, 
+		or on external devices such as smartcards. However, the extent
+		to which this can be done and comply with the ESR is defined
+		by the particular ESR requirement.
+        </li>
+	  </ul> 
+	</section>
+
+	<section title="Essential Security Requirements" id="requirements">
+        Requirements to be met by the FE product:
+		<ul>
+			<li>The product shall be able to generate the FEK, change an existing
+			 FEK, and ensure the FEK is protected. </li>
+			<li>The product must destroy keys and keying material when it is no longer needed.</li>
+			<li>The product shall be able to derive FEKs or KEKs from authorization factors,
+			 appropriately conditioning any authorization factors so that they can be used
+			  as a KEK or a FEK.
+			</li>
+			<li>The entropy of the authorization factor shall not be weakened by 
+			choices of algorithms or any conditioning that is used in the key 
+			derivation process. </li>
+			<li>The product will ensure that it writes no plaintext keying material
+			 to persistent storage – key material should reside only in volatile memory.</li>
+			<li>The product shall zeroize/erase all authorization factors, plaintext 
+			secret, private cryptographic keys and cryptographic security parameters
+			 when no longer needed. </li>
+			<li>The product shall ensure the integrity of the cipher text data.</li>
+		</ul>
+		
+		Requirements to be met by either the FE product or the Operational Environment:
+		<ul>
+			<li>The product or environment will perform low level symmetric 
+			encryption and decryption, digital signature verification</li>
+			<li>The product or environment will perform the actual bit manipulations 
+			to protect the FEK with the KEK (or a set of intermediate keys)</li>
+			<li>The product or environment will be capable of disabling power-saving
+			 states.  (e.g. sleep and hibernate)
+			</li>
+		</ul>
+
+	</section>
+
+	<section title="Assumptions" id="assumptions">
+	  The following assumptions are made for the file encryption product and its operational
+	  environment: 
+	    <ul>
+			<li>The data is only guaranteed to be protected when 
+			the device is initially unauthenticated or in a powered down state.</li>
+			<li>When authorization factors are generated outside of the device,
+			 it is assumed that the strength and entropy is commensurate with the key size.</li>
+			<li>The drive is not left in an unprotected power-saving state
+			 (e.g., S3/sleep) or in a lockstate</li>
+		</ul>
+	</section>
+
+	<section title="Optional Extensions" id="extensions"> 
+		<ul>
+			<li>The product may support multiple users accessing the same 
+			encrypted resource.</li>
+			<li>The product may export a KEK that is wrapping a FEK; however, 
+			the product must have the capability to disable key export.</li>
+ 			<li>The product may ensure all temporary files created by a third party
+			  application are encrypted or erased.</li>
+		</ul>
+	</section>
+
+	<section title="Outside the TOE's Scope" id="outsidescope">
+		The following list contains items that are explicitly out-of-scope for any evaluation
+		against the product PP:
+		<ul>
+			<li>Protections that mitigate the revisit attack, attacks that 
+			alter the underlying platform or the code of an instantiation 
+			of the product that count on the altered item being returned to
+			 a legitimate user (e.g. “Evil Maid Attack”).</li>
+			<li>Protections that counter attacks on the platform in
+			 operation (for instance, over a network to which the platform is connected).</li>
+			<li>Zero Days - The disclosure of recently published vulnerabilities (Zero Days) should
+				not be used as a reason to fail an product undergoing evaluation.</li>
+		</ul>
+	</section>
+</ESR>
+
