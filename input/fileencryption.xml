@@ -1473,20 +1473,24 @@
           <note role="application">None.</note>
           <aactivity>
             <h:h4>TSS</h:h4>
-            <h:h4>Conditional:</h:h4> If the platform provides the IV generation,
-            then the evaluator shall examine the TSS to verify that it describes how the IV
-            generation is invoked. <h:br/>
-            <h:h4>Conditional:</h:h4> If the TOE provides the IV generation, 
-            the evaluator shall ensure the TSS describes how salts are generated. The evaluator
-            shall confirm that the salt is generating using an RBG described in FCS_RBG_EXT.1
-            or by the Operational Environment. If external function is used for this purpose, the
-            TSS should include the specific API that is called with inputs.
-            The evaluator shall ensure the TSS describes how nonces are created uniquely and
-            how IVs and tweaks are handled (based on the AES mode). The evaluator shall
-            confirm that the nonces are unique and the IVs and tweaks meet the stated
-            requirements.
+            The evaluator shall examine the TSS to determine which authorization factors support validation.
             
-            <h:h4>Guidance</h:h4>None. <h:h4>Tests</h:h4>None. </aactivity>
+            The evaluator shall examine the TSS to review a high-level description if multiple submasks are used within the TOE,
+            how the submasks are validated (e.g., each submask validated before combining, once combined validation takes place).
+            
+            
+            <h:h4>Guidance</h:h4>If the validation functionality is configurable, the evaluator shall examine the operational guidance
+            to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. 
+            
+            <h:h4>Tests</h:h4>281	The evaluator shall perform the following tests:
+            
+            Test 1: The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
+            The evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
+            protected data. If the limit mechanism includes any “lockout” period, the time period tested should include at least one such
+            period. Then the evaluator will verify that the TOE behaves as described in the TSS.
+            
+            Test 2: For each validated authorization factor, ensure that when the user provides an incorrect authorization factor,
+            the TOE prevents the decryption of the FEK(s).</aactivity>
             
           </f-element>
         </f-component>
