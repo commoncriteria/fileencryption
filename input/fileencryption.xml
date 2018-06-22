@@ -2377,30 +2377,59 @@
             </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FIA_FCT_EXT.1(1)" name="Extended: Multi-User Authorization" status="optional">
-          <f-element id="FIA_FCT_EXT.1.1(1)">
+        <f-component id="FIA_FCT_EXT.1" name="Extended: Multi-User Authorization" status="optional">
+          <f-element id="FIA_FCT_EXT.1.1">
             <title>The TSF shall support the use of multiple instances of authorization factors that
-              result in unique KEKs. INSERT UNFINISHED</title>
+              result in unique KEKs. </title></f-element>
+          
+          <f-element id="FIA_FCT_EXT.1.2">
+            <title>The TSF shall support
+            <selectables>
+              <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1.1(8</selectable>
+              <selectable>Distribution of the a shared key from an enterprise management Server</selectable>
+            </selectables>
+            </title>
+          
          
-            <note role="application"> While FIA_FCT_EXT.1.1(1) requires the TSF to support multiple
+            <note role="application"> While FIA_FCT_EXT.1.1 requires the TSF to support multiple
               authorization factors to produce multiple KEKs, the intent is that the TSF supports a
               system where multiple users have access to files on the underlying platform, and that
               each user has an authorization factor so that they can protect their own files from
-              other users. In this case it would mean that the TOE is able to support multiple users each with their own
-              authorizaton factor. </note>
+              other users. This shoudld be accomplished via the methods detailed in FIA_FCT_EXT.1.2 
+               </note>
+          
             <aactivity>
-              <h:h4>TSS</h:h4> INSERT <h:h4>Guidance</h:h4> INSERT <h:h4>Tests</h:h4> INERT
-              FDP_PRT_EXT.2.2 - The evaluator shall examine the TSS to determine that it
+              <h:h4>TSS</h:h4>  
+              The evaluator shall examine the TSS to determine that it
               identifies each of the resources that is sharable in encrypted form (for instance,
               encrypted files may be sharable among users, but encrypted directories may not), and the
               method by which the resource can be shared among users with different authorization
               factors. This description shall also cover the TSF actions when adding or removing users
-              to the set allowed to access the file. <h:br/> FDP_PRT_EXT.2.2 - The evaluator shall examine the operation
+              to the set allowed to access the file. <h:br/>
+              
+              The evaluator shall examine the operation
               guidance to determine that it contains instructions on how to set up and share resources
               with other users, if additional actions are necessary due to use of the encryption
               product. If different for different underlying platforms, the evaluator determines that
               all platforms listed in the ST are addressed.
               
+              <h:h4>Guidance</h:h4> - The evaluator shall examine the operation guidance to
+              determine that it contains instructions on how to set up and share resources
+              with other users, if additional actions are necessary due to use of the
+              encryption product. If different for different underlying platforms, the
+              evaluator determines that all platforms listed in the ST are addressed.
+              
+              <h:h4>Tests</h:h4> 
+              Test 1: For each type of resource that is identified in the TSS as sharable in its
+              encrypted form, the evaluator shall ensure that different users using different
+              authorization factors are able to successfully access the resource using
+              different authorization factors. This should include making changes to the
+              resource to ensure that the same resource is being shared, and that a per-user
+              copy of the resource is not being made.
+              
+              Test 2: For each type of resource that is identified in the TSS as sharable in its
+              encrypted form, the evaluator shall ensure that a different unauthorized user is unable to access the encrypted file shared.
+              This test succeeds if the unauthorized user is unable to access a file shared between other authoirzed users.
             </aactivity>
           </f-element>
         </f-component>
