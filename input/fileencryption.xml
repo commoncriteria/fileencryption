@@ -242,7 +242,7 @@
       (TOE) defined in this EP is an encryption product that will inherently encrypt all of that
       data that the user selects to encrypt. For ease of explanation, “file” will frequently be used
       to refer to the object that is encrypted (however, it could be any number of things – folders,
-      volumes, containers, etc.).<h:br/> There are two use cases for this EP. First, the traditional
+      volumes, containers, etc.).<h:br/> <h:br/> There are two use cases for this EP. First, the traditional
       ability to encrypt files and power down the machine and know the data is securely protected.
       Second, the ability to encrypt a file on a machine and then send the encrypted file securely
       using a non-encrypted data in transit method. </section>
@@ -253,18 +253,19 @@
         files (or volumes, or containers, etc.) on an end user device and permitting access to the
         encrypted data only after proper authentication is provided. Encryption products that
         conform to this EP must render information inaccessible to anyone (or, in the case of other
-        software on the machine, anything) that does not have the proper authentication credential.
+        software on the machine, anything) that does not have the proper authentication credential.  
+        The encrypted files may be on a local machine or may be sent to other devices.
         
         <h:br/> <h:br/>The foremost security objective of file
         encryption is to force an adversary to perform a cryptographic exhaust against a
         prohibitively large key space. Technology is changing at a rapid rate and the
         definition of mobile devices and traditional laptop/PC devices is quickly merging.
-        Requirements can diverge slightly for Mobile vs Laptop/PC and the Assurance Activities will
+        Requirements can diverge slightly for Mobile vs Laptop/PC and the Evaluation Activities will
         describe any differences. Either of these use cases may be an enterprise managed file encryption client. 
         The vendor is required to provide configuration guidance (AGD_PRE, AGD_OPE) to correctly install and 
         administer the TOE for every operational environment supported.<h:br/>  
       
-        <h:br/><h:br/> The data that is to be secured by the encryption product is encrypted using a File
+        <h:br/> The data that is to be secured by the encryption product is encrypted using a File
         Encryption Key (FEK). A file encryptor may have zero or more Key Encryption Keys (KEKs) that
         protect (encrypt) the FEK. The number of keys and the types of keys may vary, but the design
         should follow one of the following models:<h:br/>
@@ -277,7 +278,7 @@
         </h:ol> From a terminology standpoint, a KEK is either a symmetric key or an
         asymmetric key pair, and is used for both encryption and decryption of the
         FEK. If a distinction needs to be made between the public key (which encrypts the FEK) and
-        the private key (which decrypts the FEK), this is done in the requirements and the assurance
+        the private key (which decrypts the FEK), this is done in the requirements and the evaluation
         activities below.<h:br/> <h:br/> 
         
         The TOE may be capable of supporting multiple users with different authorization factors, such that different users
@@ -287,7 +288,7 @@
         sharing of at least one encrypted resource among different users of the TOE who possess
         different authorization factors (e.g., two different smartcards, two different passwords, one
         using a password and another using a smartcard). If this capability is supported, then the ST
-        author adds FDP_PRT_EXT.2 (and the associated application notes and assurance activities) to
+        author adds FDP_PRT_EXT.2 (and the associated application notes and evaluation activities) to
         the ST. <h:br/> <h:br/> 
         
         <h:b>Authorization</h:b> <h:br/> One or more authorization factors must be established before data can
@@ -311,7 +312,7 @@
         administrative role. Typically, administrators possess privilege to invoke
         functionality on the TOE that is not available to general users. For stand alone file encryption
         products, however, once the product is installed there should be little need for
-        administrative involvement.  For enterprised managed file encryption products, the TOE may be remotely administered. <h:br/>
+        administrative involvement.  For enterprised managed file encryption products, the TOE may be remotely administered. <h:br/><h:br/>
         
         <h:b>Data Authentication (optional)</h:b> <h:br/> Because modification of ciphertext data
         for certain modes of encryption will enable unidentified plaintext manipulation, care must
@@ -347,13 +348,15 @@
         used by the TOE, but is not part of the TOE. A third-party library used by the TOE is not
         considered part of the TOE’s “platform”, but (for instance) cryptographic functionality that
         is built into an Operating System on which the TOE executes can be considered part of the
-        platform. <h:br/> <h:br/> Likewise, an external entity (such as a smartcard) that performs
+        platform. <h:br/> <h:br/> 
+        
+        Likewise, an external entity (such as a smartcard) that performs
         cryptographic operations with respect to the FEK would also be considered a part of the “TOE
         Platform."<h:br/> The ST author will make the appropriate selection based on where
         that element is implemented. It is allowable for some elements in a component to be
         implemented by the TOE, while other elements in that same component may be implemented by
         the platform; in these cases, further guidance is given in the application notes and
-        assurance activities.<h:br/>  <h:br/> In some cases, the TOE vendor will have to provide specific
+        Supporting Documentation.<h:br/>  <h:br/> In some cases, the TOE vendor will have to provide specific
         configuration guidance for the Operational Environment to enable the TOE to meet its
         security objectives. These include:<h:br/> For non-mobile systems:<h:br/>
         <h:ul>
@@ -385,11 +388,11 @@
         <description> The Protection Profile for Application Software (App PP) defines the baseline
           Security Functional Requirements (SFRs) and Security Assurance Requirements (SARs) for
           application software products. This EP serves to extend the App PP baseline with
-          additional SFRs and associated Assurance Activities specific to an email client. Assurance
-          Activities are the actions that the evaluator performs in order to determine an email
+          additional SFRs and associated Evaluation Activities specific to an file encryption client. Evaluation
+          Activities are the actions that the evaluator performs in order to determine an file encryption
           client’s compliance to the SFRs.<h:br/> This EP conforms to Common Criteria <cite
             linkend="bibCC"/> for Information Technology Security Evaluation, Version 3.1, Revision
-          4. It is CC Part 2 extended and CC Part 3 conformant. In order to be conformant to this
+          5. It is CC Part 2 extended and CC Part 3 conformant. In order to be conformant to this
           EP, the ST must include all components in this EP and the associated App PP that are:
               <h:ul><h:li>unconditional (which are always required)</h:li>
             <h:li>selection-based (which are required when certain selections are chosen in the
@@ -426,9 +429,9 @@
       memory of an application program that is operating on a decrypted file.<h:br/> Note that this EP
       does not repeat the threats identified in the <cite linkend="bibAppPP"/>, though they all
       apply given the conformance and hence dependence of this EP on the <cite linkend="bibAppPP"/>.
-      Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
+      <h:br/>Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
       the TOE to provide its security functions, this EP focuses on threats to resources in the
-      operational environment. Together the threats of the AS PP and those defined in this EP define
+      operational environment. Together the threats of the App PP and those defined in this EP define
       the comprehensive set of security threats addressed by a file encryption TOE. 
       <threats>
         <threat id="T.UNAUTHORIZED_DATA_ACCESS">
@@ -538,7 +541,7 @@
         </threat>
         <threat id="T.PLAINTEXT_DATA_SPOOFING">
           <description>
-            <h:b>Data Spoofing (optional):</h:b> For certain modes of encryption, it is possible for a
+            <h:b>Data Spoofing:</h:b> For certain modes of encryption, it is possible for a
             malicious person to modify ciphertext data to force unintended modification to the
             underlying plaintext data, without the user being notified. There are various failures
             that may occur on the part of the TOE, to include: failure to verify the integrity of
@@ -554,6 +557,7 @@
         </threat>
       </threats>
     </section>
+    
       <section title="Assumptions" id="assumptions">
         <assumptions>
           <assumption id="A.AUTH_FACTOR">
@@ -611,7 +615,7 @@
       that are imposed by law and regulation. The following subsections provide a description of the
       security objectives required to meet the threats/policies previously discussed. The
       description of these security objectives are in addition to that described in the <cite
-        linkend="bibAppPP"/>.<h:br/> Note: in each subsection below particular security objectives are
+        linkend="bibAppPP"/>.<h:br/> <h:br/>Note: in each subsection below particular security objectives are
       identified (highlighted by O.) and they are matched with the associated security functional
       requirements (SFRs) that provide the mechanisms to satisfy the objectives.<h:br/> The Security
       Objectives are the requirements for the Target of Evaluation (TOE) and for the Operational
@@ -753,7 +757,7 @@
   </chapter>
 
   <chapter title="Security Requirements" id="req">This chapter describes the security requirements
-    which have to be fulfilled by the email client. Those requirements comprise functional
+    which have to be fulfilled by the file encryption client. Those requirements comprise functional
     components from Part 2 of <cite linkend="bibCC"/>. The following notations are used: <h:ul>
       <h:li>
         <h:b>Selection</h:b> (denoted by <h:i>italicized text</h:i>): is used to select one or more options
@@ -788,14 +792,18 @@
                 </selectable>
               </selectables>
             </title>
-          </f-element>
-          <f-element id="FCS_CKM_EXT.2.2">
-            <title>The TSF shall create a unique FEK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_CKM_EXT.2.1.</title>
-            <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
+          </f-element>.
+           
+          <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
                 linkend="bibAppPP"/>)or the key is derived from the conditioning of a password/passphrase.<h:br/>
                </note>
+          
+          
+          <f-element id="FCS_CKM_EXT.2.2">
+            <title>The TSF shall create a unique FEK for each file (or set of files) using the
+              mechanism on the client as specified in FCS_CKM_EXT.2.1.</title>
+           
             <aactivity>
               <h:h4>TSS</h:h4> 
               FCS_CKM_EXT.2.1: The evaluator shall review the TSS to determine that a
@@ -810,13 +818,13 @@
               If using a RBG was selected the evaluator verify the TSS to determine that it describes how the functionality
               described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
               generate FEK. To the extent possible from the description of the RBG functionality in
-              FCS_RBG_EXT.1 (from the AS PP), the evaluator shall determine that the key size being
+              FCS_RBG_EXT.1 (from the App PP), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
               decryption/encryption of the user data (FCS_COP.1(1)).  <h:br/> <h:br/> 
               
               Conditional: <h:br/>               
               If derived from a password/password is selected the examination of the TSS section is performed as
-              part of FCS_CKM.1(A) assurance activities. <h:br/>  <h:br/> 
+              part of FCS_CKM.1(A) evaluation activities. <h:br/>  <h:br/> 
               
               
               FCS_CKM_EXT.2.2: The evaluator shall
@@ -868,13 +876,13 @@
               If using a RBG was selected the evaluator verify the TSS to determine that it describes how the functionality
               described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
               generate FEK. To the extent possible from the description of the RBG functionality in
-              FCS_RBG_EXT.1 (from the AS PP), the evaluator shall determine that the key size being
+              FCS_RBG_EXT.1 (from the App PP), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
               decryption/encryption of the user data (FCS_COP.1(1)).  <h:br/> <h:br/> 
               
               Conditional: <h:br/>               
               If derived from a password/password is selected the examination of the TSS section is performed as
-              part of FCS_CKM.1(A) assurance activities. <h:br/>  <h:br/> 
+              part of FCS_CKM.1(A) evaluation activities. <h:br/>  <h:br/> 
               
               <h:h4>Guidance</h:h4> The evaluator shall review the
               instructions in the AGD guidance to determine that any explicit actions that need to
@@ -1084,10 +1092,7 @@
         <f-component id="FCS_COP.1(1)" name="Cryptographic operation (Data Encryption)">
           <f-element id="FCS_COP.1.1(1)">
             <title>
-              <h:b>Refinement:</h:b> The application shall <selectables>
-                <selectable>implement platform-provided AES encryption</selectable>
-                <selectable>implement AES encryption</selectable>
-              </selectables> shall perform <h:b>data encryption and decryption</h:b> in accordance with
+              <h:b>Refinement:</h:b> The application shall perform <h:b>data encryption and decryption</h:b> in accordance with
               a specified cryptographic algorithm <h:b>AES used in</h:b>
               <selectables linebreak="yes">
                 <selectable> CBC (as defined in NIST SP 800-38A)</selectable>
@@ -1127,7 +1132,7 @@
               determine how a specific mode/key-size is chosen by the end user. 
               
               <h:h4>Tests</h:h4> <h:h4>Requirement met by the TOE</h:h4> 
-              The assurance activity tests specified for AES in GCM or CBC mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
+              The evaluation activity tests specified for AES in GCM or CBC mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
               
               <h:h4>XTS-AES Monte Carlo Test</h:h4> The
               evaluator shall test the encrypt functionality of XTS-AES for each combination of the
@@ -1205,7 +1210,7 @@
               to determine that the method of choosing a specific mode/key size by the end user is described.
               
               <h:h4>Tests</h:h4> 
-              The assurance activity tests specified for AES in GCM mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
+              The evaluation activity tests specified for AES in GCM mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
               
               If AES Key Wrap is used to decrypt/encrypt the key, the evaluator shall examine the TSS to determine that it specifies that the implementation conforms to SP 800-38F with the appropriate (with or without padding) Key Wrap section using AES. 
               The evaluator shall also perform the verification procedures outlined in the testing methodology, "The Key Wrap Validation System." (http://csrc.nist.gov/groups/STM/cavp/documents/mac/KWVS.pdf)
@@ -1274,7 +1279,7 @@
               encryption and the mode used for the key encryption <h:br/>
               <h:h4>Guidance</h:h4> None. 
               <h:h4>Tests</h:h4> 
-              The assurance activity tests specified for AES in CBC mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
+              The evaluation activity tests specified for AES in CBC mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
               </aactivity>
           </f-element>
         </f-component>
@@ -1726,27 +1731,27 @@
           <note role="application">53 The intent of this requirement is to clarify that, if a FAK is
             to be used, it should be treated as sensitive as the FEK, and thus, follow the same
             encryption and decryption practices. </note>
-          <aactivity> The evaluator shall follow the assurance activities as laid out in
+          <aactivity> The evaluator shall follow the evaluation activities as laid out in
             FCS_COP.1(5) to assert proper FAK protection. </aactivity>
         </f-element>
       
       </f-component>
-        <f-component id="FCS_CKM.1(A)" name="Extended: Cryptographic key generation (Password/Passphrase conditioning)" status="sel-based"> 
+        <f-component id="FCS_CKM_EXT.1(A)" name="Extended: Cryptographic key generation (Password/Passphrase conditioning)" status="sel-based"> 
           <selection-depends req="FIA_AUT_EXT.1.1" ids="USEPAS"/>
-        <f-element id="FCS_CKM.1.1(A)">
+        <f-element id="FCS_CKM_EXT.1.1(A)">
           <title>
             <h:b>Refinement:</h:b>The TSF shall support a password/passphrase of up to 
             [assignment: maximum password size, positive integer of 64 or more] 
             characters used to generate a password authorization factor.
            </title>
         </f-element>
-          <f-element id="FCS_CKM.1.2(A)">
+          <f-element id="FCS_CKM_EXT.1.2(A)">
             <title>
               <h:b>Refinement:</h:b> The TSF shall allow passwords to be composed of any combination of upper case characters,
               lower case characters, numbers, and the following special characters: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”,
               and [selection: [assignment: other supported special characters], no other characters].</title>
           </f-element>
-          <f-element id="FCS_CKM.1.3(A)">
+          <f-element id="FCS_CKM_EXT.1.3(A)">
             <title>
               <h:b>Refinement:</h:b> The TSF shall perform [Password-based Key Derivation
               Functions] in accordance with a specified cryptographic algorithm [HMAC- <selectables>
@@ -1760,14 +1765,14 @@
               </selectables> that meet the following: [NIST SP 800-132]. 
               </title>
           </f-element>
-          <f-element id="FCS_CKM.1.4(A)">
+          <f-element id="FCS_CKM_EXT.1.4(A)">
             <title>
               <h:b>Refinement:</h:b> The TSF shall not accept passwords less than [selection: a value settable by the administrator, 
               [assignment: minimum password length accepted by the TOE, must be >= 1]] and greater than the maximum password length 
               defined in FCS_CKM_EXT.1.1(A).</title>
           </f-element>
-        <f-element id="FCS_CKM.1.5(A)">
-          <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 (from the AS PP) and with entropy 
+        <f-element id="FCS_CKM_EXT.1.5(A)">
+          <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 (from the App PP) and with entropy 
             corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.3(A).</title>
           <note role="application"> The password/passphrase is represented on the host machine as a sequence of characters whose 
             encoding depends on the TOE and the underlying OS. This sequence must be conditioned into a string of bits that is to be used as a KEK that is the same size as the FEK.
@@ -1793,7 +1798,7 @@
             for this component, as well as the “configure password/passphrase complexity setting” item for FMT_SMF.1.1. If the minimum length
             is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  </note>
           <aactivity>
-            <h:h4>TSS</h:h4> FCS_CKM_1.1(A): There are two aspects of this component that require
+            <h:h4>TSS</h:h4> FCS_CKM_EXT.1.1(A): There are two aspects of this component that require
             evaluation: passwords/passphrases of the length specified in the requirement (at least
             64 characters) are supported, and that the characters that are input are subject to the
             selected conditioning function. These activities are separately addressed in the text
@@ -1810,11 +1815,11 @@
             of how the output of the hash function is used to form the submask that will be input
             into the function and is the same length as the KEK as specified in FCS_CKM_EXT.4.
             <h:br/>For the NIST SP 800-132-based conditioning of the password/passphrase, the required
-            assurance activities will be performed when doing the assurance activities for the
+            evaluation activities will be performed when doing the evaluation activities for the
             appropriate requirements (FCS_COP.1.1(4)). If any manipulation of the key is performed
             in forming the submask that will be used to form the FEK or KEK, that process shall be
             described in the TSS. <h:br/>No explicit testing of the formation of the submask from the
-            input password is required. <h:br/> FCS_CKM_1.2(A): The ST author shall provide a
+            input password is required. <h:br/> FCS_CKM_EXT.1.2(A): The ST author shall provide a
             description in the TSS regarding the salt generation. The evaluator shall confirm that
             the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <cite
               linkend="bibAppPP"/>). <h:h4>Guidance</h:h4>
@@ -1899,7 +1904,7 @@
               shall be included in the Operational Guidance and verified by the evaluator. In these
               cases, the evaluator checks to ensure that all non-TOE products used to satisfy the
               requirements of the ST that are described in the Operational Guidance are consistent
-              with those listed in the ST, and those tested by the assurance activities of this EP.
+              with those listed in the ST, and those tested by the evaluation activities of this EP.
                 <h:h4>Tests</h:h4> The evaluator shall also perform the following tests. All
               instructions for configuring the TOE and each of the environments must be included in
               the Operational Guidance and used to establish the test configuration.<h:br/> For each
@@ -1919,6 +1924,7 @@
               </selectables> to ensure that all sensitive data created by the TOE when
               decrypting/encrypting the user-selected file (or set of files) are destroyed in
               volatile and non-volatile memory when the data is no longer needed. </title>
+            
             <note role="application"> The intent is that the TSF controls the use and clearing of any data
               that it manipulates that is not needed by the user (e.g. a temporary file created in non-volatile
               memory during the encryption/decryption process would be destroyed as soon as the process is completed).
@@ -1927,7 +1933,8 @@
               (for example, a text editor may create a “checkpoint” file when editing a file that is protected by the TOE;
               the TOE does not have to try to keep track of or clean up these “checkpoint” files). An optional
               requirement on cleaning up the temporary files created by non-TSF application when operating on
-              files protected by the TOE is in Appendix B. </note>
+              files protected by the TOE is FDP_PRT_EXT.3.1 </note>
+            
             <aactivity>
               <h:h4>TSS</h:h4>
               <h:b>Requirement met by the TOE</h:b>
@@ -2006,7 +2013,7 @@
             of allowed platforms, libraries, and devices, and instructions for using them. In these
             cases, the evaluator checks to ensure that all non-TOE products used to satisfy the
             requirements of the ST that are described in the Operational Guidance are consistent
-            with those listed in the ST, and those tested by the assurance activities of this EP.
+            with those listed in the ST, and those tested by the evaluation activities of this EP.
               <h:h4>Tests</h:h4> The evaluator shall also perform the following tests. These tests may
             be performed in conjunction with the tests listed for FCS_COP.1(2) (from the <cite
               linkend="bibAppPP"/>), FCS_COP.1(3) (from the <cite linkend="bibAppPP"/>), and
@@ -2337,10 +2344,10 @@
              Use of multiple authorization factors is preferable; if more than one authorization factor is
              used, the submasks produced must be combined using FCS_SMC_EXT.1.
             </note>
-            <aactivity>The assurance activities for this component will be driven by the selections
-              made by the ST author. This section describes assurance activities for all possible
+            <aactivity>The evaluation activities for this component will be driven by the selections
+              made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
-              the ST, the noted assurance activity does not need to be performed. 
+              the ST, the noted evaluation activity does not need to be performed. 
               
               <h:h4>TSS</h:h4> The
               evaluator shall examine the TSS to ensure that it describes how user authentication is
@@ -2436,8 +2443,8 @@
       
       </subsection>
       <subsection title="Security Management (FMT)" id="fmt"> 
-        <f-component id="FMT_SMF.1" name="Specification of Management Functions">
-          <f-element id="FMT_SMF.1.1">
+        <f-component id="FMT_SMF_EXT.1" name="Specification of File Encryption Management Functions">
+          <f-element id="FMT_SMF_EXT.1.1">
             <title>The TSF shall be capable of performing the following management functions:
                 <selectables linebreak="yes">
                   <selectable>no other function</selectable>
@@ -2468,15 +2475,15 @@
                 <h:li>If the TOE If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
                   , then “perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1” will be included.</h:li>
                 <h:li>If “other management functions” are assigned, a validation authority must be
-                  consulted to ensure the assurance activities and other functionality requirements
+                  consulted to ensure the evaluation activities and other functionality requirements
                   that may be needed are appropriately specified so that the ST can claim
                   conformance to this EP.</h:li>
               </h:ul>
             </note>
-            <aactivity>The assurance activities for this component will be driven by the selections
-              made by the ST author. This section describes assurance activities for all possible
+            <aactivity>The evaluation activities for this component will be driven by the selections
+              made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
-              the ST, the noted assurance activity does not need to be performed. The following
+              the ST, the noted evaluation activity does not need to be performed. The following
               sections are divided up into “Required Activities” and “Conditional Activities” for
               ease of reference. 
               
@@ -2494,7 +2501,7 @@
               of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.
               
               If “other management functions” are assigned, a validation authority must be consulted to ensure the 
-              assurance activities and other functionality requirements that may be needed are appropriately 
+              evaluation activities and other functionality requirements that may be needed are appropriately 
               specified so that the ST can claim conformance to this EP.
               
               <h:h4>TSS</h:h4>
@@ -2539,11 +2546,11 @@
               the two selections.  It is allowable to have some configuration stored and protected using platform-provided functions 
               and some stored by the TSF and protected using encryption per FCS_COP.1(1).
             </note>
-            <aactivity>The TSS assurance activity in the Application Software PP for FMT_MEC_EXT.1 applies for either selection.  
+            <aactivity>The TSS evaluation activity in the Application Software PP for FMT_MEC_EXT.1 applies for either selection.  
               Additionally, if "store and protect configuration options as specified in FCS_COP.1(1)" is selected, the evaluator 
               shall ensure that the TSS identifies those options, as well as indicates where the encrypted representation of these options is stored.
               
-              The test assurance activites in the Application Software PP for FMT_MEC_EXT.1 apply to all configuration options 
+              The test evaluation activites in the Application Software PP for FMT_MEC_EXT.1 apply to all configuration options 
               identified as being stored and set using platform mechanisms.  The following test activity applies to any configuration 
               options identified as being stored and protected using encryption per FCS_COP.1(1).
               
