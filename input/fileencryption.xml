@@ -539,8 +539,7 @@
               provides data cleanup.</rationale>
           </objective-refer>
         </threat>
-       
-        </threat>
+      
       </threats>
     </section>
     
@@ -766,14 +765,14 @@
                   </selectables>
                 </selectable>
               </selectables>
-            </title>
-          </f-element>.
-           
-          <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
+            </title>.
+            <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
                 linkend="bibAppPP"/>)or the key is derived from the conditioning of a password/passphrase.<h:br/>
-               </note>
-          
+            </note>
+            
+          </f-element>
+           
           
           <f-element id="FCS_CKM_EXT.2.2">
             <title>The TSF shall create a unique FEK for each file (or set of files) using the
