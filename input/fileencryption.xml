@@ -539,21 +539,7 @@
               provides data cleanup.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.PLAINTEXT_DATA_SPOOFING">
-          <description>
-            <h:b>Data Spoofing:</h:b> For certain modes of encryption, it is possible for a
-            malicious person to modify ciphertext data to force unintended modification to the
-            underlying plaintext data, without the user being notified. There are various failures
-            that may occur on the part of the TOE, to include: failure to verify the integrity of
-            the data prior to decryption, failure to provide integrity on the sensitive data,
-            failure to use a cryptographic or secure hashing code and failure to differentiate the
-            File Authentication Key (FAK) from the FEK; the FAK is any secret value used as input to
-            a keyed hashing function or as part of an asymmetric authentication process.
-          </description>
-          <objective-refer ref="O.DATA_AUTHENTICATION">
-            <rationale>The threat T.PLAINTEXT_DATA_SPOOFING is countered by O.DATA_AUTHENTICATION as this
-              provides data authentication.</rationale>
-          </objective-refer>
+       
         </threat>
       </threats>
     </section>
@@ -694,18 +680,7 @@
           <component-refer ref="FCS_VAL_EXT.1"/>
           <component-refer ref="FIA_AUT_EXT.1"/>
         </SO>
-        <SO id="O.DATA_AUTHENTICATION">
-          <description>
-            <h:b>Data Authentication:</h:b> For certain encryption modes, it is feasible to maliciously
-            modify the ciphertext data to cause unintended modifications to plaintext data, without
-            user notification. The TOE may provide a method for authenticating the sensitive data
-            and using an approved data authentication method. </description>
-          <component-refer ref="FCS_CKM_EXT.5"/>
-          <component-refer ref="FCS_COP.1(6)"/>
-          <component-refer ref="FDP_AUT_EXT.1"/>
-          <component-refer ref="FDP_AUT_EXT.2"/>
-          <component-refer ref="FDP_AUT_EXT.3"/>
-        </SO>
+      
         <SO id="O.MANAGE">
           <description>The TOE will provide all the functions and facilities necessary to support
             the authorized administrators in their management of the security of the TOE, and
@@ -1089,69 +1064,7 @@
           </f-element>
         </f-component>
        
-        <f-component id="FCS_COP.1(1)" name="Cryptographic operation (Data Encryption)">
-          <f-element id="FCS_COP.1.1(1)">
-            <title>
-              <h:b>Refinement:</h:b> The application shall perform <h:b>data encryption and decryption</h:b> in accordance with
-              a specified cryptographic algorithm <h:b>AES used in</h:b>
-              <selectables linebreak="yes">
-                <selectable> CBC (as defined in NIST SP 800-38A)</selectable>
-                <selectable> GCM (as defined in NIST SP 800-38D)</selectable>
-                <selectable> XTS (as defined in NIST SP 800-38E)</selectable>
-              </selectables>
-              <h:b>mode</h:b> and cryptographic key sizes <selectables linebreak="yes">
-                <selectable>128 bits;</selectable>
-                <selectable>256 bits</selectable>
-              </selectables>
-            </title>
-            <note role="application"> The intent of this requirement is to specify the approved AES
-              modes that the ST author may select for AES encryption of the appropriate information
-              on the file encryption software. The first selection indicates whether the TOE or the
-              platform performs the cryptographic operations. For the second selection, the
-              ST author should indicate the mode or modes supported by the TOE/platform
-              implementation. The third selection indicates the key size to be used, which is
-              identical to that specified for FCS_CKM_EXT.1. <h:br/> 
-                          
-            When the XTS mode is selected, a cryptographic key of 256-bit or of 512-bit is allowed as
-            specified in IEEE 1619. XTS-AES key is divided into two AES keys of equal size - for
-            example, AES-128 is used as the underlying algorithm, when 256-bit key and XTS mode are
-            selected. AES-256 is used when a 512-bit key and XTS mode are selected.
-            
-            </note>
-            <aactivity>
-              <h:h4>TSS</h:h4>
-              <h:h4>Requirement met by the platform</h:h4> The evaluator examines the TSS to determine that it lists 
-              the APIs used by the TOE to invoke the required functionality on the platform. The evaluator examines 
-              the ST of all platforms claimed in the TOE ST to determine that the specific modes and key-sizes are 
-              supported by the underlying platform, and that the APIs listed in the TSS section are those that were exercised on each underlying platform<h:br/>
-              <h:h4>Requirement met by the TOE</h:h4> If multiple modes are supported, the evaluator 
-              examines the TSS to determine how a specific mode/key-size is chosen by the end user. <h:br/>
-              
-              <h:h4>Guidance</h:h4> 
-              <h:h4>Requirement met by the platform</h:h4>  If multiple modes are supported, the evaluator examines the Operational Guidance to 
-              determine how a specific mode/key-size is chosen by the end user. 
-              
-              <h:h4>Tests</h:h4> <h:h4>Requirement met by the TOE</h:h4> 
-              The evaluation activity tests specified for AES in GCM or CBC mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
-              
-              <h:h4>XTS-AES Monte Carlo Test</h:h4> The
-              evaluator shall test the encrypt functionality of XTS-AES for each combination of the
-              following input parameter lengths: <h:h4>256 bit (for AES-128) and 512 bit (for AES-256)
-                keys</h:h4>
-              <h:h4>Three data unit (i.e., plaintext) lengths.</h:h4> One of the data unit lengths shall
-              be a non-zero integer multiple of 128 bits, if supported. One of the data unit lengths
-              shall be an integer multiple of 128 bits, if supported. The third data unit length
-              shall be either the longest supported data unit length or 216 bits, whichever is
-              smaller. <h:br/> using a set of 100 (key, plaintext and 128-bit random tweak value)
-              3-tuples and obtain the ciphertext that results from XTS-AES encrypt. <h:br/> The
-              evaluator may supply a data unit sequence number instead of the tweak value if the
-              implementation supports it. The data unit sequence number is a base-10 number ranging
-              between 0 and 255 that implementations convert to a tweak value internally. <h:br/> The
-              evaluator shall test the decrypt functionality of XTS-AES using the same test as for
-              encrypt, replacing plaintext values with ciphertext values and XTS-AES encrypt with
-              XTS-AES decrypt. </aactivity>
-          </f-element>
-        </f-component>
+      
         <f-component id="FCS_COP.1(5)" name="Cryptographic operation (Key Wrapping)" status="sel-based">
           <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYWRA"/>
           <f-element id="FCS_COP.1.1(5)">
