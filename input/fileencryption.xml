@@ -7,7 +7,7 @@
   <PPReference title="PP Reference" id="ID003">
     <ReferenceTable>
       <PPTitle>Application Software Extended Package for File Encryption </PPTitle>
-      <PPVersion>1.1-DRAFT</PPVersion>
+      <PPVersion>2.0-DRAFT</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2018-06-15</PPPubDate>
       <PPCertificationID>unassigned</PPCertificationID>
@@ -31,7 +31,7 @@
       <subject>Public release, incorporating comments received</subject>
     </entry>
     <entry>
-      <version>v 1.1</version>
+      <version>v 2.0</version>
       <date>2018-06-01</date>
       <subject>Enterprise Management, Requirement Clean Up, TDs Applied, Conversion to Module</subject>
     </entry>
