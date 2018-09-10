@@ -58,6 +58,16 @@
               of products, which extends those in a Protection Profile.</description>
           </entry>
           <entry>
+            <term><abbr title="Key Sanitization"></abbr></term>
+            <description> A method of sanitizing encrypted data by securely overwriting the key, as described in the key destruction requirement, that was encrypting the data. 
+            </description>
+          </entry>
+          <entry>
+            <term><abbr title="Key Chaining"></abbr></term>
+            <description>The method of using multiple layers of encryption keys to protect data. 
+              A top layer key encrypts a lower layer key which encrypts the data; this method can have any number of layers.</description>
+          </entry>
+          <entry>
             <term><abbr title="Protection Profile">PP</abbr></term>
             <description>An implementation-independent set of security requirements for a category
               of products.</description>
@@ -262,6 +272,7 @@
         definition of mobile devices and traditional laptop/PC devices is quickly merging.
         Requirements can diverge slightly for Mobile vs Laptop/PC and the Evaluation Activities will
         describe any differences. Either of these use cases may be an enterprise managed file encryption client. 
+        Some of the security functionality may be provided by the OE.
         The vendor is required to provide configuration guidance (AGD_PRE, AGD_OPE) to correctly install and 
         administer the TOE for every operational environment supported.<h:br/>  
       
@@ -464,7 +475,7 @@
             output may be used to recreate the keying material and decrypt the protected files. As
             the encryption program runs, it will store a variety of information in memory. Some of
             this information, such as random bit generation (RBG) inputs, RBG output, copies of the
-            plaintext file, and other keying material, could be very valuable to an attacker who
+            plaintext files, plaintext keys, and other keying material, could be very valuable to an attacker who
             wishes to decrypt an encrypted file. If the encryption product does not wipe these
             memory spaces appropriately, an attacker may be able to recreate the encryption key and
             access encrypted files. </description>
@@ -636,7 +647,7 @@
           <component-refer ref="FCS_VAL_EXT.1"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FCS_KYC_EXT.1"/>
-          <component-refer ref="FCS_CKM.1(A)"/>
+          <component-refer ref="FCS_CKM_EXT.1(A)"/>
           <component-refer ref="FCS_SMC_EXT.1 "/>
         </SO>
         <SO id="O.WIPE_MEMORY">
@@ -761,30 +772,31 @@
                     <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from the AS
                       PP) and with entropy corresponding to the security strength of AES key sizes of
                       [selection: 128 bit, 256 bit]; </selectable>
-                    <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM.1(A) </selectable>
+                    <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(A) </selectable>
                   </selectables>
                 </selectable>
-              </selectables>
-            </title>.
+              </selectables>,
+            </title>
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
-                linkend="bibAppPP"/>)or the key is derived from the conditioning of a password/passphrase.<h:br/>
+                linkend="bibAppPP"/>)or the key is derived from the conditioning of a password/passphrase. The enterprise management server is described in the 
+              File Encryption Enterprise Management Module.<h:br/>
             </note>
             
           </f-element>
            
           
           <f-element id="FCS_CKM_EXT.2.2">
-            <title>The TSF shall create a unique FEK for each file (or set of files) using the
+            <title>The TSF shall use a unique FEK for each file (or set of files) using the
               mechanism on the client as specified in FCS_CKM_EXT.2.1.</title>
            
             <aactivity>
               <h:h4>TSS</h:h4> 
               FCS_CKM_EXT.2.1: The evaluator shall review the TSS to determine that a
-              description covering how and when a FEKs are generated exists. The description must
+              description covering how and when the FEKs are generated exists. The description must
               cover all environments on which the TOE is claiming conformance, and include any
               preconditions that must exist in order to successfully generate the FEKs. The evaluator shall verify 
-              that the description of how the FEK are generated is consistent with
+              that the description of how the FEKs are generated is consistent with
               the instructions in the AGD guidance, and any differences that arise from different
               platforms are taken into account. <h:br/> <h:br/> 
               
@@ -798,18 +810,18 @@
               
               Conditional: <h:br/>               
               If derived from a password/password is selected the examination of the TSS section is performed as
-              part of FCS_CKM.1(A) evaluation activities. <h:br/>  <h:br/> 
+              part of FCS_CKM_EXT.1(A) evaluation activities. <h:br/>  <h:br/> 
               
               
               FCS_CKM_EXT.2.2: The evaluator shall
-              verify the TSS describes how a FEK is created for a protected
+              verify the TSS describes how a FEK is used for a protected
               resource and associated with that resource. The evaluator confirms that—per this description—the
-              FEK is unique per resource (file or set of files) and that the FEK is created using
-              the mechanisms specified in). <h:br/> 
+              FEK is unique per resource (file or set of files) and that the FEK is established using
+              the mechanisms specified in FCS_CKM_EXT.2.1). <h:br/> 
               
               <h:h4>Guidance</h:h4> The evaluator shall review the
               instructions in the AGD guidance to determine that any explicit actions that need to
-              be taken by the user to create a FEK exist—taking into account any differences that
+              be taken by the user to establish a FEK exist—taking into account any differences that
               arise from different platforms—and are consistent with the description in the TSS.
               
               
@@ -831,36 +843,36 @@
                   <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from the AS
                     PP) and with entropy corresponding to the security strength of AES key sizes of
                     [selection: 128 bit, 256 bit]; </selectable>
-                  <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM.1(A) </selectable>
+                  <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(A) </selectable>
                 </selectables>
               </selectable>
             </selectables>
           </title>
-          <note>This requirement shall be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
+          <note role="Application">This requirement shall be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
             <aactivity>
+              <h:h4>TSS</h:h4>
               FCS_CKM_EXT.2.1: The evaluator shall review the TSS to determine that a
-              description covering how and when a KEKs are generated exists. The description must
+              description covering how and when KEK)(s are generated exists. The description must
               cover all environments on which the TOE is claiming conformance, and include any
               preconditions that must exist in order to successfully generate the KEKs. The evaluator shall verify 
-              that the description of how the KEK are generated is consistent with
+              that the description of how the KEK(s) are generated is consistent with
               the instructions in the AGD guidance, and any differences that arise from different
               platforms are taken into account. <h:br/> <h:br/> 
               
               Conditional: <h:br/> 
               If using a RBG was selected the evaluator verify the TSS to determine that it describes how the functionality
               described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
-              generate FEK. To the extent possible from the description of the RBG functionality in
+              generate KEK(s). To the extent possible from the description of the RBG functionality in
               FCS_RBG_EXT.1 (from the App PP), the evaluator shall determine that the key size being
-              requested is identical to the key size and mode to be used for the
-              decryption/encryption of the user data (FCS_COP.1(1)).  <h:br/> <h:br/> 
+              requested is identical to the key size selected.  <h:br/> <h:br/> 
               
               Conditional: <h:br/>               
-              If derived from a password/password is selected the examination of the TSS section is performed as
-              part of FCS_CKM.1(A) evaluation activities. <h:br/>  <h:br/> 
+              If derived from a password/passphrase is selected the examination of the TSS section is performed as
+              part of FCS_CKM_EXT.1(A) evaluation activities. <h:br/>  <h:br/> 
               
               <h:h4>Guidance</h:h4> The evaluator shall review the
               instructions in the AGD guidance to determine that any explicit actions that need to
-              be taken by the user to create a KEK exist—taking into account any differences that
+              be taken by the user to establish a KEK exist—taking into account any differences that
               arise from different platforms—and are consistent with the description in the TSS.
               
               <h:h4>Tests</h:h4> None. 
@@ -890,7 +902,7 @@
                 </selectable>
                 <selectable> For non-volatile memory that consists of the invocation of an interface provided by the underlying platform that
                   <selectables>
-                    <selectable>logically addresses the storage locatoin of the key and performs a
+                    <selectable>logically addresses the storage location of the key and performs a
                       <selectables>
                         <selectable>single</selectable>
                         <selectable><assignable>ST author defined multi-pass</assignable></selectable>
@@ -976,15 +988,15 @@
               <h:h4>Tests</h:h4> 
               These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": 
               <testlist>
-                <test>Test 1: Applied to each key held as in volatile memory and subject to destruction by overwrite by the 
+                <test>Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
-                  In the case where the only selection made for the destruction method key was removal of power, then this test is unnecessary. 
+                  In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. 
                   
                   The evaluator shall:
                   
                   Record the value of the key in the TOE subject to clearing.
                   
-                  Cause the TOE to perform a normal cryptographic processing with the key from Step #1.
+                  Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.
                   
                   Cause the TOE to clear the key.
                   
@@ -996,8 +1008,8 @@
                   
                   Steps 1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</test>
                 
-                <test> Test 2: [Contitional] If new value of a key is selected this test does not apply. 
-                  Applied to each key help in non-volatile memory and subject to destruction by the TOE. 
+                <test>[Contitional] If new value of a key is selected this test does not apply. 
+                  Applied to each key held in non-volatile memory and subject to destruction by the TOE. 
                   The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended.
                   
                   Identify the purpose of the key and what access should fail when it is deleted. (e.g. the data encryption key being deleted would cause data decryption to fail.)
@@ -1008,7 +1020,7 @@
                   
                   The test succeeds if step 3 fails.</test>
                   
-                <test>Test 3:Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system):
+                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system):
                   
                   Record the value of the key in the TOE subject to clearing.
                   
@@ -1018,7 +1030,7 @@
                   
                   Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails. </test>
                   
-                <test>Test 4: Applied to each key held as non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:
+                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:
                   
                   Record the logical storage location of the key in the TOE subject to clearing.
                   
@@ -1047,7 +1059,7 @@
               PIN was used for a SmartCard and managed by the TOE, ensuring that the PIN was properly destroyed shall be addressed.
             </note>
             <aactivity>
-              <h:h4>TSS</h:h4>              
+              <h:h4>KMD</h:h4>              
               The evaluator shall verify the TSS  includes a key lifecycle, that includes a
               description where key material reside, how the key material is used, how it is
               determined that keys and key material are no longer needed, and how the material is
@@ -1094,12 +1106,13 @@
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
             <aactivity>
-              <h:h4>TSS</h:h4>
+              <h:h4>TSS or KMD (Key Management Description may be used if necessary details describe proprietary information)</h:h4>
               <h:h4>Conditional:</h:h4> If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
               describes how the FEK encryption/decryption is invoked. <h:br/>
-              <h:h4>Conditional:</h:h4> If use impliment functionality was selected, The evaluator shall check that the TSS includes
+              
+              <h:h4>Conditional:</h:h4> If impliment functionality was selected, The evaluator shall check that the TSS includes
               a description of encryption function(s) used for key wrapping. The evaluator should check that this description of the
-              selected encryption function includes the key sizes and modes of operations as specified in the table above per row.
+              selected encryption function includes the key sizes and modes of operations as specified in the selection above.
               The evaluator shall check that the TSS describes the means by which the TOE satisfies constraints on algorithm parameters
               included in the selections made for ‘cryptographic algorithm’ and ‘list of standards’. 
               
@@ -1108,13 +1121,7 @@
               with the relevant parts of the TSS.
               
               Assessment of the complete data path for key wrapping includes confirming that the TSS describes the data flow from the
-              device’s host interface to the device’s non-volatile memory storing the data, and gives information enabling the user data
-              datapath to be distinguished from those situations in which data bypasses the data encryption engine (e.g. read-write
-              operations to an unencrypted Master Boot Record area). The documentation of the data path should be detailed enough that
-              the evaluator will thoroughly understand the parts of the TOE that the data passes through (e.g. different memory types,
-              processors and co-processors), its encryption state (i.e. encrypted or unencrypted) in each part, and any places where
-              the data is stored. For example, any caching or buffering of the data should be identified and distinguished from the
-              final destination in non-volatile memory (the latter represents the location from which the host will expect to retrieve the data in future).
+              device’s host interface to the device’s non-volatile memory storing the data. 
               
               
               <h:br/>
@@ -1175,7 +1182,7 @@
                     <selectable>128</selectable>
                     <selectable>256</selectable>
                   </selectables> bits] that meet the following:
-                  [AES as specified in SP 800-38A.
+                  [AES as specified in SP 800-38A.]
                  </selectable>
              </selectables>
             </title>
@@ -1191,7 +1198,7 @@
               encryption and the mode used for the key encryption <h:br/>
               <h:h4>Guidance</h:h4> None. 
               <h:h4>Tests</h:h4> 
-              The evaluation activity tests specified for AES in CBC mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
+              The evaluation activity tests specified for AES in CBC mode in the underlying Application Software PP shall be performed.
               </aactivity>
           </f-element>
         </f-component>
@@ -1238,15 +1245,11 @@
           <f-element id="FCS_COP.1.1(8)">
             <title>
               <h:b>Refinement:</h:b> The TSF shall perform [key transport] in accordance with a
-              3 specified cryptographic algorithm [RSA in the following modes 
+              specified cryptographic algorithm [RSA in the following modes 
               <selectables>
                 <selectable>KTS-OAEP</selectable>
-                <selectable>KTS4-KEM-KWS</selectable>
-              </selectables> and the cryptographic key size 
-              <selectables>
-                <selectable>2048</selectable>
-                <selectable>3072</selectable>
-              </selectables>bits that meet the following: [NIST SP 800-56B, Revision 1].
+                <selectable>KTS-KEM-KWS</selectable>
+              </selectables> and the cryptographic key size of 3072 bits that meet the following: [NIST SP 800-56B, Revision 1].
             </title>
             <note role="application">:  This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
@@ -1294,16 +1297,16 @@
               decoding operation (described in NIST SP 800-56B section 7.2.2.4) to recover
               HA’ || X. For each HA’, the evalutor shall take the corresponding A and the
               specified hash algorithm and verify that HA' = Hash(A). The evaluator
-              should[shall?] also force the TOE to perform some RSA-OAEP decryptions
-              where the A value is passed incorrectly, and the evaluator should[shall?] verify
+              shall also force the TOE to perform some RSA-OAEP decryptions
+              where the A value is passed incorrectly, and the evaluator shall verify
               that an error is detected.
               4. The evaluator shall check the format of the ‘X’ string recovered in OAEP.Test.3
               to ensure that the format is of the form PS || 01 || K, where PS consists of zero or
               more consecutive 0x00 bytes and K is the transported keying material. The
-              evaluator should[shall?] also feed into the TOE’s RSA-OEAP decryption
+              evaluator shall also feed into the TOE’s RSA-OEAP decryption
               operation some cipher texts for which the resulting ‘X’ strings do not have the
               correct format (i.e., the leftmost non-zero byte is not 0x01). These incorrectly 
-              formatted ‘X’ variables should[shall?] be detected by the RSA-OEAP decrypt
+              formatted ‘X’ variables shall be detected by the RSA-OEAP decrypt
               function.
               5. The evaluator shall trigger all detectable decryption errors and validate that the
               returned error codes are the same and that no information is given back to the
@@ -1356,8 +1359,7 @@
               <selectables>
                 <selectable>submask</selectable>
                 <selectable>intermediate key</selectable>
-                <selectable>FEK</selectable>
-              </selectables>using the following method(s): 
+              </selectables> using the following method(s): 
               <selectables>
                 <selectable>key wrap as specified in FCS_COP.1(5)</selectable>
                 <selectable>hash the 
@@ -1371,7 +1373,7 @@
                     <selectable>submask</selectable>
                     <selectable>intermediate key</selectable>
                     <selectable>FEK</selectable>
-                  </selectables> asspecified in FCS_COP.1(1) and compare it against a stored known value]</selectable>
+                  </selectables> as specified in FCS_COP.1(1) and compare it against a stored known value]</selectable>
               </selectables> 
             </title>
           </f-element>
@@ -1380,10 +1382,10 @@
           </f-element>
           <f-element id="FCS_VAL_EXT.1.3">
             <title>The TSF shall 
-              <selectables>
-                <selectable>[perform a key sanitization of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
-                <selectable>institute a delay such that only [assignment: ST author specified number of attempts] can be made within a 24 hour period,</selectable>
-                <selectable>block validation after [assignment: ST author specified number of attempts] of consecutive failed validation attempts,</selectable>
+              <selectables linebreak="yes">
+                <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
+                <selectable>institute a delay such that only [assignment: ST author specified number of attempts] can be made within a 24 hour period</selectable>
+                <selectable>block validation after [assignment: ST author specified number of attempts] of consecutive failed validation attempts</selectable>
                 <selectable>require power cycle/reset the TOE after [assignment: ST author specified number of attempts] of consecutive failed validation attempts].</selectable>
               </selectables>
             </title>
@@ -1399,7 +1401,7 @@
             <h:h4>Guidance</h:h4>If the validation functionality is configurable, the evaluator shall examine the operational guidance
             to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. 
             
-            <h:h4>Tests</h:h4>281	The evaluator shall perform the following tests:
+            <h:h4>Tests</h:h4>The evaluator shall perform the following tests:
             
             Test 1: The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
             The evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
@@ -1416,7 +1418,8 @@
           <f-element id="FCS_IV_EXT.1.1 ">
             <title>The application shall <selectables>
                 <selectable>implement platform-provided functionality to generate IVs</selectable>
-              <selectable>generate IVs in the following manner<selectables>
+              <selectable>generate IVs in the following manner
+                <selectables linebreak="yes">
                 <selectable>CBC: IVs shall be non-repeating and unpredictable;</selectable>
                 <selectable>CCM: Nonce shall be non-repeating and unpredictable;</selectable>
                 <selectable>XTS: No IV. Tweak values shall be non-negative integers, assigned consecutively,
@@ -1428,34 +1431,12 @@
             <note role="application">None.</note>
             <aactivity>
               <h:h4>TSS</h:h4>
-              The evaluator shall examine the TSS to determine which authorization factors support
-                validation.
-                The evaluator shall examine the TSS to review a high-level description if multiple
-                submasks are used within the TOE, how the submasks are validated (e.g., each
-                submask validated before combining, once combined validation takes place). <h:br/>
-                
-                The evaluator shall examine the TSS to verify that it described the method the TOE
-                  employs to limit the number of consecutively failed authorization attempts.
-                  The evaluator shall examine the vendor’s TSS to ensure it describes how validation
-                  is performed. The description of the validation process in the TSS provides detailed
-                  information how the TOE validates the submasks. The TSS describes how the
-                  process works, such that it does not expose any material that might compromise the
-                  submask(s).
-                 
+              The evaluator shall ensure the TSS describes how nonces are created uniquely and how IVs and tweaks are handled (based on the AES mode).
+              The evaluator shall confirm that the nonces are unique and the IVs and tweaks meet the stated requirements.
               
-                <h:h4>Guidance</h:h4>[conditional] If the validation functionality is configurable, the evaluator shall
-                examine the operational guidance to ensure it describes how to configure the TOE to
-                ensure the limits regarding validation attempts can be established.
-                
-                <h:h4>Tests</h:h4>The evaluator shall perform the following tests:
-                Test 1: The evaluator shall determine the limit on the average rate of the number of
-                consecutive failed authorization attempts. The evaluator will test the TOE by entering
-                that number of incorrect authorization factors in consecutive attempts to access the
-                protected data. If the limit mechanism includes any “lockout” period, the time period 
-                tested should include at least one such period. Then the evaluator will verify that the
-                TOE behaves as described in the TSS.
-                Test 2: For each validated authorization factor, ensure that when the user provides an
-                incorrect authorization factor, the TOE prevents the any FEK from being decrypted. 
+              <h:h4>Guidance</h:h4>None.
+              
+              <h:h4>Tests</h:h4>None.
             </aactivity>
           </f-element>
         </f-component>
@@ -1468,7 +1449,7 @@
                 <selectable id="HASKEK">KEKs originating from 
                   <selectables>
                     <selectable>one or more authorization factors(s)</selectable>
-                    <selectable>n file encryption enterprise management server</selectable>
+                    <selectable>a file encryption enterprise management server</selectable>
                   </selectables> to 
                   <selectables>
                     <selectable>the FEK(s)</selectable>
@@ -1479,11 +1460,11 @@
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                     <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1(5)</selectable>
                     <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
                     <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(1)</selectable>
                     <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1(8)</selectable>
+                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
                     <selectables>
                       <selectable>
@@ -1494,7 +1475,6 @@
                       </selectable>
                       <selectable>
                         <selectables>
-                          <selectable>112 bits</selectable>
                           <selectable>128 bits</selectable>
                           <selectable>192 bits</selectable>
                           <selectable>256 bits</selectable>
@@ -1506,21 +1486,23 @@
               and 
               <selectables>
                 <selectable> no supplemental key chains</selectable>
-                <selectable> other supplemental key chains that protect a key or keys in the primary key chain using the folliwing method(s):
+                <selectable> other supplemental key chains that protect a key or keys in the primary key chain using the following method(s):
                   <selectables linebreak="yes">
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable>implement key wrapping as specified in FCS_COP.1(5)</selectable>
-                    <selectable>implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable>implement key encryption as specified in FCS_COP.1(1)</selectable>
+                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1(5)</selectable>
+                    <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(1)</selectable>
+                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1(8)</selectable>
+                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>
             </title>
             <note role="application">Key Chaining is the method of using multiple layers of
               encryption keys to ultimately secure the FEK. The number of intermediate keys will
               vary. This applies to all keys that contribute to the ultimate wrapping or derivation
-              of the FEK; including those in areas of protected. For the first selection, the ST author
+              of the FEK. For the first selection, the ST author
               selects the method used for the keychain.  If the second option is chosen (“KEKs originating…”)
               , then the ST author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the ST author must also specify the 
@@ -1548,18 +1530,18 @@
             The selections for an enterprise management server indicate that the key chain may terminate or start an enterprise management server.  
             The server may provide a key needed to start a chain or the server may recieve a key that ends a chain.  The key mangement internal to the server is not evaluated here.</note>
             <aactivity>
-              <h:h4>TSS</h:h4>
+              <h:h4>TSS or KMD (Key Management Description may be used if necessary details describe proprietary information)</h:h4>
               The evaluator shall verify the TSS contains a high level 
-              description of the key hierarchy for all keychains and authorization methods selected in FIA_AUT_EXT 
+              description of all keychains and authorization methods selected in FIA_AUT_EXT 
               that are used to protect the KEK or FEK. The evaluator shall examine the TSS to ensure it describes 
               each key chain in detail, and these descriptions correspond with the selections of the requirement. 
-              The description of each key chain shall be reviewed to ensure it maintains a chain of keys using options for maintaining a the keychain.
+              The description of each key chain shall be reviewed to ensure the options for maintaining the key chain are documented.
               
               The evaluator shall verify the TSS to ensure that it describes how each key chain process functions, 
               such that it does not expose any material that might compromise any key in the chain. A high-level 
-              description should include a diagram illustrating the key hierarchy implemented and detail where all 
-              keys and keying material is stored or what it is derived from. The evaluator shall examine the primary 
-              key hierarchy to ensure that at no point the chain could be broken without a cryptographic exhaust or 
+              description should include a diagram illustrating the keychain(s) implemented and detail where all 
+              keys and keying material is stored or how the keys or key material are derived. The evaluator shall examine the primary 
+              key chain to ensure that at no point the chain could be broken without a cryptographic exhaust or 
               knowledge of the KEK or FEK and the effective strength of the FEK is maintained throughout the Key Chain 
               as specified in the requirement.<h:h4>Guidance</h:h4>
               None. <h:h4>Tests</h:h4>None. </aactivity>
@@ -1584,7 +1566,7 @@
             mechanism on the client as specified in FCS_RBG_EXT.1.</title>
         </f-element>
         <f-element id="FCS_CKM_EXT.5.3">
-          <title>The FAKs must be generated by the TOE.</title>
+          <title>The FAKs must be generated by the TOE as specified in FDP_AUT_EXT.2.9.</title>
         </f-element>
         <f-element id="FCS_CKM_EXT.5.4">
           <title>The TSF will not write FAKs to non-volatile memory.</title>
@@ -1592,15 +1574,12 @@
         <f-element id="FCS_CKM_EXT.5.5">
           <title>The FAK shall be protected in a manner conformant to FCS_COP.1(6).</title>
           <note role="application"> The intent of this requirement is to describe the different
-            methods that a FAK can be created and formed. <h:br/>FCS_CKM_EXT.5.1 details how a FAK may
-            be directly conditioned from a password/passphrase or may be a randomly generated from
-            an approved randomizer. <h:br/>FCS_CKM_EXT.5.2 requires that each resource to be encrypted
+            methods that a FAK can be created and formed. <h:br/>FCS_CKM_EXT.5.1 details how a FAK mis stored. <h:br/>FCS_CKM_EXT.5.2 requires that each resource to be encrypted
             has a unique FAK, and that this FAK is generated by the TSF. If the encrypted resource
             is a set of files encrypted under one FAK, additional requirements on the initialization
             vectors and cipher modes must be adhered to in Section 4.2. </note>
           <aactivity>
-            <h:h4>TSS</h:h4> FCS_CKM_EXT.5.1: The evaluator shall examine the TSS to determine how the
-            FEK will actually be formed and details how the FEK is stored (or not stored) in memory.
+            <h:h4>TSS</h:h4> FCS_CKM_EXT.5.1: The evaluator shall examine the TSS to determine how the FAK is stored (or not stored) in memory.
             <h:br/> FCS_CKM_EXT.5.2: The evaluator shall examine the TSS to determine that it
             describes how a FAK is created for a protected resource and associated with that
             resource; protection of the FAK itself is covered by FCS_COP.1(5). The evaluator
@@ -1695,7 +1674,7 @@
             they should select “no other characters”.
             
             For FCS_CKM_EXT.1.3(A), the ST author selects the parameters based on the PBKDF used by the TSF. The key cryptographic
-            key sizes in are made to correspond to the KEK key sizes selected in FCS_CKM_EXT.1.
+            key sizes in FCS_CKM_EXT.1.3(A) are made to correspond to the KEK key sizes selected in FCS_CKM_EXT.1.
             
             The password/passphrase must be conditioned into a string of bits that forms the submask to be used as input into the
             KEK. Conditioning is performed using one of the identified hash functions in accordance with the process described in
@@ -1714,11 +1693,19 @@
             evaluation: passwords/passphrases of the length specified in the requirement (at least
             64 characters) are supported, and that the characters that are input are subject to the
             selected conditioning function. These activities are separately addressed in the text
-            below. <h:br/>Support for minimum length:The evaluators shall check to ensure that the 
+            below. 
+            
+            <h:br/>Support for minimum length:The evaluators shall check to ensure that the 
             TSS describes the allowable ranges for password/passphrase lengths, and that at least 64 characters may be specified by the user.
-            <h:br/>Support for PBKDF: The evaluator shall examine the password hierarchy TSS to ensure
+            
+            <h:br/>Support for character set: The evaluator shall check to ensure that the 
+            TSS describes the allowable character set and that it contains the characters listed in the SFR.
+            
+            <h:br/>Support for PBKDF: The evaluator shall examine the TSS to ensure
             that the formation of all KEKs or FEKs (as decided in the FCS_CKM_EXT.1 selection) is
-            described and that the key sizes match that described by the ST author. <h:br/>The
+            described and that the key sizes match that described by the ST author. 
+            
+            <h:br/>The
             evaluator shall check that the TSS describes the method by which the password/passphrase
             is first encoded and then fed to the SHA algorithm. The settings for the algorithm
             (padding, blocking, etc.) shall be described, and the evaluator shall verify that these
@@ -1726,21 +1713,27 @@
             the hash function itself. The evaluator shall verify that the TSS contains a description
             of how the output of the hash function is used to form the submask that will be input
             into the function and is the same length as the KEK as specified in FCS_CKM_EXT.4.
+            
             <h:br/>For the NIST SP 800-132-based conditioning of the password/passphrase, the required
             evaluation activities will be performed when doing the evaluation activities for the
             appropriate requirements (FCS_COP.1.1(4)). If any manipulation of the key is performed
             in forming the submask that will be used to form the FEK or KEK, that process shall be
-            described in the TSS. <h:br/>No explicit testing of the formation of the submask from the
-            input password is required. <h:br/> FCS_CKM_EXT.1.2(A): The ST author shall provide a
+            described in the TSS. 
+            
+            <h:br/>No explicit testing of the formation of the submask from the
+            input password is required. 
+            
+            <h:br/> FCS_CKM_EXT.1.2(A): The ST author shall provide a
             description in the TSS regarding the salt generation. The evaluator shall confirm that
             the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <cite
               linkend="bibAppPP"/>). <h:h4>Guidance</h:h4>
+            
             <h:b>Support for minimum length:</h:b> The evaluators shall check the Operational Guidance 
             to determine that there are instructions on how to generate large passwords/passphrases, and
             instructions on how to configure the password/passphrase length (and optional complexity settings)
             to provide entropy commensurate with the keys that the authorization factor is protecting.  
             
-            <h:h4>Tests</h:h4> SSupport for Password/Passphrase characteristics: In addition to the analysis above, 
+            <h:h4>Tests</h:h4> Support for Password/Passphrase characteristics: In addition to the analysis above, 
             the evaluator shall also perform the following tests on a TOE configured according to the Operational Guidance: <testlist>
               <test>Ensure that the TOE supports passwords/passphrases of a minimum length of 64 characters. </test>
               <test>Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.1.1(A). </test>
@@ -1749,12 +1742,7 @@
               <test> Ensure that the TOE supports passwords consisting of all characters listed in FCS_CKM_EXT.1.2(A).</test>
             </testlist>
             <h:b>Conditioning:</h:b> No explicit testing of the formation of the authorization factor
-            from the input password/passphrase is required. <h:b>Iteration count:</h:b> The evaluator
-            shall verify that the iteration count for PBKDFs performed by the TOE comply with NIST
-            SP 800-132 by ensuring that the TSS contains a description of the estimated time
-            required to derive key material from passwords and how the TOE increases the computation
-            time for password-based key derivation (including but not limited to increasing the
-            iteration count). </aactivity>
+            from the input password/passphrase is required. </aactivity>
         </f-element>
       </f-component>
       
@@ -1767,6 +1755,9 @@
               <selectable>SHA-256</selectable>
               <selectable>SHA-384</selectable>
               <selectable>SHA-512</selectable>
+            <selectable>HMAC-SHA-256</selectable>
+            <selectable>HMAC-SHA-384</selectable>
+            <selectable>HMAC-SHA-512</selectable>
             </selectables> to generate an intermediary key</title>
           <note role="application">This requirement specifies the way that a product may combine the
             various submasks by using either an XOR or an approved SHA-hash. </note>
@@ -1835,7 +1826,7 @@
                 <selectable>implement functionality</selectable>
               </selectables> to ensure that all sensitive data created by the TOE when
               decrypting/encrypting the user-selected file (or set of files) are destroyed in
-              volatile and non-volatile memory when the data is no longer needed. </title>
+              volatile and non-volatile memory when the data is no longer needed according to FCS_CKM_EXT4. </title>
             
             <note role="application"> The intent is that the TSF controls the use and clearing of any data
               that it manipulates that is not needed by the user (e.g. a temporary file created in non-volatile
@@ -1845,7 +1836,9 @@
               (for example, a text editor may create a “checkpoint” file when editing a file that is protected by the TOE;
               the TOE does not have to try to keep track of or clean up these “checkpoint” files). An optional
               requirement on cleaning up the temporary files created by non-TSF application when operating on
-              files protected by the TOE is FDP_PRT_EXT.3.1 </note>
+              files protected by the TOE is FDP_PRT_EXT.3.1 
+            
+            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4</note>
             
             <aactivity>
               <h:h4>TSS</h:h4>
@@ -1859,21 +1852,37 @@
               and volatile memory locations after the TSF is done with its decryption/encryption operation. 
               <h:h4>Guidance</h:h4>
               None. <h:h4>Tests</h:h4> 
-              <testlist><test>This test only applies for application provided functionality.</test>
+              <testlist><test>
+                This test only applies for application provided functionality.
                 
-                1. Using a file editor, create and save a text file that is encrypted per the evaluation configured encryption policy.  The contents of the file will be limited to a known text pattern to ensure that the text pattern will be present in all encryption/decryption operations performed by the TOE.
+                1. Using a file editor, create and save a text file that is encrypted per the evaluation configured encryption policy.
+                The contents of the file will be limited to a known text pattern to ensure that the text pattern will be present in all encryption/decryption operations performed by the TOE.
                 
-                2. Exit the file editor so that the file (including its known text pattern) has “completed the decryption/encryption operation” and process memory containing the known text pattern is released.
+                2. Exit the file editor so that the file (including its known text pattern) has “completed the decryption/encryption operation”
+                and process memory containing the known text pattern is released.
                 
-                3. The evaluator will take a dump of volatile memory and search the generated dump for the known pattern.  The test fails if the known plaintext pattern is found in the memory dump.
+                3. The evaluator will take a dump of volatile memory and search the generated dump for the known pattern.
+                The test fails if the known plaintext pattern is found in the memory dump.
                 
                 4. Open the file again with a file editor. 
                 
-                5. The evaluator will take a dump of volatile memory and search the generated dump for the known text pattern.  Note that the known text pattern is expected to be present since the file editor has the file open. The test fails if the known plaintext pattern is not found in the memory dump.
+                5. The evaluator will take a dump of volatile memory and search the generated dump for the known text pattern.
+                Note that the known text pattern is expected to be present since the file editor has the file open.
+                The test fails if the known plaintext pattern is not found in the memory dump.
                 
                 6. Close the file and exit the file editor.
                 
-                7. The evaluator will take a dump of volatile memory and search the retrieved dump for the known pattern.  The test fails if the known plaintext pattern is found in the memory dump.</testlist>
+                7. The evaluator will take a dump of volatile memory and search the retrieved dump for the known pattern.
+                The test fails if the known plaintext pattern is found in the memory dump.
+              
+                 8. Open the file again with a file editor, edit the contents with a new text pattern, save the file. 
+                 
+                 9. Exit the file editor so that the file (including its known text pattern) has “completed the decryption/encryption operation”
+                 and process memory containing the known text pattern is released.
+                 
+                 10. The evaluator will take a dump of volatile memory and search the generated dump for the new known pattern.
+                 The test fails if the new known plaintext pattern is found in the memory dump.
+                 </test></testlist>
             </aactivity>
           </f-element>
         </f-component>
@@ -1889,7 +1898,7 @@
               <selectable>asymmetric signing and verification in accordance with
                 FDP_AUT_EXT.3</selectable>
             </selectables>. </title>
-          <note role="application">49 This is the primary requirement for authentication of the
+          <note role="application">This is the primary requirement for authentication of the
             protected resources (files and sets of files). It is highly encouraged for vendors to
             utilize a keyed hashing service or asymmetric signing mechanism to ensure data
             authentication, as these are the only two implementations noted in this EP that prevent
@@ -1972,7 +1981,7 @@
             decryption of the ciphertext.</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.2.8">
-          <title>During verification, the TSF shall assume the MAC is at the end of the ciphertext
+          <title>During verification, the TSF shall verify the MAC is at the end of the ciphertext
             file.</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.2.9">
@@ -1981,7 +1990,7 @@
           <note role="application">The intent of this requirement is to specify the correct way of
             using a keyed hash function to authenticate the data, and enable authentication of data. </note>
           <aactivity>
-            <h:h4>TSS</h:h4> 46 The evaluator shall check the TSS section to confirm that it describes
+            <h:h4>TSS</h:h4> The evaluator shall check the TSS section to confirm that it describes
             how a request for each type of supported resource (file (or set of files)) will result
             in data authentication using a keyed hash function. The evaluator will confirm that the
             TOE will respond appropriately to a failed authentication, to include notifying the user
@@ -2028,13 +2037,13 @@
           <title>The TSF shall append the signature to the end of the ciphertext file.</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.3.7">
-          <title>During verification, the TSF shall assume the signature is at the end of the
+          <title>During verification, the TSF shall verify the signature is at the end of the
             ciphertext file.</title>
           <note role="application">55 The intent of this requirement is to specify the secure way of
             using a cryptographic signing and hashing function as part of the data authentication
             mechanism.</note>
           <aactivity>
-            <h:h4>TSS</h:h4> 1 The evaluator shall check the TSS section to confirm that it describes
+            <h:h4>TSS</h:h4> The evaluator shall check the TSS section to confirm that it describes
             how a request for each type of supported resource (file (or set of files)) will result
             in data authentication using a secure hash and cryptographic signing process. The
             evaluator will confirm that the supplied public and private key pair were generated in
@@ -2054,15 +2063,19 @@
       </f-component>
       <f-component id="FDP_PM_EXT.1" name="Extended: Protection of  Data in Power Managed States" status="optional">
         <f-element id="FDP_PM_EXT.1.1">
-          <title>The TSF shall protect all data stored to the disk drive during the transition to
-            the [assignment: powered-down state(s) for which this capability is provided] state as
+          <title>The TSF shall protect all data selected for encryption during the transition to
+            the [assignment: powered-down state(s) or locked system states for which this capability is provided] state as
             per FDP_PRT_EXT.1.1.</title>
         </f-element>
         <f-element id="FDP_PM_EXT.1.2">
           <title>On the return to a powered-on state from the state(s) indicated in FDP_PM_EXT.1.1,
             the TSF shall authorize the user in the manner specified in FIA_AUT_EXT.1.1 once before
             any protected data are decrypted. </title>
-          <note role="application"> For the first selection, the ST author fills in the state using
+        </f-element>
+        <f-element id="FDP_PM_EXT.1.3">
+          <title>The TSF shall destroy all key material and authentication factors stored in plaintext when transitioning to a
+           protected state as defined by FPT_PWR_EXT.1.</title>
+        <note role="application"> For the first assignment, the ST author fills in the state(s) using
             the same name used in the Operational Guidance for the state that is appropriately
             protected by the TOE. <h:br/> It should be noted that it is not sufficient to use
             Operational Environment-based credentials to unlock the TOE from the indicated state;
@@ -2077,15 +2090,27 @@
             are protected, and how keying material associated with these resources is protected (if
             different from that described elsewhere). The TSF shall also describe how the state is
             exited, and how the requirements are met during this transition to an operational state.
+            
+            The evaluator shall verify the TSS provides a description of what keys and key material are destroyed when entering any protected state.
+            
+            <h:h4>KMD</h:h4> The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
+              The evaluator shall verify the KMD includes a key lifecycle that includes a description where key material reside,
+              how the key material is used, and how the material is destroyed once a claimed power state is entered
+              and that the documentation in the KMD follows FCS_CKM_EXT.4.1 for the destruction.
               <h:h4>Guidance</h:h4> The evaluator shall check the Operational Guidance to determine that
             it describes the states that are supported by the TOE, and provides information related
-            to the correct configuration of these modes and the TOE. <h:h4>Tests</h:h4> The following
+            to the correct configuration of these modes and the TOE. 
+            
+            The evaluator shall validate that guidance documentation contains clear warnings and information on conditions in which the TOE
+            may end up in a non-protected state. In that case it must contain mitigation instructions on what to do in such scenarios.
+            
+            <h:h4>Tests</h:h4> The following
             tests must be performed by the evaluator for each supported State, type of resource,
             platform, and authorization factor:<testlist>
               <test>Following the Operational guidance, configure the Operational Environment and
-                the TOE so that the lower power state of the platform is protected. Open several
+                the TOE so that the lower power state of the platform is enabled and protected by the TOE. Open several
                 resources (documented in the test report) that are protected. Invoke the lower power
-                state. On resumption of normal power an attempting to access a previously-opened
+                state. On resumption of normal power on attempting to access a previously-opened
                 protected resource, observe that an incorrect entry of the authorization factor(s)
                 does not result in access to the system, and that correct entry of the authorization
                 factor(s) does result in access to the resources. </test>
@@ -2098,7 +2123,7 @@
           <title>The application shall [selection: invoke platform-provided functionality, implement
             functionality] to ensure that all original plaintext data created when
             decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile
-            and non-volatile memory upon completion of the decryption/encryption operation.
+            and non-volatile memory according to FCS_CKM_EXT.4 upon completion of the decryption/encryption operation.
           </title>
           
           <note role="application"> This is the primary requirement for encrypting and decrypting
@@ -2111,6 +2136,8 @@
             the file or set of files for use by an application, and completed the encryption
             operation after it has encrypted the file or set of files for storage in the file
             system. 
+            
+            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4
           </note>
           
           <aactivity>
@@ -2141,7 +2168,7 @@
                 performed. A tool that can search the contents of the hard drive (e.g., winhex) will
                 also be needed. The tools used to perform the monitoring shall be identified in the
                 test report. </test>
-            </testlist> Test A (Creating an encrypted document) <h:ul>
+            </testlist> Test 1 (Creating an encrypted document) <h:ul>
               <h:li>Open an editing application.</h:li>
               <h:li>Create a special string inside the document. The string could be 5-10 words. It is
                 recommended to remove the spaces. This will create a one page document.</h:li>
@@ -2157,39 +2184,37 @@
                 were created during the encryption process. Examine to see if the temporary files
                 were destroyed when the TOE closed. </h:li>
               <h:li>If temporary files remain, these temporary files should be examined to ensure that
-                no plaintext data remains. If plaintext data is found in these files, that means
-                that plaintext from the encrypted file remains on the hard drive.</h:li>
+                no plaintext data remains. If plaintext data is found in these files, the test fails.</h:li>
               <h:li>Search the contents of the hard drive (using the second tool) for the plaintext
                 string used above. (The search should be performed using both ASCII and Unicode
                 formats.)</h:li>
-              <h:li>If the string is found, this means that plaintext from the encrypted file remains
-                on the hard drive. </h:li>
-            </h:ul> Test B (Creating, Encrypting a blank document and then adding text): <h:ul>
+              <h:li>If the string is found, this means that plaintext from the test fails. </h:li>
+            </h:ul> Test 2 (Creating, Encrypting a blank document and then adding text): <h:ul>
               <h:li>Encrypt a blank document using the tool.</h:li>
               <h:li>Create a special string inside the document. The string could be 5-10 words. It is
                 recommended to remove the spaces. This will create a one page document.</h:li>
               <h:li>Start the file monitoring tool.</h:li>
               <h:li>Save and close the file. </h:li>
-              <h:li>Perform the “Analysis Steps” listed above</h:li>
-              <h:li>If Test 1 fails and Test 2 passes, the Operational Guidance shall include
-                instructions for the users to perform encryption in the manner outlined in Test
-                2.</h:li>
+              <h:li>Perform the “Analysis Steps” listed above.</h:li>
+              
             </h:ul>
-            <h:br/> Assumption: Regardless of the length of the file, it is assumed that if any
-            fragment of the original string is found, this reflects that there is a problem with the
-            cleanup with the file encryptor. </aactivity>
+            <h:br/>  </aactivity>
         </f-element>
       
       
       </f-component>
         <f-component name="Extended: Protection of Third Party Data" id="FDP_PRT_EXT.3" status="optional">
         <f-element id="FDP_PRT_EXT.3.1">
-          <title>The TSF shall ensure that all temporary files created (including those by a
-            third-party application, for example an editor) when decrypting/encrypting the
+          <title>The TSF shall ensure that all temporary files created by 
+            <selectables>
+              <selectable>all applications</selectable>
+              <selectable><assignable>subset of applications that can integrate with the FE</assignable></selectable>
+            </selectables>when decrypting/encrypting the
             user-selected file (or set of files) are removed or encrypted upon completion of the
             decryption/encryption operation.</title>
        
           <note role="application"> This requirement is to cover the detection and encryption of temporary files created by third party applications.
+            If the FE provides a capability to allow specific applications to leverage it, the applications or method they would use to opt in may be included in the assignement.  
           </note>
           
           <aactivity>
@@ -2199,8 +2224,7 @@
             
             <h:h4>Guidance</h:h4> [conditional]  If any configuration is required for this process the evaluator shall verify it is described in the guidence documentation. 
             
-            <h:h4>Tests</h:h4>
-          None. </aactivity>
+            <h:h4>Tests</h:h4>The evaluator shall utilize any third party application that would be protected under this protection to generate files, then verify those files are being encrypted.</aactivity>
         </f-element>
       </f-component>
       
@@ -2216,14 +2240,13 @@
                 <selectable>provide user authorization</selectable>
               </selectables> based on 
               <selectables>
-                <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM.1(A)</selectable>
+                <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.1(A)</selectable>
                 <selectable id="USECAR">an external Smartcard factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
                    <selectables>
                      <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
                      <selectable>generated by the Host Platform</selectable>
                    </selectables> protected using RSA with key size 
                   <selectables>
-                    <selectable>2048 bits</selectable>
                     <selectable>3072 bits</selectable>
                     <selectable>4096 bits</selectable>
                   </selectables> with user presence proved by presentation of the smartcard and 
@@ -2246,7 +2269,7 @@
              
              This requirement specifies what authorization factors the TOE accepts
              from the user. A password entered by the user is one authorization factor that the TOE must 
-             be able to condition, as specified in FCS_CKM.1(A). Another option is a smart card
+             be able to condition, as specified in FCS_CKM_EXT.1(A). Another option is a smart card
              authorization factor, with the differentiating feature being how the value is generated – either
              by the TOE’s RBG or by the platform. An external USB token may also be used, with the
              submask value generated either by the TOE’s RBG or by the platform.
@@ -2267,7 +2290,7 @@
               are specified and included in the requirements in the ST. <h:br/>
               <h:b>Requirement met by the TOE</h:b> <h:br/> The evaluator shall first examine the TSS to ensure that the authorization
               factors specified in the ST are described. For password-based factors the
-              examination of the TSS section is performed as part of FCS)CKM.1(A)
+              examination of the TSS section is performed as part of FCS_CKM_EXT.1(A)
               Evaluation Activities. Additionally in this case, the evaluator shall verify that
               the operational guidance discusses the characteristics of external authorization
               factors (e.g., how the authorization factor must be generated; format(s) or
@@ -2298,14 +2321,13 @@
         </f-component>
         <f-component id="FIA_FCT_EXT.1" name="Extended: Multi-User Authorization" status="optional">
           <f-element id="FIA_FCT_EXT.1.1">
-            <title>The TSF shall support the use of multiple instances of authorization factors that
-              result in unique KEKs. </title></f-element>
+            <title>The TSF shall support the use of authorization factors from multiple users that result in unique KEKs.</title></f-element>
           
           <f-element id="FIA_FCT_EXT.1.2">
             <title>The TSF shall support
             <selectables>
-              <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1.1(8</selectable>
-              <selectable>Distribution of the a shared key from an enterprise management Server</selectable>
+              <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1.1(8)</selectable>
+              <selectable>Distribution of a shared key from an enterprise management Server</selectable>
             </selectables>
             </title>
           
@@ -2314,7 +2336,7 @@
               authorization factors to produce multiple KEKs, the intent is that the TSF supports a
               system where multiple users have access to files on the underlying platform, and that
               each user has an authorization factor so that they can protect their own files from
-              other users. This shoudld be accomplished via the methods detailed in FIA_FCT_EXT.1.2 
+              other users. This should be accomplished via the methods detailed in FIA_FCT_EXT.1.2 
                </note>
           
             <aactivity>
@@ -2323,8 +2345,7 @@
               identifies each of the resources that is sharable in encrypted form (for instance,
               encrypted files may be sharable among users, but encrypted directories may not), and the
               method by which the resource can be shared among users with different authorization
-              factors. This description shall also cover the TSF actions when adding or removing users
-              to the set allowed to access the file. <h:br/>
+              factors. <h:br/>
               
               The evaluator shall examine the operation
               guidance to determine that it contains instructions on how to set up and share resources
@@ -2384,7 +2405,7 @@
                   “configure cryptographic functionality” will be included, and the specifics of the
                   functionality offered can either be written in this requirement as bullet points,
                   or included in the TSS.</h:li>
-                <h:li>If the TOE If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
+                <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
                   , then “perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1” will be included.</h:li>
                 <h:li>If “other management functions” are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
@@ -2408,8 +2429,8 @@
               “change” selection must be included, along with FIA_FCT_EXT.1(2) from Appendix C.
               
               If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)—
-              even if the configuration is the form of parameters that may be passed to cryptographic functionality 
-              implement on the TOE platform--then “configure cryptographic functionality” will be included, and the specifics 
+              even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
+              the TOE platform--then “configure cryptographic functionality” will be included, and the specifics 
               of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.
               
               If “other management functions” are assigned, a validation authority must be consulted to ensure the 
@@ -2423,10 +2444,7 @@
               resources are associated with the KEK, the decryption and re-encryption process), and
               ensure that the KEK and FEK are not exposed during this change. <h:br/>
               <h:b>Cryptographic Configuration:</h:b> None for this requirement. <h:br/>
-              <h:b>Disable Key Recovery:</h:b> If the TOE supports key recovery, this must be stated in
-              the TSS. The TSS shall also describe how to disable this functionality. This includes
-              a description of how the recovery material is provided to the recovery holder. The
-              guidance for disabling this capability shall be described in the AGD documentation.
+              
                 <h:h4>Guidance</h:h4>
               <h:b>Conditional Activities:</h:b> The evaluator shall examine the Operational Guidance to
               ensure that it describes how the password/passphrase-based authorization factor is to
@@ -2481,16 +2499,18 @@
               <selectables>
                 <selectable>not store keys in non-volatile memory</selectable>
                 <selectable>only store keys in non-volatile memory when
-                  <selectables>
+                  <selectables linebreak="yes">
                     <selectable>wrapped, as specified in FCS_COP.1(5)</selectable>
                     <selectable>encrypted, as specified in FCS_COP.1(1)</selectable>
-                    <selectable>the plaintext key is stored in the underlying platofrm's keystore as specified by FCS_STO_EXT.1.1</selectable>
+                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1</selectable>
                     <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
                     <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
                     <selectable>the plaintext key is a key split that is combined as specified in FCS_SMC_EXT.1 and another contribution to the split is
-                     <selectables>
-                       <selectable>wrapped as specified in FCS_COP.1(5) or encrypted as specified in FCS_COP.1(7)</selectable>
-                       <selectable>derived and not stored in non-volatile memory</selectable>
+                     <selectables linebreak="yes">
+                       <selectable>wrapped as specified in FCS_COP.1(5)</selectable>
+                       <selectable>encrypted as specified in FCS_COP.1(7)</selectable>
+                       <selectable>derived as specified in FCS_KDF_EXT.1.1 and not stored in non-volatile memory</selectable>
+                       <selectable>supplied by the enterprise management server</selectable>
                      </selectables>
                     </selectable>
                     <selectable>the plaintext key is stored on an external storage device for use as an authorization factor.</selectable>
@@ -2506,8 +2526,8 @@
               protecting the FEK is if it is a key split or providing additional layers of wrapping
               or encryption on keys that have already been protected. </note>
             <aactivity>
-              <h:h4>TSS</h:h4> The evaluator shall verify the TSS for a high level description of method
-              used to protect keys stored in non-volatile memory.<h:br/> The evaluator shall verify
+              <h:h4>TSS or KMD (Key Management Description may be used if necessary details describe proprietary information)</h:h4> The evaluator shall verify the TSS for a high level description of the method(s) used
+              to protect keys stored in non-volatile memory.<h:br/> The evaluator shall verify
               the TSS to ensure it describes the storage location of all keys and the protection of
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure FCS_COP.1(5) is followed for the storage of wrapped or encrypted
