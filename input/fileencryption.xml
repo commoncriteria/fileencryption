@@ -2560,7 +2560,11 @@
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure FCS_COP.1(5) is followed for the storage of wrapped or encrypted
               keys in non-volatile memory and plaintext keys in non-volatile memory meet one of the
-              criteria for storage. <h:h4>Guidance</h:h4> None. <h:h4>Tests</h:h4> None. </aactivity>
+              criteria for storage. 
+              
+              <Guidance/> None. 
+              
+              <Tests/> None. </aactivity>
           </f-element>
         </f-component>
       </subsection>
