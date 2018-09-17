@@ -1586,7 +1586,7 @@
               <Tests/>The evaluator shall ensure that authorization using each selected
               method is tested during the course of the evaluation, setting up the method as
               described in the operational guidance and ensuring that authorization is successful and 
-              that failure to provide an authorization factor results in denial to access to plaintext data..
+              that failure to provide an authorization factor results in denial to access to plaintext data.
               
               [conditional]: If there is more than one authorization factor, ensure that failure
               to supply a required authorization factor does not result in access to the decrypted
@@ -2198,6 +2198,8 @@
             the reason for failure to comply with the requirement. </aactivity>
         </f-element>
       </f-component></opt-sfrs>
+    <!-- Ask Kevin why I don't have selection pointers in HTML. -->
+    
     <sel-sfrs>
       <f-component id="FCS_CKM_EXT.1" name="Key Encrypting Key (KEK) Support">
         <selection-depends req="FCS_KYC_EXT.1.1"  ids="HASKEK"/>
@@ -2266,7 +2268,7 @@
             <selectable>HMAC-SHA-512</selectable>
             </selectables> to generate an intermediary key</title>
           <note role="application">This requirement specifies the way that a product may combine the
-            various submasks by using either an XOR or an approved SHA-hash. </note>
+            various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on FCS_KYC_EXT.1.1.</note>
           <aactivity>
             <TSS/> If keys are XORed together to form an intermediate key, the TSS section
             shall identify how this is performed (e.g., if there are ordering requirements, checks
@@ -2346,7 +2348,9 @@
             
             For FCS_CKM_EXT.1.4(A) If the minimum password length is settable, then ST author chooses “a value settable by the administrator
             for this component, as well as the “configure password/passphrase complexity setting” item for FMT_SMF.1.1. If the minimum length
-            is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  </note>
+            is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  
+            
+            This requirement is selection dependent on FIA_AUT_EXT.1.1.</note>
           <aactivity>
             <TSS/> FCS_CKM_EXT.1.1(A): There are two aspects of this component that require
             evaluation: passwords/passphrases of the length specified in the requirement (at least
@@ -2576,7 +2580,7 @@
             </title>
               <note role="application">: This requirement is used in the body of the ST if the ST author chooses to
                 use AES encryption/decryption for protecting the keys as part of the key chaining approach
-                that is specified in FCS_KYC_EXT.1..</note>
+                that is specified in FCS_KYC_EXT.1.</note>
             <aactivity>
               <TSS/>
               <h:h4>Requirement met by the platform</h:h4> If the platform provides the FEK
