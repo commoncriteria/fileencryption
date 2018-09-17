@@ -4,7 +4,7 @@ Protection Profile for File Encryption
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/fileencryption.svg?maxAge=2592000)](https://github.com/commoncriteria/fileencryption/issues)
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
-This repository hosts the draft version of the Extended Package for Software File Encryption Version based on the 
+This repository hosts the draft version of the Module for Software File Encryption Version based on the 
 [Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/fileencryption/fileencryption-esr.html) for this technology class of 
 products. This repository is used to facilitate collaboration and development on the draft document. 
 See the [release](#Release-Version) section if you are looking for the officially released version for evaluations. 
@@ -12,15 +12,15 @@ A list of products that have passed evaluation against this Protection Profile c
 
 ## Draft Version
 
-* [Extended Package for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-release.html) (html)
-* [Extended Package for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-release.pdf) (pdf)
+* [Module for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-release.html) (html)
+* [Module for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-release.pdf) (pdf)
 
 ## Release Version
-* [Extended Package for Software File Encryption Version 1.0](https://www.niap-ccevs.org/Profile/Info.cfm?id=318)
+* [Module for Software File Encryption Version 1.0](https://www.niap-ccevs.org/Profile/Info.cfm?id=318)
 
 ## Contributing
 
-If you are interested in contributing directly to future versions the this Protection Profile, please consider joining the NIAP technical community.
+If you are interested in contributing directly to future versions the this Module, please consider joining the NIAP technical community.
 * [How to join the NIAP Technical Community (Mailing list and updates)](https://www.niap-ccevs.org/NIAP_Evolution/tech_communities.cfm)
 
 ## Feedback
