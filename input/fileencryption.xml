@@ -739,15 +739,7 @@
       </SOs>
     </section>
     
-    <section title="Security Objectives for the Operational Environment" id="objenv"> The
-      Operational Environment of the TOE implements technical and procedural measures to assist the
-      TOE in correctly providing its security functionality (which is defined by the security
-      objectives for the TOE). The security objectives for the Operational Environment consist of a
-      set of statements describing the goals that the Operational Environment should achieve.<h:br/>
-      This section defines the security objectives that are to be addressed by the IT domain or by
-      non-technical or procedural means. The assumptions identified in Section 3 are incorporated as
-      security objectives for the environment. 
-      <!--  
+    <section title="Security Objectives for the Operational Environment" id="objenv">
       <SOs>
         <SO id="OE.AUTHORIZATION_FACTOR_STRENGTH">
           <description>An authorized user will be responsible for ensuring that all externally
@@ -782,7 +774,6 @@
           </consistency-rationale>
         </SO>
        </SOs>
-    -->
     </section>
     
     <section title="Security Objectives Rationale" id="SOR">
