@@ -566,10 +566,9 @@
       
       </threats>
     </section>
-    
-      <!--  
-        <section title="Assumptions" id="assumptions">
-        <assumptions>
+
+    <section title="Assumptions" id="assumptions">
+      <assumptions>
           <assumption id="A.AUTH_FACTOR">
             <description>An authorized user will be responsible for ensuring that all externally
               derived authorization factors have sufficient strength and entropy to reflect the
@@ -616,8 +615,6 @@
           </assumption>
         </assumptions>
       </section>
-      -->
-  
   </chapter>
   <chapter title="Security Objectives" id="obj"> 
     The Security Problem described in
