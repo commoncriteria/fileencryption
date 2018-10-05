@@ -7,7 +7,7 @@
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2018-06-15</PPPubDate>
+      <PPPubDate>2018-10-05</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -24,7 +24,7 @@
     </entry>
     <entry>
       <version>v 2.0</version>
-      <date>2018-06-01</date>
+      <date>2018-10-05</date>
       <subject>Enterprise Management, Requirement Clean Up, TDs Applied, Conversion to Module</subject>
     </entry>
   </RevisionHistory>
@@ -788,7 +788,15 @@
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
       <modified-sfrs></modified-sfrs>
-      <additional-sfrs>
+      <additional-sfrs></additional-sfrs>
+      <con-toe></con-toe>
+      <con-sec-prob></con-sec-prob>
+      <con-obj></con-obj>
+      <con-op-en></con-op-en>
+      
+    </base-pp>
+    
+    <man-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
           <consistency-rationale>
@@ -1758,15 +1766,7 @@
               <Tests/> None. </aactivity>
           </f-element>
         </f-component>
-      </subsection></additional-sfrs>
-      <con-toe></con-toe>
-      <con-sec-prob></con-sec-prob>
-      <con-obj></con-obj>
-      <con-op-en></con-op-en>
-      
-    </base-pp>
-    
-    <man-sfrs></man-sfrs>
+      </subsection></man-sfrs>
     <opt-sfrs>
         <f-component id="FIA_FCT_EXT.1" name="Extended: Multi-User Authorization">
           <consistency-rationale>
@@ -2186,7 +2186,7 @@
             the reason for failure to comply with the requirement. </aactivity>
         </f-element>
       </f-component></opt-sfrs>
-    <!-- Ask Kevin why I don't have selection pointers in HTML. -->
+    
     
     <sel-sfrs>
       <f-component id="FCS_CKM_EXT.1" name="Key Encrypting Key (KEK) Support">
