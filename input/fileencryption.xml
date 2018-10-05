@@ -618,7 +618,7 @@
   </chapter>
   <chapter title="Security Objectives" id="obj"> 
     The Security Problem described in
-    Section 2 will be addressed by a combination of cryptographic capabilities. Compliant TOEs
+    <secref linkend="spd"/> will be addressed by a combination of cryptographic capabilities. Compliant TOEs
     will provide security functionality that addresses threats to the TOE and enforces policies
     that are imposed by law and regulation. The following subsections provide a description of the
     security objectives required to meet the threats/policies previously discussed. The
