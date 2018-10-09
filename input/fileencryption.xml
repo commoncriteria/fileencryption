@@ -781,7 +781,6 @@
   </chapter>
 
   <chapter title="Security Requirements" id="req">
-      
     <base-pp 
       product="application"
       name="Application Software" short="ApSo" 
@@ -793,7 +792,6 @@
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
-      
     </base-pp>
     
     <man-sfrs>
