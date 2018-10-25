@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<Module target-products="File Encryption Module Draft" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" name="file encryption">  
+<Module target-products="File Encryption Draft" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" name="file encryption">  
   <PPReference>
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2018-10-05</PPPubDate>
+      <PPPubDate>2018-10-25</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -24,23 +24,23 @@
     </entry>
     <entry>
       <version>v 2.0</version>
-      <date>2018-10-05</date>
-      <subject>Enterprise Management, Requirement Clean Up, TDs Applied, Conversion to Module</subject>
+      <date>2018-10-25</date>
+      <subject>Enterprise Management, Requirement Clean Up, TDs Applied, Conversion to PP-Module</subject>
     </entry>
   </RevisionHistory>
   <chapter title="Introduction" id="int">
-    <section title="Overview" id="ppoverview"> This Module describes security
+    <section title="Overview" id="ppoverview"> This PP-Module describes security
       requirements for an encryption product that is configurable for the data it encrypts and is
       intended to provide a minimal, baseline set of requirements that are targeted at mitigating
-      well defined and described threats. However, this Module is not complete in itself, but rather
+      well defined and described threats. However, this PP-Module is not complete in itself, but rather
       extends the Protection Profile for Application Software (<cite linkend="bibAppPP"/>). This
       introduction will describe the features of a compliant Target of Evaluation, and will also
-      discuss how this Module is to be used in conjunction with the <cite linkend="bibAppPP"/>. 
+      discuss how this PP-Module is to be used in conjunction with the <cite linkend="bibAppPP"/>. 
     
     File encryption is the process of encrypting individual files or sets of
     files (or volumes, or containers, etc.) on an end user device and permitting access to the
     encrypted data only after proper authentication is provided. Encryption products that
-    conform to this Module must render information inaccessible to anyone (or, in the case of other
+    conform to this PP-Module must render information inaccessible to anyone (or, in the case of other
     software on the machine, anything) that does not have the proper authentication credential.  
     The encrypted files may be on a local machine or may be sent to other devices.
     
@@ -90,7 +90,7 @@
       passphrase and/or external token authorization factors. <h:br/> <h:br/>
       The password/passphrase authorization factors must be conditioned such that they are
       at least the same size (bit length) as the key they are protecting. 
-      While this Module does not dictate how these authentication factors are created, a
+      While this PP-Module does not dictate how these authentication factors are created, a
       good operational practice is for an administrator to generate the password or passphrase to
       ensure sufficient entropy.  Passphrases are preferred over passwords, since it is easier for users to remember and type in a sequence of
       words than recall a password and type in a long string of random characters. The
@@ -106,7 +106,7 @@
       <h:b>Data Authentication (optional)</h:b> <h:br/> Because modification of ciphertext data
       for certain modes of encryption will enable unidentified plaintext manipulation, care must
       be taken by the TOE to mitigate against forged or maliciously modified ciphertext data. The
-      Module defines requirements for how the TOE must provide data authentication services, allowing
+      PP-Module defines requirements for how the TOE must provide data authentication services, allowing
       the TOE to implement authenticated block cipher, keyed hash function or asymmetric signing
       features. Depending on the implementation, the TOE will be responsible for meeting at least
       one of the aforementioned requirements. In all cases, unsuccessful authentication of the
@@ -131,7 +131,7 @@
       each platform listed in the ST) to identify Operational Environment(s) with the necessary
       features and to provide instructions for how to configure it correctly and securely. <h:br/> <h:br/>
       
-      The Module contains requirements (Section 4) that must be met by either the TOE or the platform
+      The PP-Module contains requirements (Section 4) that must be met by either the TOE or the platform
       on which it operates. A “platform” is defined as a separate entity whose functions may be
       used by the TOE, but is not part of the TOE. A third-party library used by the TOE is not
       considered part of the TOE’s “platform”, but (for instance) cryptographic functionality that
@@ -164,7 +164,7 @@
       information in one or more of an underlying platform's power managed modes, they can use the
       FDP_PM_EXT.1 requirement in Appendix B.<h:br/> Authorized users of the TOE are those users
       possessing valid authorization factors for the TOE. While some of these functions specified
-      in the Module might be considered “administrative” functions for other types of TOEs, for file
+      in the PP-Module might be considered “administrative” functions for other types of TOEs, for file
       encryption products it is the expectation that all of these functions can be performed by
       the end user of the software. 
     </section>
@@ -200,7 +200,7 @@
           
           <entry>
             <term><abbr title="Target of Evaluation">TOE</abbr></term>
-            <description>The product under evaluation. In this case, application software and its
+            <description>The product under evaluation. In this case, file encryption software and its
               supporting documentation.</description>
           </entry>
           <entry>
@@ -372,11 +372,11 @@
       </subsection>
     </section>
     
-    <section title="Compliant Targets of Evaluation" id="complianttargets"> This Module specifically
-      addresses encryption of a set of data. This Module addresses the primary threat that an
+    <section title="Compliant Targets of Evaluation" id="complianttargets"> This PP-Module specifically
+      addresses encryption of a set of data. This PP-Module addresses the primary threat that an
       unauthorized user will obtain access to a host machine containing encrypted information and be
       able to extract the sensitive data through the process of decryption. The Target of Evaluation
-      (TOE) defined in this Module is an encryption product that will inherently encrypt all of that
+      (TOE) defined in this PP-Module is an encryption product that will inherently encrypt all of that
       data that the user selects to encrypt. For ease of explanation, “file” will frequently be used
       to refer to the object that is encrypted (however, it could be any number of things – folders,
       volumes, containers, etc.).<h:br/> <h:br/>  
@@ -405,17 +405,17 @@
             The Protection Profile for Application Software (<cite linkend="bibAppPP"/>)
             defines the baseline Security Functional Requirements (SFRs) and Security Assurance
             Requirements (SARs) for application software products. This <abbr linkend="PP-Module"/> serves to
-            extend the ApSo PP baseline with additional SFRs and associated Evaluation Activities
+            extend the App PP baseline with additional SFRs and associated Evaluation Activities
             specific to an email client.
             Evaluation Activities are the actions that the evaluator
             performs in order to determine a file encryption product's compliance to the SFRs.
           </h:p>
           <h:p>
             This <abbr linkend="PP-Module"/> conforms to Common Criteria <cite linkend="bibCC"/> for Information
-            Technology Security Evaluation, Version 3.1, Revision 4. It is CC Part 2 extended and CC
+            Technology Security Evaluation, Version 3.1, Revision 5. It is CC Part 2 extended and CC
             Part 3 conformant. In order to be conformant to this <abbr linkend="PP-Module"/>, the <abbr
               linkend="ST"/> must include all components in this <abbr linkend="PP-Module"/> and the
-            associated ApSo PP that are: <h:ul><h:li>unconditional (which are always required)</h:li>
+            associated App PP that are: <h:ul><h:li>unconditional (which are always required)</h:li>
               <h:li>selection-based (which are required when certain selections are chosen in the
                 unconditional requirements)</h:li>
             </h:ul> and may include optional and/or objective components that are desirable but not
@@ -436,21 +436,21 @@
     only. 
     
     <section title="Threats" id="threats"> A threat consists of a threat agent, an asset, and
-      an adverse action of that threat agent on that asset. The model in this Module only addresses
+      an adverse action of that threat agent on that asset. The model in this PP-Module only addresses
       risks that arise from the host machine being compromised by an unauthorized user.<h:br/> For
-      this EP, the TOE is not expected to defend against all threats related to malicious software
+      this PP-Module, the TOE is not expected to defend against all threats related to malicious software
       that may reside in user data files. For instance, the TOE is not responsible for detecting
       malware in the data selected by the user for encryption (that is a responsibility of the host
       environment). Once the file encryption product is operational in a host system, the threats
       against the data from potentially malicious software on the host are also not in the threat
-      model of this EP. For example, there are no requirements in this Module addressing a malicious
+      model of this PP-Module. For example, there are no requirements in this PP-Module addressing a malicious
       host capturing a password-based authorization factor, nor a malicious process reading the
-      memory of an application program that is operating on a decrypted file.<h:br/> Note that this EP
+      memory of an application program that is operating on a decrypted file.<h:br/> Note that this PP-Module
       does not repeat the threats identified in the <cite linkend="bibAppPP"/>, though they all
-      apply given the conformance and hence dependence of this Module on the <cite linkend="bibAppPP"/>.
+      apply given the conformance and hence dependence of this PP-Module on the <cite linkend="bibAppPP"/>.
       <h:br/>Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
-      the TOE to provide its security functions, this Module focuses on threats to resources in the
-      operational environment. Together the threats of the App PP and those defined in this Module define
+      the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
+      operational environment. Together the threats of the App PP and those defined in this PP-Module define
       the comprehensive set of security threats addressed by a file encryption TOE. 
       <threats>
         <threat id="T.UNAUTHORIZED_DATA_ACCESS">
@@ -599,7 +599,7 @@
           </assumption>
           <assumption id="A.STRONG_OE_CRYPTO">
             <description>All cryptography implemented in the Operational Environment and used by the
-              TOE will meet the requirements listed in Appendix C of this EP. This includes
+              TOE will meet the requirements listed in Appendix C of this PP-Module. This includes
               generation of external token authorization factors by a RBG.</description>
             <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
               <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.STRONG_OE_CRYPTO.</rationale>
@@ -783,7 +783,7 @@
   <chapter title="Security Requirements" id="req">
     <base-pp 
       product="application"
-      name="Application Software" short="ApSo" 
+      name="Application Software" short="App PP" 
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
       <modified-sfrs></modified-sfrs>
@@ -819,7 +819,7 @@
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
                 linkend="bibAppPP"/>)or the key is derived from the conditioning of a password/passphrase. The enterprise management server is described in the 
-              File Encryption Enterprise Management Module.<h:br/>
+              File Encryption Enterprise Management PP-Module.<h:br/>
             </note>
             
           </f-element>
@@ -1237,7 +1237,7 @@
               , then the ST author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the ST author must also specify the 
               strength of the keys in the keychain.  It should be noted that “maintaining overall strength…
-              commensurate with the overall strength of the FEK” is meant to cover the use case for this Module 
+              commensurate with the overall strength of the FEK” is meant to cover the use case for this PP-Module 
               of a powered-off device being recovered by an adversary, who subsequently attempts to recover 
               the FEK through a compromise of the key chain. 
               
@@ -1252,7 +1252,7 @@
               If a supplemental keychain is used, then the ST author selects the second option in the sixth 
               selection and then chooses the method by which these keys are protected.  Keys in the 
               supplemental key chain may be of any size, as they only provide additional protection to the 
-              primary key chain.  Compromise (according the Module use case) of the secondary key chain cannot 
+              primary key chain.  Compromise (according the PP-Module use case) of the secondary key chain cannot 
               circumvent the protection provided by the primary keychain. 
             
              If the selections where the TOE impliments KEKs are chosen for the primary or supplimental key chains then FCS_CKM_EXT.1 shall be included.
@@ -1323,7 +1323,7 @@
               shall be included in the Operational Guidance and verified by the evaluator. In these
               cases, the evaluator checks to ensure that all non-TOE products used to satisfy the
               requirements of the ST that are described in the Operational Guidance are consistent
-              with those listed in the ST, and those tested by the evaluation activities of this EP.
+              with those listed in the ST, and those tested by the evaluation activities of this PP-Module.
                 
               <Tests/> The evaluator shall also perform the following tests. All
               instructions for configuring the TOE and each of the environments must be included in
@@ -1627,7 +1627,7 @@
                 <h:li>If “other management functions” are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
                   that may be needed are appropriately specified so that the ST can claim
-                  conformance to this EP.</h:li>
+                  conformance to this PP-Module.</h:li>
               </h:ul>
             </note>
             <aactivity>The evaluation activities for this component will be driven by the selections
@@ -1652,7 +1652,7 @@
               
               If “other management functions” are assigned, a validation authority must be consulted to ensure the 
               evaluation activities and other functionality requirements that may be needed are appropriately 
-              specified so that the ST can claim conformance to this EP.
+              specified so that the ST can claim conformance to this PP-Module.
               
               <TSS/>
               <h:b>Conditional Activities:</h:b> The evaluator shall examine the TSS to ensure that it
@@ -1674,7 +1674,7 @@
               <Tests/>
               <h:b>Cryptographic Erase:</h:b> If the TOE uses stored FEKS or KEKs, the evaluator shall 
               examine the key chain to determine that the keys destroyed by a cryptographic erase will result in the data becoming unrecoverable.
-              Testing for this activity is performed for other components in this EP. 
+              Testing for this activity is performed for other components in this PP-Module. 
             </aactivity>
           </f-element>
         </f-component>
@@ -2045,7 +2045,7 @@
           <note role="application">This is the primary requirement for authentication of the
             protected resources (files and sets of files). It is highly encouraged for vendors to
             utilize a keyed hashing service or asymmetric signing mechanism to ensure data
-            authentication, as these are the only two implementations noted in this Module that prevent
+            authentication, as these are the only two implementations noted in this PP-Module that prevent
             decryption if authentication is unsuccessful. Using modes such as XTS or CBC will
             require additional data authentication measures to be added, such as a keyed hash
             function or asymmetric signing, because these modes do not come inherently packaged with
@@ -2079,7 +2079,7 @@
             of allowed platforms, libraries, and devices, and instructions for using them. In these
             cases, the evaluator checks to ensure that all non-TOE products used to satisfy the
             requirements of the ST that are described in the Operational Guidance are consistent
-            with those listed in the ST, and those tested by the evaluation activities of this EP.
+            with those listed in the ST, and those tested by the evaluation activities of this PP-Module.
             
             <Tests/>The evaluator shall also perform the following tests. These tests may
             be performed in conjunction with the tests listed for FCS_COP.1(2) (from the <cite
@@ -2328,7 +2328,7 @@
             NIST SP 800-132. SP 800-132 requires the use of a pseudo-random function (PRF) consisting of HMAC with an approved hash function.
             
             Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive
-            a key from a password and, therefore, increase the workload of performing a password recovery attack. However, for this EP,
+            a key from a password and, therefore, increase the workload of performing a password recovery attack. However, for this PP-Module,
             a minimum iteration count of 4096 is required in order to ensure that twelve bits of security is added to the password/passphrase value.
             A significantly higher value is recommended to ensure optimal security.
             
@@ -2698,9 +2698,9 @@
     
     <section title="Security Functional Requirements for the File Encryption Application (TOE)"
       id="SFRs"> As indicated in Section 1.3.2, security functional requirements in the main body of
-      the Module are divided into those that must be satisfied by the file encryption application (the
+      the PP-Module are divided into those that must be satisfied by the file encryption application (the
       TOE), and those that must be satisfied by either the TOE or the platform on which it runs.
-      This section contains the requirements that must be met by the TOE. 
+      This section contains the requirements that must be met by the TOE.   
       
       
     </section>
@@ -2751,14 +2751,14 @@
         <tag>CC</tag>
         <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
           <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
-                1: Introduction and General Model</h:a>, CCMB-2012-09-001, Version 3.1 Revision 4,
-              September 2012.</h:li>
+                1: Introduction and General Model</h:a>, CCMB-2017-04-001, Version 3.1 Revision 5,
+              April 2017.</h:li>
           <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
-                2: Security Functional Components</h:a>, CCMB-2012-09-002, Version 3.1 Revision 4,
-              September 2012.</h:li>
+                2: Security Functional Components</h:a>, CCMB-2017-04-002, Version 3.1 Revision 5,
+              April 2017.</h:li>
           <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
-                3: Security Assurance Components</h:a>, CCMB-2012-09-003, Version 3.1 Revision 4,
-              September 2012.</h:li>
+                3: Security Assurance Components</h:a>, CCMB-2017-04-003, Version 3.1 Revision 5,
+              April 2017.</h:li>
           </h:ul></description>
       </entry>
       <entry id="bibAppPP">
