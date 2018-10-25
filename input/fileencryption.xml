@@ -302,7 +302,7 @@
           <entry>
             <term>Operational Environment </term>
             <description> hardware and software that are outside the TOE boundary that support the
-              TOE functionality and security policy, including the host platform, its firmware, and
+              TOE functionality and security policy, including the platform, its firmware, and
               the operating system. </description>
           </entry>
           <entry>
@@ -328,7 +328,7 @@
           </entry>
           <entry>
             <term>Shutdown </term>
-            <description> power down or unintentional loss of power of the TOE or host platform.
+            <description> power down or unintentional loss of power of the TOE or platform.
             </description>
           </entry>
           <entry>
@@ -667,7 +667,7 @@
           <component-refer ref="FCS_VAL_EXT.1"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FCS_KYC_EXT.1"/>
-          <component-refer ref="FCS_CKM_EXT.1(A)"/>
+          <component-refer ref="FCS_CKM_EXT.1(1)"/>
           <component-refer ref="FCS_SMC_EXT.1 "/>
           
           <consistency-rationale>
@@ -788,7 +788,93 @@
       name="Application Software" short="App PP" 
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
-      <modified-sfrs></modified-sfrs>
+      <modified-sfrs>
+      <f-component id="FMT_SMF_EXT.1" name="Specification of File Encryption Management Functions">
+          <consistency-rationale>
+          </consistency-rationale>
+          <f-element id="FMT_SMF_EXT.1.1">
+            <title>The TSF shall be capable of performing the following management functions:
+                <selectables linebreak="yes">
+                  <selectable>configure password/passphrase complexity setting</selectable>
+                  <selectable>configure cryptographic functionality</selectable>
+                  <selectable>change authentication factors</selectable>
+                  <selectable>perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
+                  <selectable>configure the number of failed validation attempts required to trigger corrective behavior,  </selectable>
+                  <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
+                  <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
+              </selectables>
+            </title>
+            <note role="application"> The intent of this requirement is to express the management
+              capabilities that may be included in the TOE. Several common options are given:<h:br/>
+              <h:ul>
+                <h:li>If the TOE provides for a password/passphrase complexity setting, then
+                  “configure password/passphrase complexity setting” will be included, and the
+                  specifics of the functionality offered can either be written from the requirement
+                  as bullets points, or included in the TSS.</h:li>
+                <h:li>If the TOE provides configurability of the cryptographic functions (for example,
+                  key size of the FEK)—even if the configuration is the form of parameters that may
+                  be passed to cryptographic functionality implement on the TOE platform--then
+                  “configure cryptographic functionality” will be included, and the specifics of the
+                  functionality offered can either be written in this requirement as bullet points,
+                  or included in the TSS.</h:li>
+                <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
+                  , then “perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1” will be included.</h:li>
+                <h:li>If “other management functions” are assigned, a validation authority must be
+                  consulted to ensure the evaluation activities and other functionality requirements
+                  that may be needed are appropriately specified so that the ST can claim
+                  conformance to this PP-Module.</h:li>
+              </h:ul>
+            </note>
+            <aactivity>The evaluation activities for this component will be driven by the selections
+              made by the ST author. This section describes evaluation activities for all possible
+              selections in an ST; it should be understood that if a capability is not selected in
+              the ST, the noted evaluation activity does not need to be performed. The following
+              sections are divided up into “Required Activities” and “Conditional Activities” for
+              ease of reference. 
+              
+              As the Application Software PP already includes FMT_SMF.1, the ST author should combine the selections 
+              (and assignment, if performed) with those in the FMT_SMF.1 requirement in the Application Software PP to 
+              form a single FMT_SMF.1 SFR in the ST. The intent of this requirement is to express the management 
+              capabilities that may be included in the TOE. Several common options are given:
+              
+              If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
+              “change” selection must be included, along with FIA_FCT_EXT.1(2) from Appendix C.
+              
+              If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)—
+              even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
+              the TOE platform--then “configure cryptographic functionality” will be included, and the specifics 
+              of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.
+              
+              If “other management functions” are assigned, a validation authority must be consulted to ensure the 
+              evaluation activities and other functionality requirements that may be needed are appropriately 
+              specified so that the ST can claim conformance to this PP-Module.
+              
+              <TSS/>
+              <h:b>Conditional Activities:</h:b> The evaluator shall examine the TSS to ensure that it
+              describes the sequence of activities that take place from an implementation
+              perspective when this activity is performed (for example, how it determines which
+              resources are associated with the KEK, the decryption and re-encryption process), and
+              ensure that the KEK and FEK are not exposed during this change. <h:br/>
+              <h:b>Cryptographic Configuration:</h:b> None for this requirement. <h:br/>
+              
+              <Guidance/>
+              <h:b>Conditional Activities:</h:b> The evaluator shall examine the Operational Guidance to
+              ensure that it describes how the password/passphrase-based authorization factor is to
+              be changed. <h:br/>
+              <h:b>Cryptographic Configuration:</h:b> The evaluator shall determine from the TSS for
+              other requirements (FCS_*, FDP_PRT_EXT, FIA_AUT_EXT) what portions of the
+              cryptographic functionality are configurable. The evaluator shall then review the AGD
+              documentation to determine that there are instructions for manipulating all of the
+              claimed mechanisms. 
+              <Tests/>
+              <h:b>Cryptographic Erase:</h:b> If the TOE uses stored FEKS or KEKs, the evaluator shall 
+              examine the key chain to determine that the keys destroyed by a cryptographic erase will result in the data becoming unrecoverable.
+              Testing for this activity is performed for other components in this PP-Module. 
+            </aactivity>
+          </f-element>
+        </f-component>
+        
+      </modified-sfrs>
       <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
@@ -812,7 +898,7 @@
                         <selectable>128 bit</selectable>
                         <selectable>256 bit</selectable>
                       </selectables></selectable>
-                    <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(A) </selectable>
+                    <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(1) </selectable>
                   </selectables>
                 </selectable>
               </selectables>,
@@ -851,7 +937,7 @@
               
               Conditional: <h:br/>               
               If derived from a password/password is selected the examination of the TSS section is performed as
-              part of FCS_CKM_EXT.1(A) evaluation activities. <h:br/>  <h:br/> 
+              part of FCS_CKM_EXT.1(1) evaluation activities. <h:br/>  <h:br/> 
               
               
               FCS_CKM_EXT.2.2: The evaluator shall
@@ -1533,7 +1619,7 @@
                 <selectable>provide user authorization</selectable>
               </selectables> based on 
               <selectables>
-                <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.1(A)</selectable>
+                <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.1(1)</selectable>
                 <selectable id="USECAR">an external Smartcard factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
                    <selectables>
                      <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
@@ -1553,7 +1639,7 @@
                    and is providing a submask generated by the 
                    <selectables>
                      <selectable>TOE, using the RBG as specified in FCS_RBG_EXT.1</selectable>
-                     <selectable>Host Platform</selectable>
+                     <selectable>platform</selectable>
                    </selectables>
                 </selectable>
               </selectables>
@@ -1562,7 +1648,7 @@
              
              This requirement specifies what authorization factors the TOE accepts
              from the user. A password entered by the user is one authorization factor that the TOE must 
-             be able to condition, as specified in FCS_CKM_EXT.1(A). Another option is a smart card
+             be able to condition, as specified in FCS_CKM_EXT.1(1). Another option is a smart card
              authorization factor, with the differentiating feature being how the value is generated – either
              by the TOE’s RBG or by the platform. An external USB token may also be used, with the
              submask value generated either by the TOE’s RBG or by the platform.
@@ -1583,7 +1669,7 @@
               are specified and included in the requirements in the ST. <h:br/>
               <h:b>Requirement met by the TOE</h:b> <h:br/> The evaluator shall first examine the TSS to ensure that the authorization
               factors specified in the ST are described. For password-based factors the
-              examination of the TSS section is performed as part of FCS_CKM_EXT.1(A)
+              examination of the TSS section is performed as part of FCS_CKM_EXT.1(1)
               Evaluation Activities. Additionally in this case, the evaluator shall verify that
               the operational guidance discusses the characteristics of external authorization
               factors (e.g., how the authorization factor must be generated; format(s) or
@@ -1616,93 +1702,6 @@
       
       </subsection>
       <subsection title="Security Management (FMT)" id="fmt"> 
-        <f-component id="FMT_SMF_EXT.1" name="Specification of File Encryption Management Functions">
-          <consistency-rationale>
-          </consistency-rationale>
-          <f-element id="FMT_SMF_EXT.1.1">
-            <title>The TSF shall be capable of performing the following management functions:
-                <selectables linebreak="yes">
-                  <selectable>no other function</selectable>
-                  <selectable>configure cryptographic functionality</selectable>
-                  <selectable>change authentication factors</selectable>
-                  <selectable>perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
-                  <selectable>configure the number of failed validation attempts required to trigger corrective behavior,  </selectable>
-                  <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
-                  <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
-              </selectables>
-            </title>
-            <note role="application"> The intent of this requirement is to express the management
-              capabilities that may be included in the TOE. Several common options are given:<h:br/>
-              <h:ul>
-                <h:li>If password or passphrase authorization factors are implemented by the TOE, then
-                  the appropriate “change” selection must be included, along with FIA_FCT_EXT.1(2) or FIA_FCT_EXT.1(3)
-                  from Appendix C.</h:li>
-                <h:li>If the TOE provides for a password/passphrase complexity setting, then
-                  “configure password/passphrase complexity setting” will be included, and the
-                  specifics of the functionality offered can either be written from the requirement
-                  as bullets points, or included in the TSS.</h:li>
-                <h:li>If the TOE provides configurability of the cryptographic functions (for example,
-                  key size of the FEK)—even if the configuration is the form of parameters that may
-                  be passed to cryptographic functionality implement on the TOE platform--then
-                  “configure cryptographic functionality” will be included, and the specifics of the
-                  functionality offered can either be written in this requirement as bullet points,
-                  or included in the TSS.</h:li>
-                <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
-                  , then “perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1” will be included.</h:li>
-                <h:li>If “other management functions” are assigned, a validation authority must be
-                  consulted to ensure the evaluation activities and other functionality requirements
-                  that may be needed are appropriately specified so that the ST can claim
-                  conformance to this PP-Module.</h:li>
-              </h:ul>
-            </note>
-            <aactivity>The evaluation activities for this component will be driven by the selections
-              made by the ST author. This section describes evaluation activities for all possible
-              selections in an ST; it should be understood that if a capability is not selected in
-              the ST, the noted evaluation activity does not need to be performed. The following
-              sections are divided up into “Required Activities” and “Conditional Activities” for
-              ease of reference. 
-              
-              As the Application Software PP already includes FMT_SMF.1, the ST author should combine the selections 
-              (and assignment, if performed) with those in the FMT_SMF.1 requirement in the Application Software PP to 
-              form a single FMT_SMF.1 SFR in the ST. The intent of this requirement is to express the management 
-              capabilities that may be included in the TOE. Several common options are given:
-              
-              If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
-              “change” selection must be included, along with FIA_FCT_EXT.1(2) from Appendix C.
-              
-              If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)—
-              even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
-              the TOE platform--then “configure cryptographic functionality” will be included, and the specifics 
-              of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.
-              
-              If “other management functions” are assigned, a validation authority must be consulted to ensure the 
-              evaluation activities and other functionality requirements that may be needed are appropriately 
-              specified so that the ST can claim conformance to this PP-Module.
-              
-              <TSS/>
-              <h:b>Conditional Activities:</h:b> The evaluator shall examine the TSS to ensure that it
-              describes the sequence of activities that take place from an implementation
-              perspective when this activity is performed (for example, how it determines which
-              resources are associated with the KEK, the decryption and re-encryption process), and
-              ensure that the KEK and FEK are not exposed during this change. <h:br/>
-              <h:b>Cryptographic Configuration:</h:b> None for this requirement. <h:br/>
-              
-              <Guidance/>
-              <h:b>Conditional Activities:</h:b> The evaluator shall examine the Operational Guidance to
-              ensure that it describes how the password/passphrase-based authorization factor is to
-              be changed. <h:br/>
-              <h:b>Cryptographic Configuration:</h:b> The evaluator shall determine from the TSS for
-              other requirements (FCS_*, FDP_PRT_EXT, FIA_AUT_EXT) what portions of the
-              cryptographic functionality are configurable. The evaluator shall then review the AGD
-              documentation to determine that there are instructions for manipulating all of the
-              claimed mechanisms. 
-              <Tests/>
-              <h:b>Cryptographic Erase:</h:b> If the TOE uses stored FEKS or KEKs, the evaluator shall 
-              examine the key chain to determine that the keys destroyed by a cryptographic erase will result in the data becoming unrecoverable.
-              Testing for this activity is performed for other components in this PP-Module. 
-            </aactivity>
-          </f-element>
-        </f-component>
         
         
         
@@ -2228,7 +2227,7 @@
                       <selectable>128 bit</selectable>
                       <selectable>256 bit</selectable>
                     </selectables></selectable>
-                  <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(A) </selectable>
+                  <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(1) </selectable>
                 </selectables>
               </selectable>
             </selectables>
@@ -2253,7 +2252,7 @@
             
             Conditional: <h:br/>               
             If derived from a password/passphrase is selected the examination of the TSS section is performed as
-            part of FCS_CKM_EXT.1(A) evaluation activities. <h:br/>  <h:br/> 
+            part of FCS_CKM_EXT.1(1) evaluation activities. <h:br/>  <h:br/> 
             
             <Guidance/> The evaluator shall review the
             instructions in the AGD guidance to determine that any explicit actions that need to
@@ -2291,18 +2290,18 @@
           </aactivity>
         </f-element>
       </f-component>
-        <f-component id="FCS_CKM_EXT.1(A)" name="Extended: Cryptographic key generation (Password/Passphrase conditioning)"> 
+        <f-component id="FCS_CKM_EXT.1(1)" name="Extended: Cryptographic key generation (Password/Passphrase conditioning)"> 
           <selection-depends req="FIA_AUT_EXT.1.1" ids="USEPAS"/>
           <consistency-rationale>
           </consistency-rationale>
-        <f-element id="FCS_CKM_EXT.1.1(A)">
+        <f-element id="FCS_CKM_EXT.1.1(1)">
           <title>
             <h:b>Refinement:</h:b>The TSF shall support a password/passphrase of up to 
             [assignment: maximum password size, positive integer of 64 or more] 
             characters used to generate a password authorization factor.
            </title>
         </f-element>
-          <f-element id="FCS_CKM_EXT.1.2(A)">
+          <f-element id="FCS_CKM_EXT.1.2(1)">
             <title>
               <h:b>Refinement:</h:b> The TSF shall allow passwords to be composed of any combination of upper case characters,
               lower case characters, numbers, and the following special characters: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”,
@@ -2311,7 +2310,7 @@
                 <selectable>no other characters</selectable>
               </selectables></title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.1.3(A)">
+          <f-element id="FCS_CKM_EXT.1.3(1)">
             <title>
               <h:b>Refinement:</h:b> The TSF shall perform [Password-based Key Derivation
               Functions] in accordance with a specified cryptographic algorithm [HMAC- <selectables>
@@ -2325,28 +2324,28 @@
               </selectables> that meet the following: [NIST SP 800-132]. 
               </title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.1.4(A)">
+          <f-element id="FCS_CKM_EXT.1.4(1)">
             <title>
               <h:b>Refinement:</h:b> The TSF shall not accept passwords less than 
               <selectables>
                 <selectable>a value settable by the administrator</selectable>
                 <selectable><assignable>minimum password length accepted by the TOE, must be >= 1 </assignable></selectable>
               </selectables> and greater than the maximum password length 
-              defined in FCS_CKM_EXT.1.1(A).</title>
+              defined in FCS_CKM_EXT.1.1(1).</title>
           </f-element>
-        <f-element id="FCS_CKM_EXT.1.5(A)">
+        <f-element id="FCS_CKM_EXT.1.5(1)">
           <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 (from the App PP) and with entropy 
-            corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.3(A).</title>
+            corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.3(1).</title>
           <note role="application"> The password/passphrase is represented on the host machine as a sequence of characters whose 
             encoding depends on the TOE and the underlying OS. This sequence must be conditioned into a string of bits that is to be used as a KEK that is the same size as the FEK.
             
-            For FCS_CKM_EXT.1.1(A), the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters.
+            For FCS_CKM_EXT.1.1(1), the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters.
             
-            For FCS_CKM_EXT.1.2(A), the ST author assigns any other supported characters; if there are no other supported characters, 
+            For FCS_CKM_EXT.1.2(1), the ST author assigns any other supported characters; if there are no other supported characters, 
             they should select “no other characters”.
             
-            For FCS_CKM_EXT.1.3(A), the ST author selects the parameters based on the PBKDF used by the TSF. The key cryptographic
-            key sizes in FCS_CKM_EXT.1.3(A) are made to correspond to the KEK key sizes selected in FCS_CKM_EXT.1.
+            For FCS_CKM_EXT.1.3(1), the ST author selects the parameters based on the PBKDF used by the TSF. The key cryptographic
+            key sizes in FCS_CKM_EXT.1.3(1) are made to correspond to the KEK key sizes selected in FCS_CKM_EXT.1.
             
             The password/passphrase must be conditioned into a string of bits that forms the submask to be used as input into the
             KEK. Conditioning is performed using one of the identified hash functions in accordance with the process described in
@@ -2357,13 +2356,13 @@
             a minimum iteration count of 4096 is required in order to ensure that twelve bits of security is added to the password/passphrase value.
             A significantly higher value is recommended to ensure optimal security.
             
-            For FCS_CKM_EXT.1.4(A) If the minimum password length is settable, then ST author chooses “a value settable by the administrator
+            For FCS_CKM_EXT.1.4(1) If the minimum password length is settable, then ST author chooses “a value settable by the administrator
             for this component, as well as the “configure password/passphrase complexity setting” item for FMT_SMF.1.1. If the minimum length
             is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  
             
             This requirement is selection dependent on FIA_AUT_EXT.1.1.</note>
           <aactivity>
-            <TSS/> FCS_CKM_EXT.1.1(A): There are two aspects of this component that require
+            <TSS/> FCS_CKM_EXT.1.1(1): There are two aspects of this component that require
             evaluation: passwords/passphrases of the length specified in the requirement (at least
             64 characters) are supported, and that the characters that are input are subject to the
             selected conditioning function. These activities are separately addressed in the text
@@ -2397,7 +2396,7 @@
             <h:br/>No explicit testing of the formation of the submask from the
             input password is required. 
             
-            <h:br/> FCS_CKM_EXT.1.2(A): The ST author shall provide a
+            <h:br/> FCS_CKM_EXT.1.2(1): The ST author shall provide a
             description in the TSS regarding the salt generation. The evaluator shall confirm that
             the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <cite
               linkend="bibAppPP"/>). <h:h4>Guidance</h:h4>
@@ -2410,10 +2409,10 @@
             <Tests/> Support for Password/Passphrase characteristics: In addition to the analysis above, 
             the evaluator shall also perform the following tests on a TOE configured according to the Operational Guidance: <testlist>
               <test>Ensure that the TOE supports passwords/passphrases of a minimum length of 64 characters. </test>
-              <test>Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.1.1(A). </test>
-              <test> Ensure that the TOE does not accept less than the minimum number of characters specified in FCS_CKM_EXT.1.4(A).
+              <test>Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.1.1(1). </test>
+              <test> Ensure that the TOE does not accept less than the minimum number of characters specified in FCS_CKM_EXT.1.4(1).
                 If the minimum length is settable by the administrator, the evaluator determines the minimum length or lengths to test.</test>
-              <test> Ensure that the TOE supports passwords consisting of all characters listed in FCS_CKM_EXT.1.2(A).</test>
+              <test> Ensure that the TOE supports passwords consisting of all characters listed in FCS_CKM_EXT.1.2(1).</test>
             </testlist>
             <h:b>Conditioning:</h:b> No explicit testing of the formation of the authorization factor
             from the input password/passphrase is required. </aactivity>
@@ -2619,7 +2618,7 @@
                   <selectables linebreak="yes">
                     <selectable>Key Wrap</selectable>
                     <selectable>Key Wrap with Padding</selectable>
-                    <selectable>GMC mode</selectable>
+                    <selectable>GCM mode</selectable>
                     <selectable>CCM mode</selectable>
                   </selectables> and the cryptographic key size 
                   <selectables>
@@ -2630,7 +2629,7 @@
                     <selectable>“NIST SP 800-38C”</selectable>
                     <selectable>“NIST SP 800-38D”</selectable>
                     <selectable>“NIST SP 800-38F”</selectable>
-                    <selectable>no other standards</selectable>
+                    and no other standards.
                   </selectables>
                 </selectable>
               </selectables> 
