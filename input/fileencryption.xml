@@ -776,8 +776,8 @@
        </SOs>
     </section>
     
-    <section title="Security Objectives Rationale" id="SOR">
-    </section>
+    <section title="Security Objectives Rationale" id="SOR"/>
+
   </chapter>
 
   <chapter title="Security Requirements" id="req">
