@@ -615,6 +615,9 @@
           </assumption>
         </assumptions>
       </section>
+     <section title="Organizational Security Policies" id="OSPs">
+      There are no Organizational Security Policies for the application.
+       </section>
   </chapter>
   <chapter title="Security Objectives" id="obj"> 
     The Security Problem described in
