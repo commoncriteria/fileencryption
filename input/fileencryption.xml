@@ -815,12 +815,13 @@
                 </selectable>
               </selectables>,
             </title>
+            <!--Removed as repetative.
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
                 linkend="bibAppPP"/>)or the key is derived from the conditioning of a password/passphrase. The enterprise management server is described in the 
               File Encryption Enterprise Management PP-Module.<h:br/>
             </note>
-            
+            -->
           </f-element>
            
           
@@ -894,7 +895,12 @@
                     <selectable>destruction of reference to the key directly followed by a request for garbage collection</selectable>
                   </selectables>
                 </selectable>
-                <selectable> For non-volatile memory that consists of the invocation of an interface provided by the underlying platform that
+                <selectable> For non-volatile memory that consists of 
+                  <selectables>
+                    <selectable>destruction of all key encrypting keys protecting the target key according to FCS_CKM_EXT.4.1,
+                      where none of the KEKs protecting the target key are derived
+                    </selectable>
+                    <selectable> the invocation of an interface provided by the underlying platform that
                   <selectables>
                     <selectable>logically addresses the storage location of the key and performs a
                       <selectables>
@@ -912,47 +918,63 @@
                     </selectable>
                     <selectable>instructs the underlying platform to destory the abstraction the represents the key</selectable>
                   </selectables>
+                    </selectable>
+                  </selectables>
+                 
                   
                 </selectable>
               </selectables>
             </title>
-            <note role="application"> The interface referenced in the requirement could take different forms, 
-              the most likely of which is an application programming interface to an OS kernel. There may be 
-              various levels of abstraction visible. For instance, in a given implementation, selection a, the 
-              application may have access to the file system details and may be able to logically address 
-              specific memory locations. In another implementation, selection b, the application may simply 
-              have a handle to a resource and can only ask the platform to delete the resource, as may be the 
-              case with a platforms secure key store. Selection b should only be used for the most restricted access. 
-              The level of detail to which the TOE has access will be reflected in the TSS section of the ST.
-              
-              Several selections allow assignment of a ‘value that does not contain any CSP’. This means that 
-              the TOE uses some other specified data not drawn from a source that may contain key material or 
-              reveal information about key material, and not being any of the particular values listed as other 
-              selection options. The point of the phrase ‘does not contain any CSP’ is to ensure that the 
-              overwritten data is carefully selected, and not taken from a general ‘pool’ that might contain 
-              current or residual data that itself requires confidentiality protection. </note>
+            <note role="application">The interface referenced in the requirement could take different forms, the most likely 
+              of which is an application programming interface to an OS kernel. There may be various levels of abstraction visible. 
+              For instance, in a given implementation that overwrites a key stored in non-volatile memory, the application may have 
+              access to the file system details and may be able to logically address specific memory locations. In another 
+              implementation that instructs the underlying platform to destroy the representation of a key stored in non-volatile 
+              memory, the application may simply have a handle to a resource and can only ask the platform to delete the resource, 
+              as may be the case with a platforms secure key store. The latter implementation should only be used for the most 
+              restricted access. The level of detail to which the TOE has access will be reflected in the TSS section of the ST. 
+              Several selections allow assignment of a 'value that does not contain any CSP'. This means that the TOE uses some 
+              other specified data not drawn from a source that may contain key material or reveal information about key material, 
+              and not being any of the particular values listed as other selection options. The point of the phrase 'does not contain 
+              any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might 
+              contain current or residual data that itself requires confidentiality protection.<h:br/>
+
+              For the selection “destruction of all key encrypting keys protecting target key according to FCS_CKM_EXT.4.1, where 
+              none of the KEKs protecting the target key are derived”, a key can be considered destroyed by destroying the key that 
+              protects the key. If a key is wrapped or encrypted it is not necessary to “overwrite” that key, overwriting the key 
+              that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
+              type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a Data Encryption 
+              Key (DEK), destroying the KEK using one of the methods in FCS_CKM_EXT.4 is sufficient, since the DEK would no longer 
+              be usable (of course, presumes the DEK is still encrypted and the KEK cannot be recovered or re-derived.). </note>
             
             <aactivity>
               <TSS/>
               The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
-              from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.
+              from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/>
               
               The evaluator shall check to ensure the TSS lists each type of key that is stored in in non-volatile memory, and 
               identifies how the TOE interacts with the underlying platform to manage keys (e.g., store, retrieve, destroy). 
               The description includes details on the method of how the TOE interacts with the platform, including an identification 
-              and description of the interfaces it uses to manage keys (e.g., file system APIs, platform key store APIs).
+              and description of the interfaces it uses to manage keys (e.g., file system APIs, platform key store APIs).<h:br/>
               
               The evaluator examines the interface description for each different media type to ensure that the 
-              interface supports the selection(s) and description in the TSS.
+              interface supports the selection(s) and description in the TSS.<h:br/>
               
               If the ST makes use of the open assignment and fills in the type of pattern that is used, the evaluator 
               examines the TSS to ensure it describes how that pattern is obtained and used. The evaluator shall 
-              verify that the pattern does not contain any CSPs.
+              verify that the pattern does not contain any CSPs.<h:br/>
               
               The evaluator shall check that the TSS identifies any configurations or 
-              circumstances that may not strictly conform to the key destruction requirement.
+              circumstances that may not strictly conform to the key destruction requirement.<h:br/>
               
+              If the selection “destruction of all key encrypting keys protecting target key according to FCS_CKM_EXT.4.1, 
+              where none of the KEKs protecting the target key are derived” is included the evaluator shall examine the TOE’s 
+              keychain in the TSS and identify each instance when a key is destroyed by this method. In each instance the evaluator 
+              shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
+              method in FCS_CKM_EXT.4.1 The evaluator shall verify that all of the keys capable of decrypting the target key are not 
+              able to be derived to reestabish the keychain after their destruction. <h:br/>
+                            
               <Guidance/> There are a variety of concerns that may prevent or delay key destruction in some cases.
               
               The evaluator shall check that the guidance documentation identifies configurations or circumstances that may 
@@ -1015,6 +1037,8 @@
                   
                   The test succeeds if step 3 fails.</test>
                   
+                Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the TOE has no visibility into the inner workings and completely relies on the underlying platform.
+                
                 <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system):
                   
                   Record the value of the key in the TOE subject to clearing.
