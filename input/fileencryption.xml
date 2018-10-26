@@ -663,7 +663,7 @@
             against these authorization factors (when used) has a similar level of resistance.
           </description>
           <component-refer ref="FCS_CKM_EXT.2"/>
-          <component-refer ref="FCS_CKM_EXT.1"/>
+          <component-refer ref="FCS_CKM_EXT.3"/>
           <component-refer ref="FCS_COP.1(1)"/>
           <component-refer ref="FCS_COP.1(5)"/>
           <component-refer ref="FCS_COP.1(7)"/>
@@ -1370,7 +1370,7 @@
               primary key chain.  Compromise (according the PP-Module use case) of the secondary key chain cannot 
               circumvent the protection provided by the primary keychain. 
             
-             If the selections where the TOE impliments KEKs are chosen for the primary or supplimental key chains then FCS_CKM_EXT.1 shall be included.
+             If the selections where the TOE impliments KEKs are chosen for the primary or supplimental key chains then FCS_CKM_EXT.3 shall be included.
             
             The selections for an enterprise management server indicate that the key chain may terminate or start an enterprise management server.  
             The server may provide a key needed to start a chain or the server may recieve a key that ends a chain.  The key mangement internal to the server is not evaluated here.</note>
@@ -2149,7 +2149,7 @@
               <selectable>A FAK conditioned from a password/passphrase shall never be stored in
                 non-volatile memory</selectable>
               <selectable>a FAK will be stored in non-volatile memory encrypted with a KEK as
-                specified in FCS_COP.1(5) using authorization factors as specified in FCS_CKM_EXT.1
+                specified in FCS_COP.1(5) using authorization factors as specified in FIA_AUT_EXT.1
               </selectable>
             </selectables>
           </title>
@@ -2213,11 +2213,11 @@
     
     
     <sel-sfrs>
-      <f-component id="FCS_CKM_EXT.1" name="Key Encrypting Key (KEK) Support">
+      <f-component id="FCS_CKM_EXT.3" name="Key Encrypting Key (KEK) Support">
         <selection-depends req="FCS_KYC_EXT.1.1"  ids="HASKEK"/>
         <consistency-rationale>
         </consistency-rationale>
-        <f-element id="FCS_CKM_EXT.1.1 ">
+        <f-element id="FCS_CKM_EXT.3.1 ">
           <title> The TSF shall 
             <selectables>
               <selectable>accept KEK from an enterprise management server</selectable>
@@ -2237,7 +2237,7 @@
           <note role="Application">This requirement shall be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
           <aactivity>
             <TSS/>
-            FCS_CKM_EXT.2.1: The evaluator shall review the TSS to determine that a
+            The evaluator shall review the TSS to determine that a
             description covering how and when KEK)(s are generated exists. The description must
             cover all environments on which the TOE is claiming conformance, and include any
             preconditions that must exist in order to successfully generate the KEKs. The evaluator shall verify 
@@ -2377,7 +2377,7 @@
             TSS describes the allowable character set and that it contains the characters listed in the SFR.
             
             <h:br/>Support for PBKDF: The evaluator shall examine the TSS to ensure
-            that the formation of all KEKs or FEKs (as decided in the FCS_CKM_EXT.1 selection) is
+            that the formation of all KEKs or FEKs (as decided in the FCS_CKM_EXT.3 selection) is
             described and that the key sizes match that described by the ST author. 
             
             <h:br/>The
