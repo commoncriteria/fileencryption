@@ -2553,7 +2553,7 @@
                  </selectables>
                </selectable>
                <selectable>NIST SP 800-132</selectable>
-             </selectables> using the keyed-hash functions specified in FCS_COP.1(c), such that the output is at least of
+             </selectables> using the keyed-hash functions specified in FCS_COP.1(3), such that the output is at least of
               equivalent security strength (in number of bits) to the FEK.
             </title>
             <note role="application">: Application Note: This requirement is used in the body of the ST if the ST author chooses to
