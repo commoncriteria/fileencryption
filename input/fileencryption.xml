@@ -794,10 +794,10 @@
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
       <modified-sfrs>
-      <f-component id="FMT_SMF_EXT.1" name="Specification of File Encryption Management Functions">
+      <f-component id="FMT_SMF.1" name="Specification of File Encryption Management Functions">
           <consistency-rationale>
           </consistency-rationale>
-          <f-element id="FMT_SMF_EXT.1.1">
+          <f-element id="FMT_SMF.1.1">
             <title>The TSF shall be capable of performing the following management functions:
                 <selectables linebreak="yes">
                   <selectable>configure password/passphrase complexity setting</selectable>
