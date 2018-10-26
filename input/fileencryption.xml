@@ -825,17 +825,16 @@
                   conformance to this PP-Module.</h:li>
               </h:ul>
             </note>
-            <aactivity>The evaluation activities for this component will be driven by the selections
+            <aactivity>
+               The ST author should combine the selections with those in the FMT_SMF.1 requirement in the Application Software PP to 
+              form a single FMT_SMF.1 SFR in the ST.
+              
+              The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
               the ST, the noted evaluation activity does not need to be performed. The following
               sections are divided up into “Required Activities” and “Conditional Activities” for
               ease of reference. 
-              
-              As the Application Software PP already includes FMT_SMF.1, the ST author should combine the selections 
-              (and assignment, if performed) with those in the FMT_SMF.1 requirement in the Application Software PP to 
-              form a single FMT_SMF.1 SFR in the ST. The intent of this requirement is to express the management 
-              capabilities that may be included in the TOE. Several common options are given:
               
               If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
               “change” selection must be included, along with FIA_FCT_EXT.1(2) from Appendix C.
