@@ -119,9 +119,9 @@
       the FEK. The primary requirement dictating implementation of data authentication using a
       keyed hash function is FDP_AUT_EXT.2.<h:br/> <h:br/> Lastly, asymmetric signing in conjunction with a
       secure hash function may be used to authenticate the data. The implementation must use an
-      approved signing algorithm in accordance with FCS_COP.1(2) (from the <cite
+      approved signing algorithm in accordance with FCS_COP.1(3) (from the <cite
         linkend="bibAppPP"/>) and an approved secure hashing function in accordance with
-      FCS_COP.1(3) (from the <cite linkend="bibAppPP"/>). The primary requirement addressing data
+      FCS_COP.1(2) (from the <cite linkend="bibAppPP"/>). The primary requirement addressing data
       authentication via asymmetric signing is FDP_AUT_EXT.3. 
       
       The TOE and Its Supporting Environment:
@@ -437,18 +437,23 @@
     
     <section title="Threats" id="threats"> A threat consists of a threat agent, an asset, and
       an adverse action of that threat agent on that asset. The model in this PP-Module only addresses
-      risks that arise from the host machine being compromised by an unauthorized user.<h:br/> For
-      this PP-Module, the TOE is not expected to defend against all threats related to malicious software
+      risks that arise from the host machine being compromised by an unauthorized user.<h:br/><h:br/>
+      
+      For this PP-Module, the TOE is not expected to defend against all threats related to malicious software
       that may reside in user data files. For instance, the TOE is not responsible for detecting
       malware in the data selected by the user for encryption (that is a responsibility of the host
       environment). Once the file encryption product is operational in a host system, the threats
       against the data from potentially malicious software on the host are also not in the threat
       model of this PP-Module. For example, there are no requirements in this PP-Module addressing a malicious
       host capturing a password-based authorization factor, nor a malicious process reading the
-      memory of an application program that is operating on a decrypted file.<h:br/> Note that this PP-Module
+      memory of an application program that is operating on a decrypted file.<h:br/><h:br/> 
+      
+      Note that this PP-Module
       does not repeat the threats identified in the <cite linkend="bibAppPP"/>, though they all
       apply given the conformance and hence dependence of this PP-Module on the <cite linkend="bibAppPP"/>.
-      <h:br/>Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
+      <h:br/><h:br/>
+      
+      Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
       the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
       operational environment. Together the threats of the App PP and those defined in this PP-Module define
       the comprehensive set of security threats addressed by a file encryption TOE. 
@@ -1302,7 +1307,7 @@
                       TSF provided key</selectable>
                     <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1(5)</selectable>
                     <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(1)</selectable>
+                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(7)</selectable>
                     <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1(8)</selectable>
                     <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
@@ -1333,7 +1338,7 @@
                       TSF provided key</selectable>
                     <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1(5)</selectable>
                     <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(1)</selectable>
+                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(7)</selectable>
                     <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1(8)</selectable>
                     <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
@@ -1747,7 +1752,7 @@
                 <selectable>only store keys in non-volatile memory when
                   <selectables linebreak="yes">
                     <selectable>wrapped, as specified in FCS_COP.1(5)</selectable>
-                    <selectable>encrypted, as specified in FCS_COP.1(1)</selectable>
+                    <selectable>encrypted, as specified in FCS_COP.1(7)</selectable>
                     <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1</selectable>
                     <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
                     <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
@@ -1935,12 +1940,12 @@
           <consistency-rationale>
           </consistency-rationale>
         <f-element id="FDP_AUT_EXT.3.1">
-          <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(3) (from the
+          <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) (from the
               <cite linkend="bibAppPP"/>) with the entire ciphertext file as input to create a
             hash.</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.3.2">
-          <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(2)
+          <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(3)
             (from the <cite linkend="bibAppPP"/>) and must use the hash generated in accordance with
             FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
             signing purposes is prohibited.</title>
@@ -2104,10 +2109,8 @@
             requirements of the ST that are described in the Operational Guidance are consistent
             with those listed in the ST, and those tested by the evaluation activities of this PP-Module.
             
-            <Tests/>The evaluator shall also perform the following tests. These tests may
-            be performed in conjunction with the tests listed for FCS_COP.1(2) (from the <cite
-              linkend="bibAppPP"/>), FCS_COP.1(3) (from the <cite linkend="bibAppPP"/>), and
-            FCS_COP.1(4). These tests must be performed for each data authentication feature and
+            <Tests/>The evaluator shall also perform the following tests.
+            These tests must be performed for each data authentication feature and
             platform claimed in the ST; all instructions for configuring the TOE and each of the
             environments must be included in the Operational Guidance and used to establish the test
             configuration. <h:br/>For each resource and data authentication scenario listed in the
@@ -2552,7 +2555,7 @@
                  </selectables>
                </selectable>
                <selectable>NIST SP 800-132</selectable>
-             </selectables> using the keyed-hash functions specified in FCS_COP.1(3), such that the output is at least of
+             </selectables> using the keyed-hash functions specified in FCS_COP.1(4), such that the output is at least of
               equivalent security strength (in number of bits) to the FEK.
             </title>
             <note role="application">: Application Note: This requirement is used in the body of the ST if the ST author chooses to
