@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<Module target-products="File Encryption Draft" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://w.w3.org/1999/xhtml" name="file encryption">  
+<Module target-products="File Encryption" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://w.w3.org/1999/xhtml" name="file encryption">  
   <PPReference>
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
@@ -406,7 +406,7 @@
             defines the baseline Security Functional Requirements (SFRs) and Security Assurance
             Requirements (SARs) for application software products. This <abbr linkend="PP-Module"/> serves to
             extend the App PP baseline with additional SFRs and associated Evaluation Activities
-            specific to an email client.
+            specific to an file encryption product.
             Evaluation Activities are the actions that the evaluator
             performs in order to determine a file encryption product's compliance to the SFRs.
           </h:p>
@@ -790,7 +790,7 @@
   <chapter title="Security Requirements" id="req">
     <base-pp 
       product="application"
-      name="Application Software" short="App PP" 
+      name="Application Software" short="App" 
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
       <modified-sfrs>
@@ -1936,126 +1936,6 @@
           </aactivity>
         </f-element>
       </f-component>
-        <f-component id="FDP_AUT_EXT.3" name="Extended: Data Authentication using asymmetric signing and verification">
-          <consistency-rationale>
-          </consistency-rationale>
-        <f-element id="FDP_AUT_EXT.3.1">
-          <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) (from the
-              <cite linkend="bibAppPP"/>) with the entire ciphertext file as input to create a
-            hash.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.3.2">
-          <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(3)
-            (from the <cite linkend="bibAppPP"/>) and must use the hash generated in accordance with
-            FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
-            signing purposes is prohibited.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.3.3">
-          <title>The TSF shall use a public and private key pair generated in accordance with
-            FIA_CKM.1(1) and must use this key pair as part of the cryptographic signing process in
-            accordance with FDP_AUT_EXT.3.2.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.3.4">
-          <title>The TSF shall authenticate the ciphertext data prior to decryption.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.3.5">
-          <title>The TSF shall notify the user of an unsuccessful authentication and prevent
-            decryption of the ciphertext if such an event were to occur.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.3.6">
-          <title>The TSF shall append the signature to the end of the ciphertext file.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.3.7">
-          <title>During verification, the TSF shall verify the signature is at the end of the
-            ciphertext file.</title>
-          <note role="application">55 The intent of this requirement is to specify the secure way of
-            using a cryptographic signing and hashing function as part of the data authentication
-            mechanism.</note>
-          <aactivity>
-            <TSS/> The evaluator shall check the TSS section to confirm that it describes
-            how a request for each type of supported resource (file (or set of files)) will result
-            in data authentication using a secure hash and cryptographic signing process. The
-            evaluator will confirm that the supplied public and private key pair were generated in
-            accordance with FCS_CKM.1(1). The evaluator will confirm that the entire ciphertext file
-            was used to create the hash and that the hash was used as input to the cryptographic
-            signing function. The evaluator will confirm that the TSF notifies the user of an
-            unsuccessful authentication and prevents decryption. 
-            
-            <Guidance/> None.
-              <Tests/>The evaluator shall perform the following test: <testlist>
-              <test>Create an encrypted file and demonstrate that authentication of this file using
-                the correct keying material will be successful.</test>
-              <test>Modify an arbitrary number of bits of ciphertext and attempt to run the
-                authentication and decryption operations on the file. Assert that the TOE
-                successfully identified the forged ciphertext file and notified the user. </test>
-            </testlist>
-          </aactivity>
-        </f-element>
-      </f-component>
-        <f-component id="FDP_AUT_EXT.2" name="Extended: Data Authentication using cryptographic, keyed hash functions">
-          <consistency-rationale>
-          </consistency-rationale>
-        <f-element id="FDP_AUT_EXT.2.1">
-          <title>The TSF shall use a cryptographic, keyed hash function in accordance with
-            FCS_COP.1(4).</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.2">
-          <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP.1(6)
-            and FCS_CKM_EXT.5 as the secret key to the keyed hash function.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.3">
-          <title>The TSF shall use the entirety of the ciphertext file as the message input to the
-            keyed hash function.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.4">
-          <title>The TSF shall concatenate the output of the keyed hash function, the Message
-            Authentication Code (MAC).</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.5">
-          <title>The TSF shall authenticate the encrypted file prior to decryption.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.6">
-          <title>The TSF shall authenticate the data by comparing the keyed hash output of the
-            ciphertext against the stored MAC.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.7">
-          <title>The TSF shall notify the user of an unsuccessful authentication and prevent
-            decryption of the ciphertext.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.8">
-          <title>During verification, the TSF shall verify the MAC is at the end of the ciphertext
-            file.</title>
-        </f-element>
-        <f-element id="FDP_AUT_EXT.2.9">
-          <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 (from the AS
-            PP).</title>
-          <note role="application">The intent of this requirement is to specify the correct way of
-            using a keyed hash function to authenticate the data, and enable authentication of data. 
-          FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1</note>
-          <aactivity>
-            <TSS/> The evaluator shall check the TSS section to confirm that it describes
-            how a request for each type of supported resource (file (or set of files)) will result
-            in data authentication using a keyed hash function. The evaluator will confirm that the
-            TOE will respond appropriately to a failed authentication, to include notifying the user
-            of an invalid authentication and preventing decryption. The evaluator will confirm that
-            any file encryption utility will be able to identify where the MAC is placed. <h:br/>The
-            evaluator will confirm that a FAK is used as part of the authentication process and will
-            identify the keyed hash function utilized. 
-            
-            <Guidance/> It is encouraged for
-            every implementation to use a FAK that is wholly different and independently generated
-            from the FEK. 
-            
-            <Tests/> The evaluator shall perform the following test: <testlist>
-              <test>Create an encrypted file and confirm that authentication of this file using the
-                correct FAK will result in a success.</test>
-              <test>Modify an arbitrary number of bits of ciphertext and attempt to run the
-                authentication and decryption operations on the file. Assert that the TOE
-                successfully identified the forged ciphertext file and notified the user. </test>
-            </testlist>
-          </aactivity>
-        </f-element>
-      </f-component>
         <f-component id="FDP_AUT_EXT.1" name="Extended: Authentication of Selected User Data">
           <consistency-rationale>
           </consistency-rationale>
@@ -2124,13 +2004,135 @@
             are completed. </aactivity>
         </f-element>
       </f-component>
-        <f-component id="FCS_COP.1(6)" name="FAK encryption/decryption support">
+      <f-component id="FDP_AUT_EXT.2" name="Extended: Data Authentication using cryptographic, keyed hash functions">
+          <consistency-rationale>
+          </consistency-rationale>
+        <f-element id="FDP_AUT_EXT.2.1">
+          <title>The TSF shall use a cryptographic, keyed hash function in accordance with
+            FCS_COP.1(4).</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.2">
+          <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP.1(6)
+            and FCS_CKM_EXT.5 as the secret key to the keyed hash function.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.3">
+          <title>The TSF shall use the entirety of the ciphertext file as the message input to the
+            keyed hash function.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.4">
+          <title>The TSF shall concatenate the output of the keyed hash function, the Message
+            Authentication Code (MAC).</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.5">
+          <title>The TSF shall authenticate the encrypted file prior to decryption.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.6">
+          <title>The TSF shall authenticate the data by comparing the keyed hash output of the
+            ciphertext against the stored MAC.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.7">
+          <title>The TSF shall notify the user of an unsuccessful authentication and prevent
+            decryption of the ciphertext.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.8">
+          <title>During verification, the TSF shall verify the MAC is at the end of the ciphertext
+            file.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.2.9">
+          <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 (from the AS
+            PP).</title>
+          <note role="application">The intent of this requirement is to specify the correct way of
+            using a keyed hash function to authenticate the data, and enable authentication of data. 
+          FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1</note>
+          <aactivity>
+            <TSS/> The evaluator shall check the TSS section to confirm that it describes
+            how a request for each type of supported resource (file (or set of files)) will result
+            in data authentication using a keyed hash function. The evaluator will confirm that the
+            TOE will respond appropriately to a failed authentication, to include notifying the user
+            of an invalid authentication and preventing decryption. The evaluator will confirm that
+            any file encryption utility will be able to identify where the MAC is placed. <h:br/>The
+            evaluator will confirm that a FAK is used as part of the authentication process and will
+            identify the keyed hash function utilized. 
+            
+            <Guidance/> It is encouraged for
+            every implementation to use a FAK that is wholly different and independently generated
+            from the FEK. 
+            
+            <Tests/> The evaluator shall perform the following test: <testlist>
+              <test>Create an encrypted file and confirm that authentication of this file using the
+                correct FAK will result in a success.</test>
+              <test>Modify an arbitrary number of bits of ciphertext and attempt to run the
+                authentication and decryption operations on the file. Assert that the TOE
+                successfully identified the forged ciphertext file and notified the user. </test>
+            </testlist>
+          </aactivity>
+        </f-element>
+      </f-component>
+        
+      <f-component id="FDP_AUT_EXT.3" name="Extended: Data Authentication using asymmetric signing and verification">
+          <consistency-rationale>
+          </consistency-rationale>
+        <f-element id="FDP_AUT_EXT.3.1">
+          <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) (from the
+              <cite linkend="bibAppPP"/>) with the entire ciphertext file as input to create a
+            hash.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.3.2">
+          <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(3)
+            (from the <cite linkend="bibAppPP"/>) and must use the hash generated in accordance with
+            FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
+            signing purposes is prohibited.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.3.3">
+          <title>The TSF shall use a public and private key pair generated in accordance with
+            FIA_CKM.1(1) and must use this key pair as part of the cryptographic signing process in
+            accordance with FDP_AUT_EXT.3.2.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.3.4">
+          <title>The TSF shall authenticate the ciphertext data prior to decryption.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.3.5">
+          <title>The TSF shall notify the user of an unsuccessful authentication and prevent
+            decryption of the ciphertext if such an event were to occur.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.3.6">
+          <title>The TSF shall append the signature to the end of the ciphertext file.</title>
+        </f-element>
+        <f-element id="FDP_AUT_EXT.3.7">
+          <title>During verification, the TSF shall verify the signature is at the end of the
+            ciphertext file.</title>
+          <note role="application"> The intent of this requirement is to specify the secure way of
+            using a cryptographic signing and hashing function as part of the data authentication
+            mechanism.</note>
+          <aactivity>
+            <TSS/> The evaluator shall check the TSS section to confirm that it describes
+            how a request for each type of supported resource (file (or set of files)) will result
+            in data authentication using a secure hash and cryptographic signing process. The
+            evaluator will confirm that the supplied public and private key pair were generated in
+            accordance with FCS_CKM.1(1). The evaluator will confirm that the entire ciphertext file
+            was used to create the hash and that the hash was used as input to the cryptographic
+            signing function. The evaluator will confirm that the TSF notifies the user of an
+            unsuccessful authentication and prevents decryption. 
+            
+            <Guidance/> None.
+              <Tests/>The evaluator shall perform the following test: <testlist>
+              <test>Create an encrypted file and demonstrate that authentication of this file using
+                the correct keying material will be successful.</test>
+              <test>Modify an arbitrary number of bits of ciphertext and attempt to run the
+                authentication and decryption operations on the file. Assert that the TOE
+                successfully identified the forged ciphertext file and notified the user. </test>
+            </testlist>
+          </aactivity>
+        </f-element>
+      </f-component>
+          
+      <f-component id="FCS_COP.1(6)" name="FAK encryption/decryption support">
           <consistency-rationale>
           </consistency-rationale>
         <f-element id="FCS_COP.1.1(6)">
           <title>The FAK shall be protected in the same manner as the FEK, in accordance with
             FCS_COP.1(5).</title>
-          <note role="application">53 The intent of this requirement is to clarify that, if a FAK is
+          <note role="application"> The intent of this requirement is to clarify that, if a FAK is
             to be used, it should be treated as sensitive as the FEK, and thus, follow the same
             encryption and decryption practices. </note>
           <aactivity> 
@@ -2298,14 +2300,14 @@
           </consistency-rationale>
         <f-element id="FCS_CKM_EXT.1.1(1)">
           <title>
-            <h:b>Refinement:</h:b>The TSF shall support a password/passphrase of up to 
+            The TSF shall support a password/passphrase of up to 
             [assignment: maximum password size, positive integer of 64 or more] 
             characters used to generate a password authorization factor.
            </title>
         </f-element>
           <f-element id="FCS_CKM_EXT.1.2(1)">
             <title>
-              <h:b>Refinement:</h:b> The TSF shall allow passwords to be composed of any combination of upper case characters,
+              The TSF shall allow passwords to be composed of any combination of upper case characters,
               lower case characters, numbers, and the following special characters: “!”, “@”, “#”, “$”, “%”, “^”, “&amp;”, “*”, “(“, and “)”,
               and <selectables>
                 <selectable><assignable>other supported special characters</assignable></selectable>
@@ -2314,7 +2316,7 @@
           </f-element>
           <f-element id="FCS_CKM_EXT.1.3(1)">
             <title>
-              <h:b>Refinement:</h:b> The TSF shall perform [Password-based Key Derivation
+              The TSF shall perform [Password-based Key Derivation
               Functions] in accordance with a specified cryptographic algorithm [HMAC- <selectables>
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
@@ -2328,7 +2330,7 @@
           </f-element>
           <f-element id="FCS_CKM_EXT.1.4(1)">
             <title>
-              <h:b>Refinement:</h:b> The TSF shall not accept passwords less than 
+              The TSF shall not accept passwords less than 
               <selectables>
                 <selectable>a value settable by the administrator</selectable>
                 <selectable><assignable>minimum password length accepted by the TOE, must be >= 1 </assignable></selectable>
@@ -2426,14 +2428,14 @@
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(8)">
             <title>
-              <h:b>Refinement:</h:b> The TSF shall perform [key transport] in accordance with a
+              The TSF shall perform [key transport] in accordance with a
               specified cryptographic algorithm [RSA] in the following modes 
               <selectables>
                 <selectable>KTS-OAEP</selectable>
                 <selectable>KTS-KEM-KWS</selectable>
               </selectables> and the cryptographic key size of 3072 bits that meet the following: [NIST SP 800-56B, Revision 1].
             </title>
-            <note role="application">:  This requirement is used in the body of the ST if the ST author chooses to
+            <note role="application"> This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
             </note>
             <aactivity>
@@ -2540,7 +2542,7 @@
           </consistency-rationale>
           <f-element id="FCS_KDF_EXT.1.1">
             <title>
-              <h:b>Refinement:</h:b> The TSF shall accept 
+              The TSF shall accept 
               <selectables>
                 <selectable>a RNG generated submask as specified in FCS_RBG_EXT.1</selectable>
                 <selectable>a conditioned password</selectable>
@@ -2558,7 +2560,7 @@
              </selectables> using the keyed-hash functions specified in FCS_COP.1(4), such that the output is at least of
               equivalent security strength (in number of bits) to the FEK.
             </title>
-            <note role="application">: Application Note: This requirement is used in the body of the ST if the ST author chooses to
+            <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key derivation in the key chaining approach that is specified in FCS_KYC_EXT.1.
               This requirement establishes acceptable methods for generating a new random key or an
               existing submask to create a new key along the key chain.</note>
@@ -2578,7 +2580,7 @@
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(7)">
             <title>
-              <h:b>Refinement:</h:b> The TSF shall 
+              The TSF shall 
               <selectables>
                  <selectable>use platform-provided functionality to perform Key Wrapping</selectable>
                  <selectable>perform [key encryption and decryption] in accordance with a specified cryptographic algorithm [AES used in CBC mode] and cryptographic key sizes 
@@ -2590,7 +2592,7 @@
                  </selectable>
              </selectables>
             </title>
-              <note role="application">: This requirement is used in the body of the ST if the ST author chooses to
+              <note role="application">This requirement is used in the body of the ST if the ST author chooses to
                 use AES encryption/decryption for protecting the keys as part of the key chaining approach
                 that is specified in FCS_KYC_EXT.1.</note>
             <aactivity>
@@ -2613,7 +2615,7 @@
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(5)">
             <title>
-              <h:b>Refinement:</h:b> The application shall 
+              The application shall 
               <selectables>
                 <selectable>use platform-provided functionality to perform Key Wrapping</selectable>
                 <selectable>implement functionality to perform Key Wrapping in accordance with a specified cryptographic algorithm [AES] in the following modes
