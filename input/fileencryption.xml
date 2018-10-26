@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<Module target-products="File Encryption Draft" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" name="file encryption">  
+<Module target-products="File Encryption Draft" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://w.w3.org/1999/xhtml" name="file encryption">  
   <PPReference>
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
@@ -711,7 +711,7 @@
           <component-refer ref="FDP_PM_EXT.1"/>
           <component-refer ref="FDP_PRT_EXT.2"/>
           <component-refer ref="FDP_PRT_EXT.3"/>
-          <component-refer ref="FIA_FCT_EXT.1(1)"/>
+          <component-refer ref="FIA_FCT_EXT.1"/>
           
           <consistency-rationale>
             This objective is consistent with <base-name/>.
@@ -842,7 +842,7 @@
               ease of reference. 
               
               If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
-              “change” selection must be included, along with FIA_FCT_EXT.1(2) from Appendix C.
+              “change” selection must be included.
               
               If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)—
               even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
