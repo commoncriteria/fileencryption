@@ -92,9 +92,7 @@
       While this PP-Module does not dictate how these authentication factors are created, a
       good operational practice is for an administrator to generate the password or passphrase to
       ensure sufficient entropy.  Passphrases are preferred over passwords, since it is easier for users to remember and type in a sequence of
-      words than recall a password and type in a long string of random characters. The
-      requirements in Appendix C for the selected authorization factors should be included in the
-      ST. <h:br/><h:br/>
+      words than recall a password and type in a long string of random characters.<h:br/><h:br/>
       
       <h:b>Administration</h:b> <h:br/> The base requirements of the TOE do not require the TOE to maintain an
       administrative role. Typically, administrators possess privilege to invoke
@@ -1169,8 +1167,7 @@
               PIN was used for a SmartCard and managed by the TOE, ensuring that the PIN was properly destroyed shall be addressed.
             </note>
             <aactivity>
-              <TSS/>
-              <h:h4>KMD</h:h4>              
+              <TSS/> or KMD (Key Management Description may be used if necessary details describe proprietary information)            
               The evaluator shall verify the TSS  includes a key lifecycle, that includes a
               description where key material reside, how the key material is used, how it is
               determined that keys and key material are no longer needed, and how the material is
@@ -1738,7 +1735,11 @@
               
               [Conditional] For all configuration options listed in the TSS as being stored and protected using encryption 
               per FCS_COP.1(1), the evaluator shall examine the contents of the configuration option storage (identified in the TSS) to 
-              determine that the options have been encrypted. </aactivity>
+              determine that the options have been encrypted. 
+            <Guidance/> None.
+              <Tests/> None.
+              
+            </aactivity>
           </f-element>
         </f-component>
       </subsection>
@@ -1931,7 +1932,7 @@
               <test>Following the Operational guidance, configure the Operational Environment and
                 the TOE so that the lower power state of the platform is enabled and protected by the TOE. Open several
                 resources (documented in the test report) that are protected. Invoke the lower power
-                state. On resumption of normal power on attempting to access a previously-opened
+                state. On resumption of normal power attempt to access a previously-opened
                 protected resource, observe that an incorrect entry of the authorization factor(s)
                 does not result in access to the system, and that correct entry of the authorization
                 factor(s) does result in access to the resources. </test>
@@ -2141,6 +2142,8 @@
           <aactivity> 
             <TSS/>The evaluator shall follow the evaluation activities as laid out in
             FCS_COP.1(5) to assert proper FAK protection. </aactivity>
+          
+          
         </f-element>
       
       </f-component>
@@ -2198,6 +2201,7 @@
             and any other associated meta-data necessary to decrypt the file or set of files are
             associated with the resource. This description can be combined with the description
             required for FCS_COP.1(5). <h:br/>
+            
             <Guidance/> None. 
             
             <Tests/> An example ciphertext file generated via the TOE
@@ -2413,6 +2417,8 @@
             instructions on how to configure the password/passphrase length (and optional complexity settings)
             to provide entropy commensurate with the keys that the authorization factor is protecting.  
             
+            <Guidance/> None.
+            
             <Tests/> Support for Password/Passphrase characteristics: In addition to the analysis above, 
             the evaluator shall also perform the following tests on a TOE configured according to the Operational Guidance: <testlist>
               <test>Ensure that the TOE supports passwords/passphrases of a minimum length of 64 characters. </test>
@@ -2607,7 +2613,8 @@
               encryption and the mode used for the key encryption <h:br/>
               <Guidance/> None. 
               <Tests/> 
-              The evaluation activity tests specified for AES in CBC mode in the underlying Application Software PP shall be performed.
+              The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in
+ the underlying Application Software PP shall be performed.
               </aactivity>
           </f-element>
         </f-component>
