@@ -77,8 +77,7 @@
       sharing of at least one encrypted resource among different users of the TOE who possess
       different authorization factors (e.g., two different smartcards, two different passwords, one
       using a password and another using a smartcard). If this capability is supported, then the ST
-      author adds FDP_PRT_EXT.2 (and the associated application notes and evaluation activities) to
-      the ST. <h:br/> <h:br/> 
+      author adds FIA_FCT_EXT.1.1.<h:br/> <h:br/> 
       
       <h:b>Authorization</h:b> <h:br/> One or more authorization factors must be established before data can
       be encrypted. This authorization factor(s) must be presented to the file encryption product
@@ -1348,13 +1347,15 @@
               encryption keys to ultimately secure the FEK. The number of intermediate keys will
               vary. This applies to all keys that contribute to the ultimate wrapping or derivation
               of the FEK. For the first selection, the ST author
-              selects the method used for the keychain.  If the second option is chosen (“KEKs originating…”)
+              selects the method used for the keychain.  <h:br/>
+              
+              If the second option is chosen (“KEKs originating…”)
               , then the ST author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the ST author must also specify the 
               strength of the keys in the keychain.  It should be noted that “maintaining overall strength…
               commensurate with the overall strength of the FEK” is meant to cover the use case for this PP-Module 
               of a powered-off device being recovered by an adversary, who subsequently attempts to recover 
-              the FEK through a compromise of the key chain. 
+              the FEK through a compromise of the key chain. <h:br/>
               
               The third selection in the requirement is used to select the types of keys used in the key chain 
               (both symmetric and asymmetric keys are allowed).  The bit sizes selected in the fourth 
@@ -1362,18 +1363,22 @@
               the FEK in the following manner: for symmetric FEKs of 128 bits, the ST author can select 
               any of the choices for both symmetric and asymmetric keys.  For symmetric FEKs of 256 bits, 
               the ST author selects 256 bits if the symmetric key option is chosen and 192 bits or 256 bits 
-              if the asymmetric key option is chosen.
+              if the asymmetric key option is chosen.<h:br/>
               
               If a supplemental keychain is used, then the ST author selects the second option in the sixth 
               selection and then chooses the method by which these keys are protected.  Keys in the 
               supplemental key chain may be of any size, as they only provide additional protection to the 
               primary key chain.  Compromise (according the PP-Module use case) of the secondary key chain cannot 
-              circumvent the protection provided by the primary keychain. 
+              circumvent the protection provided by the primary keychain. <h:br/>
             
-             If the selections where the TOE impliments KEKs are chosen for the primary or supplimental key chains then FCS_CKM_EXT.3 shall be included.
+             If the selections where the TOE impliments KEKs are chosen for the primary or supplimental key chains
+              then FCS_CKM_EXT.3 shall be included.<h:br/>
             
-            The selections for an enterprise management server indicate that the key chain may terminate or start an enterprise management server.  
-            The server may provide a key needed to start a chain or the server may recieve a key that ends a chain.  The key mangement internal to the server is not evaluated here.</note>
+            The selections for an enterprise management server permit the key chain may originate or terminate from 
+              an enterprise management server.  
+            The server may provide a key needed to start a chain or the server may recieve a key that ends a chain.  
+              The key mangement internal to the server is not evaluated here. This permits the enterprise management server to 
+            function in the middle of a larger key chain.</note>
             <aactivity>
               <TSS/> or KMD (Key Management Description may be used if necessary details describe proprietary information)
               The evaluator shall verify the TSS contains a high level 
@@ -1409,9 +1414,7 @@
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
               of files) in accordance with FCS_COP.1(1). </title>
             <note role="application">This is the primary requirement for encrypting and decrypting
-              the protected resources (files and sets of files). Apart from the actual encryption
-              and decryption of the resources, there are two other functions specified by this
-              requirement. </note>
+              the protected resources (files and sets of files). </note>
             <aactivity>
               <TSS/> FDP_PRT_EXT.1.1: The evaluator shall examine the TSS to determine that it
               lists each type of resource that can be encrypted (e.g., file, directory) and what
