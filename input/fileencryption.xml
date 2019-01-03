@@ -1370,7 +1370,7 @@
               primary key chain.  Compromise (according the PP-Module use case) of the secondary key chain cannot 
               circumvent the protection provided by the primary keychain. <h:br/>
             
-             If the selections where the TOE impliments KEKs are chosen for the primary or supplimental key chains
+             If the selections where the TOE implements KEKs are chosen for the primary or supplimental key chains
               then FCS_CKM_EXT.3 shall be included.<h:br/>
             
             The selections for an enterprise management server permit the key chain may originate or terminate from 
@@ -2255,7 +2255,7 @@
           <aactivity>
             <TSS/>
             The evaluator shall review the TSS to determine that a
-            description covering how and when KEK)(s are generated exists. The description must
+            description covering how and when KEK(s) are generated exists. The description must
             cover all environments on which the TOE is claiming conformance, and include any
             preconditions that must exist in order to successfully generate the KEKs. The evaluator shall verify 
             that the description of how the KEK(s) are generated is consistent with
@@ -2263,7 +2263,7 @@
             platforms are taken into account. <h:br/> <h:br/> 
             
             Conditional: <h:br/> 
-            If using a RBG was selected the evaluator verify the TSS to determine that it describes how the functionality
+            If using a RBG was selected the evaluator shall examine the TSS and verify that it describes how the functionality
             described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
             generate KEK(s). To the extent possible from the description of the RBG functionality in
             FCS_RBG_EXT.1 (from the App PP), the evaluator shall determine that the key size being
@@ -2599,7 +2599,7 @@
             <title>
               The TSF shall 
               <selectables>
-                 <selectable>use platform-provided functionality to perform Key Wrapping</selectable>
+                 <selectable>use platform-provided functionality to perform Key Encryption</selectable>
                  <selectable>perform [key encryption and decryption] in accordance with a specified cryptographic algorithm [AES used in CBC mode] and cryptographic key sizes 
                   <selectables linebreak="yes">
                     <selectable>128</selectable>
@@ -2636,7 +2636,8 @@
               The application shall 
               <selectables>
                 <selectable>use platform-provided functionality to perform Key Wrapping</selectable>
-                <selectable>implement functionality to perform Key Wrapping in accordance with a specified cryptographic algorithm [AES] in the following modes
+                <selectable>implement functionality to perform Key Wrapping </selectable>
+              </selectables> in accordance with a specified cryptographic algorithm [AES] in the following modes
                   <selectables linebreak="yes">
                     <selectable>Key Wrap</selectable>
                     <selectable>Key Wrap with Padding</selectable>
@@ -2653,8 +2654,6 @@
                     <selectable>“NIST SP 800-38F”</selectable>
                     and no other standards.
                   </selectables>
-                </selectable>
-              </selectables> 
             </title>
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
@@ -2944,6 +2943,10 @@
         <description>Public Key Infrastructure</description>
       </entry>
       <entry>
+        <term>Primary Key Chain</term>
+        <description>The direct key chain from the authorization factor to the FEK.</description>
+      </entry>
+      <entry>
         <term>PP</term>
         <description>Protection Profile</description>
       </entry>
@@ -2970,6 +2973,10 @@
       <entry>
         <term>ST</term>
         <description>Security Target</description>
+      </entry>
+      <entry>
+        <term>Supplemental Key Chain</term>
+        <description>Other key chains that add protection or functionality without compromising the security of the primary key chain.</description>
       </entry>
       <entry>
         <term>TOE</term>
