@@ -312,6 +312,10 @@
             <description> A long string of characters that may be used for authorization to the data
               on the device. </description>
           </entry>
+      <entry>
+        <term>Primary Key Chain</term>
+        <description>The direct key chain from the authorization factor to the FEK.</description>
+      </entry>
           <entry>
             <term>Random Bit Generator (RBG) </term>
             <description> a cryptographic function composed of an entropy source and DRBG that is
@@ -328,6 +332,10 @@
             <description> power down or unintentional loss of power of the TOE or platform.
             </description>
           </entry>
+      <entry>
+        <term>Supplemental Key Chain</term>
+        <description>Other key chains that add protection or functionality without compromising the security of the primary key chain.</description>
+      </entry>
           <entry>
             <term>System files </term>
             <description> Files that reside on the host machine that are used in the operation of
@@ -408,6 +416,7 @@
             performs in order to determine a file encryption product's compliance to the SFRs.
           </h:p>
           <h:p>
+             <h:b>Conformance Claims</h:b> <h:br/>
             This <abbr linkend="PP-Module"/> conforms to Common Criteria <cite linkend="bibCC"/> for Information
             Technology Security Evaluation, Version 3.1, Revision 5. It is CC Part 2 extended and CC
             Part 3 conformant. In order to be conformant to this <abbr linkend="PP-Module"/>, the <abbr
@@ -422,6 +431,8 @@
             In accordance with CC Part 1, dependencies are not included when they are addressed by other SFRs.
             The evaluation activities provide adequate proof that any dependencies are also satisfied.
           </h:p>
+          <h:b>Package Claims</h:b> <h:br/>
+          This PP-Module does not claim conformance to any packages.
         </description>
       </cclaim>
     </cclaims>
@@ -601,7 +612,7 @@
           </assumption>
           <assumption id="A.STRONG_OE_CRYPTO">
             <description>All cryptography implemented in the Operational Environment and used by the
-              TOE will meet the requirements listed in Appendix C of this PP-Module. This includes
+              TOE will meet the requirements listed in this PP-Module. This includes
               generation of external token authorization factors by a RBG.</description>
             <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
               <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.STRONG_OE_CRYPTO.</rationale>
@@ -2943,10 +2954,6 @@
         <description>Public Key Infrastructure</description>
       </entry>
       <entry>
-        <term>Primary Key Chain</term>
-        <description>The direct key chain from the authorization factor to the FEK.</description>
-      </entry>
-      <entry>
         <term>PP</term>
         <description>Protection Profile</description>
       </entry>
@@ -2973,10 +2980,6 @@
       <entry>
         <term>ST</term>
         <description>Security Target</description>
-      </entry>
-      <entry>
-        <term>Supplemental Key Chain</term>
-        <description>Other key chains that add protection or functionality without compromising the security of the primary key chain.</description>
       </entry>
       <entry>
         <term>TOE</term>
