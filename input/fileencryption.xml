@@ -548,8 +548,7 @@
           </assumption>
           <assumption id="A.SHUTDOWN">
             <description>An authorized user will not leave the machine in a mode where sensitive
-              information persists in non-volatile storage (e.g., power it down or enter a power
-              managed state, such as a “hibernation mode”).</description>
+              information persists in non-volatile storage.</description>
             <objective-refer ref="OE.POWER_SAVE">
               <rationale>The operational environment objective OE.POWER_SAVE is realized through A.SHUTDOWN.</rationale>
             </objective-refer>
@@ -584,9 +583,7 @@
     description of these security objectives are in addition to that described in the <cite
       linkend="bibAppPP"/>.<h:br/> <h:br/>Note: in each subsection below particular security objectives are
     identified (highlighted by O.) and they are matched with the associated security functional
-    requirements (SFRs) that provide the mechanisms to satisfy the objectives.<h:br/> The Security
-    Objectives are the requirements for the Target of Evaluation (TOE) and for the Operational
-    Environment derived from the threats in Section 2. 
+    requirements (SFRs) that provide the mechanisms to satisfy the objectives.<h:br/> 
     <section title="Security Objectives for the TOE" id="objtoe"> 
       <SOs>
         <SO id="O.KEY_MATERIAL_PROTECTION">
@@ -713,8 +710,7 @@
         </SO>
         <SO id="OE.POWER_SAVE">
           <description>The non-mobile operational environment must be configurable so that there
-            exists at least one mechanism that will cause the system to power down after a period of
-            time in the same fashion as the user electing to shutdown the system (A.SHUTDOWN). Any
+            exists at least one mechanism that will cause the system to enter a safe power state (A.SHUTDOWN). Any
             such mechanism (e.g., sleep, hibernate) that does not conform to this requirement must
             be capable of being disabled. <h:br/> The mobile operational environment must be
             configurable such that there exists at least one mechanism that will cause the system to
@@ -755,7 +751,7 @@
                   <selectable>configure cryptographic functionality</selectable>
                   <selectable>change authentication factors</selectable>
                   <selectable>perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
-                  <selectable>configure the number of failed validation attempts required to trigger corrective behavior,  </selectable>
+                  <selectable>configure the number of failed validation attempts required to trigger corrective behavior  </selectable>
                   <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
                   <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
               </selectables>
@@ -1853,7 +1849,7 @@
         </f-element>
         <f-element id="FDP_PM_EXT.1.3">
           <title>The TSF shall destroy all key material and authentication factors stored in plaintext when transitioning to a
-           protected state as defined by FPT_PWR_EXT.1.</title>
+           protected state as defined by FDP_PM_EXT.1.1.</title>
         <note role="application"> For the first assignment, the ST author fills in the state(s) using
             the same name used in the Operational Guidance for the state that is appropriately
             protected by the TOE. <h:br/> It should be noted that it is not sufficient to use
@@ -1977,7 +1973,7 @@
             FCS_COP.1(4).</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.2.2">
-          <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP.1(6)
+          <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP_EXT.1(6)
             and FCS_CKM_EXT.5 as the secret key to the keyed hash function.</title>
         </f-element>
         <f-element id="FDP_AUT_EXT.2.3">
@@ -2092,10 +2088,10 @@
         </f-element>
       </f-component>
           
-      <f-component id="FCS_COP.1(6)" name="FAK encryption/decryption support">
+      <f-component id="FCS_COP_EXT.1(6)" name="FAK encryption/decryption support">
           <consistency-rationale>
           </consistency-rationale>
-        <f-element id="FCS_COP.1.1(6)">
+        <f-element id="FCS_COP_EXT.1.1(6)">
           <title>The FAK shall be protected in the same manner as the FEK, in accordance with
             FCS_COP.1(5).</title>
           <note role="application"> The intent of this requirement is to clarify that, if a FAK is
@@ -2135,7 +2131,7 @@
           <title>The TSF will not write FAKs to non-volatile memory.</title>
         </f-element>
         <f-element id="FCS_CKM_EXT.5.5">
-          <title>The FAK shall be protected in a manner conformant to FCS_COP.1(6).</title>
+          <title>The FAK shall be protected in a manner conformant to FCS_COP_EXT.1(6).</title>
           <note role="application"> The intent of this requirement is to describe the different
             methods that a FAK can be created and formed. <h:br/>FCS_CKM_EXT.5.1 details how a FAK mis stored. <h:br/>FCS_CKM_EXT.5.2 requires that each resource to be encrypted
             has a unique FAK, and that this FAK is generated by the TSF. If the encrypted resource
@@ -2587,7 +2583,7 @@
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(5)">
             <title>
-              The application shall 
+              The TSF shall 
               <selectables>
                 <selectable>use platform-provided functionality to perform Key Wrapping</selectable>
                 <selectable>implement functionality to perform Key Wrapping </selectable>
