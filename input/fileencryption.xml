@@ -588,7 +588,7 @@
       <SOs>
         <SO id="O.KEY_MATERIAL_PROTECTION">
           <description>
-            <h:b>Protection of Key Material:</h:b> The TOE must ensure that plaintext key material used
+            <h:b>Protection of Key Material:</h:b> The TOE must ensure that sensative plaintext key material used
             in performing its operations is cleared once it is no longer needed. Key material must
             be identified; its use and intermediate storage areas must also be identified; and then
             those storage areas must be cleared in a timely manner and without interruptions. For
@@ -737,7 +737,7 @@
   <chapter title="Security Requirements" id="req">
     <base-pp 
       product="application"
-      name="Application Software" short="App" 
+      name="Application Software 1.3" short="App" 
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
       <modified-sfrs>
