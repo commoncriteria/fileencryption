@@ -826,6 +826,8 @@
                   that may be needed are appropriately specified so that the ST can claim
                   conformance to this PP-Module.</h:li>
               </h:ul>
+              <h:br/>
+              This list extends the list of functions in the Application Software Protection Profile.
             </note>
             <aactivity>
                The ST author should combine the selections with those in the FMT_SMF.1 requirement in the Application Software PP to 
