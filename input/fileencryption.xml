@@ -1660,7 +1660,9 @@
              “submasks”. The ST author selects the authorization factors they support, and there may be
              multiple methods for a selection.
              Use of multiple authorization factors is preferable; if more than one authorization factor is
-             used, the submasks produced must be combined using FCS_SMC_EXT.1.
+             used, the submasks produced must be combined using FCS_SMC_EXT.1. 
+              
+            
             </note>
             <aactivity>The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
@@ -1949,7 +1951,7 @@
         </f-element>
         <f-element id="FDP_AUT_EXT.1.2">
           <title> The TSF shall implement a data authentication method based on <selectables>
-              <selectable>cryptographic, keyed hashing service and verification in accordance with
+              <selectable>cryptographic keyed hashing service and verification in accordance with
                 FDP_AUT_EXT.2</selectable>
               <selectable>asymmetric signing and verification in accordance with
                 FDP_AUT_EXT.3</selectable>
@@ -1961,7 +1963,10 @@
             decryption if authentication is unsuccessful. Using modes such as XTS or CBC will
             require additional data authentication measures to be added, such as a keyed hash
             function or asymmetric signing, because these modes do not come inherently packaged with
-            data authentication or a way to signal to the user that data has been modified. </note>
+            data authentication or a way to signal to the user that data has been modified.<h:br/>
+          
+            Specific tests are performed in FDP_AUT_EXT.2 or FDP_AUT_EXT.3 depending on the selection made in FDP_AUT_EXT.1.2.
+          </note>
           <aactivity>
             <TSS/> The evaluator shall examine the TSS to determine that it lists each type of
             resource that can be authenticated (e.g., file, directory) and what “authenticated”
@@ -2064,7 +2069,7 @@
             
             <Tests/> The evaluator shall perform the following test: <testlist>
               <test>Create an encrypted file and confirm that authentication of this file using the
-                correct FAK will result in a success.</test>
+                correct FAK will result in a successful decryption.</test>
               <test>Modify an arbitrary number of bits of ciphertext and attempt to run the
                 authentication and decryption operations on the file. Assert that the TOE
                 successfully identified the forged ciphertext file and notified the user. </test>
@@ -2116,7 +2121,8 @@
             accordance with FCS_CKM.1(1). The evaluator will confirm that the entire ciphertext file
             was used to create the hash and that the hash was used as input to the cryptographic
             signing function. The evaluator will confirm that the TSF notifies the user of an
-            unsuccessful authentication and prevents decryption. 
+            unsuccessful authentication and prevents decryption.  The evaluator shall confirm
+            that the signature is appended to the end of the ciphertext file.
             
             <Guidance/> None.
               <Tests/>The evaluator shall perform the following test: <testlist>
