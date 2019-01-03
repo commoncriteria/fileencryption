@@ -468,15 +468,8 @@
       <threats>
         <threat id="T.UNAUTHORIZED_DATA_ACCESS">
           <description>
-            <h:b>Unauthorized Data Access:</h:b> The central functionality of the TOE is the protection
-            of resources under its control through encryption. In a shared resource environment,
-            users on a system may have access to administrative-level tools that are capable of
-            over-riding a system’s access control protections. Further, if the system were to be
-            lost or the system’s storage device stolen, the attacker could then look directly at the
-            storage device using low-level forensic tools in an attempt to access data for which
-            they are not authorized. However, the need to protect the data in these scenarios should
-            not interfere with the data-owner’s (or another user that has been granted access to
-            those data) ability to read or manipulate the data. </description>
+            <h:b>Unauthorized Data Access:</h:b> An attacker has access to an account that is not permitted to decrypt 
+          files or has no access and uses forensic tools for examination.</description>
           <objective-refer ref="O.PROTECT_DATA">
             <rationale>The threat T.UNAUTHORIZED_DATA_ACCESS is countered by O.PROTECT_DATA as this
               provides for encyption of data.</rationale>
@@ -493,18 +486,8 @@
         </threat>
         <threat id="T.KEYING_MATERIAL_COMPROMISE">
           <description>
-            <h:b>Compromise of Keying Material:</h:b> Attacks against the encryption product could take
-            several forms; for example, if there is a weakness in the random number generation
-            mixing algorithm or the data sources used in random number generation are guessable,
-            then the output may be guessable as well. If an attacker can guess the output of the
-            pseudorandom number generator (PRNG) at the time an encryption key is made, then the
-            output may be used to recreate the keying material and decrypt the protected files. As
-            the encryption program runs, it will store a variety of information in memory. Some of
-            this information, such as random bit generation (RBG) inputs, RBG output, copies of the
-            plaintext files, plaintext keys, and other keying material, could be very valuable to an attacker who
-            wishes to decrypt an encrypted file. If the encryption product does not wipe these
-            memory spaces appropriately, an attacker may be able to recreate the encryption key and
-            access encrypted files. </description>
+            <h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation, 
+            plaintext keys, and other keying material to decrypt an encrypted file. </description>
           <objective-refer ref="O.KEY_MATERIAL_PROTECTION">
             <rationale>The threat T.KEYING_MATERIAL_COMPROMISE is countered by O.KEY_MATERIAL_PROTECTION as this
               provides for protection of keys.</rationale>
@@ -512,13 +495,8 @@
         </threat>
         <threat id="T.UNSAFE_AUTHFACTOR_VERIFICATION">
           <description>
-            <h:b>Flawed Authentication Factor Verification:</h:b> When a user enters an authorization
-            factor, the TOE is required to ensure that the authorization factor is valid prior to
-            providing any data to the user; the purpose of verification is to ensure the FEK is
-            correctly derived. If the data is decrypted with an incorrectly derived FEK (the FEK is
-            conditioned from the password/passphrase or is decrypted by the KEK), then unpredictable
-            data will be provided to the user. If verification is not performed in a secure manner,
-            keying material or user data may be exposed or weakened. </description>
+            <h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of 
+            the authorization factor. </description>
           <objective-refer ref="O.SAFE_AUTHFACTOR_VERIFICATION">
             <rationale>The threat T.UNSAFE_AUTHFACTOR_VERIFICATION is countered by O.SAFE_AUTHFACTOR_VERIFICATION as this
               provides for properly supported authentication factors.</rationale>
@@ -526,14 +504,7 @@
         </threat>
         <threat id="T.KEYSPACE_EXHAUST">
           <description>
-            <h:b>Brute Force Attack:</h:b> The protection of the data involves encrypting said data
-            assuming an attacker may have significant computing resources at their disposal. Several
-            ciphers have already been broken through brute-force attacks because the length of the
-            keys used in those ciphers was too short to provide protection against a concerted
-            computing effort to discover those keys. Because protection of the data may rely on a
-            chaining of keys and encryption mechanisms, there are many opportunities for brute force
-            attacks against each potential key in the chain, such that the weakest link in the chain
-            of factors/keys will determine the overall strength against a brute force attack.
+            <h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used.
           </description>
           <objective-refer ref="O.FEK_SECURITY">
             <rationale>The threat T.KEYSPACE_EXHAUST is countered by O.FEK_SECURITY as this
@@ -542,34 +513,7 @@
         </threat>
         <threat id="T.PLAINTEXT_COMPROMISE">
           <description>
-            <h:b>Plaintext Compromise:</h:b> Unlike full disk encryption, selectable encryption products
-            also need to protect against data leaks to other applications on the machine. Many file
-            creators and editors store temporary files as the user is working on a file, and restore
-            files if the machine experiences an interrupt while a file is open. Any of these files,
-            if not properly protected or deleted, could leak information about a protected file to
-            an attacker. Other applications might also access volatile or non-volatile memory
-            released by the file encryption product, and the software used to create files prior to
-            encryption may retain information about the file even after it has been encrypted. As
-            the user creates and saves a new document, the plaintext will be stored on the machine's
-            hard drive. An attacker could then search for the plaintext of the sensitive, encrypted
-            information. An attacker may not even have to access the encrypted file for the
-            protected information to be compromised. When the user wishes to encrypt the document,
-            this plaintext file should be replaced with the new encrypted version. For non-mobile
-            devices, it is expected that if the volatile and/or non-volatile memory space where the
-            plaintext file was stored is merely released back to the machine without being first
-            wiped clean of the data that was stored there, then the information the user wishes to
-            protect will still be accessible. While protection of the encryption algorithm itself is
-            vital, memory must also be properly managed by the file encryption product or the TOE
-            platform in order for security to remain intact. For mobile devices, it is assumed that
-            the File Encryption product will not be responsible for providing memory management
-            cleanup and the environment's platform has met the Mobile Device Fundamentals Protection
-            Profile.<h:br/> Additionally, some encryption products offer to create backup files. These
-            files are meant to be used in the event an encrypted file becomes corrupted and
-            incapable of being decrypted. Each backup file is a valuable resource to protect
-            information that the user cannot afford to lose; however, it also may provide another
-            route for an attacker to access the encrypted information. If the backup file is
-            insufficiently protected, then the attacker may choose to attempt to break into it,
-            rather than the copy of the encrypted file that the user would typically access.
+            <h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools.
           </description>
           <objective-refer ref="O.WIPE_MEMORY">
             <rationale>The threat T.PLAINTEXT_COMPROMISE is countered by O.WIPE_MEMORY as this
@@ -629,15 +573,14 @@
         </assumptions>
       </section>
      <section title="Organizational Security Policies" id="OSPs">
-      There are no Organizational Security Policies for the application.
+      There are no Organizational Security Policies for the PP-Module.
        </section>
   </chapter>
   <chapter title="Security Objectives" id="obj"> 
     The Security Problem described in
     <secref linkend="spd"/> will be addressed by a combination of cryptographic capabilities. Compliant TOEs
-    will provide security functionality that addresses threats to the TOE and enforces policies
-    that are imposed by law and regulation. The following subsections provide a description of the
-    security objectives required to meet the threats/policies previously discussed. The
+    will provide security functionality that addresses threats to the TOE. The following subsections provide a description of the
+    security objectives required to meet the threats previously discussed. The
     description of these security objectives are in addition to that described in the <cite
       linkend="bibAppPP"/>.<h:br/> <h:br/>Note: in each subsection below particular security objectives are
     identified (highlighted by O.) and they are matched with the associated security functional
