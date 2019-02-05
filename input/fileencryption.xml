@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="..\transforms\pp2html.xsl"?>
 
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
@@ -7,7 +7,7 @@
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2018-10-25</PPPubDate>
+      <PPPubDate>2019-02-05</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -159,7 +159,7 @@
           with the Mobile Device Fundamentals Protection Profile.</h:li>
       </h:ul> It should be noted that if the TOE possesses the capability to correctly protect
       information in one or more of an underlying platform's power managed modes, they can use the
-      FDP_PM_EXT.1 requirement in Appendix B.<h:br/> Authorized users of the TOE are those users
+      FDP_PM_EXT.1 requirement in Appendix A.<h:br/><h:br/> Authorized users of the TOE are those users
       possessing valid authorization factors for the TOE. While some of these functions specified
       in the PP-Module might be considered “administrative” functions for other types of TOEs, for file
       encryption products it is the expectation that all of these functions can be performed by
@@ -176,6 +176,11 @@
           </entry>
           <entry>
             <term><abbr title="Protection Profile">PP</abbr></term>
+            <description>An implementation-independent set of security requirements for a category
+              of products.</description>
+          </entry>
+          <entry>
+            <term><abbr title="Protection Profile Module">PP</abbr></term>
             <description>An implementation-independent set of security requirements for a category
               of products.</description>
           </entry>
@@ -402,7 +407,7 @@
     </section>
   </chapter>
   
-  <chapter title="Conformance Claims" id="conf">
+  <chapter title="Conformance Claims" id="conf" boilerplate="no">
     <cclaims>
       <cclaim title="Conformance Statement">
         <description>
@@ -581,9 +586,7 @@
     will provide security functionality that addresses threats to the TOE. The following subsections provide a description of the
     security objectives required to meet the threats previously discussed. The
     description of these security objectives are in addition to that described in the <cite
-      linkend="bibAppPP"/>.<h:br/> <h:br/>Note: in each subsection below particular security objectives are
-    identified (highlighted by O.) and they are matched with the associated security functional
-    requirements (SFRs) that provide the mechanisms to satisfy the objectives.<h:br/> 
+      linkend="bibAppPP"/>.<h:br/> 
     <section title="Security Objectives for the TOE" id="objtoe"> 
       <SOs>
         <SO id="O.KEY_MATERIAL_PROTECTION">
@@ -685,7 +688,7 @@
           <description>The TOE will provide all the functions and facilities necessary to support
             the authorized administrators in their management of the security of the TOE, and
             restrict these functions and facilities from unauthorized use.</description>
-          <component-refer ref="FMT_SMF.1"/>
+          <component-refer ref="FMT_SMF.2"/>
           <component-refer ref="FMT_MEC_EXT.1"/>
           
           <consistency-rationale>
@@ -741,10 +744,10 @@
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
       <modified-sfrs>
-      <f-component id="FMT_SMF.1" name="Specification of File Encryption Management Functions">
+      <f-component id="FMT_SMF.2" name="Specification of File Encryption Management Functions">
           <consistency-rationale>
           </consistency-rationale>
-          <f-element id="FMT_SMF.1.1">
+          <f-element id="FMT_SMF.2.1">
             <title>The TSF shall be capable of performing the following management functions:
                 <selectables linebreak="yes">
                   <selectable>configure password/passphrase complexity setting</selectable>
@@ -777,11 +780,11 @@
                   conformance to this PP-Module.</h:li>
               </h:ul>
               <h:br/>
-              This list extends the list of functions in the Application Software Protection Profile.
+              This list is in addition to the list of functions, SMF_FMT.1 in the Application Software Protection Profile.
             </note>
             <aactivity>
                The ST author should combine the selections with those in the FMT_SMF.1 requirement in the Application Software PP to 
-              form a single FMT_SMF.1 SFR in the ST.
+              form a single FMT_SMF SFR in the ST.
               
               The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
@@ -1594,7 +1597,7 @@
                 <selectable>an external USB token factor that is at least the same security strength as the FEK(s),
                    and is providing a submask generated by the 
                    <selectables>
-                     <selectable>TOE, using the RBG as specified in FCS_RBG_EXT.1</selectable>
+                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
                      <selectable>platform</selectable>
                    </selectables>
                 </selectable>
@@ -2326,7 +2329,7 @@
             A significantly higher value is recommended to ensure optimal security.
             
             For FCS_CKM_EXT.1.4(1) If the minimum password length is settable, then ST author chooses “a value settable by the administrator
-            for this component, as well as the “configure password/passphrase complexity setting” item for FMT_SMF.1.1. If the minimum length
+            for this component, as well as the “configure password/passphrase complexity setting” item for FMT_SMF.2. If the minimum length
             is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  
             
             This requirement is selection dependent on FIA_AUT_EXT.1.1.</note>
