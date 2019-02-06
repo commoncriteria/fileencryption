@@ -743,6 +743,11 @@
       name="Application Software 1.3" short="App" 
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
+      
+      <sec-func-req-dir>
+The TOE is expected to rely on some of the security functions implemented by the application as a whole and evaluated against the AppPP.
+The following sections describe any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.         
+      </sec-func-req-dir>
       <modified-sfrs>
       <f-component id="FMT_SMF.2" name="Specification of File Encryption Management Functions">
           <consistency-rationale>
