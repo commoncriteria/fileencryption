@@ -746,7 +746,7 @@
       
       <sec-func-req-dir>
 The TOE is expected to rely on some of the security functions implemented by the application as a whole and evaluated against the AppPP.
-The following sections describe any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.         
+The following sections describe any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.       
       </sec-func-req-dir>
       <modified-sfrs>
       <f-component id="FMT_SMF.2" name="Specification of File Encryption Management Functions">
@@ -843,6 +843,9 @@ The following sections describe any modifications that the ST author must make t
     </base-pp>
     
     <man-sfrs>
+      <description>
+The following section describes the SFRs that must be satisfied by any TOE that claims conformance to this PP-Module. 
+      </description>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
           <consistency-rationale>
