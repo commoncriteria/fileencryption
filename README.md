@@ -1,6 +1,6 @@
 Protection Profile for File Encryption
 ===========
-[![Build Status](https://travis-ci.org/commoncriteria/fileencryption.svg?branch=master)](https://travis-ci.org/commoncriteria/fileencryption)
+[![Build Status](https://travis-ci.com/commoncriteria/fileencryption.svg?branch=master)](https://travis-ci.com/commoncriteria/fileencryption)
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/fileencryption.svg?maxAge=2592000)](https://github.com/commoncriteria/fileencryption/issues)
 ![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
 
