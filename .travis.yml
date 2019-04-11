@@ -27,7 +27,7 @@ script:
   - cp -r output/* commoncriteria.github.io/pp/$(basename $TRAVIS_REPO_SLUG)
   - chmod 700 ci-scripts/generate_pdfs.sh
   - chmod 700 ci-scripts/create_site.sh
-  - ./ci-scripts/generate_pdfs.sh
+  - ./ci-scripts/generate_pdfs.sh --disable-external-links
   - cd commoncriteria.github.io
   - git add --all 
   - git diff-index --quiet HEAD || git commit -m "Deploying changes"
