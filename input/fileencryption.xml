@@ -463,22 +463,13 @@
           </h:p>
           <h:p>
              <h:b>Conformance Claims</h:b> <h:br/>
-            This <abbr linkend="PP-Module"/> conforms to Common Criteria <cite linkend="bibCC"/> for Information
-            Technology Security Evaluation, Version 3.1, Revision 5. It is CC Part 2 extended and CC
-            Part 3 conformant. In order to be conformant to this <abbr linkend="PP-Module"/>, the <abbr
-              linkend="ST"/> must include all components in this <abbr linkend="PP-Module"/> and the
-            associated App PP that are: <h:ul><h:li>unconditional (which are always required)</h:li>
-              <h:li>selection-based (which are required when certain selections are chosen in the
-                unconditional requirements)</h:li>
-            </h:ul> and may include optional and/or objective components that are desirable but not
-            required for conformance. 
+            This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified Base-PP and as defined in the <cite linkend="bibCC"/> and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017).
+            
+            This PP-Module is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Revision 5 [CC]. 
+            
+            The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
+            <h:ul><h:li>Protection Profile for Application Software Version 1.3</h:li></h:ul>
           </h:p>
-          <h:p>
-            In accordance with CC Part 1, dependencies are not included when they are addressed by other SFRs.
-            The evaluation activities provide adequate proof that any dependencies are also satisfied.
-          </h:p>
-          <h:b>Package Claims</h:b> <h:br/>
-          This PP-Module does not claim conformance to any packages.
         </description>
       </cclaim>
     </cclaims>
