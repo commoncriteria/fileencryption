@@ -453,15 +453,6 @@
       <cclaim title="Conformance Statement">
         <description>
           <h:p>
-            The Protection Profile for Application Software (<cite linkend="bibAppPP"/>)
-            defines the baseline Security Functional Requirements (SFRs) and Security Assurance
-            Requirements (SARs) for application software products. This <abbr linkend="PP-Module"/> serves to
-            extend the App PP baseline with additional SFRs and associated Evaluation Activities
-            specific to an file encryption product.
-            Evaluation Activities are the actions that the evaluator
-            performs in order to determine a file encryption product's compliance to the SFRs.
-          </h:p>
-          <h:p>
              <h:b>Conformance Claims</h:b> <h:br/>
             This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified Base-PP and as defined in the <cite linkend="bibCC"/> and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017).
             
