@@ -779,17 +779,7 @@ The following sections describe any modifications that the ST author must make t
       </sec-func-req-dir>
       
       <modified-sfrs></modified-sfrs>
-      <additional-sfrs></additional-sfrs>
-      <con-toe></con-toe>
-      <con-sec-prob></con-sec-prob>
-      <con-obj></con-obj>
-      <con-op-en></con-op-en>
-    </base-pp>
-
-    <man-sfrs>
-      <description>
-The following section describes the SFRs that must be satisfied by any TOE that claims conformance to this PP-Module. 
-      </description>
+      <additional-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
           <consistency-rationale>
@@ -1825,7 +1815,14 @@ The following section describes the SFRs that must be satisfied by any TOE that 
 </aactivity>
           </f-element>
         </f-component>
-      </subsection></man-sfrs>
+      </subsection></additional-sfrs>
+      <con-toe></con-toe>
+      <con-sec-prob></con-sec-prob>
+      <con-obj></con-obj>
+      <con-op-en></con-op-en>
+    </base-pp>
+
+    <man-sfrs></man-sfrs>
     <opt-sfrs>
       <subsection title="Identification and Authentication (FIA)" id="fia">
         <f-component id="FIA_FCT_EXT.1" name="Extended: Multi-User Authorization">
