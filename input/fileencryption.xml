@@ -468,7 +468,8 @@
             This PP-Module is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Revision 5 [CC]. 
             
             The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
-            <h:ul><h:li>Protection Profile for Application Software Version 1.3</h:li></h:ul>
+            <h:ul><h:li>PP-Module for VPN Client, Version 2.1</h:li>
+            <h:li>PP-Module for File Encryption Enterprise Management</h:li></h:ul>
           </h:p>
         </description>
       </cclaim>
@@ -777,100 +778,7 @@ The TOE is expected to rely on some of the security functions implemented by the
 The following sections describe any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.       
       </sec-func-req-dir>
       
-      <modified-sfrs>
-        <subsection title="Security Management (FMT)" id="fmt">
-          <f-component id="FMT_SMF.2" name="Specification of File Encryption Management Functions">
-            <consistency-rationale>
-            </consistency-rationale>
-            <f-element id="FMT_SMF.2.1">
-              <title>The TSF shall be capable of performing the following management functions:
-                <selectables linebreak="yes">
-                  <selectable>configure password/passphrase complexity setting</selectable>
-                  <selectable>configure cryptographic functionality</selectable>
-                  <selectable>change authentication factors</selectable>
-                  <selectable>perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
-                  <selectable>configure the number of failed validation attempts required to trigger corrective behavior  </selectable>
-                  <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
-                  <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
-                </selectables>
-              </title>
-              <note role="application"> The intent of this requirement is to express the management
-                capabilities that may be included in the TOE. Several common options are given:<h:br/>
-                <h:ul>
-                  <h:li>If the TOE provides for a password/passphrase complexity setting, then
-                    "configure password/passphrase complexity setting" will be included, and the
-                    specifics of the functionality offered can either be written from the requirement
-                    as bullets points, or included in the TSS.</h:li>
-                  <h:li>If the TOE provides configurability of the cryptographic functions (for example,
-                    key size of the FEK)-even if the configuration is the form of parameters that may
-                    be passed to cryptographic functionality implement on the TOE platform--then
-                    "configure cryptographic functionality" will be included, and the specifics of the
-                    functionality offered can either be written in this requirement as bullet points,
-                    or included in the TSS.</h:li>
-                  <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
-                    , then "perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included.</h:li>
-                  <h:li>If "other management functions" are assigned, a validation authority must be
-                    consulted to ensure the evaluation activities and other functionality requirements
-                    that may be needed are appropriately specified so that the ST can claim
-                    conformance to this PP-Module.</h:li>
-                </h:ul>
-                <h:br/>
-                This list is in addition to the list of functions, SMF_FMT.1 in the Application Software Protection Profile.
-              </note>
-              <aactivity>
-                The ST author should combine the selections with those in the FMT_SMF.1 requirement in the Application Software PP to 
-                form a single FMT_SMF SFR in the ST.
-                
-                The evaluation activities for this component will be driven by the selections
-                made by the ST author. This section describes evaluation activities for all possible
-                selections in an ST; it should be understood that if a capability is not selected in
-                the ST, the noted evaluation activity does not need to be performed. The following
-                sections are divided up into "Required Activities" and "Conditional Activities" for
-                ease of reference. 
-                
-                If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
-                "change" selection must be included.
-                
-                If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)-
-                even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
-                the TOE platform--then "configure cryptographic functionality" will be included, and the specifics 
-                of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.
-                
-                If "other management functions" are assigned, a validation authority must be consulted to ensure the 
-                evaluation activities and other functionality requirements that may be needed are appropriately 
-                specified so that the ST can claim conformance to this PP-Module.
-                
-                <TSS>
-                  <h:b>Conditional Activities:</h:b> The evaluator shall examine the TSS to ensure that it
-                  describes the sequence of activities that take place from an implementation
-                  perspective when this activity is performed (for example, how it determines which
-                  resources are associated with the KEK, the decryption and re-encryption process), and
-                  ensure that the KEK and FEK are not exposed during this change. <h:br/>
-                  <h:b>Cryptographic Configuration:</h:b> None for this requirement. <h:br/>
-                  
-                </TSS>
-                <Guidance>
-                  <h:b>Conditional Activities:</h:b> The evaluator shall examine the Operational Guidance to
-                  ensure that it describes how the password/passphrase-based authorization factor is to
-                  be changed. <h:br/>
-                  <h:b>Cryptographic Configuration:</h:b> The evaluator shall determine from the TSS for
-                  other requirements (FCS_*, FDP_PRT_EXT, FIA_AUT_EXT) what portions of the
-                  cryptographic functionality are configurable. The evaluator shall then review the AGD
-                  documentation to determine that there are instructions for manipulating all of the
-                  claimed mechanisms. 
-                </Guidance>
-                <Tests>
-                  <h:b>Cryptographic Erase:</h:b> If the TOE uses stored FEKS or KEKs, the evaluator shall 
-                  examine the key chain to determine that the keys destroyed by a cryptographic erase will result in the data becoming unrecoverable.
-                  Testing for this activity is performed for other components in this PP-Module. 
-                </Tests>
-              </aactivity>
-            </f-element>
-          </f-component>
-        </subsection>
-        
-
-      </modified-sfrs>
+      <modified-sfrs></modified-sfrs>
       <additional-sfrs></additional-sfrs>
       <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
@@ -1738,22 +1646,106 @@ The following section describes the SFRs that must be satisfied by any TOE that 
       </subsection>
       <subsection title="Security Management (FMT)" id="fmt"> 
 
-
+        <f-component id="FMT_SMF.1(2)" name="Specification of File Encryption Management Functions">
+          <consistency-rationale>
+          </consistency-rationale>
+          <f-element id="FMT_SMF.1.1(2)">
+            <title>The TSF shall be capable of performing the following management functions:
+              <selectables linebreak="yes">
+                <selectable>configure password/passphrase complexity setting</selectable>
+                <selectable>configure cryptographic functionality</selectable>
+                <selectable>change authentication factors</selectable>
+                <selectable>perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
+                <selectable>configure the number of failed validation attempts required to trigger corrective behavior  </selectable>
+                <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
+                <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
+              </selectables>
+            </title>
+            <note role="application"> The intent of this requirement is to express the management
+              capabilities that may be included in the TOE. Several common options are given:<h:br/>
+              <h:ul>
+                <h:li>If the TOE provides for a password/passphrase complexity setting, then
+                  "configure password/passphrase complexity setting" will be included, and the
+                  specifics of the functionality offered can either be written from the requirement
+                  as bullets points, or included in the TSS.</h:li>
+                <h:li>If the TOE provides configurability of the cryptographic functions (for example,
+                  key size of the FEK)-even if the configuration is the form of parameters that may
+                  be passed to cryptographic functionality implement on the TOE platform--then
+                  "configure cryptographic functionality" will be included, and the specifics of the
+                  functionality offered can either be written in this requirement as bullet points,
+                  or included in the TSS.</h:li>
+                <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
+                  , then "perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included.</h:li>
+                <h:li>If "other management functions" are assigned, a validation authority must be
+                  consulted to ensure the evaluation activities and other functionality requirements
+                  that may be needed are appropriately specified so that the ST can claim
+                  conformance to this PP-Module.</h:li>
+              </h:ul>
+              <h:br/>
+              This list is in addition to the list of functions, SMF_FMT.1 in the Application Software Protection Profile.
+            </note>
+            <aactivity>
+              The ST author should combine the selections with those in the FMT_SMF.1 requirement in the Application Software PP to 
+              form a single FMT_SMF SFR in the ST.
+              
+              The evaluation activities for this component will be driven by the selections
+              made by the ST author. This section describes evaluation activities for all possible
+              selections in an ST; it should be understood that if a capability is not selected in
+              the ST, the noted evaluation activity does not need to be performed. The following
+              sections are divided up into "Required Activities" and "Conditional Activities" for
+              ease of reference. 
+              
+              If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
+              "change" selection must be included.
+              
+              If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)-
+              even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
+              the TOE platform--then "configure cryptographic functionality" will be included, and the specifics 
+              of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.
+              
+              If "other management functions" are assigned, a validation authority must be consulted to ensure the 
+              evaluation activities and other functionality requirements that may be needed are appropriately 
+              specified so that the ST can claim conformance to this PP-Module.
+              
+              <TSS>
+                <h:b>Conditional Activities:</h:b> The evaluator shall examine the TSS to ensure that it
+                describes the sequence of activities that take place from an implementation
+                perspective when this activity is performed (for example, how it determines which
+                resources are associated with the KEK, the decryption and re-encryption process), and
+                ensure that the KEK and FEK are not exposed during this change. <h:br/>
+                <h:b>Cryptographic Configuration:</h:b> None for this requirement. <h:br/>
+                
+              </TSS>
+              <Guidance>
+                <h:b>Conditional Activities:</h:b> The evaluator shall examine the Operational Guidance to
+                ensure that it describes how the password/passphrase-based authorization factor is to
+                be changed. <h:br/>
+                <h:b>Cryptographic Configuration:</h:b> The evaluator shall determine from the TSS for
+                other requirements (FCS_*, FDP_PRT_EXT, FIA_AUT_EXT) what portions of the
+                cryptographic functionality are configurable. The evaluator shall then review the AGD
+                documentation to determine that there are instructions for manipulating all of the
+                claimed mechanisms. 
+              </Guidance>
+              <Tests>
+                <h:b>Cryptographic Erase:</h:b> If the TOE uses stored FEKS or KEKs, the evaluator shall 
+                examine the key chain to determine that the keys destroyed by a cryptographic erase will result in the data becoming unrecoverable.
+                Testing for this activity is performed for other components in this PP-Module. 
+              </Tests>
+            </aactivity>
+          </f-element>
+        </f-component>
 
         <f-component id="FMT_MEC_EXT.1" name="Supported Configuration Mechanism">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FMT_MEC_EXT.1.1">
-            <title>The TSF shall 
+            <title>SEE APPLICATION NOTE The TSF shall 
               <selectables>
                 <selectable>invoke the mechanisms recommended by the platform vendor for storing and setting configuration options</selectable>
                 <selectable>store and protect configuration options as specified in FCS_COP.1(1)</selectable>  
               </selectables>.
             </title>
-            <note role="application"> The ST author replaces FMT_MEC_EXT.1 in the Application Software PP with this requirement, 
-              and performs the appropriate selections.  The ST author ensures all configuration options are "covered" by one of 
-              the two selections.  It is allowable to have some configuration stored and protected using platform-provided functions 
-              and some stored by the TSF and protected using encryption per FCS_COP.1(1).
+            <note role="application"> This requirement is planned to be removed.  The App SW PP will be updated to add a selection to permit the encryption of configuration options by file encryption products.
             </note>
             <aactivity>
               <TSS>The TSS evaluation activity in the Application Software PP for FMT_MEC_EXT.1 applies for either selection.  
