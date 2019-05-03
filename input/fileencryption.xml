@@ -1813,7 +1813,6 @@ The following sections describe any modifications that the ST author must make t
       <con-op-en></con-op-en>
     </base-pp>
 
-    <man-sfrs></man-sfrs>
     <opt-sfrs>
       <subsection title="Identification and Authentication (FIA)" id="fia">
         <f-component id="FIA_FCT_EXT.1" name="Extended: Multi-User Authorization">
