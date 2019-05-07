@@ -420,14 +420,6 @@
             System">BIOS</h:abbr> and other firmware, the operating system kernel,
           and other systems software (and drivers) provided as part of the
           platform are outside the scope of this document.  
-          <figure	entity="images/toe.png" 
-            title="TOE as an Application and Kernel Module Running on an Operating System" 
-            id="toe-as-apponos"
-          />
-          <figure entity="images/toeruntime.png" 
-            title="TOE as an Application Running in an Execution Environment Plus Native Code"
-            id="toe-as-apponee"
-          />
           
         </h:p>
       </subsection>
