@@ -98,7 +98,7 @@
       administrative role. Typically, administrators possess privilege to invoke
       functionality on the TOE that is not available to general users. For stand alone file encryption
       products, however, once the product is installed there should be little need for
-      administrative involvement.  For enterprised managed file encryption products, the TOE may be remotely administered. <h:br/><h:br/>
+      administrative involvement.  For enterprise managed file encryption products, the TOE may be remotely administered. <h:br/><h:br/>
 
       <h:b>Data Authentication (optional)</h:b> <h:br/> Because modification of ciphertext data
       for certain modes of encryption will enable unidentified plaintext manipulation, care must
@@ -493,7 +493,7 @@
           files or has no access and uses forensic tools for examination.</description>
           <objective-refer ref="O.PROTECT_DATA">
             <rationale>The threat T.UNAUTHORIZED_DATA_ACCESS is countered by O.PROTECT_DATA as this
-              provides for encyption of data.</rationale>
+              provides for encryption of data.</rationale>
           </objective-refer>
         </threat>
         <threat id="T.MANAGEMENT_ACCESS">
@@ -894,7 +894,7 @@ The following sections describe any modifications that the ST author must make t
                         <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
                       </selectables>
                     </selectable>
-                    <selectable>instructs the underlying platform to destory the abstraction the represents the key</selectable>
+                    <selectable>instructs the underlying platform to destroy the abstraction the represents the key</selectable>
                   </selectables>
                     </selectable>
                   </selectables>
@@ -951,7 +951,7 @@ The following sections describe any modifications that the ST author must make t
               keychain in the TSS and identify each instance when a key is destroyed by this method. In each instance the evaluator 
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
               method in FCS_CKM_EXT.4.1 The evaluator shall verify that all of the keys capable of decrypting the target key are not 
-              able to be derived to reestabish the keychain after their destruction. <h:br/>
+              able to be derived to reestablish the keychain after their destruction. <h:br/>
 
               </TSS>
 <Guidance> There are a variety of concerns that may prevent or delay key destruction in some cases.
@@ -1005,7 +1005,7 @@ The following sections describe any modifications that the ST author must make t
 
                   Steps 1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</test>
 
-                <test>[Contitional] If new value of a key is selected this test does not apply. 
+                <test>[Conditional] If new value of a key is selected this test does not apply. 
                   Applied to each key held in non-volatile memory and subject to destruction by the TOE. 
                   The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended.
 
@@ -1269,13 +1269,13 @@ The following sections describe any modifications that the ST author must make t
               primary key chain.  Compromise (according the PP-Module use case) of the secondary key chain cannot 
               circumvent the protection provided by the primary keychain. <h:br/>
 
-             If the selections where the TOE implements KEKs are chosen for the primary or supplimental key chains
+             If the selections where the TOE implements KEKs are chosen for the primary or supplemental key chains
               then FCS_CKM_EXT.3 shall be included.<h:br/>
 
             The selections for an enterprise management server permit the key chain may originate or terminate from 
               an enterprise management server.  
-            The server may provide a key needed to start a chain or the server may recieve a key that ends a chain.  
-              The key mangement internal to the server is not evaluated here. This permits the enterprise management server to 
+            The server may provide a key needed to start a chain or the server may receive a key that ends a chain.  
+              The key management internal to the server is not evaluated here. This permits the enterprise management server to 
             function in the middle of a larger key chain.</note>
             <aactivity>
               <TSS> or KMD (Key Management Description may be used if necessary details describe proprietary information)
@@ -1634,7 +1634,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>configure password/passphrase complexity setting</selectable>
                 <selectable>configure cryptographic functionality</selectable>
                 <selectable>change authentication factors</selectable>
-                <selectable>perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
+                <selectable>perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
                 <selectable>configure the number of failed validation attempts required to trigger corrective behavior  </selectable>
                 <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
                 <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
@@ -1654,7 +1654,7 @@ The following sections describe any modifications that the ST author must make t
                   functionality offered can either be written in this requirement as bullet points,
                   or included in the TSS.</h:li>
                 <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
-                  , then "perform a cryptograph erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included.</h:li>
+                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included.</h:li>
                 <h:li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
                   that may be needed are appropriately specified so that the ST can claim
@@ -1731,7 +1731,7 @@ The following sections describe any modifications that the ST author must make t
               Additionally, if "store and protect configuration options as specified in FCS_COP.1(1)" is selected, the evaluator 
               shall ensure that the TSS identifies those options, as well as indicates where the encrypted representation of these options is stored.
 
-              The test evaluation activites in the Application Software PP for FMT_MEC_EXT.1 apply to all configuration options 
+              The test evaluation activities in the Application Software PP for FMT_MEC_EXT.1 apply to all configuration options 
               identified as being stored and set using platform mechanisms.  The following test activity applies to any configuration 
               options identified as being stored and protected using encryption per FCS_COP.1(1).
 
@@ -1861,7 +1861,7 @@ The following sections describe any modifications that the ST author must make t
                 
                 Test 2: For each type of resource that is identified in the TSS as sharable in its
                 encrypted form, the evaluator shall ensure that a different unauthorized user is unable to access the encrypted file shared.
-                This test succeeds if the unauthorized user is unable to access a file shared between other authoirzed users.
+                This test succeeds if the unauthorized user is unable to access a file shared between other authorized users.
               </Tests>
             </aactivity>
           </f-element>
@@ -1883,7 +1883,7 @@ The following sections describe any modifications that the ST author must make t
                decryption/encryption operation.</title>
              
              <note role="application"> This requirement is to cover the detection and encryption of temporary files created by third party applications.
-               If the FE provides a capability to allow specific applications to leverage it, the applications or method they would use to opt in may be included in the assignement.  
+               If the FE provides a capability to allow specific applications to leverage it, the applications or method they would use to opt in may be included in the assignment.  
              </note>
              
              <aactivity>
@@ -1892,7 +1892,7 @@ The following sections describe any modifications that the ST author must make t
                  are created in the filesystem of the host by third party products,
                  
                </TSS>
-               <Guidance> [conditional]  If any configuration is required for this process the evaluator shall verify it is described in the guidence documentation. 
+               <Guidance> [conditional]  If any configuration is required for this process the evaluator shall verify it is described in the guidance documentation. 
                  
                </Guidance>
                <Tests>The evaluator shall utilize any third party application that would be protected under this protection to generate files, then verify those files are being encrypted.</Tests>
@@ -2543,9 +2543,9 @@ The following sections describe any modifications that the ST author must make t
               3. The evaluator shall decrypt each cipher text, C, produced by the RSA-OAEP
               encryption operation of the TOE using RSADP, and perform the OAEP
               decoding operation (described in NIST SP 800-56B section 7.2.2.4) to recover
-              HA' || X. For each HA', the evalutor shall take the corresponding A and the
+              HA' || X. For each HA', the evaluator shall take the corresponding A and the
               specified hash algorithm and verify that HA' = Hash(A). The evaluator
-              shall also force the TOE to perform some RSA-OAEP decryptions
+              shall also force the TOE to perform some RSA-OAEP decryption
               where the A value is passed incorrectly, and the evaluator shall verify
               that an error is detected.
               4. The evaluator shall check the format of the 'X' string recovered in OAEP.Test.3
@@ -2716,7 +2716,7 @@ The following sections describe any modifications that the ST author must make t
               <h:h4>Conditional:</h:h4> If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
               describes how the FEK encryption/decryption is invoked. <h:br/>
 
-              <h:h4>Conditional:</h:h4> If impliment functionality was selected, The evaluator shall check that the TSS includes
+              <h:h4>Conditional:</h:h4> If implement functionality was selected, The evaluator shall check that the TSS includes
               a description of encryption function(s) used for key wrapping. The evaluator should check that this description of the
               selected encryption function includes the key sizes and modes of operations as specified in the selection above.
               The evaluator shall check that the TSS describes the means by which the TOE satisfies constraints on algorithm parameters
