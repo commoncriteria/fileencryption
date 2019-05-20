@@ -831,7 +831,7 @@ The following sections describe any modifications that the ST author must make t
               verify the TSS describes how a FEK is used for a protected
               resource and associated with that resource. The evaluator confirms that-per this description-the
               FEK is unique per resource (file or set of files) and that the FEK is established using
-              the mechanisms specified in FCS_CKM_EXT.2.1). <h:br/> 
+              the mechanisms specified in FCS_CKM_EXT.2.1. <h:br/> 
 
               </TSS>
 <Guidance> The evaluator shall review the
