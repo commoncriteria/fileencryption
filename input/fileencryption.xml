@@ -993,7 +993,7 @@ The following sections describe any modifications that the ST author must make t
 
                   Record the value of the key in the TOE subject to clearing.
 
-                  Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.
+                  Cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.
 
                   Cause the TOE to clear the key.
 
