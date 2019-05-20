@@ -823,7 +823,7 @@ The following sections describe any modifications that the ST author must make t
               decryption/encryption of the user data (FCS_COP.1(1)).  <h:br/> <h:br/> 
 
               Conditional: <h:br/>               
-              If derived from a password/password is selected the examination of the TSS section is performed as
+              If derived from a password/passphrase is selected the examination of the TSS section is performed as
               part of FCS_CKM_EXT.1(1) evaluation activities. <h:br/>  <h:br/> 
 
 
