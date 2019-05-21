@@ -2075,7 +2075,7 @@ The following sections describe any modifications that the ST author must make t
                PP).</title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
-               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1</note>
+               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1.</note>
              <aactivity>
                <TSS> The evaluator shall check the TSS section to confirm that it describes
                  how a request for each type of supported resource (file (or set of files)) will result
