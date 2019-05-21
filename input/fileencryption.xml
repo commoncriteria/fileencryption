@@ -1878,7 +1878,7 @@ The following sections describe any modifications that the ST author must make t
                <selectables>
                  <selectable>all applications</selectable>
                  <selectable><assignable>subset of applications that can integrate with the FE</assignable></selectable>
-               </selectables>when decrypting/encrypting the
+               </selectables> when decrypting/encrypting the
                user-selected file (or set of files) are removed or encrypted upon completion of the
                decryption/encryption operation.</title>
              
