@@ -779,7 +779,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
-                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>) and with entropy corresponding to the security strength of AES key sizes of
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes of
                       <selectables>
                         <selectable>128 bit</selectable>
                         <selectable>256 bit</selectable>
@@ -862,7 +862,7 @@ The following sections describe any modifications that the ST author must make t
                     <selectable>single overwrite consisting of 
                       <selectables>
                         <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
-                        <selectable>zeros</selectable>
+                        <selectable>zeroes</selectable>
                         <selectable>ones</selectable>
                         <selectable>new value of a key</selectable>
                         <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
@@ -887,7 +887,7 @@ The following sections describe any modifications that the ST author must make t
                       overwrite consisting of 
                       <selectables>
                         <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
-                        <selectable>zeros</selectable>
+                        <selectable>zeroes</selectable>
                         <selectable>ones</selectable>
                         <selectable>new value of a key</selectable>
                         <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
@@ -1044,7 +1044,7 @@ The following sections describe any modifications that the ST author must make t
 </aactivity>
           </f-element>
 
-          <f-element id="FCS_CKM_EXT.4.1(1)">
+          <f-element id="FCS_CKM_EXT.4.2">
             <title>The TSF shall destroy all keys and key material when no longer needed.</title>
 
             <note role="application">Application Note: Keys, including intermediate keys and key material that are no longer
@@ -1120,7 +1120,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts.</selectable>
               </selectables>
             </title>
-          <note role="application">None.</note>
+          
           <aactivity>
             <TSS>
             The evaluator shall examine the TSS to determine which authorization factors support validation.
@@ -1164,7 +1164,7 @@ The following sections describe any modifications that the ST author must make t
                   2^32 for a given secret key.</selectable>
               </selectables></selectable>
               </selectables> </title>
-            <note role="application">None.</note>
+            
             <aactivity>
               <TSS>
               The evaluator shall ensure the TSS describes how nonces are created uniquely and how IVs and tweaks are handled (based on the AES mode).
@@ -1364,19 +1364,19 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>implement functionality</selectable>
               </selectables> to ensure that all sensitive data created by the TOE when
               decrypting/encrypting the user-selected file (or set of files) are destroyed in
-              volatile and non-volatile memory when the data is no longer needed according to FCS_CKM_EXT4. </title>
+              volatile and non-volatile memory when the data is no longer needed according to FCS_CKM_EXT.4. </title>
 
             <note role="application"> The intent is that the TSF controls the use and clearing of any data
               that it manipulates that is not needed by the user (e.g. a temporary file created in non-volatile
               memory during the encryption/decryption process would be destroyed as soon as the process is completed).
               This should not prevent expected usage (e.g. the TOE may create a decrypted copy of a file as requested
-              by the user).The TSF is also not responsible for temporary files that  non-TSF application creates 
+              by the user). The TSF is also not responsible for temporary files that  non-TSF application creates 
               (for example, a text editor may create a "checkpoint" file when editing a file that is protected by the TOE;
               the TOE does not have to try to keep track of or clean up these "checkpoint" files). An optional
               requirement on cleaning up the temporary files created by non-TSF application when operating on
-              files protected by the TOE is FDP_PRT_EXT.3.1 
+              files protected by the TOE is FDP_PRT_EXT.3.1.
 
-            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4</note>
+            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4.</note>
 
             <aactivity>
               <TSS>
@@ -2070,8 +2070,7 @@ The following sections describe any modifications that the ST author must make t
                file.</title>
            </f-element>
            <f-element id="FDP_AUT_EXT.2.9">
-             <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 (from the AS
-               PP).</title>
+             <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
                FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1</note>
@@ -2107,13 +2106,13 @@ The following sections describe any modifications that the ST author must make t
            <consistency-rationale>
            </consistency-rationale>
            <f-element id="FDP_AUT_EXT.3.1">
-             <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) (from the
-               <cite linkend="bibAppPP"/>) with the entire ciphertext file as input to create a
+             <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) <h:b>(from 
+               <cite linkend="bibAppPP"/>)</h:b> with the entire ciphertext file as input to create a
                hash.</title>
            </f-element>
            <f-element id="FDP_AUT_EXT.3.2">
              <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(3)
-               (from the <cite linkend="bibAppPP"/>) and must use the hash generated in accordance with
+               <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and must use the hash generated in accordance with
                FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
                signing purposes is prohibited.</title>
            </f-element>
@@ -2275,8 +2274,8 @@ The following sections describe any modifications that the ST author must make t
               <selectable>accept KEK from an enterprise management server</selectable>
               <selectable> generate KEK cryptographic keys <h:br/>
                 <selectables linebreak="yes">
-                  <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from the AS
-                    PP) and with entropy corresponding to the security strength of AES key sizes of
+                  <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>
+                    and with entropy corresponding to the security strength of AES key sizes of
                     <selectables>
                       <selectable>128 bit</selectable>
                       <selectable>256 bit</selectable>
@@ -2368,20 +2367,20 @@ The following sections describe any modifications that the ST author must make t
               and <selectables>
                 <selectable><assignable>other supported special characters</assignable></selectable>
                 <selectable>no other characters</selectable>
-              </selectables></title>
+              </selectables>.</title>
           </f-element>
           <f-element id="FCS_CKM_EXT.1.3(1)">
             <title>
               The TSF shall perform [Password-based Key Derivation
-              Functions] in accordance with a specified cryptographic algorithm [HMAC- <selectables>
+              Functions] in accordance with a specified cryptographic algorithm [<h:i>HMAC- <selectables>
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable>
-              </selectables> ], with <assignable>positive integer of 4096 or more</assignable> iterations, and
+              </selectables></h:i>], with <assignable>positive integer of 4096 or more</assignable> iterations, and
               output cryptographic key sizes <selectables>
                 <selectable>128</selectable>
                 <selectable>256</selectable>
-              </selectables> that meet the following: [NIST SP 800-132]. 
+              </selectables> that meet the following: [<h:i>NIST SP 800-132</h:i>]. 
               </title>
           </f-element>
           <f-element id="FCS_CKM_EXT.1.4(1)">
@@ -2394,7 +2393,7 @@ The following sections describe any modifications that the ST author must make t
               defined in FCS_CKM_EXT.1.1(1).</title>
           </f-element>
         <f-element id="FCS_CKM_EXT.1.5(1)">
-          <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>) and with entropy 
+          <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and with entropy 
             corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.3(1).</title>
           <note role="application"> The password/passphrase is represented on the host machine as a sequence of characters whose 
             encoding depends on the TOE and the underlying OS. This sequence must be conditioned into a string of bits that is to be used as a KEK that is the same size as the FEK.
@@ -2652,11 +2651,11 @@ The following sections describe any modifications that the ST author must make t
                  <selectable>use platform-provided functionality to perform Key Encryption</selectable>
                  <selectable>perform key encryption and decryption</selectable>
                </selectables></h:b>
-              in accordance with a specified cryptographic algorithm [<h:i>AES used in CBC mode</h:i>] and cryptographic key sizes <h:i> 
+              in accordance with a specified cryptographic algorithm [<h:i>AES used in CBC mode</h:i>] and cryptographic key sizes <h:b> 
                   <selectables linebreak="yes">
                     <selectable>128</selectable>
                     <selectable>256</selectable>
-                  </selectables> bits</h:i> that meet the following:
+                  </selectables> bits</h:b> that meet the following:
                   [<h:i>AES as specified in SP 800-38A</h:i>].
             </title>
               <note role="application">This requirement is used in the body of the ST if the ST author chooses to
@@ -2689,7 +2688,7 @@ The following sections describe any modifications that the ST author must make t
               The TSF shall <h:b>
               <selectables>
                 <selectable>use platform-provided functionality to perform Key Wrapping</selectable>
-                <selectable>implement functionality to perform Key Wrapping </selectable>
+                <selectable>implement functionality to perform Key Wrapping</selectable>
               </selectables></h:b> in accordance with a specified cryptographic algorithm [<h:i>AES</h:i>] <h:b>in the following modes
                   <selectables linebreak="yes">
                     <selectable>Key Wrap</selectable>
@@ -2700,13 +2699,13 @@ The following sections describe any modifications that the ST author must make t
                   <selectables>
                     <selectable>128 bits (AES)</selectable>
                     <selectable>256 bits (AES)</selectable>
-                  </selectables></h:b> that meet the following: 
+                  </selectables></h:b> that meet the following: <h:b>
                   <selectables linebreak="yes">
                     <selectable>"NIST SP 800-38C"</selectable>
                     <selectable>"NIST SP 800-38D"</selectable>
                     <selectable>"NIST SP 800-38F"</selectable>
                     
-                  </selectables> <h:b>and no other standards</h:b>.
+                  </selectables> and no other standards</h:b>.
             </title>
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
