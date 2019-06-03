@@ -6,7 +6,7 @@
   <PPReference>
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
-      <PPAuthor>National Information Assurance Partnership test</PPAuthor>
+      <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2019-06-13</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
@@ -208,11 +208,6 @@
           <entry>
             <term><abbr title="TOE Security Functionality">TSF</abbr></term>
             <description>The security functionality of the product under evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="TOE Security Policy">TSP</abbr></term>
-            <description>The set of rules that regulate how assets are managed, protected and
-              distributed within a TOE.</description>
           </entry>
           <entry>
             <term><abbr title="TOE Summary Specification">TSS</abbr></term>
@@ -451,10 +446,15 @@
             This PP-Module is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Revision 5 [CC]. 
             
             The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
-            <h:ul><h:li>PP-Module for VPN Client, Version 2.1</h:li>
+            <h:ul><h:li>Protection Profile for Application Software, Version 1.3</h:li>
+            <h:li>PP-Module for VPN Client, Version 2.1</h:li>
             <h:li>PP-Module for File Encryption Enterprise Management, Version 1.0</h:li></h:ul>
           </h:p>
         </description>
+      </cclaim>
+      <cclaim title="Package Claims">
+        <description>This <abbr linkend="PP-Module"/> is TLS Package Version 1.1
+          Conformant.</description>
       </cclaim>
     </cclaims>
   </chapter>
