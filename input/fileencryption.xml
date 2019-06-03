@@ -1628,7 +1628,7 @@ The following sections describe any modifications that the ST author must make t
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FMT_SMF.1.1(2)">
-            <title>The TSF shall be capable of performing the following management functions:
+            <title>The TSF shall be capable of performing the following management functions: <h:b>
               <selectables linebreak="yes">
                 <selectable>configure password/passphrase complexity setting</selectable>
                 <selectable>configure cryptographic functionality</selectable>
@@ -1637,7 +1637,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>configure the number of failed validation attempts required to trigger corrective behavior  </selectable>
                 <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
                 <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
-              </selectables>
+              </selectables></h:b>.
             </title>
             <note role="application"> The intent of this requirement is to express the management
               capabilities that may be included in the TOE. Several common options are given:<h:br/>
@@ -2695,8 +2695,8 @@ The following sections describe any modifications that the ST author must make t
                     <selectable>Key Wrap</selectable>
                     <selectable>Key Wrap with Padding</selectable>
                     <selectable>GCM mode</selectable>
-                    <selectable>CCM mode</selectable></h:b>
-                  </selectables> and cryptographic key sizes <h:b> 
+                    <selectable>CCM mode</selectable>
+                  </selectables></h:b> and cryptographic key sizes <h:b> 
                   <selectables>
                     <selectable>128 bits (AES)</selectable>
                     <selectable>256 bits (AES)</selectable>
