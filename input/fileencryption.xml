@@ -397,7 +397,7 @@
           platform layers that are abstracted away.
           Some evaluation activities are specific to the particular platform
           on which the application runs, in order to provide precision and
-          repeatability. The only platforms currently recognized by the AppPP are those specified in SFR Evaluation Activities.
+          repeatability. The only platforms currently recognized by <cite linkend="bibAppPP"/> are those specified in SFR Evaluation Activities.
           To test on a platform for which there are no EAs, a Vendor should contact NIAP with recommended EAs.
           NIAP will determine if the proposed platform is appropriate for the PP and accept, reject,
           or develop EAs as necessary in coordination with the technical community.
@@ -443,7 +443,7 @@
              <h:b>Conformance Claims</h:b> <h:br/>
             This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified Base-PP and as defined in the <cite linkend="bibCC"/> and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017).
             
-            This PP-Module is conformant to Parts 2 (extended) and 3 (conformant) of Common Criteria Version 3.1, Revision 5 [CC]. 
+            This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria Version 3.1, Revision 5 [CC]. 
             
             The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
             <h:ul><h:li>Protection Profile for Application Software, Version 1.3</h:li>
@@ -484,7 +484,7 @@
 
       Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
       the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
-      operational environment. Together the threats of the App PP and those defined in this PP-Module define
+      operational environment. Together the threats of <cite linkend="bibAppPP"/> and those defined in this PP-Module define
       the comprehensive set of security threats addressed by a file encryption TOE. 
       <threats>
         <threat id="T.UNAUTHORIZED_DATA_ACCESS">
@@ -498,8 +498,8 @@
         </threat>
         <threat id="T.MANAGEMENT_ACCESS">
           <description>
-            <h:b>Management Access:</h:b> File encryption products require security management functions be restricted to authorized users
-          and cover critical security functionality.</description>
+            <h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without authorization or a legitimate user may lack the ability to perform
+            necessary security operations due to a lack of supported management functionality.</description>
           <objective-refer ref="O.MANAGE">
             <rationale>The threat T.UNAUTHORIZED_DATA_ACCESS is countered by O.MANAGE as this
               ensures proper management functionality.</rationale>
@@ -757,7 +757,7 @@
       xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
 
       <sec-func-req-dir>
-The TOE is expected to rely on some of the security functions implemented by the application as a whole and evaluated against the AppPP.
+        The TOE is expected to rely on some of the security functions implemented by the application as a whole and evaluated against <cite linkend="bibAppPP"/>.
 The following sections describe any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.       
       </sec-func-req-dir>
       
@@ -779,8 +779,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
-                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from the AS
-                      PP) and with entropy corresponding to the security strength of AES key sizes of
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>) and with entropy corresponding to the security strength of AES key sizes of
                       <selectables>
                         <selectable>128 bit</selectable>
                         <selectable>256 bit</selectable>
@@ -818,7 +817,7 @@ The following sections describe any modifications that the ST author must make t
               If using a RBG was selected the evaluator verify the TSS to determine that it describes how the functionality
               described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
               generate FEK. To the extent possible from the description of the RBG functionality in
-              FCS_RBG_EXT.1 (from the App PP), the evaluator shall determine that the key size being
+              FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
               decryption/encryption of the user data (FCS_COP.1(1)).  <h:br/> <h:br/> 
 
@@ -2302,7 +2301,7 @@ The following sections describe any modifications that the ST author must make t
             If using a RBG was selected the evaluator shall examine the TSS and verify that it describes how the functionality
             described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
             generate KEK(s). To the extent possible from the description of the RBG functionality in
-            FCS_RBG_EXT.1 (from the App PP), the evaluator shall determine that the key size being
+            FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>), the evaluator shall determine that the key size being
             requested is identical to the key size selected.  <h:br/> <h:br/> 
 
             Conditional: <h:br/>               
@@ -2358,7 +2357,7 @@ The following sections describe any modifications that the ST author must make t
         <f-element id="FCS_CKM_EXT.1.1(1)">
           <title>
             The TSF shall support a password/passphrase of up to 
-            [assignment: maximum password size, positive integer of 64 or more] 
+            <assignable>maximum password size, positive integer of 64 or more</assignable>
             characters used to generate a password authorization factor.
            </title>
         </f-element>
@@ -2378,7 +2377,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable>
-              </selectables> ], with [assignment: positive integer of 4096 or more] iterations, and
+              </selectables> ], with <assignable>positive integer of 4096 or more</assignable> iterations, and
               output cryptographic key sizes <selectables>
                 <selectable>128</selectable>
                 <selectable>256</selectable>
@@ -2395,7 +2394,7 @@ The following sections describe any modifications that the ST author must make t
               defined in FCS_CKM_EXT.1.1(1).</title>
           </f-element>
         <f-element id="FCS_CKM_EXT.1.5(1)">
-          <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 (from the App PP) and with entropy 
+          <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>) and with entropy 
             corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.1.3(1).</title>
           <note role="application"> The password/passphrase is represented on the host machine as a sequence of characters whose 
             encoding depends on the TOE and the underlying OS. This sequence must be conditioned into a string of bits that is to be used as a KEK that is the same size as the FEK.
@@ -2490,12 +2489,12 @@ The following sections describe any modifications that the ST author must make t
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(8)">
             <title>
-              The TSF shall perform [key transport] in accordance with a
-              specified cryptographic algorithm [RSA] in the following modes 
+              The TSF shall perform [<h:i>key transport</h:i>] in accordance with a
+              specified cryptographic algorithm [<h:i>RSA</h:i>] <h:b>in the following modes 
               <selectables>
                 <selectable>KTS-OAEP</selectable>
                 <selectable>KTS-KEM-KWS</selectable>
-              </selectables> and the cryptographic key size of 3072 bits that meet the following: [NIST SP 800-56B, Revision 1].
+              </selectables></h:b> and cryptographic key sizes [<h:i>3072 bits</h:i>] that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
             </title>
             <note role="application"> This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
@@ -2648,17 +2647,17 @@ The following sections describe any modifications that the ST author must make t
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(7)">
             <title>
-              The TSF shall 
+              The TSF shall <h:b>
               <selectables>
                  <selectable>use platform-provided functionality to perform Key Encryption</selectable>
-                 <selectable>perform [key encryption and decryption] in accordance with a specified cryptographic algorithm [AES used in CBC mode] and cryptographic key sizes 
+                 <selectable>perform key encryption and decryption</selectable>
+               </selectables></h:b>
+              in accordance with a specified cryptographic algorithm [<h:i>AES used in CBC mode</h:i>] and cryptographic key sizes <h:i> 
                   <selectables linebreak="yes">
                     <selectable>128</selectable>
                     <selectable>256</selectable>
-                  </selectables> bits that meet the following:
-                  [AES as specified in SP 800-38A.]
-                 </selectable>
-             </selectables>
+                  </selectables> bits</h:i> that meet the following:
+                  [<h:i>AES as specified in SP 800-38A</h:i>].
             </title>
               <note role="application">This requirement is used in the body of the ST if the ST author chooses to
                 use AES encryption/decryption for protecting the keys as part of the key chaining approach
@@ -2687,27 +2686,27 @@ The following sections describe any modifications that the ST author must make t
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(5)">
             <title>
-              The TSF shall 
+              The TSF shall <h:b>
               <selectables>
                 <selectable>use platform-provided functionality to perform Key Wrapping</selectable>
                 <selectable>implement functionality to perform Key Wrapping </selectable>
-              </selectables> in accordance with a specified cryptographic algorithm [AES] in the following modes
+              </selectables></h:b> in accordance with a specified cryptographic algorithm [<h:i>AES</h:i>] <h:b>in the following modes
                   <selectables linebreak="yes">
                     <selectable>Key Wrap</selectable>
                     <selectable>Key Wrap with Padding</selectable>
                     <selectable>GCM mode</selectable>
-                    <selectable>CCM mode</selectable>
-                  </selectables> and the cryptographic key size 
+                    <selectable>CCM mode</selectable></h:b>
+                  </selectables> and cryptographic key sizes <h:b> 
                   <selectables>
                     <selectable>128 bits (AES)</selectable>
                     <selectable>256 bits (AES)</selectable>
-                  </selectables> that meet the following: 
+                  </selectables></h:b> that meet the following: 
                   <selectables linebreak="yes">
                     <selectable>"NIST SP 800-38C"</selectable>
                     <selectable>"NIST SP 800-38D"</selectable>
                     <selectable>"NIST SP 800-38F"</selectable>
                     
-                  </selectables> and no other standards.
+                  </selectables> <h:b>and no other standards</h:b>.
             </title>
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
