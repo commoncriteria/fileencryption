@@ -1683,7 +1683,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
                   functionality offered can either be written in this requirement as bullet points,
                   or included in the TSS.</h:li>
                 <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
-                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included.</h:li>
+                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included. 
+                  This function should be able to be triggered by a user or admin and may be triggered by uninstallation.</h:li>
                 <h:li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
                   that may be needed are appropriately specified so that the ST can claim
@@ -2499,7 +2500,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             was selected in FIA_AUT_EXT.1.
 
             <h:br/><h:br/>For FCS_CKM_EXT.1.4(1) If the minimum password length is settable, then ST author chooses "a value settable by the administrator
-            for this component, as well as the "configure password/passphrase complexity setting" item for FMT_SMF.2. If the minimum length
+            for this component, as well as the "configure password/passphrase complexity setting" item for FMT_SMF.1.2. If the minimum length
             is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  
 
             <h:br/><h:br/>This requirement is selection dependent on FIA_AUT_EXT.1.1.</note>
