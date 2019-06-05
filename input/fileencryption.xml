@@ -2428,7 +2428,10 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         <f-element id="FCS_CKM_EXT.1.1(1)">
           <title>
             The TSF shall support a password/passphrase of up to 
-            <assignable>maximum password size, positive integer of 64 or more</assignable>
+            <selectables>
+              <selectable><assignable>maximum value supported by the platform</assignable></selectable>
+              <selectable><assignable>maximum password size, positive integer of 64 or more</assignable></selectable>
+            </selectables>
             characters used to generate a password authorization factor.
            </title>
         </f-element>
@@ -2444,11 +2447,15 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           <f-element id="FCS_CKM_EXT.1.3(1)">
             <title>
               The TSF shall perform [Password-based Key Derivation
-              Functions] in accordance with a specified cryptographic algorithm [<h:i>HMAC- <selectables>
+              Functions] in accordance with a specified cryptographic algorithm [<h:i>HMAC-<selectables>
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable>
-              </selectables></h:i>], with <assignable>positive integer of 4096 or more</assignable> iterations, and
+              </selectables></h:i>], with 
+              <selectables>
+                <selectable><assignable>positive integer of 4096 or more</assignable> iterations</selectable>
+                <selectable>value supported by the platform, greater than 1000</selectable>
+              </selectables>, and
               output cryptographic key sizes <selectables>
                 <selectable>128</selectable>
                 <selectable>256</selectable>
@@ -2470,7 +2477,9 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           <note role="application"> The password/passphrase is represented on the host machine as a sequence of characters whose 
             encoding depends on the TOE and the underlying OS. This sequence must be conditioned into a string of bits that is to be used as a KEK that is the same size as the FEK.
 
-            <h:br/><h:br/>For FCS_CKM_EXT.1.1(1), the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters.
+            <h:br/><h:br/>For FCS_CKM_EXT.1.1(1), the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters. 
+            The selection "maximum value supported by the platform" may only be selected if "implement platform-provided functionality to provide user authorization"
+            was selected in FIA_AUT_EXT.1.
 
             <h:br/><h:br/>For FCS_CKM_EXT.1.2(1), the ST author assigns any other supported characters; if there are no other supported characters, 
             they should select "no other characters".
@@ -2485,7 +2494,9 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             <h:br/><h:br/>Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive
             a key from a password and, therefore, increase the workload of performing a password recovery attack. However, for this PP-Module,
             a minimum iteration count of 4096 is required in order to ensure that twelve bits of security is added to the password/passphrase value.
-            A significantly higher value is recommended to ensure optimal security.
+            A significantly higher value is recommended to ensure optimal security. If the platform is leveraged for authentication the value may be a 
+            minimum of 1000, this selection may only be selected if "implement platform-provided functionality to provide user authorization"
+            was selected in FIA_AUT_EXT.1.
 
             <h:br/><h:br/>For FCS_CKM_EXT.1.4(1) If the minimum password length is settable, then ST author chooses "a value settable by the administrator
             for this component, as well as the "configure password/passphrase complexity setting" item for FMT_SMF.2. If the minimum length
@@ -2543,7 +2554,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 </Guidance><h:br/>
 <Tests> Support for Password/Passphrase characteristics: In addition to the analysis above, 
             the evaluator shall also perform the following tests on a TOE configured according to the Operational Guidance: <testlist>
-              <test>Ensure that the TOE supports passwords/passphrases of a minimum length of 64 characters. </test>
+              <test>Ensure that the TOE supports password/passphrase lengths as defined in the SFR assignements. </test>
               <test>Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.1.1(1). </test>
               <test> Ensure that the TOE does not accept less than the minimum number of characters specified in FCS_CKM_EXT.1.4(1).
                 If the minimum length is settable by the administrator, the evaluator determines the minimum length or lengths to test.</test>
