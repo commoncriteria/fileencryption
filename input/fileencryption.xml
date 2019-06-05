@@ -2576,7 +2576,11 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               <selectables>
                 <selectable>KTS-OAEP</selectable>
                 <selectable>KTS-KEM-KWS</selectable>
-              </selectables></h:b> and cryptographic key sizes [<h:i>3072 bits</h:i>] that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
+              </selectables></h:b> and cryptographic key sizes 
+              <selectables>
+                <selectable>3072</selectable>
+                <selectable>4096</selectable>
+              </selectables> bits that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
             </title>
             <note role="application"> This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
