@@ -1041,22 +1041,22 @@ Cause the TOE to clear the key.<h:br/>
 
 Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails. </test><h:br/>
 
-                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:What is the Process to get a Commercial Product CSfC-Listed?
+                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:<h:br/>
                   
 
-Record the logical storage location of the key in the TOE subject to clearing.What is the Process to get a Commercial Product CSfC-Listed?
+Record the logical storage location of the key in the TOE subject to clearing.<h:br/>
 
 
-Cause the TOE to perform a normal cryptographic processing with the key from Step #1.What is the Process to get a Commercial Product CSfC-Listed?
+Cause the TOE to perform a normal cryptographic processing with the key from Step #1.<h:br/>
 
 
-Cause the TOE to clear the key.What is the Process to get a Commercial Product CSfC-Listed?
+Cause the TOE to clear the key.<h:br/>
 
 
-Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.What is the Process to get a Commercial Product CSfC-Listed?
+Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.<h:br/>
 
 
-The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test>What is the Process to get a Commercial Product CSfC-Listed?
+The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test><h:br/>
                 
               </testlist>
             </Tests>
@@ -1697,7 +1697,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
                   functionality offered can either be written in this requirement as bullet points,
                   or included in the TSS.</h:li>
                 <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
-                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included.</h:li>
+                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included. 
+                  This function should be able to be triggered by a user or admin and may be triggered by uninstallation.</h:li>
                 <h:li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
                   that may be needed are appropriately specified so that the ST can claim
@@ -2515,7 +2516,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             was selected in FIA_AUT_EXT.1.
 
             <h:br/><h:br/>For FCS_CKM_EXT.1.4(1) If the minimum password length is settable, then ST author chooses "a value settable by the administrator
-            for this component, as well as the "configure password/passphrase complexity setting" item for FMT_SMF.2. If the minimum length
+            for this component, as well as the "configure password/passphrase complexity setting" item for FMT_SMF.1.2. If the minimum length
             is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  
 
             <h:br/><h:br/>This requirement is selection dependent on FIA_AUT_EXT.1.1.</note>
@@ -2592,7 +2593,11 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               <selectables>
                 <selectable>KTS-OAEP</selectable>
                 <selectable>KTS-KEM-KWS</selectable>
-              </selectables></h:b> and cryptographic key sizes [<h:i>3072 bits</h:i>] that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
+              </selectables></h:b> and cryptographic key sizes 
+              <selectables>
+                <selectable>3072</selectable>
+                <selectable>4096</selectable>
+              </selectables> bits that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
             </title>
             <note role="application"> This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
