@@ -2938,10 +2938,6 @@ The following sections describe any modifications that the ST author must make t
         <description>Common Criteria</description>
       </entry>
       <entry>
-        <term>CM</term>
-        <description/>
-      </entry>
-      <entry>
         <term>FAK</term>
         <description>File Authentication Key</description>
       </entry>
