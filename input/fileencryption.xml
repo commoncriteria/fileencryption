@@ -630,17 +630,17 @@
             against these authorization factors (when used) has a similar level of resistance.
           </description>
           <component-refer ref="FCS_CKM_EXT.2"/>
-          <component-refer ref="FCS_CKM_EXT.3"/>
-          <component-refer ref="FCS_COP.1(1)"/>
-          <component-refer ref="FCS_COP.1(5)"/>
-          <component-refer ref="FCS_COP.1(7)"/>
-          <component-refer ref="FCS_KDF_EXT.1"/>
-          <component-refer ref="FCS_COP.1(8)"/>
+          <component-refer ref="FCS_CKM_EXT.3 (selection-based)"/>
+          <component-refer ref="FCS_COP.1(1) (from Base-PP)"/>
+          <component-refer ref="FCS_COP.1(5) (selection-based)"/>
+          <component-refer ref="FCS_COP.1(7) (selection-based)"/>
+          <component-refer ref="FCS_KDF_EXT.1 (selection-based)"/>
+          <component-refer ref="FCS_COP.1(8) (selection-based)"/>
           <component-refer ref="FCS_VAL_EXT.1"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FCS_KYC_EXT.1"/>
-          <component-refer ref="FCS_CKM_EXT.1(1)"/>
-          <component-refer ref="FCS_SMC_EXT.1 "/>
+          <component-refer ref="FCS_CKM_EXT.1(1) (selection-based)"/>
+          <component-refer ref="FCS_SMC_EXT.1 (selection-based)"/>
 
           <consistency-rationale>
             This objective is consistent with <base-name/>.
@@ -656,7 +656,7 @@
             the secure erasure occurred as this will be the responsibility of the TOE platform. </description>
           <component-refer ref="FDP_PRT_EXT.1"/>
           <component-refer ref="FDP_PRT_EXT.2"/>
-          <component-refer ref="FDP_PRT_EXT.3"/>
+          <component-refer ref="FDP_PRT_EXT.3 (optional)"/>
 
 
           <consistency-rationale>
@@ -671,14 +671,13 @@
             mandatory access controls are available to an attacker. Users that are authorized to
             access the data must provide authorization factors to the TOE in order for the data to
             be decrypted and provided to the user. </description>
-          <component-refer ref="FCS_COP.1(1)"/>
+          <component-refer ref="FCS_COP.1(1) (from Base-PP)"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FDP_PRT_EXT.1"/>
           <component-refer ref="FDP_PRT_EXT.2"/>
-          <component-refer ref="FDP_PM_EXT.1"/>
-          <component-refer ref="FDP_PRT_EXT.2"/>
-          <component-refer ref="FDP_PRT_EXT.3"/>
-          <component-refer ref="FIA_FCT_EXT.1"/>
+          <component-refer ref="FDP_PM_EXT.1 (optional)"/>
+          <component-refer ref="FDP_PRT_EXT.3 (optional)"/>
+          <component-refer ref="FIA_FCT_EXT.1 (optional)"/>
 
           <consistency-rationale>
             This objective is consistent with <base-name/>.
@@ -704,7 +703,7 @@
           <description>The TOE will provide all the functions and facilities necessary to support
             the authorized administrators in their management of the security of the TOE, and
             restrict these functions and facilities from unauthorized use.</description>
-          <component-refer ref="FMT_SMF.2"/>
+          <component-refer ref="FMT_SMF.1(2)"/>
           <component-refer ref="FMT_MEC_EXT.1"/>
 
           <consistency-rationale>
@@ -784,10 +783,10 @@ The following sections describe any modifications that the ST author must make t
                         <selectable>128 bit</selectable>
                         <selectable>256 bit</selectable>
                       </selectables></selectable>
-                    <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(1) </selectable>
+                    <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(1) </selectable>
                   </selectables>
                 </selectable>
-              </selectables>,
+              </selectables>.
             </title>
             <!--Removed as repetative.
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
@@ -819,7 +818,7 @@ The following sections describe any modifications that the ST author must make t
               generate FEK. To the extent possible from the description of the RBG functionality in
               FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
-              decryption/encryption of the user data (FCS_COP.1(1)).  <h:br/> <h:br/> 
+              decryption/encryption of the user data (FCS_COP.1(1)) (from <cite linkend="bibAppPP"/>).  <h:br/> <h:br/> 
 
               Conditional: <h:br/>               
               If derived from a password/password is selected the examination of the TSS section is performed as
@@ -851,7 +850,7 @@ The following sections describe any modifications that the ST author must make t
 
 
 
-        <f-component id="FCS_CKM_EXT.4" name="Extended: Cryptographic Key Destruction">
+        <f-component id="FCS_CKM_EXT.4" name="Cryptographic Key Destruction">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FCS_CKM_EXT.4.1">
@@ -874,7 +873,7 @@ The following sections describe any modifications that the ST author must make t
                 </selectable>
                 <selectable> For non-volatile memory that consists of 
                   <selectables>
-                    <selectable>destruction of all key encrypting keys protecting the target key according to FCS_CKM_EXT.4.1,
+                    <selectable>destruction of all key encrypting keys protecting the target key,
                       where none of the KEKs protecting the target key are derived
                     </selectable>
                     <selectable> the invocation of an interface provided by the underlying platform that
@@ -900,7 +899,7 @@ The following sections describe any modifications that the ST author must make t
 
 
                 </selectable>
-              </selectables>
+              </selectables>.
             </title>
             <note role="application">The interface referenced in the requirement could take different forms, the most likely 
               of which is an application programming interface to an OS kernel. There may be various levels of abstraction visible. 
@@ -916,7 +915,7 @@ The following sections describe any modifications that the ST author must make t
               any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might 
               contain current or residual data that itself requires confidentiality protection.<h:br/>
 
-              For the selection "destruction of all key encrypting keys protecting target key according to FCS_CKM_EXT.4.1, where 
+              For the selection "destruction of all key encrypting keys protecting target key, where 
               none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that 
               protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key 
               that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
@@ -945,7 +944,7 @@ The following sections describe any modifications that the ST author must make t
               The evaluator shall check that the TSS identifies any configurations or 
               circumstances that may not strictly conform to the key destruction requirement.<h:br/>
 
-              If the selection "destruction of all key encrypting keys protecting target key according to FCS_CKM_EXT.4.1, 
+              If the selection "destruction of all key encrypting keys protecting target key, 
               where none of the KEKs protecting the target key are derived" is included the evaluator shall examine the TOE's 
               keychain in the TSS and identify each instance when a key is destroyed by this method. In each instance the evaluator 
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
@@ -1055,7 +1054,7 @@ The following sections describe any modifications that the ST author must make t
               are multiple situations in which key material is no longer necessary, for example, a wrapped
               key may need to be destroyed when a password is changed. However, there are instances
               when keys are allowed to remain in memory, for example, a device identification key. If a
-              PIN was used for a SmartCard and managed by the TOE, ensuring that the PIN was properly destroyed shall be addressed.
+              PIN was used for a SmartCard and managed by the TOE, ensuring that the PIN was properly destroyed must be addressed.
             </note>
             <aactivity>
               <TSS> or KMD (Key Management Description may be used if necessary details describe proprietary information)            
@@ -1072,7 +1071,7 @@ The following sections describe any modifications that the ST author must make t
               </Guidance>
 <Tests> None.
 
-            </Tests>
+            </Tests> 
 </aactivity>
           </f-element>
         </f-component>
@@ -1082,7 +1081,7 @@ The following sections describe any modifications that the ST author must make t
 
 
 
-        <f-component id="FCS_VAL_EXT.1" name="Extended: Validation">
+        <f-component id="FCS_VAL_EXT.1" name="Validation">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FCS_VAL_EXT.1.1 ">
@@ -1098,14 +1097,14 @@ The following sections describe any modifications that the ST author must make t
                     <selectable>submask</selectable>
                     <selectable>intermediate key</selectable>
                     <selectable>FEK</selectable> 
-                  </selectables>as specified in FCS_COP.1.1(2)and compare it to a stored hashed </selectable> 
+                  </selectables> as specified in FCS_COP.1(2) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
                 <selectable>decrypt a known value using the 
                   <selectables>
                     <selectable>submask</selectable>
                     <selectable>intermediate key</selectable>
                     <selectable>FEK</selectable>
-                  </selectables> as specified in FCS_COP.1(1) and compare it against a stored known value</selectable>
-              </selectables> 
+                  </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+              </selectables>. 
             </title>
           </f-element>
           <f-element id="FCS_VAL_EXT.1.2">
@@ -1118,7 +1117,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
                 <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
                 <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts.</selectable>
-              </selectables>
+              </selectables>.
             </title>
           
           <aactivity>
@@ -1148,7 +1147,7 @@ The following sections describe any modifications that the ST author must make t
           </f-element>
         </f-component>
 
-        <f-component id="FCS_IV_EXT.1" name="Extended: Initialization Vector Generation">
+        <f-component id="FCS_IV_EXT.1" name="Initialization Vector Generation">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FCS_IV_EXT.1.1 ">
@@ -1163,7 +1162,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>GCM: IV shall be non-repeating. The number of invocations of GCM shall not exceed
                   2^32 for a given secret key.</selectable>
               </selectables></selectable>
-              </selectables> </title>
+              </selectables>.</title>
             
             <aactivity>
               <TSS>
@@ -1238,7 +1237,7 @@ The following sections describe any modifications that the ST author must make t
                     <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1(8)</selectable>
                     <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
-              </selectables>
+              </selectables>.
             </title>
             <note role="application">Key Chaining is the method of using multiple layers of
               encryption keys to ultimately secure the FEK. The number of intermediate keys will
@@ -1307,12 +1306,12 @@ The following sections describe any modifications that the ST author must make t
 
       </subsection>
       <subsection title="User Data Protection (FDP)" id="fdp">
-        <f-component id="FDP_PRT_EXT.1" name="Extended: Protection of Selected User Data">
+        <f-component id="FDP_PRT_EXT.1" name="Protection of Selected User Data">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FDP_PRT_EXT.1.1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
-              of files) in accordance with FCS_COP.1(1). </title>
+              of files) in accordance with FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>. </title>
             <note role="application">This is the primary requirement for encrypting and decrypting
               the protected resources (files and sets of files). </note>
             <aactivity>
@@ -1428,7 +1427,7 @@ The following sections describe any modifications that the ST author must make t
 </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FDP_PRT_EXT.2" name="Extended: Protection of Selected User Data">
+        <f-component id="FDP_PRT_EXT.2" name="Protection of Selected User Data">
           <consistency-rationale>
           </consistency-rationale>
         <f-element id="FDP_PRT_EXT.2.1">
@@ -1451,7 +1450,7 @@ The following sections describe any modifications that the ST author must make t
             operation after it has encrypted the file or set of files for storage in the file
             system. 
 
-            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4
+            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4.
           </note>
 
           <aactivity>
@@ -1538,7 +1537,7 @@ The following sections describe any modifications that the ST author must make t
                 <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.1(1)</selectable>
                 <selectable id="USECAR">an external Smartcard factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
                    <selectables>
-                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
+                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>)</selectable>
                      <selectable>generated by the platform</selectable>
                    </selectables> protected using RSA with key size 
                   <selectables>
@@ -1554,11 +1553,11 @@ The following sections describe any modifications that the ST author must make t
                 <selectable>an external USB token factor that is at least the same security strength as the FEK(s),
                    and is providing a submask generated by the 
                    <selectables>
-                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
+                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>)</selectable>
                      <selectable>platform</selectable>
                    </selectables>
                 </selectable>
-              </selectables>
+              </selectables>.
             </title>
             <note role="application"> FCS_RBG_EXT.1 is in the Application Software Protection Profile.
 
@@ -1720,28 +1719,25 @@ The following sections describe any modifications that the ST author must make t
             <title>SEE APPLICATION NOTE The TSF shall 
               <selectables>
                 <selectable>invoke the mechanisms recommended by the platform vendor for storing and setting configuration options</selectable>
-                <selectable>store and protect configuration options as specified in FCS_COP.1(1)</selectable>  
+                <selectable>store and protect configuration options as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>  
               </selectables>.
             </title>
             <note role="application"> This requirement is planned to be removed.  The App SW PP will be updated to add a selection to permit the encryption of configuration options by file encryption products.
             </note>
             <aactivity>
               <TSS>The TSS evaluation activity in the Application Software PP for FMT_MEC_EXT.1 applies for either selection.  
-              Additionally, if "store and protect configuration options as specified in FCS_COP.1(1)" is selected, the evaluator 
+                Additionally, if "store and protect configuration options as specified in FCS_COP.1(1) (from <cite linkend="bibAppPP"/>)" is selected, the evaluator 
               shall ensure that the TSS identifies those options, as well as indicates where the encrypted representation of these options is stored.
 
-              The test evaluation activities in the Application Software PP for FMT_MEC_EXT.1 apply to all configuration options 
-              identified as being stored and set using platform mechanisms.  The following test activity applies to any configuration 
-              options identified as being stored and protected using encryption per FCS_COP.1(1).
-
               [Conditional] For all configuration options listed in the TSS as being stored and protected using encryption 
-              per FCS_COP.1(1), the evaluator shall examine the contents of the configuration option storage (identified in the TSS) to 
+              per FCS_COP.1(1) (from <cite linkend="bibAppPP"/>), the evaluator shall examine the contents of the configuration option storage (identified in the TSS) to 
               determine that the options have been encrypted. 
             </TSS>
 <Guidance> None.
               </Guidance>
-<Tests> None.
-
+            <Tests>The test evaluation activities in the Application Software PP for FMT_MEC_EXT.1 apply to all configuration options 
+                identified as being stored and set using platform mechanisms.  The following test activity applies to any configuration 
+                options identified as being stored and protected using encryption per FCS_COP.1(1) (from <cite linkend="bibAppPP"/>). 
             </Tests>
 </aactivity>
           </f-element>
@@ -1750,7 +1746,7 @@ The following sections describe any modifications that the ST author must make t
       <subsection title="Protection of the TSF (FPT)" id="fpt">
 
 
-        <f-component id="FPT_KYP_EXT.1" name="Extended: Protection of Key and Key Material (FPT_KYP_EXT)">
+        <f-component id="FPT_KYP_EXT.1" name="Protection of Key and Key Material (FPT_KYP_EXT)">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FPT_KYP_EXT.1.1">
@@ -1761,7 +1757,7 @@ The following sections describe any modifications that the ST author must make t
                   <selectables linebreak="yes">
                     <selectable>wrapped, as specified in FCS_COP.1(5)</selectable>
                     <selectable>encrypted, as specified in FCS_COP.1(7)</selectable>
-                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1</selectable>
+                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
                     <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
                     <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
                     <selectable>the plaintext key is a key split that is combined as specified in FCS_SMC_EXT.1 and another contribution to the split is
@@ -1777,7 +1773,7 @@ The following sections describe any modifications that the ST author must make t
                       that is already encrypted as specified in FCS_COP.1(7) or wrapped as specified in FCS_COP.1(5)</selectable>
                   </selectables>
                 </selectable>
-                </selectables>
+                </selectables>.
             </title>
             <note role="application">The plaintext key storage in non-volatile memory is allowed for
               several reasons. If the keys exist within protected memory that is not user accessible
@@ -1806,7 +1802,7 @@ The following sections describe any modifications that the ST author must make t
       </subsection></man-sfrs>
     <opt-sfrs>
       <subsection title="Identification and Authentication (FIA)" id="fia">
-        <f-component id="FIA_FCT_EXT.1" name="Extended: Multi-User Authorization">
+        <f-component id="FIA_FCT_EXT.1" name="Multi-User Authorization">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FIA_FCT_EXT.1.1">
@@ -1817,7 +1813,7 @@ The following sections describe any modifications that the ST author must make t
               <selectables>
                 <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1.1(8)</selectable>
                 <selectable>Distribution of a shared key from an enterprise management Server</selectable>
-              </selectables>
+              </selectables>.
             </title>
             
             
@@ -1825,7 +1821,7 @@ The following sections describe any modifications that the ST author must make t
               authorization factors to produce multiple KEKs, the intent is that the TSF supports a
               system where multiple users have access to files on the underlying platform, and that
               each user has an authorization factor so that they can protect their own files from
-              other users. This should be accomplished via the methods detailed in FIA_FCT_EXT.1.2 
+              other users. This should be accomplished via the methods detailed in FIA_FCT_EXT.1.2. 
             </note>
             
             <aactivity>
@@ -1869,7 +1865,7 @@ The following sections describe any modifications that the ST author must make t
       </subsection>
        
        <subsection title="User Data Protection (FDP)" id="fdp">
-         <f-component name="Extended: Protection of Third Party Data" id="FDP_PRT_EXT.3">
+         <f-component name="Protection of Third Party Data" id="FDP_PRT_EXT.3">
            <consistency-rationale>
            </consistency-rationale>
            <f-element id="FDP_PRT_EXT.3.1">
@@ -1898,7 +1894,7 @@ The following sections describe any modifications that the ST author must make t
              </aactivity>
            </f-element>
          </f-component>
-         <f-component id="FDP_PM_EXT.1" name="Extended: Protection of  Data in Power Managed States">
+         <f-component id="FDP_PM_EXT.1" name="Protection of  Data in Power Managed States">
            <consistency-rationale>
            </consistency-rationale>
            <f-element id="FDP_PM_EXT.1.1">
@@ -1961,7 +1957,7 @@ The following sections describe any modifications that the ST author must make t
              </aactivity>
            </f-element>
          </f-component>
-         <f-component id="FDP_AUT_EXT.1" name="Extended: Authentication of Selected User Data">
+         <f-component id="FDP_AUT_EXT.1" name="Authentication of Selected User Data">
            <consistency-rationale>
            </consistency-rationale>
            <f-element id="FDP_AUT_EXT.1.1">
@@ -2035,12 +2031,12 @@ The following sections describe any modifications that the ST author must make t
              </aactivity>
            </f-element>
          </f-component>
-         <f-component id="FDP_AUT_EXT.2" name="Extended: Data Authentication using cryptographic, keyed hash functions">
+         <f-component id="FDP_AUT_EXT.2" name="Data Authentication using cryptographic, keyed hash functions">
            <consistency-rationale>
            </consistency-rationale>
            <f-element id="FDP_AUT_EXT.2.1">
              <title>The TSF shall use a cryptographic, keyed hash function in accordance with
-               FCS_COP.1(4).</title>
+               FCS_COP.1(4) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
            </f-element>
            <f-element id="FDP_AUT_EXT.2.2">
              <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP_EXT.1(6)
@@ -2073,7 +2069,7 @@ The following sections describe any modifications that the ST author must make t
              <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
-               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1</note>
+               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1.</note>
              <aactivity>
                <TSS> The evaluator shall check the TSS section to confirm that it describes
                  how a request for each type of supported resource (file (or set of files)) will result
@@ -2102,7 +2098,7 @@ The following sections describe any modifications that the ST author must make t
            </f-element>
          </f-component>
          
-         <f-component id="FDP_AUT_EXT.3" name="Extended: Data Authentication using asymmetric signing and verification">
+         <f-component id="FDP_AUT_EXT.3" name="Data Authentication using asymmetric signing and verification">
            <consistency-rationale>
            </consistency-rationale>
            <f-element id="FDP_AUT_EXT.3.1">
@@ -2196,12 +2192,12 @@ The following sections describe any modifications that the ST author must make t
               <selectable>a FAK will be stored in non-volatile memory encrypted with a KEK as
                 specified in FCS_COP.1(5) using authorization factors as specified in FIA_AUT_EXT.1
               </selectable>
-            </selectables>
+            </selectables>.
           </title>
         </f-element>
         <f-element id="FCS_CKM_EXT.5.2">
           <title>The TSF shall create a unique FAK for each file (or set of files) using the
-            mechanism on the client as specified in FCS_RBG_EXT.1.</title>
+            mechanism on the client as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
         </f-element>
         <f-element id="FCS_CKM_EXT.5.3">
           <title>The FAKs must be generated by the TOE as specified in FDP_AUT_EXT.2.9.</title>
@@ -2264,7 +2260,7 @@ The following sections describe any modifications that the ST author must make t
 
     <sel-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
-      <f-component id="FCS_CKM_EXT.3" name="Key Encrypting Key (KEK) Support">
+        <f-component id="FCS_CKM_EXT.3" name="Key Encrypting Key (KEK) Support">
         <selection-depends req="FCS_KYC_EXT.1.1"  ids="HASKEK"/>
         <consistency-rationale>
         </consistency-rationale>
@@ -2280,12 +2276,12 @@ The following sections describe any modifications that the ST author must make t
                       <selectable>128 bit</selectable>
                       <selectable>256 bit</selectable>
                     </selectables></selectable>
-                  <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(1) </selectable>
+                  <selectable id="DRVKEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.1(1) </selectable>
                 </selectables>
               </selectable>
-            </selectables>
+            </selectables>.
           </title>
-          <note role="Application">This requirement shall be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
+          <note role="Application">This requirement must be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
           <aactivity>
             <TSS>
             The evaluator shall review the TSS to determine that a
@@ -2332,7 +2328,7 @@ The following sections describe any modifications that the ST author must make t
             <selectable>HMAC-SHA-256</selectable>
             <selectable>HMAC-SHA-384</selectable>
             <selectable>HMAC-SHA-512</selectable>
-            </selectables> to generate an intermediary key</title>
+            </selectables> to generate an intermediary key.</title>
           <note role="application">This requirement specifies the way that a product may combine the
             various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on FCS_KYC_EXT.1.1.</note>
           <aactivity>
@@ -2349,8 +2345,11 @@ The following sections describe any modifications that the ST author must make t
 </aactivity>
         </f-element>
       </f-component>
-        <f-component id="FCS_CKM_EXT.1(1)" name="Extended: Cryptographic key generation (Password/Passphrase conditioning)"> 
+        <f-component id="FCS_CKM_EXT.1(1)" name="Cryptographic key generation (Password/Passphrase conditioning)"> 
           <selection-depends req="FIA_AUT_EXT.1.1" ids="USEPAS"/>
+          <selection-depends req="FCS_CKM_EXT.2.1" ids="DRVFEKPAS"/>
+          <selection-depends req="FCS_CKM_EXT.3.1" ids="DRVKEKPAS"/>
+      
           <consistency-rationale>
           </consistency-rationale>
         <f-element id="FCS_CKM_EXT.1.1(1)">
@@ -2607,10 +2606,10 @@ The following sections describe any modifications that the ST author must make t
             <title>
               The TSF shall accept 
               <selectables>
-                <selectable>a RNG generated submask as specified in FCS_RBG_EXT.1</selectable>
+                <selectable>a RNG generated submask as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
                 <selectable>a conditioned password</selectable>
                 <selectable>an imported submask</selectable>
-              </selectables> to derive an intermediate key, as defined in [selection:
+              </selectables> to derive an intermediate key, as defined in
              <selectables>
                <selectable>NIST SP 800-108 
                  <selectables>
@@ -2620,7 +2619,7 @@ The following sections describe any modifications that the ST author must make t
                  </selectables>
                </selectable>
                <selectable>NIST SP 800-132</selectable>
-             </selectables> using the keyed-hash functions specified in FCS_COP.1(4), such that the output is at least of
+             </selectables> using the keyed-hash functions specified in FCS_COP.1(4) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>, such that the output is at least of
               equivalent security strength (in number of bits) to the FEK.
             </title>
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
