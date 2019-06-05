@@ -1030,22 +1030,22 @@ Cause the TOE to clear the key.<h:br/>
 
 Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails. </test><h:br/>
 
-                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:What is the Process to get a Commercial Product CSfC-Listed?
+                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:<h:br/>
                   
 
-Record the logical storage location of the key in the TOE subject to clearing.What is the Process to get a Commercial Product CSfC-Listed?
+Record the logical storage location of the key in the TOE subject to clearing.<h:br/>
 
 
-Cause the TOE to perform a normal cryptographic processing with the key from Step #1.What is the Process to get a Commercial Product CSfC-Listed?
+Cause the TOE to perform a normal cryptographic processing with the key from Step #1.<h:br/>
 
 
-Cause the TOE to clear the key.What is the Process to get a Commercial Product CSfC-Listed?
+Cause the TOE to clear the key.<h:br/>
 
 
-Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.What is the Process to get a Commercial Product CSfC-Listed?
+Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.<h:br/>
 
 
-The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test>What is the Process to get a Commercial Product CSfC-Listed?
+The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test><h:br/>
                 
               </testlist>
             </Tests>
