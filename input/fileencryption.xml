@@ -2292,7 +2292,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             <TSS> FCS_CKM_EXT.5.1: The evaluator shall examine the TSS to determine how the FAK is stored (or not stored) in memory.
               <h:br/><h:br/> FCS_CKM_EXT.5.2: The evaluator shall examine the TSS to determine that it
             describes how a FAK is created for a protected resource and associated with that
-            resource; protection of the FAK itself is covered by FCS_COP.1(5). The evaluator
+            resource; protection of the FAK itself is covered by FCS_COP.1(6). The evaluator
             confirms that-per this description-the FAK is unique per resource (file or set of files)
             and that the FAK is created using the mechanisms specified in FCS_CKM_EXT.1. <h:br/><h:br/>
             FCS_CKM_EXT.5.3: The TSS must detail that the FAKs are generated on the client machine
@@ -2309,7 +2309,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             and FAK). The evaluator shall further check to ensure that the TSS describes how the FAK
             and any other associated meta-data necessary to decrypt the file or set of files are
             associated with the resource. This description can be combined with the description
-            required for FCS_COP.1(5). <h:br/>
+            required for FCS_COP.1(6). <h:br/>
 
             </TSS><h:br/>
 <Guidance> None. 
