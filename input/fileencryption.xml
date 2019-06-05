@@ -620,7 +620,8 @@
           <component-refer ref="FPT_KYP_EXT.1"/>
 
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the <abbr linkend="Base-PP"/> because the <abbr linkend="Base-PP"/> includes the O.PROTECTED_STORAGE objective. 
+            The protection and timely destruction of key materials is consistent with the intent of that objective.
           </consistency-rationale>
         </SO>
         <SO id="O.FEK_SECURITY">
@@ -765,15 +766,25 @@ The following sections describe any modifications that the ST author must make t
       
       <modified-sfrs></modified-sfrs>
       <additional-sfrs></additional-sfrs>
-      <con-toe></con-toe>
+      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the App PP, the TOE type for the overall TOE is still a software application. 
+        The TOE boundary is simply extended to include the software file encryption functionality that the application performs.</con-toe>
+      
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
+      <con-mod id="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the <abbr linkend="Base-PP"/>.
+        Rather than use unprivileged software to maliciously affect the application itself, this threat involves an attacker using unprivileged software to interact with 
+        the data that the TOE is intended to protect.</con-mod>
+      
+      
+    
+      
     </base-pp>
 <man-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
-          <consistency-rationale>
+          <consistency-rationale>This SFR describes behavior that is not in scope of the <abbr linkend="Base-PP"/>. 
+            It is consistent with the <abbr linkend="Base-PP"/> because it may use the same random bit generation function defined in the <abbr linkend="Base-PP"/>.
           </consistency-rationale>
           <f-element id="FCS_CKM_EXT.2.1">
             <title> The TSF shall 
@@ -1881,7 +1892,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           </f-element>
         </f-component>
         
-        <f-component id="FIA_FCT_EXT.2" name="Extended: Authorized Key Sharing">
+        <f-component id="FIA_FCT_EXT.2" name="Authorized Key Sharing">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FIA_FCT_EXT.2.1">
