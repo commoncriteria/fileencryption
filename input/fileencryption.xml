@@ -527,7 +527,7 @@
         </threat>
         <threat id="T.KEYSPACE_EXHAUST">
           <description>
-            <h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used.
+            <h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data.
           </description>
           <objective-refer ref="O.FEK_SECURITY">
             <rationale>The threat T.KEYSPACE_EXHAUST is countered by O.FEK_SECURITY as this
@@ -620,7 +620,7 @@
           <component-refer ref="FPT_KYP_EXT.1"/>
 
           <consistency-rationale>
-            This objective is consistent with the <abbr linkend="Base-PP"/> because the <abbr linkend="Base-PP"/> includes the O.PROTECTED_STORAGE objective. 
+            This objective is consistent with the Base-PP because the Base-PP includes the O.PROTECTED_STORAGE objective. 
             The protection and timely destruction of key materials is consistent with the intent of that objective.
           </consistency-rationale>
         </SO>
@@ -647,7 +647,7 @@
           <component-refer ref="FCS_SMC_EXT.1 (selection-based)"/>
 
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
         </SO>
         <SO id="O.WIPE_MEMORY">
@@ -664,7 +664,7 @@
 
 
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
         </SO>
         <SO id="O.PROTECT_DATA">
@@ -684,7 +684,7 @@
           <component-refer ref="FIA_FCT_EXT.1 (optional)"/>
 
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
         </SO>
         <SO id="O.SAFE_AUTHFACTOR_VERIFICATION">
@@ -699,7 +699,7 @@
           <component-refer ref="FIA_AUT_EXT.1"/>
 
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
         </SO>
 
@@ -711,7 +711,7 @@
           <component-refer ref="FMT_MEC_EXT.1"/>
 
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            The Base-PP does not define functionality for protected administrative access to the TSF so this objective relates solely to material beyond the scope of the Base-PP.
           </consistency-rationale>
         </SO>
       </SOs>
@@ -725,7 +725,8 @@
             sensitivity of the data being protected. This can apply to password- or
             passphrase-based, ECC CDH, and RSA authorization factors.</description>
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the Base-PP because this functionality is beyond the scope of what the Base-PP defines. Therefore, the use and strength of 
+            external authorization factors does not affect the ability of any Base-PP SFRs or objectives to be satisfied.
           </consistency-rationale>
         </SOE>
         <SOE id="OE.POWER_SAVE">
@@ -736,14 +737,14 @@
             configurable such that there exists at least one mechanism that will cause the system to
             lock upon a period of time. </description>
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the Base-PP because it is an extension of the Base-PP's OE.PLATFORM objective that is specific to this technology type.
           </consistency-rationale>
         </SOE>
         <SOE id="OE.STRONG_ENVIRONMENT_CRYPTO">
           <description>The Operating environment will provide a cryptographic function capability
             that is commensurate with the requirements and capabilities of the TOE.</description>
           <consistency-rationale>
-            This objective is consistent with <base-name/>.
+            This objective is consistent with the Base-PP because the Base-PP allows for the TOE to use platform-provided cryptography.
           </consistency-rationale>
         </SOE>
        </SOEs>
@@ -772,9 +773,19 @@ The following sections describe any modifications that the ST author must make t
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
-      <con-mod id="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the <abbr linkend="Base-PP"/>.
-        Rather than use unprivileged software to maliciously affect the application itself, this threat involves an attacker using unprivileged software to interact with 
-        the data that the TOE is intended to protect.</con-mod>
+      <con-mod id="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.PHYSICAL_ACCESS defined in the Base-PP.
+        In this case, the "sensitive data at rest" is the data that the TOE is intended to protect.</con-mod>
+      <con-mod id="T.MANAGEMENT_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the Base-PP.
+        The Base-PP does not define access-controlled management functions so this PP-Module goes beyond it by specifying misuse of the management interface, or
+        inability to fully use the management interface, as threats to the TSF.</con-mod>
+      <con-mod id="T.KEYING_MATERIAL_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+        Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>      
+      <con-mod id="T.UNSAFE_AUTHFACTOR_VERIFICATION">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+        Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod> 
+      <con-mod id="T.KEYSPACE_EXHAUST">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+        Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod> 
+      <con-mod id="T.PLAINTEXT_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+        Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod> 
       
       
     
@@ -783,8 +794,8 @@ The following sections describe any modifications that the ST author must make t
 <man-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
-          <consistency-rationale>This SFR describes behavior that is not in scope of the <abbr linkend="Base-PP"/>. 
-            It is consistent with the <abbr linkend="Base-PP"/> because it may use the same random bit generation function defined in the <abbr linkend="Base-PP"/>.
+          <consistency-rationale>This SFR describes behavior that is not in scope of the Base-PP. 
+            It is consistent with the Base-PP because it may use the same random bit generation function defined in the Base-PP.
           </consistency-rationale>
           <f-element id="FCS_CKM_EXT.2.1">
             <title> The TSF shall 
@@ -865,7 +876,8 @@ The following sections describe any modifications that the ST author must make t
 
 
         <f-component id="FCS_CKM_EXT.4" name="Cryptographic Key Destruction">
-          <consistency-rationale>
+          <consistency-rationale>This SFR extends the cryptographic functionality defined in the Base-PP by specifying a method for key destruction. 
+            It is consistent with the Base-PP because keys generated by the Base-PP portion of the TOE may also be destroyed in the manner specified by this SFR.
           </consistency-rationale>
           <f-element id="FCS_CKM_EXT.4.1">
             <title>The TSF shall destroy cryptographic keys in accordance with a specified cryptographic key destruction method 
@@ -1102,7 +1114,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
 
         <f-component id="FCS_VAL_EXT.1" name="Validation">
-          <consistency-rationale>
+          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
+            and take security-relevant action if the data is invalid.
           </consistency-rationale>
           <f-element id="FCS_VAL_EXT.1.1 ">
             <title>The TSF shall perform validation of the 
@@ -1176,7 +1189,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         </f-component>
 
         <f-component id="FCS_IV_EXT.1" name="Initialization Vector Generation">
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
+            methods specified by the Base-PP SFR FCS_CKM.1(2).
           </consistency-rationale>
           <f-element id="FCS_IV_EXT.1.1 ">
             <title>The application shall <selectables>
@@ -1208,7 +1222,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         </f-component>
 
         <f-component id="FCS_KYC_EXT.1" name="Key Chaining and Key Storage">
-          <consistency-rationale>
+          <consistency-rationale>The Base-PP defines how stored keys are protected. This SFR extends that functionality by defining the logical hierarchy of how keys are logically
+            protected by other keys or other secret data. 
           </consistency-rationale>
           <f-element id="FCS_KYC_EXT.1.1">
             <title> The TSF shall maintain a key chain of: 
@@ -1335,7 +1350,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
       </subsection>
       <subsection title="User Data Protection (FDP)" id="fdp">
         <f-component id="FDP_PRT_EXT.1" name="Protection of Selected User Data">
-          <consistency-rationale>
+          <consistency-rationale>This SFR is consistent with the Base-PP because it is a specific application of the FCS_COP.1(1) function defined in the Base-PP.
           </consistency-rationale>
           <f-element id="FDP_PRT_EXT.1.1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
@@ -1467,7 +1482,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           </f-element>
         </f-component>
         <f-component id="FDP_PRT_EXT.2" name="Protection of Selected User Data">
-          <consistency-rationale>
+          <consistency-rationale>This SFR relates to the destruction of key data, which is beyond the scope defined by the Base-PP and does not affect the ability of the Base-PP 
+           SFRs to be enforced.
           </consistency-rationale>
         <f-element id="FDP_PRT_EXT.2.1">
           <title>The application shall <selectables>
@@ -1569,7 +1585,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
       </subsection>
       <subsection title="Identification and Authentication (FIA)" id="fia">
         <f-component id="FIA_AUT_EXT.1" name="User Authorization">
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG_EXT.1 from the Base-PP in a manner consistent with its 
+            definition, but otherwise does not relate to functionality defined by the Base-PP.
           </consistency-rationale>
           <f-element id="FIA_AUT_EXT.1.1">
             <title>The application shall 
@@ -1669,7 +1686,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
       <subsection title="Security Management (FMT)" id="fmt"> 
 
         <f-component id="FMT_SMF.1(2)" name="Specification of File Encryption Management Functions">
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines management functions for the TOE for functionality specific to this PP-Module. These functions are defined in addition to what 
+            the Base-PP defines for its own operation.
           </consistency-rationale>
           <f-element id="FMT_SMF.1.1(2)">
             <title>The TSF shall be capable of performing the following management functions: <h:b>
@@ -1708,9 +1726,6 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               This list is in addition to the list of functions, SMF_FMT.1 in the Application Software Protection Profile.
             </note>
             <aactivity>
-              The ST author should combine the selections with those in the FMT_SMF.1 requirement in the Application Software PP to 
-              form a single FMT_SMF SFR in the ST.<h:br/><h:br/>
-              
               The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
@@ -1759,7 +1774,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         </f-component>
 
         <f-component id="FMT_MEC_EXT.1" name="Supported Configuration Mechanism">
-          <consistency-rationale>
+          <consistency-rationale>This SFR is intended to enhance the storage of configuration options that are currently permitted by the Base-PP.
           </consistency-rationale>
           <f-element id="FMT_MEC_EXT.1.1">
             <title>SEE APPLICATION NOTE The TSF shall 
@@ -1795,7 +1810,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
 
         <f-component id="FPT_KYP_EXT.1" name="Protection of Key and Key Material (FPT_KYP_EXT)">
-          <consistency-rationale>
+          <consistency-rationale>The Base-PP defines an SFR for secure storage of sensitive data. This SFR expands on that definition by describing the supported logical methods 
+            for storage of key data.
           </consistency-rationale>
           <f-element id="FPT_KYP_EXT.1.1">
             <title>The TSF shall 
@@ -1851,7 +1867,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
     <opt-sfrs>
       <subsection title="Identification and Authentication (FIA)" id="fia">
         <f-component id="FIA_FCT_EXT.1" name="Multi-User Authorization">
-          <consistency-rationale>
+          <consistency-rationale>This SFR relates to the use of authorization factors, which does not relate to any behavior described in the Base-PP.
           </consistency-rationale>
           <f-element id="FIA_FCT_EXT.1.1">
             <title>The TSF shall support the use of authorization factors from multiple users that result in unique KEKs.</title></f-element>
@@ -1894,7 +1910,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         </f-component>
         
         <f-component id="FIA_FCT_EXT.2" name="Authorized Key Sharing">
-          <consistency-rationale>
+          <consistency-rationale>This SFR relates to key sharing, which does not relate to any behavior described in the Base-PP.
           </consistency-rationale>
           <f-element id="FIA_FCT_EXT.2.1">
             <title>The TSF shall support
@@ -1953,7 +1969,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
        
        <subsection title="User Data Protection (FDP)" id="fdp">
          <f-component name="Protection of Third Party Data" id="FDP_PRT_EXT.3">
-           <consistency-rationale>
+           <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the Base-PP but 
+             does not prevent the Base-PP functions from being enforced.
            </consistency-rationale>
            <f-element id="FDP_PRT_EXT.3.1">
              <title>The TSF shall ensure that all temporary files created by 
@@ -1982,7 +1999,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
            </f-element>
          </f-component>
          <f-component id="FDP_PM_EXT.1" name="Protection of  Data in Power Managed States">
-           <consistency-rationale>
+           <consistency-rationale>This SFR describes the behavior of the TSF when its host platform is in a locked or unpowered state, which does not relate to any functionality 
+             defined in the Base-PP.
            </consistency-rationale>
            <f-element id="FDP_PM_EXT.1.1">
              <title>The TSF shall protect all data selected for encryption during the transition to
@@ -2045,7 +2063,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
            </f-element>
          </f-component>
          <f-component id="FDP_AUT_EXT.1" name="Authentication of Selected User Data">
-           <consistency-rationale>
+           <consistency-rationale>This SFR relates to data authentication, which does not relate to any functionality defined in the Base-PP.
            </consistency-rationale>
            <f-element id="FDP_AUT_EXT.1.1">
              <title>The TSF shall perform authentication of the user-selected file (or set of files)
@@ -2121,7 +2139,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
            </f-element>
          </f-component>
          <f-component id="FDP_AUT_EXT.2" name="Data Authentication using cryptographic, keyed hash functions">
-           <consistency-rationale>
+           <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
+             defined in the Base-PP.
            </consistency-rationale>
            <f-element id="FDP_AUT_EXT.2.1">
              <title>The TSF shall use a cryptographic, keyed hash function in accordance with
@@ -2188,7 +2207,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
          </f-component>
          
          <f-component id="FDP_AUT_EXT.3" name="Data Authentication using asymmetric signing and verification">
-           <consistency-rationale>
+           <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
+             defined in the Base-PP.
            </consistency-rationale>
            <f-element id="FDP_AUT_EXT.3.1">
              <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) <h:b>(from 
@@ -2252,7 +2272,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
        
 <subsection title="Cryptographi Support (FCS)" id="fcs">
       <f-component id="FCS_COP_EXT.1(6)" name="FAK encryption/decryption support">
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
+            specific to this PP-Module and do not affect the ability for any Base-PP SFRs to be enforced.
           </consistency-rationale>
         <f-element id="FCS_COP_EXT.1.1(6)">
           <title>The FAK shall be protected in the same manner as the FEK, in accordance with
@@ -2270,7 +2291,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
       </f-component>
         <f-component id="FCS_CKM_EXT.5" name="File Authentication Key (FAK) Support">
-          <consistency-rationale>
+          <consistency-rationale>This SFR supports the PP-Module's data authentication function, which does not relate to any functionality defined in the Base-PP.
           </consistency-rationale>
         <f-element id="FCS_CKM_EXT.5.1">
           <title> The TSF shall use a FAK to authenticate sensitive data when a cryptographic, keyed
@@ -2352,7 +2373,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.3" name="Key Encrypting Key (KEK) Support">
         <selection-depends req="FCS_KYC_EXT.1.1"  ids="HASKEK"/>
-        <consistency-rationale>
+        <consistency-rationale>This SFR relates to how KEKs are made available to the TSF, which are used for functionality that does not relate to the Base-PP.
         </consistency-rationale>
         <f-element id="FCS_CKM_EXT.3.1 ">
           <title> The TSF shall 
@@ -2407,7 +2428,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
       </f-component>
       <f-component id="FCS_SMC_EXT.1" name="Submask Combining">
         <selection-depends req="FCS_KYC_EXT.1.1"  ids="USEKEYCOM"/>
-        <consistency-rationale>
+        <consistency-rationale>This SFR relates to submask combining as a method of generating intermediary keys. Key hierarchy functionality is outside the scope of the Base-PP.
         </consistency-rationale>
         <f-element id="FCS_SMC_EXT.1.1 ">
           <title>The TSF shall combine submasks using the following method <selectables>
@@ -2440,7 +2461,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           <selection-depends req="FCS_CKM_EXT.2.1" ids="DRVFEKPAS"/>
           <selection-depends req="FCS_CKM_EXT.3.1" ids="DRVKEKPAS"/>
       
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 SFR from the Base-PP in its intended manner 
+            but otherwise does not relate to the Base-PP's functionality.
           </consistency-rationale>
         <f-element id="FCS_CKM_EXT.1.1(1)">
           <title>
@@ -2584,7 +2606,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
       </f-component>
         <f-component id="FCS_COP.1(8)" name="Cryptographic operation (Key Transport)">
           <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYTRA"/>
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines key transport functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(8)">
             <title>
@@ -2707,7 +2729,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         </f-component>
         <f-component id="FCS_KDF_EXT.1" name="Cryptographic operation (Key Derivation)">
           <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYDER"/>
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the Base-PP 
+            as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
           <f-element id="FCS_KDF_EXT.1.1">
             <title>
@@ -2748,7 +2771,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         </f-component>
         <f-component id="FCS_COP.1(7)" name="Cryptographic operation (Key Encryption)">
           <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYENC"/>
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(7)">
             <title>
@@ -2787,7 +2810,8 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
         <f-component id="FCS_COP.1(5)" name="Cryptographic operation (Key Wrapping)">
           <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYWRA"/>
 
-          <consistency-rationale>
+          <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
+            specific to this PP-Module and do not affect the ability of any Base-PP SFRs to be enforced.
           </consistency-rationale>
           <f-element id="FCS_COP.1.1(5)">
             <title>
