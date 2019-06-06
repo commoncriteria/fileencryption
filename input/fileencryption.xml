@@ -1111,10 +1111,10 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
 
               </TSS><h:br/>
-<Guidance> None.
+<Guidance>There are no additional guidance evaluation activities for FCS_CKM_EXT.4.2.
 
 </Guidance><h:br/>
-<Tests> None.
+              <Tests> There are no additional test evaluation activities for FCS_CKM_EXT.4.2.
 
             </Tests> 
 </aactivity>
@@ -1460,7 +1460,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               The TSS shall describe how the TSF or TOE platform deletes the non-volatile memory (for example, files) 
               and volatile memory locations after the TSF is done with its decryption/encryption operation. 
               </TSS>
-<Guidance>None. 
+              <Guidance><h:br/>There are no additional guidance evaluation activities for FDP_PRT_EXT.1.2. 
 
               </Guidance>
 <Tests> 
