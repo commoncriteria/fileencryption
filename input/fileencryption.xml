@@ -631,7 +631,7 @@
             <h:b>Encryption Using a Strong FEK and KEK:</h:b> In order to ensure that brute force
             attacks are infeasible, the TOE must ensure that the cryptographic strength of the keys
             and authorization factors used to generate and protect the keys is sufficient to
-            withstand attacks in the near-to-mid-term future. Password/passphrase complexity and
+            withstand attacks in the near-to-mid-term future. Password/passphrase 
             conditioning requirements are also levied to help ensure that a brute force attack
             against these authorization factors (when used) has a similar level of resistance.
           </description>
@@ -1692,7 +1692,6 @@ Some examples of what is expected to be in the documentation are provided here. 
           <f-element id="FMT_SMF.1.1(2)">
             <title>The TSF shall be capable of performing the following management functions: <h:b>
               <selectables linebreak="yes">
-                <selectable>configure password/passphrase complexity setting</selectable>
                 <selectable>configure cryptographic functionality</selectable>
                 <selectable>change authentication factors</selectable>
                 <selectable>perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
@@ -1704,10 +1703,6 @@ Some examples of what is expected to be in the documentation are provided here. 
             <note role="application"> The intent of this requirement is to express the management
               capabilities that may be included in the TOE. Several common options are given:<h:br/>
               <h:ul>
-                <h:li>If the TOE provides for a password/passphrase complexity setting, then
-                  "configure password/passphrase complexity setting" will be included, and the
-                  specifics of the functionality offered can either be written from the requirement
-                  as bullets points, or included in the TSS.</h:li>
                 <h:li>If the TOE provides configurability of the cryptographic functions (for example,
                   key size of the FEK)-even if the configuration is the form of parameters that may
                   be passed to cryptographic functionality implement on the TOE platform--then
@@ -2540,7 +2535,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             was selected in FIA_AUT_EXT.1.
 
             <h:br/><h:br/>For FCS_CKM_EXT.1.4(1) If the minimum password length is settable, then ST author chooses "a value settable by the administrator
-            for this component, as well as the "configure password/passphrase complexity setting" item for FMT_SMF.1.2. If the minimum length
+            for this component for FMT_SMF.1.2. If the minimum length
             is not settable, the ST author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant TOEs).  
 
             <h:br/><h:br/>This requirement is selection dependent on FIA_AUT_EXT.1.1.</note>
@@ -2586,7 +2581,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 
             <h:b>Support for minimum length:</h:b> The evaluators shall check the Operational Guidance 
             to determine that there are instructions on how to generate large passwords/passphrases, and
-            instructions on how to configure the password/passphrase length (and optional complexity settings)
+            instructions on how to configure the password/passphrase length 
             to provide entropy commensurate with the keys that the authorization factor is protecting.  
 
             </TSS><h:br/>
