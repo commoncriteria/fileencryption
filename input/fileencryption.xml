@@ -157,8 +157,6 @@
         <h:li>Instructions for how to configure the operational environment to provide necessary
           behavior in support of TOE functionality when transition to a locked state after
           inactivity period and manually engaging the lock functionality.</h:li>
-        <h:li>Instructions on how to configure the operational environment such that it is compliant
-          with the Mobile Device Fundamentals Protection Profile.</h:li>
       </h:ul> It should be noted that if the TOE possesses the capability to correctly protect
       information in one or more of an underlying platform's power managed modes, they can use the
       FDP_PM_EXT.1 requirement in Appendix A.<h:br/><h:br/> Authorized users of the TOE are those users
