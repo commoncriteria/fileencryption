@@ -620,8 +620,10 @@
           <component-refer ref="FPT_KYP_EXT.1"/>
 
           <consistency-rationale>
+
             This objective is consistent with the Base-PP because the Base-PP includes the O.PROTECTED_STORAGE objective. 
             The protection and timely destruction of key materials is consistent with the intent of that objective.
+
           </consistency-rationale>
         </SO>
         <SO id="O.FEK_SECURITY">
@@ -767,12 +769,11 @@ The following sections describe any modifications that the ST author must make t
       
       <modified-sfrs></modified-sfrs>
       <additional-sfrs></additional-sfrs>
-      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the App PP, the TOE type for the overall TOE is still a software application. 
-        The TOE boundary is simply extended to include the software file encryption functionality that the application performs.</con-toe>
-      
+      <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
+
       <con-mod id="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.PHYSICAL_ACCESS defined in the Base-PP.
         In this case, the "sensitive data at rest" is the data that the TOE is intended to protect.</con-mod>
       <con-mod id="T.MANAGEMENT_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the Base-PP.
@@ -794,9 +795,11 @@ The following sections describe any modifications that the ST author must make t
 <man-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
+
           <consistency-rationale>This SFR describes behavior that is not in scope of the Base-PP. 
             It is consistent with the Base-PP because it may use the same random bit generation function defined in the Base-PP.
           </consistency-rationale>
+
           <f-element id="FCS_CKM_EXT.2.1">
             <title> The TSF shall 
               <selectables>
@@ -951,6 +954,7 @@ The following sections describe any modifications that the ST author must make t
 
             <aactivity>
               <TSS>
+                <h:h4>TSS + KMD  (Key Management Description may be used if necessary details describe proprietary information)</h:h4>
               The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
@@ -1089,24 +1093,34 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               PIN was used for a SmartCard and managed by the TOE, ensuring that the PIN was properly destroyed must be addressed.
             </note>
             <aactivity>
-              <TSS> or KMD (Key Management Description may be used if necessary details describe proprietary information)            
-              The evaluator shall verify the TSS  includes a key lifecycle, that includes a
-              description where key material reside, how the key material is used, how it is
-              determined that keys and key material are no longer needed, and how the material is
-              destroyed once it is not needed and that the documentation in the follows
-              FCS_CKM_EXT.4.1 for the destruction.
+              <TSS> The evaluator shall verify the TSS provides a high level description of what it means
+                for keys and key material to be no longer needed and when then should be expected to
+                be destroyed. <h:br/><h:br/>
+                
+                
+                
+              <h:h4>KMD</h:h4>           
+                The evaluator shall verify the KMD includes a description of the areas where keys and
+                key material reside and when the keys and key material are no longer needed.<h:br/><h:br/>
+                
+                The evaluator shall verify the KMD includes a key lifecycle, that includes a description
+                where key material reside, how the key material is used, how it is determined that keys
+                and key material are no longer needed, and how the material is destroyed once it is not
+                needed and that the documentation in the KMD follows FCS_CKM_EXT.4.1 for the
+                destruction.
 
 
-              </TSS>
+              </TSS><h:br/>
 <Guidance> None.
 
-              </Guidance>
+</Guidance><h:br/>
 <Tests> None.
 
             </Tests> 
 </aactivity>
           </f-element>
         </f-component>
+
 
 
 
@@ -1187,6 +1201,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
           </f-element>
         </f-component>
+
 
         <f-component id="FCS_IV_EXT.1" name="Initialization Vector Generation">
           <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
@@ -1319,14 +1334,17 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               The key management internal to the server is not evaluated here. This permits the enterprise management server to 
             function in the middle of a larger key chain.</note>
             <aactivity>
-              <TSS> (Key Management Description may be used if necessary details describe proprietary information)
+              <TSS>
               The evaluator shall verify the TSS contains a high level 
               description of all keychains and authorization methods selected in FIA_AUT_EXT.1 
-              that are used to protect the KEK or FEK. The evaluator shall examine the TSS to ensure it describes 
+              that are used to protect the KEK or FEK. <h:br/><h:br/>
+              
+              
+                <h:h4>KMD</h:h4>The evaluator shall examine the TSS to ensure it describes 
               each key chain in detail, and these descriptions correspond with the selections of the requirement. 
               The description of each key chain shall be reviewed to ensure the options for maintaining the key chain are documented.<h:br/><h:br/>
 
-              The evaluator shall verify the TSS to ensure that it describes how each key chain process functions, 
+              The evaluator shall verify the KMD to ensure that it describes how each key chain process functions, 
               such that it does not expose any material that might compromise any key in the chain. A high-level 
               description should include a diagram illustrating the keychain(s) implemented and detail where all 
               keys and keying material is stored or how the keys or key material are derived. The evaluator shall examine the primary 
@@ -1591,9 +1609,9 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           <f-element id="FIA_AUT_EXT.1.1">
             <title>The application shall 
               <selectables>
-                <selectable>implement platform-provided functionality to provide user
+                <selectable id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</selectable>
-                <selectable>provide user authorization</selectable>
+                <selectable id="APPAUTH">provide user authorization</selectable>
               </selectables> based on 
               <selectables>
                 <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.1(1)</selectable>
@@ -1845,11 +1863,12 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               protecting the FEK is if it is a key split or providing additional layers of wrapping
               or encryption on keys that have already been protected. </note>
             <aactivity>
-              <TSS> (Key Management Description may be used if necessary details describe proprietary information)<h:br/>
-
+              <TSS>
               The evaluator shall verify the TSS for a high level description of the method(s) used
-              to protect keys stored in non-volatile memory.<h:br/><h:br/> The evaluator shall verify
-              the TSS to ensure it describes the storage location of all keys and the protection of
+              to protect keys stored in non-volatile memory.<h:br/><h:br/> 
+                
+                <h:h4>KMD</h:h4>The evaluator shall verify
+              the KMD to ensure it describes the storage location of all keys and the protection of
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure FCS_COP.1(5) is followed for the storage of wrapped or encrypted
               keys in non-volatile memory and plaintext keys in non-volatile memory meet one of the
@@ -1909,6 +1928,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           </f-element>
         </f-component>
         
+
         <f-component id="FIA_FCT_EXT.2" name="Authorized Key Sharing">
           <consistency-rationale>This SFR relates to key sharing, which does not relate to any behavior described in the Base-PP.
           </consistency-rationale>
@@ -2840,7 +2860,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
             <aactivity>
-              <TSS> or KMD (Key Management Description may be used if necessary details describe proprietary information)
+              <TSS>
               <h:h4>Conditional:</h:h4> If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
                 describes how the FEK encryption/decryption is invoked. <h:br/><h:br/>
 
@@ -2850,12 +2870,15 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               The evaluator shall check that the TSS describes the means by which the TOE satisfies constraints on algorithm parameters
               included in the selections made for 'cryptographic algorithm' and 'list of standards'. <h:br/><h:br/>
 
-              The evaluator shall examine the TSS to ensure that the points at which key wrapping and decryption occurs are described,
-              and that the complete data path for key wrapping is described. The evaluator checks that this description is consistent
-              with the relevant parts of the TSS.<h:br/><h:br/>
-
-              Assessment of the complete data path for key wrapping includes confirming that the TSS describes the data flow from the
-              device's host interface to the device's non-volatile memory storing the data. 
+              The evaluator shall verify the TSS includes a description of the key wrap function(s)
+              and shall verify the key wrap uses an approved key wrap algorithm according to the
+              appropriate specification.<h:br/><h:br/>
+                
+                <h:h4>KMD</h:h4>
+                The evaluator shall review the KMD to ensure that all keys are wrapped using the
+                approved method and a description of when the key wrapping occurs.
+                
+                
               </TSS><h:br/>
 <Guidance> If multiple encryption modes are supported, the evaluator examines the guidance documentation
               to determine that the method of choosing a specific mode/key size by the end user is described.
@@ -2901,6 +2924,80 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
             </Tests>
 </aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="FCS_VAL_EXT.1" name="Validation">
+          <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
+          <consistency-rationale>
+          </consistency-rationale>
+          <f-element id="FCS_VAL_EXT.1.1 ">
+            <title>The TSF shall perform validation of the 
+              <selectables>
+                <selectable>submask</selectable>
+                <selectable>intermediate key</selectable>
+              </selectables> using the following method(s): 
+              <selectables>
+                <selectable>key wrap as specified in FCS_COP.1(5)</selectable>
+                <selectable>hash the 
+                  <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                    <selectable>FEK</selectable> 
+                  </selectables> as specified in FCS_COP.1(2) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                <selectable>decrypt a known value using the 
+                  <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                    <selectable>FEK</selectable>
+
+                  </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+              </selectables>. 
+
+            </title>
+          </f-element>
+          <f-element id="FCS_VAL_EXT.1.2">
+            <title>The TSF shall require validation as specified in FCS_VAL_EXT.1.1 prior to decrypting any FEK.</title>
+          </f-element>
+          <f-element id="FCS_VAL_EXT.1.3">
+            <title>The TSF shall 
+              <selectables linebreak="yes">
+                <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
+                <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
+                <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+
+                <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+
+              </selectables>.
+            </title>
+            <note role="Application">This requirement is used in the body of the ST if the ST author chooses provide user authorization in FIA_AUT_EXT.1.1.</note>          
+          <aactivity>
+            <TSS>
+            The evaluator shall examine the TSS to determine which authorization factors support validation.
+
+            The evaluator shall examine the TSS to review a high-level description if multiple submasks are used within the TOE,
+            how the submasks are validated (e.g., each submask validated before combining, once combined validation takes place).
+
+
+            </TSS>
+<Guidance>If the validation functionality is configurable, the evaluator shall examine the operational guidance
+            to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. 
+
+            </Guidance>
+<Tests>The evaluator shall perform the following tests: <h:br/>
+
+            <testlist>
+              <test>The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
+            The evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
+            protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such
+            period. Then the evaluator will verify that the TOE behaves as described in the TSS.</test>
+
+            <test>Test 2: For each validated authorization factor, ensure that when the user provides an incorrect authorization factor,
+            the TOE prevents the decryption of the FEK(s).
+</test>
+            </testlist>
+</Tests>
+</aactivity>
+
           </f-element>
         </f-component>
         </subsection>
