@@ -640,7 +640,7 @@
           <component-refer ref="FCS_COP.1(7) (selection-based)"/>
           <component-refer ref="FCS_KDF_EXT.1 (selection-based)"/>
           <component-refer ref="FCS_COP.1(8) (selection-based)"/>
-          <component-refer ref="FCS_VAL_EXT.1"/>
+          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FCS_KYC_EXT.1"/>
           <component-refer ref="FCS_CKM_EXT.1(1) (selection-based)"/>
@@ -695,7 +695,7 @@
             authorization factor prior to the FEK being used to decrypt the data being
             protected.
           </description>
-          <component-refer ref="FCS_VAL_EXT.1"/>
+          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
           <component-refer ref="FIA_AUT_EXT.1"/>
 
           <consistency-rationale>
@@ -1118,87 +1118,6 @@ Some examples of what is expected to be in the documentation are provided here. 
 
             </Tests> 
 </aactivity>
-          </f-element>
-        </f-component>
-
-
-
-
-
-
-
-        <f-component id="FCS_VAL_EXT.1" name="Validation">
-          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
-            and take security-relevant action if the data is invalid.
-          </consistency-rationale>
-          <f-element id="FCS_VAL_EXT.1.1 ">
-            <title>The TSF shall perform validation of the 
-              <selectables>
-                <selectable>submask</selectable>
-                <selectable>intermediate key</selectable>
-              </selectables> using the following method(s): 
-              <selectables>
-                <selectable>key wrap as specified in FCS_COP.1(5)</selectable>
-                <selectable>hash the 
-                  <selectables>
-                    <selectable>submask</selectable>
-                    <selectable>intermediate key</selectable>
-                    <selectable>FEK</selectable> 
-                  </selectables> as specified in FCS_COP.1(2) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
-                <selectable>decrypt a known value using the 
-                  <selectables>
-                    <selectable>submask</selectable>
-                    <selectable>intermediate key</selectable>
-                    <selectable>FEK</selectable>
-
-                  </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
-              </selectables>. 
-
-            </title>
-          </f-element>
-          <f-element id="FCS_VAL_EXT.1.2">
-            <title>The TSF shall require validation as specified in FCS_VAL_EXT.1.1 prior to decrypting any FEK.</title>
-          </f-element>
-          <f-element id="FCS_VAL_EXT.1.3">
-            <title>The TSF shall 
-              <selectables linebreak="yes">
-                <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
-                <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
-                <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
-
-                <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
-
-              </selectables>.
-            </title>
-          
-          <aactivity>
-            <TSS>
-            The evaluator shall examine the TSS to determine which authorization factors support validation.
-
-            The evaluator shall examine the TSS to review a high-level description if multiple submasks are used within the TOE,
-            how the submasks are validated (e.g., each submask validated before combining, once combined validation takes place).<h:br/><h:br/>
-
-
-            </TSS>
-<Guidance>If the validation functionality is configurable, the evaluator shall examine the operational guidance
-  to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. <h:br/><h:br/>
-
-            </Guidance>
-<Tests>The evaluator shall perform the following tests: <h:br/>
-
-            <testlist>
-              <test>The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
-            The evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
-            protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such
-            period. Then the evaluator will verify that the TOE behaves as described in the TSS.</test>
-
-            <test>Test 2: For each validated authorization factor, ensure that when the user provides an incorrect authorization factor,
-            the TOE prevents the decryption of the FEK(s).
-</test>
-            </testlist>
-</Tests>
-</aactivity>
-
           </f-element>
         </f-component>
 
@@ -2923,7 +2842,8 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
         <f-component id="FCS_VAL_EXT.1" name="Validation">
           <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
-          <consistency-rationale>
+          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
+            and take security-relevant action if the data is invalid.
           </consistency-rationale>
           <f-element id="FCS_VAL_EXT.1.1 ">
             <title>The TSF shall perform validation of the 
@@ -2964,7 +2884,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 
               </selectables>.
             </title>
-            <note role="Application">This requirement is used in the body of the ST if the ST author chooses provide user authorization in FIA_AUT_EXT.1.1.</note>          
+            <note role="Application">This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.</note>          
           <aactivity>
             <TSS>
               The evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
@@ -2986,7 +2906,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such
             period. Then the evaluator will verify that the TOE behaves as described in the TSS.</test>
 
-            <test>Test 2: For each validated authorization factor, ensure that when the user provides an incorrect authorization factor,
+            <test>For each validated authorization factor, ensure that when the user provides an incorrect authorization factor,
             the TOE prevents the decryption of the FEK(s).
 </test>
             </testlist>
