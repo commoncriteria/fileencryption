@@ -620,8 +620,7 @@
           <component-refer ref="FPT_KYP_EXT.1"/>
 
           <consistency-rationale>
-            This objective is consistent with the <abbr linkend="Base-PP"/> because the <abbr linkend="Base-PP"/> includes the O.PROTECTED_STORAGE objective. 
-            The protection and timely destruction of key materials is consistent with the intent of that objective.
+            This objective is consistent with <base-name/>.
           </consistency-rationale>
         </SO>
         <SO id="O.FEK_SECURITY">
@@ -766,25 +765,15 @@ The following sections describe any modifications that the ST author must make t
       
       <modified-sfrs></modified-sfrs>
       <additional-sfrs></additional-sfrs>
-      <con-toe> When this <abbr linkend="PP-Module"/> is used to extend the App PP, the TOE type for the overall TOE is still a software application. 
-        The TOE boundary is simply extended to include the software file encryption functionality that the application performs.</con-toe>
-      
+      <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
-      <con-mod id="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the <abbr linkend="Base-PP"/>.
-        Rather than use unprivileged software to maliciously affect the application itself, this threat involves an attacker using unprivileged software to interact with 
-        the data that the TOE is intended to protect.</con-mod>
-      
-      
-    
-      
     </base-pp>
 <man-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
         <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
-          <consistency-rationale>This SFR describes behavior that is not in scope of the <abbr linkend="Base-PP"/>. 
-            It is consistent with the <abbr linkend="Base-PP"/> because it may use the same random bit generation function defined in the <abbr linkend="Base-PP"/>.
+          <consistency-rationale>
           </consistency-rationale>
           <f-element id="FCS_CKM_EXT.2.1">
             <title> The TSF shall 
@@ -1041,22 +1030,22 @@ Cause the TOE to clear the key.<h:br/>
 
 Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails. </test><h:br/>
 
-                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:<h:br/>
+                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:What is the Process to get a Commercial Product CSfC-Listed?
                   
 
-Record the logical storage location of the key in the TOE subject to clearing.<h:br/>
+Record the logical storage location of the key in the TOE subject to clearing.What is the Process to get a Commercial Product CSfC-Listed?
 
 
-Cause the TOE to perform a normal cryptographic processing with the key from Step #1.<h:br/>
+Cause the TOE to perform a normal cryptographic processing with the key from Step #1.What is the Process to get a Commercial Product CSfC-Listed?
 
 
-Cause the TOE to clear the key.<h:br/>
+Cause the TOE to clear the key.What is the Process to get a Commercial Product CSfC-Listed?
 
 
-Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.<h:br/>
+Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.What is the Process to get a Commercial Product CSfC-Listed?
 
 
-The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test><h:br/>
+The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test>What is the Process to get a Commercial Product CSfC-Listed?
                 
               </testlist>
             </Tests>
@@ -1101,79 +1090,6 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
 
 
-        <f-component id="FCS_VAL_EXT.1" name="Validation">
-          <consistency-rationale>
-          </consistency-rationale>
-          <f-element id="FCS_VAL_EXT.1.1 ">
-            <title>The TSF shall perform validation of the 
-              <selectables>
-                <selectable>submask</selectable>
-                <selectable>intermediate key</selectable>
-              </selectables> using the following method(s): 
-              <selectables>
-                <selectable>key wrap as specified in FCS_COP.1(5)</selectable>
-                <selectable>hash the 
-                  <selectables>
-                    <selectable>submask</selectable>
-                    <selectable>intermediate key</selectable>
-                    <selectable>FEK</selectable> 
-                  </selectables> as specified in FCS_COP.1(2) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
-                <selectable>decrypt a known value using the 
-                  <selectables>
-                    <selectable>submask</selectable>
-                    <selectable>intermediate key</selectable>
-                    <selectable>FEK</selectable>
-
-                  </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
-              </selectables>. 
-
-            </title>
-          </f-element>
-          <f-element id="FCS_VAL_EXT.1.2">
-            <title>The TSF shall require validation as specified in FCS_VAL_EXT.1.1 prior to decrypting any FEK.</title>
-          </f-element>
-          <f-element id="FCS_VAL_EXT.1.3">
-            <title>The TSF shall 
-              <selectables linebreak="yes">
-                <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
-                <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
-                <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
-
-                <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
-
-              </selectables>.
-            </title>
-          
-          <aactivity>
-            <TSS>
-            The evaluator shall examine the TSS to determine which authorization factors support validation.
-
-            The evaluator shall examine the TSS to review a high-level description if multiple submasks are used within the TOE,
-            how the submasks are validated (e.g., each submask validated before combining, once combined validation takes place).
-
-
-            </TSS>
-<Guidance>If the validation functionality is configurable, the evaluator shall examine the operational guidance
-            to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. 
-
-            </Guidance>
-<Tests>The evaluator shall perform the following tests: <h:br/>
-
-            <testlist>
-              <test>The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
-            The evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
-            protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such
-            period. Then the evaluator will verify that the TOE behaves as described in the TSS.</test>
-
-            <test>Test 2: For each validated authorization factor, ensure that when the user provides an incorrect authorization factor,
-            the TOE prevents the decryption of the FEK(s).
-</test>
-            </testlist>
-</Tests>
-</aactivity>
-
-          </f-element>
-        </f-component>
 
         <f-component id="FCS_IV_EXT.1" name="Initialization Vector Generation">
           <consistency-rationale>
@@ -1574,9 +1490,9 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           <f-element id="FIA_AUT_EXT.1.1">
             <title>The application shall 
               <selectables>
-                <selectable>implement platform-provided functionality to provide user
+                <selectable id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</selectable>
-                <selectable>provide user authorization</selectable>
+                <selectable id="APPAUTH">provide user authorization</selectable>
               </selectables> based on 
               <selectables>
                 <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.1(1)</selectable>
@@ -1893,7 +1809,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
           </f-element>
         </f-component>
         
-        <f-component id="FIA_FCT_EXT.2" name="Authorized Key Sharing">
+        <f-component id="FIA_FCT_EXT.2" name="Extended: Authorized Key Sharing">
           <consistency-rationale>
           </consistency-rationale>
           <f-element id="FIA_FCT_EXT.2.1">
@@ -2877,6 +2793,80 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
 
             </Tests>
 </aactivity>
+          </f-element>
+        </f-component>
+        <f-component id="FCS_VAL_EXT.1" name="Validation">
+          <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
+          <consistency-rationale>
+          </consistency-rationale>
+          <f-element id="FCS_VAL_EXT.1.1 ">
+            <title>The TSF shall perform validation of the 
+              <selectables>
+                <selectable>submask</selectable>
+                <selectable>intermediate key</selectable>
+              </selectables> using the following method(s): 
+              <selectables>
+                <selectable>key wrap as specified in FCS_COP.1(5)</selectable>
+                <selectable>hash the 
+                  <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                    <selectable>FEK</selectable> 
+                  </selectables> as specified in FCS_COP.1(2) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                <selectable>decrypt a known value using the 
+                  <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                    <selectable>FEK</selectable>
+
+                  </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+              </selectables>. 
+
+            </title>
+          </f-element>
+          <f-element id="FCS_VAL_EXT.1.2">
+            <title>The TSF shall require validation as specified in FCS_VAL_EXT.1.1 prior to decrypting any FEK.</title>
+          </f-element>
+          <f-element id="FCS_VAL_EXT.1.3">
+            <title>The TSF shall 
+              <selectables linebreak="yes">
+                <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
+                <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
+                <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+
+                <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+
+              </selectables>.
+            </title>
+            <note role="Application">This requirement is used in the body of the ST if the ST author chooses provide user authorization in FIA_AUT_EXT.1.1.</note>          
+          <aactivity>
+            <TSS>
+            The evaluator shall examine the TSS to determine which authorization factors support validation.
+
+            The evaluator shall examine the TSS to review a high-level description if multiple submasks are used within the TOE,
+            how the submasks are validated (e.g., each submask validated before combining, once combined validation takes place).
+
+
+            </TSS>
+<Guidance>If the validation functionality is configurable, the evaluator shall examine the operational guidance
+            to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. 
+
+            </Guidance>
+<Tests>The evaluator shall perform the following tests: <h:br/>
+
+            <testlist>
+              <test>The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
+            The evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
+            protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such
+            period. Then the evaluator will verify that the TOE behaves as described in the TSS.</test>
+
+            <test>Test 2: For each validated authorization factor, ensure that when the user provides an incorrect authorization factor,
+            the TOE prevents the decryption of the FEK(s).
+</test>
+            </testlist>
+</Tests>
+</aactivity>
+
           </f-element>
         </f-component>
         </subsection>
