@@ -1526,15 +1526,11 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             </Guidance>
 <Tests>
             <testlist>
-              <test>For each type of resource that is identified in the TSS as sharable in its
-                encrypted form, the evaluator shall ensure that different users using different
-                authorization factors are able to successfully access the resource using different
-                authorization factors. This should include making changes to the resource to ensure
-                that the same resource is being shared, and that a per-user copy of the resource is
-                not being made.</test>
+             
               <test>If the TSS creates temporary files/resources
                 during file decryption/encryption, the evaluator shall perform the following tests
-                to verify that the temporary files/resources are destroyed. The evaluator shall use
+                to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test should be repeated with a shared file.
+                The evaluator shall use
                 a tool (e.g., procmon for a Windows system) that is capable of monitoring the
                 creation and deletion of files during the decryption/encryption process is
                 performed. A tool that can search the contents of the hard drive (e.g., winhex) will
