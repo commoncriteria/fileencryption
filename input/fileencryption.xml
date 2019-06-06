@@ -1557,7 +1557,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <aactivity>The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
-              the ST, the noted evaluation activity does not need to be performed. <h:br/>
+              the ST, the noted evaluation activity does not need to be performed. <h:br/><h:br/>
 
               <TSS> The
               evaluator shall examine the TSS to ensure that it describes how user authentication is
@@ -1658,26 +1658,26 @@ Some examples of what is expected to be in the documentation are provided here. 
               specified so that the ST can claim conformance to this PP-Module.<h:br/><h:br/>
               
               <TSS>
-                <h:b>Conditional Activities:</h:b> The evaluator shall examine the TSS to ensure that it
+                Conditional Activities: The evaluator shall examine the TSS to ensure that it
                 describes the sequence of activities that take place from an implementation
                 perspective when this activity is performed (for example, how it determines which
                 resources are associated with the KEK, the decryption and re-encryption process), and
                 ensure that the KEK and FEK are not exposed during this change. <h:br/><h:br/>
-                <h:b>Cryptographic Configuration:</h:b> None for this requirement. <h:br/><h:br/>
+                Cryptographic Configuration: None for this requirement. <h:br/><h:br/>
                 
               </TSS>
               <Guidance>
-                <h:b>Conditional Activities:</h:b> The evaluator shall examine the Operational Guidance to
+                Conditional Activities: The evaluator shall examine the Operational Guidance to
                 ensure that it describes how the password/passphrase-based authorization factor is to
                 be changed. <h:br/><h:br/>
-                <h:b>Cryptographic Configuration:</h:b> The evaluator shall determine from the TSS for
+                Cryptographic Configuration: The evaluator shall determine from the TSS for
                 other requirements (FCS_*, FDP_PRT_EXT, FIA_AUT_EXT) what portions of the
                 cryptographic functionality are configurable. The evaluator shall then review the AGD
                 documentation to determine that there are instructions for manipulating all of the
                 claimed mechanisms. <h:br/><h:br/>
               </Guidance>
               <Tests>
-                <h:b>Cryptographic Erase:</h:b> If the TOE uses stored FEKS or KEKs, the evaluator shall 
+                Cryptographic Erase: If the TOE uses stored FEKS or KEKs, the evaluator shall 
                 examine the key chain to determine that the keys destroyed by a cryptographic erase will result in the data becoming unrecoverable.
                 Testing for this activity is performed for other components in this PP-Module. 
               </Tests>
@@ -1766,10 +1766,10 @@ Some examples of what is expected to be in the documentation are provided here. 
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure FCS_COP.1(5) is followed for the storage of wrapped or encrypted
               keys in non-volatile memory and plaintext keys in non-volatile memory meet one of the
-              criteria for storage. 
+              criteria for storage. <h:br/><h:br/> 
 
               </TSS>
-<Guidance> None. 
+              <Guidance> None. <h:br/><h:br/> 
 
               </Guidance>
 <Tests> None. </Tests>
@@ -2775,10 +2775,10 @@ Some examples of what is expected to be in the documentation are provided here. 
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
             <aactivity>
               <TSS>
-              <h:h4>Conditional:</h:h4> If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
+              Conditional: If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
                 describes how the FEK encryption/decryption is invoked. <h:br/><h:br/>
 
-              <h:h4>Conditional:</h:h4> If implement functionality was selected, The evaluator shall check that the TSS includes
+              Conditional: If implement functionality was selected, The evaluator shall check that the TSS includes
               a description of encryption function(s) used for key wrapping. The evaluator should check that this description of the
               selected encryption function includes the key sizes and modes of operations as specified in the selection above.
               The evaluator shall check that the TSS describes the means by which the TOE satisfies constraints on algorithm parameters
