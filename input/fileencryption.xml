@@ -119,9 +119,9 @@
       approved signing algorithm in accordance with FCS_COP.1(3) (from the <cite
         linkend="bibAppPP"/>) and an approved secure hashing function in accordance with
       FCS_COP.1(2) (from the <cite linkend="bibAppPP"/>). The primary requirement addressing data
-      authentication via asymmetric signing is FDP_AUT_EXT.3. 
+      authentication via asymmetric signing is FDP_AUT_EXT.3. <h:br/><h:br/>
 
-      The TOE and Its Supporting Environment:
+      <h:b>The TOE and Its Supporting Environment:</h:b><h:br/>
       Since the TOE is purely a software solution, it must rely on the TOE Operational Environment (system
       hardware, firmware, and operating system) for its execution domain and its proper usage. The
       vendor is expected to provide sufficient installation and configuration instructions (for
@@ -137,7 +137,7 @@
 
       Likewise, an external entity (such as a smartcard) that performs
       cryptographic operations with respect to the FEK would also be considered a part of the "TOE
-      Platform."
+      Platform".
       
       <h:br/><h:br/> The ST author will make the appropriate selection based on where
       that element is implemented. It is allowable for some elements in a component to be
