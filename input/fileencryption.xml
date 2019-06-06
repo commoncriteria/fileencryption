@@ -560,11 +560,11 @@
           </assumption>
           <assumption id="A.EXTERNAL_FEK_PROTECTION">
             <description>External entities that implement ECC CDH or RSA that are used to encrypt
-              and decrypt a FEK have the following characteristics: meet national requirements
-              for the cryptographic mechanisms implemented; require authentication via a pin or
-              other mechanisms prior to allowing access to protected information (the decrypted FEK,
-              or the private key); implement anti-hammer provisions where appropriate (for
-              example, when a pin is the authentication factor). </description>
+              and decrypt a FEK have the following characteristics: 
+              <h:li>meet national requirements for the cryptographic mechanisms implemented</h:li>
+                <h:li>require authentication via a pin or other mechanisms prior to allowing access to protected information (the decrypted FEK, or the private key)</h:li>
+                  <h:li>implement anti-hammer provisions where appropriate (for example, when a pin is the authentication factor).</h:li>
+            </description>
             <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
               <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.EXTERNAL_FEK_PROTECTION.</rationale>
               </objective-refer>
