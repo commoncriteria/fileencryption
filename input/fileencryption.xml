@@ -946,9 +946,9 @@ The following sections describe any modifications that the ST author must make t
               none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that 
               protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key 
               that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
-              type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a Data Encryption 
-              Key (DEK), destroying the KEK using one of the methods in FCS_CKM_EXT.4 is sufficient, since the DEK would no longer 
-              be usable (of course, presumes the DEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
+              type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a File Encryption 
+              Key (FEK), destroying the KEK using one of the methods in FCS_CKM_EXT.4 is sufficient, since the FEK would no longer 
+              be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
 
             <aactivity>
               <TSS>
@@ -1035,7 +1035,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   Applied to each key held in non-volatile memory and subject to destruction by the TOE. <h:br/>
                   The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended.<h:br/>
                     
-                    1. Identify the purpose of the key and what access should fail when it is deleted. (e.g. the data encryption key being deleted would cause data decryption to fail.)<h:br/>
+                    1. Identify the purpose of the key and what access should fail when it is deleted. (e.g. the file encryption key being deleted would cause data decryption to fail.)<h:br/>
                     
                     2. Cause the TOE to clear the key.<h:br/>
                     
