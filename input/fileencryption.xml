@@ -1473,27 +1473,11 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
                 2. Exit the file editor so that the file (including its known text pattern) has "completed the decryption/encryption operation"
                 and process memory containing the known text pattern is released.<h:br/><h:br/>
 
-                3. The evaluator will take a dump of volatile memory and search the generated dump for the known pattern.
+                3. The evaluator will take a dump of volatile memory and search the retrieved dump for the known pattern.
                 The test fails if the known plaintext pattern is found in the memory dump.<h:br/><h:br/>
-
-4. Open the file again with a file editor. <h:br/><h:br/>
-
-                5. The evaluator will take a dump of volatile memory and search the generated dump for the known text pattern.
-                Note that the known text pattern is expected to be present since the file editor has the file open.
-                The test fails if the known plaintext pattern is not found in the memory dump.<h:br/><h:br/>
-
-6. Close the file and exit the file editor.<h:br/><h:br/>
-
-                7. The evaluator will take a dump of volatile memory and search the retrieved dump for the known pattern.
-                The test fails if the known plaintext pattern is found in the memory dump.<h:br/><h:br/>
-
-8. Open the file again with a file editor, edit the contents with a new text pattern, save the file. <h:br/><h:br/>
-
-                 9. Exit the file editor so that the file (including its known text pattern) has "completed the decryption/encryption operation"
-                 and process memory containing the known text pattern is released.<h:br/><h:br/>
-
-                 10. The evaluator will take a dump of volatile memory and search the generated dump for the new known pattern.
-                 The test fails if the new known plaintext pattern is found in the memory dump.<h:br/><h:br/>
+                
+                4. The evaluator will search the underlying non-volatile storage for the known pattern.
+                The test fails if the known plaintext pattern is found in the search.<h:br/><h:br/>
                  </test></testlist>
             </Tests>
 </aactivity>
