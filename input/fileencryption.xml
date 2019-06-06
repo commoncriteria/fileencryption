@@ -2148,7 +2148,7 @@ Some examples of what is expected to be in the documentation are provided here. 
            </f-element>
            <f-element id="FDP_AUT_EXT.3.3">
              <title>The TSF shall use a public and private key pair generated in accordance with
-               FIA_CKM.1(1) and must use this key pair as part of the cryptographic signing process in
+               FCS_CKM.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and must use this key pair as part of the cryptographic signing process in
                accordance with FDP_AUT_EXT.3.2.</title>
            </f-element>
            <f-element id="FDP_AUT_EXT.3.4">
