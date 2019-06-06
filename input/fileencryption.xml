@@ -279,7 +279,7 @@
           </entry>
           <entry>
             <term>Key Encryption Key (KEK) </term>
-            <description> the key that is used to encrypt another key. </description>
+            <description> the key that is used to encrypt another keyg. </description>
           </entry>
           <entry>
             <term>Keying Material </term>
@@ -342,7 +342,7 @@
               the file encryption software. </description>
           </entry>
           <entry>
-            <term>Temporary File - </term>
+            <term>Temporary File </term>
             <description> a file created by an application for short term storage of sensitive data.
             </description>
           </entry>
