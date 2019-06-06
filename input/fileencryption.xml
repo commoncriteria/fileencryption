@@ -2804,7 +2804,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </Guidance><h:br/>
 <Tests> 
               The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in
- the underlying Application Software PP shall be performed.
+              the underlying <cite linkend="bibAppPP"/> shall be performed.
               </Tests>
 </aactivity>
           </f-element>
@@ -2867,7 +2867,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 
 </Guidance><h:br/>
 <Tests> 
-              The evaluation activity tests specified for AES in GCM mode in the underlying Application Software PP shall be performed in the case that "GCM" is selected in the requirement.
+  The evaluation activity tests specified for AES in GCM mode in the underlying <cite linkend="bibAppPP"/> shall be performed in the case that "GCM" is selected in the requirement.
 
   <h:br/><h:br/>If AES Key Wrap is used to decrypt/encrypt the key, the evaluator shall examine the TSS to determine that it specifies that the implementation conforms to SP 800-38F with the appropriate (with or without padding) Key Wrap section using AES. 
               The evaluator shall also perform the verification procedures outlined in the testing methodology, "The Key Wrap Validation System." (http://csrc.nist.gov/groups/STM/cavp/documents/mac/KWVS.pdf)
