@@ -902,7 +902,7 @@ The following sections describe any modifications that the ST author must make t
                 </selectable>
                 <selectable> For non-volatile memory that consists of 
                   <selectables>
-                    <selectable>destruction of all key encrypting keys protecting the target key,
+                    <selectable>destruction of all KEKs protecting the target key,
                       where none of the KEKs protecting the target key are derived
                     </selectable>
                     <selectable> the invocation of an interface provided by the underlying platform that
@@ -944,7 +944,7 @@ The following sections describe any modifications that the ST author must make t
               any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might 
               contain current or residual data that itself requires confidentiality protection.<h:br/><h:br/>
 
-              For the selection "destruction of all key encrypting keys protecting target key, where 
+              For the selection "destruction of all KEKs protecting target key, where 
               none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that 
               protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key 
               that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
@@ -974,7 +974,7 @@ The following sections describe any modifications that the ST author must make t
               The evaluator shall check that the TSS identifies any configurations or 
               circumstances that may not strictly conform to the key destruction requirement.<h:br/><h:br/>
 
-              If the selection "destruction of all key encrypting keys protecting target key, 
+              If the selection "destruction of all KEKs protecting target key, 
               where none of the KEKs protecting the target key are derived" is included the evaluator shall examine the TOE's 
               keychain in the TSS and identify each instance when a key is destroyed by this method. In each instance the evaluator 
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
