@@ -3042,7 +3042,7 @@ Some examples of what is expected to be in the documentation are provided here. 
       <h:li>A description of all authorization factors that are supported by the product and how
       each factor is handled, including any conditioning and combining performed.</h:li>
       
-      <h:li>If validation is implimented, the process for validation shall be described, noting what
+      <h:li>If validation is implemented, the process for validation shall be described, noting what
       value is used for validation and the process used to perform the validation. It shall
       describe how this process ensures no keys in the key chain are weakened or exposed
       by this process.</h:li>
