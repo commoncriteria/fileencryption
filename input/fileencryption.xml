@@ -1031,7 +1031,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                    
                     6. Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.<h:br/>
                     
-                    Steps 1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</test><h:br/>
+                    Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</test><h:br/>
 
                 <test>[Conditional] If new value of a key is selected this test does not apply. <h:br/>
                   Applied to each key held in non-volatile memory and subject to destruction by the TOE. <h:br/>
@@ -1043,7 +1043,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     
                     3. Have the TOE attempt the functionality that the cleared key would be necessary for.<h:br/>
                     
-                    4. The test succeeds if step 3 fails.</test><h:br/>
+                    4. The test succeeds if Step #3 fails.</test><h:br/>
                     
                     Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the TOE has no visibility into the inner workings and completely relies on the underlying platform.<h:br/><h:br/>
 
