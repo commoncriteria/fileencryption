@@ -928,6 +928,7 @@ The following sections describe any modifications that the ST author must make t
 
             <aactivity>
               <TSS>
+                <h:h4>TSS + KMD  (Key Management Description may be used if necessary details describe proprietary information)</h:h4>
               The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
@@ -1030,22 +1031,22 @@ Cause the TOE to clear the key.<h:br/>
 
 Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails. </test><h:br/>
 
-                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:What is the Process to get a Commercial Product CSfC-Listed?
+                <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media:<h:br/>
                   
 
-Record the logical storage location of the key in the TOE subject to clearing.What is the Process to get a Commercial Product CSfC-Listed?
+Record the logical storage location of the key in the TOE subject to clearing.<h:br/>
 
 
-Cause the TOE to perform a normal cryptographic processing with the key from Step #1.What is the Process to get a Commercial Product CSfC-Listed?
+Cause the TOE to perform a normal cryptographic processing with the key from Step #1.<h:br/>
 
 
-Cause the TOE to clear the key.What is the Process to get a Commercial Product CSfC-Listed?
+Cause the TOE to clear the key.<h:br/>
 
 
-Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.What is the Process to get a Commercial Product CSfC-Listed?
+Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.<h:br/>
 
 
-The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test>What is the Process to get a Commercial Product CSfC-Listed?
+The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test><h:br/>
                 
               </testlist>
             </Tests>
@@ -1066,18 +1067,27 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               PIN was used for a SmartCard and managed by the TOE, ensuring that the PIN was properly destroyed must be addressed.
             </note>
             <aactivity>
-              <TSS> or KMD (Key Management Description may be used if necessary details describe proprietary information)            
-              The evaluator shall verify the TSS  includes a key lifecycle, that includes a
-              description where key material reside, how the key material is used, how it is
-              determined that keys and key material are no longer needed, and how the material is
-              destroyed once it is not needed and that the documentation in the follows
-              FCS_CKM_EXT.4.1 for the destruction.
+              <TSS> The evaluator shall verify the TSS provides a high level description of what it means
+                for keys and key material to be no longer needed and when then should be expected to
+                be destroyed. <h:br/><h:br/>
+                
+                
+                
+              <h:h4>KMD</h:h4>           
+                The evaluator shall verify the KMD includes a description of the areas where keys and
+                key material reside and when the keys and key material are no longer needed.<h:br/><h:br/>
+                
+                The evaluator shall verify the KMD includes a key lifecycle, that includes a description
+                where key material reside, how the key material is used, how it is determined that keys
+                and key material are no longer needed, and how the material is destroyed once it is not
+                needed and that the documentation in the KMD follows FCS_CKM_EXT.4.1 for the
+                destruction.
 
 
-              </TSS>
+              </TSS><h:br/>
 <Guidance> None.
 
-              </Guidance>
+</Guidance><h:br/>
 <Tests> None.
 
             </Tests> 
@@ -1220,14 +1230,17 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               The key management internal to the server is not evaluated here. This permits the enterprise management server to 
             function in the middle of a larger key chain.</note>
             <aactivity>
-              <TSS> (Key Management Description may be used if necessary details describe proprietary information)
+              <TSS>
               The evaluator shall verify the TSS contains a high level 
               description of all keychains and authorization methods selected in FIA_AUT_EXT.1 
-              that are used to protect the KEK or FEK. The evaluator shall examine the TSS to ensure it describes 
+              that are used to protect the KEK or FEK. <h:br/><h:br/>
+              
+              
+                <h:h4>KMD</h:h4>The evaluator shall examine the TSS to ensure it describes 
               each key chain in detail, and these descriptions correspond with the selections of the requirement. 
               The description of each key chain shall be reviewed to ensure the options for maintaining the key chain are documented.<h:br/><h:br/>
 
-              The evaluator shall verify the TSS to ensure that it describes how each key chain process functions, 
+              The evaluator shall verify the KMD to ensure that it describes how each key chain process functions, 
               such that it does not expose any material that might compromise any key in the chain. A high-level 
               description should include a diagram illustrating the keychain(s) implemented and detail where all 
               keys and keying material is stored or how the keys or key material are derived. The evaluator shall examine the primary 
@@ -1745,11 +1758,12 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               protecting the FEK is if it is a key split or providing additional layers of wrapping
               or encryption on keys that have already been protected. </note>
             <aactivity>
-              <TSS> (Key Management Description may be used if necessary details describe proprietary information)<h:br/>
-
+              <TSS>
               The evaluator shall verify the TSS for a high level description of the method(s) used
-              to protect keys stored in non-volatile memory.<h:br/><h:br/> The evaluator shall verify
-              the TSS to ensure it describes the storage location of all keys and the protection of
+              to protect keys stored in non-volatile memory.<h:br/><h:br/> 
+                
+                <h:h4>KMD</h:h4>The evaluator shall verify
+              the KMD to ensure it describes the storage location of all keys and the protection of
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure FCS_COP.1(5) is followed for the storage of wrapped or encrypted
               keys in non-volatile memory and plaintext keys in non-volatile memory meet one of the
@@ -2732,7 +2746,7 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
             <aactivity>
-              <TSS> or KMD (Key Management Description may be used if necessary details describe proprietary information)
+              <TSS>
               <h:h4>Conditional:</h:h4> If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
                 describes how the FEK encryption/decryption is invoked. <h:br/><h:br/>
 
@@ -2742,12 +2756,15 @@ The test succeeds if correct pattern is used to overwrite the key in the memory 
               The evaluator shall check that the TSS describes the means by which the TOE satisfies constraints on algorithm parameters
               included in the selections made for 'cryptographic algorithm' and 'list of standards'. <h:br/><h:br/>
 
-              The evaluator shall examine the TSS to ensure that the points at which key wrapping and decryption occurs are described,
-              and that the complete data path for key wrapping is described. The evaluator checks that this description is consistent
-              with the relevant parts of the TSS.<h:br/><h:br/>
-
-              Assessment of the complete data path for key wrapping includes confirming that the TSS describes the data flow from the
-              device's host interface to the device's non-volatile memory storing the data. 
+              The evaluator shall verify the TSS includes a description of the key wrap function(s)
+              and shall verify the key wrap uses an approved key wrap algorithm according to the
+              appropriate specification.<h:br/><h:br/>
+                
+                <h:h4>KMD</h:h4>
+                The evaluator shall review the KMD to ensure that all keys are wrapped using the
+                approved method and a description of when the key wrapping occurs.
+                
+                
               </TSS><h:br/>
 <Guidance> If multiple encryption modes are supported, the evaluator examines the guidance documentation
               to determine that the method of choosing a specific mode/key size by the end user is described.
