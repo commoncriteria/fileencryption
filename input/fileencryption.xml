@@ -633,18 +633,19 @@
             conditioning requirements are also levied to help ensure that a brute force attack
             against these authorization factors (when used) has a similar level of resistance.
           </description>
-          <component-refer ref="FCS_CKM_EXT.2"/>
-          <component-refer ref="FCS_CKM_EXT.3 (selection-based)"/>
           <component-refer ref="FCS_COP.1(1) (from Base-PP)"/>
-          <component-refer ref="FCS_COP.1(5) (selection-based)"/>
-          <component-refer ref="FCS_COP.1(7) (selection-based)"/>
-          <component-refer ref="FCS_KDF_EXT.1 (selection-based)"/>
-          <component-refer ref="FCS_COP.1(6) (selection-based)"/>
-          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
+          <component-refer ref="FCS_CKM_EXT.2"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FCS_KYC_EXT.1"/>
+          <component-refer ref="FCS_CKM_EXT.3 (selection-based)"/>
           <component-refer ref="FCS_CKM_EXT.6 (selection-based)"/>
+          <component-refer ref="FCS_COP.1(5) (selection-based)"/>
+          <component-refer ref="FCS_COP.1(6) (selection-based)"/>
+          <component-refer ref="FCS_COP.1(7) (selection-based)"/>
+          <component-refer ref="FCS_KDF_EXT.1 (selection-based)"/>
           <component-refer ref="FCS_SMC_EXT.1 (selection-based)"/>
+          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
+                    
 
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
@@ -674,11 +675,19 @@
             when low-level tools that bypass operating system protections such as discretionary and
             mandatory access controls are available to an attacker. Users that are authorized to
             access the data must provide authorization factors to the TOE in order for the data to
-            be decrypted and provided to the user. </description>
+            be decrypted and provided to the user.<h:br/><h:br/>
+            
+            The TOE will also optionally include data authentication functionality to protect data from unauthorized modification.
+          </description>
           <component-refer ref="FCS_COP.1(1) (from Base-PP)"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FDP_PRT_EXT.1"/>
           <component-refer ref="FDP_PRT_EXT.2"/>
+          <component-refer ref="FCS_CKM_EXT.5 (optional)"/>
+          <component-refer ref="FCS_COP_EXT.1 (optional)"/>
+          <component-refer ref="FDP_AUT_EXT.1 (optional)"/>
+          <component-refer ref="FDP_AUT_EXT.2 (optional)"/>
+          <component-refer ref="FDP_AUT_EXT.3 (optional)"/>
           <component-refer ref="FDP_PM_EXT.1 (optional)"/>
           <component-refer ref="FDP_PRT_EXT.3 (optional)"/>
           <component-refer ref="FIA_FCT_EXT.1 (optional)"/>
@@ -695,8 +704,8 @@
             authorization factor prior to the FEK being used to decrypt the data being
             protected.
           </description>
-          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
           <component-refer ref="FIA_AUT_EXT.1"/>
+          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
 
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
@@ -707,8 +716,9 @@
           <description>The TOE will provide all the functions and facilities necessary to support
             the authorized administrators in their management of the security of the TOE, and
             restrict these functions and facilities from unauthorized use.</description>
-          <component-refer ref="FMT_SMF.1(2)"/>
           <component-refer ref="FMT_MEC_EXT.1"/>
+          <component-refer ref="FMT_SMF.1(2)"/>
+          
 
           <consistency-rationale>
             The Base-PP does not define functionality for protected administrative access to the TSF so this objective relates solely to material beyond the scope of the Base-PP.
@@ -1087,7 +1097,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
               to easily determine which iteration applies to each TOE component.<h:br/><h:br/>
               
-              Application Note: Keys, including intermediate keys and key material that are no longer
+              Keys, including intermediate keys and key material that are no longer
               needed are destroyed by using an approved method, FCS_CKM_EXT.4.1. Examples of keys are
               intermediate keys, submasks. There may be instances where keys or key material
               that are contained in persistent storage are no longer needed and require destruction. 
