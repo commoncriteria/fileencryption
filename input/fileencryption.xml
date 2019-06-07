@@ -279,7 +279,7 @@
           </entry>
           <entry>
             <term>Key Encryption Key (KEK) </term>
-            <description>The key that is used to encrypt another keyg. </description>
+            <description>The key that is used to encrypt another key. </description>
           </entry>
           <entry>
             <term>Keying Material </term>
