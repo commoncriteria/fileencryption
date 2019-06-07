@@ -802,7 +802,7 @@ The following sections describe any modifications that the ST author must make t
     </base-pp>
 <man-sfrs>
       <subsection title="Cryptographic Support (FCS)" id="fcs">
-        <f-component id="FCS_CKM_EXT.2" name="Cryptographic key generation (FEK)">
+        <f-component id="FCS_CKM_EXT.2" name="File Encryption Key (FEK) Generation">
 
           <consistency-rationale>This SFR describes behavior that is not in scope of the Base-PP. 
             It is consistent with the Base-PP because it may use the same random bit generation function defined in the Base-PP.
@@ -1428,7 +1428,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </aactivity>
           </f-element>
         </f-component>
-        <f-component id="FDP_PRT_EXT.2" name="Protection of Selected User Data">
+        <f-component id="FDP_PRT_EXT.2" name="Destruction of Plaintext Data">
           <consistency-rationale>This SFR relates to the destruction of key data, which is beyond the scope defined by the Base-PP and does not affect the ability of the Base-PP 
            SFRs to be enforced.
           </consistency-rationale>
@@ -1527,7 +1527,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 
       </subsection>
       <subsection title="Identification and Authentication (FIA)" id="fia">
-        <f-component id="FIA_AUT_EXT.1" name="User Authorization">
+        <f-component id="FIA_AUT_EXT.1" name="Subject Authorization">
           <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG_EXT.1 from the Base-PP in a manner consistent with its 
             definition, but otherwise does not relate to functionality defined by the Base-PP.
           </consistency-rationale>
@@ -1754,7 +1754,7 @@ Some examples of what is expected to be in the documentation are provided here. 
       <subsection title="Protection of the TSF (FPT)" id="fpt">
 
 
-        <f-component id="FPT_KYP_EXT.1" name="Protection of Key and Key Material (FPT_KYP_EXT)">
+        <f-component id="FPT_KYP_EXT.1" name="Protection of Keys and Key Material">
           <consistency-rationale>The Base-PP defines an SFR for secure storage of sensitive data. This SFR expands on that definition by describing the supported logical methods 
             for storage of key data.
           </consistency-rationale>
@@ -1905,7 +1905,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
         
         
-        <f-component id="FCS_COP_EXT.1" name="FAK encryption/decryption support">
+        <f-component id="FCS_COP_EXT.1" name="FAK Encryption/Decryption Support">
           <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
             specific to this PP-Module and do not affect the ability for any Base-PP SFRs to be enforced.
           </consistency-rationale>
@@ -2014,7 +2014,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              </aactivity>
            </f-element>
          </f-component>
-         <f-component id="FDP_AUT_EXT.2" name="Data Authentication using cryptographic, keyed hash functions">
+         <f-component id="FDP_AUT_EXT.2" name="Data Authentication Using cryptographic Keyed-Hash Functions">
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
@@ -2082,7 +2082,7 @@ Some examples of what is expected to be in the documentation are provided here. 
            </f-element>
          </f-component>
          
-         <f-component id="FDP_AUT_EXT.3" name="Data Authentication using asymmetric signing and verification">
+         <f-component id="FDP_AUT_EXT.3" name="Data Authentication Using Asymmetric Signing and Verification">
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
@@ -2146,7 +2146,7 @@ Some examples of what is expected to be in the documentation are provided here. 
          
          
          
-             <f-component id="FDP_PM_EXT.1" name="Protection of  Data in Power Managed States">
+             <f-component id="FDP_PM_EXT.1" name="Protection of Data in Power Managed States">
                <consistency-rationale>This SFR describes the behavior of the TSF when its host platform is in a locked or unpowered state, which does not relate to any functionality 
                  defined in the Base-PP.
                </consistency-rationale>
@@ -2213,7 +2213,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              </f-component>
          
          
-             <f-component name="Protection of Third Party Data" id="FDP_PRT_EXT.3">
+             <f-component name="Protection of Third-Party Data" id="FDP_PRT_EXT.3">
                <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the Base-PP but 
                  does not prevent the Base-PP functions from being enforced.
                </consistency-rationale>
@@ -2420,7 +2420,7 @@ Some examples of what is expected to be in the documentation are provided here. 
       </f-component>
  
  
-        <f-component id="FCS_CKM_EXT.6" name="Cryptographic key generation (Password/Passphrase conditioning)"> 
+        <f-component id="FCS_CKM_EXT.6" name="Cryptographic Password/Passphrase Conditioning"> 
           <selection-depends req="FIA_AUT_EXT.1.1" ids="USEPAS"/>
           <selection-depends req="FCS_CKM_EXT.2.1" ids="DRVFEKPAS"/>
           <selection-depends req="FCS_CKM_EXT.3.1" ids="DRVKEKPAS"/>
@@ -2857,7 +2857,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 
         
         
-        <f-component id="FCS_KDF_EXT.1" name="Cryptographic operation (Key Derivation)">
+        <f-component id="FCS_KDF_EXT.1" name="Cryptographic Key Derivation Function">
           <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYDER"/>
           <consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the Base-PP 
             as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the Base-PP.
