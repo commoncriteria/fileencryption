@@ -722,10 +722,10 @@
         <SOE id="OE.AUTHORIZATION_FACTOR_STRENGTH">
           <description>An authorized user will be responsible for ensuring that all externally
             derived authorization factors have sufficient strength and entropy to reflect the
-            sensitivity of the data being protected. This can apply to password- or
-            passphrase-based, ECC CDH, and RSA authorization factors.</description>
+            sensitivity of the data being protected. This can apply to password or
+            passphrase based, ECC CDH, and RSA authorization factors.</description>
           <consistency-rationale>
-            This objective is consistent with the Base-PP becauOse this functionality is beyond the scope of what the Base-PP defines. Therefore, the use and strength of 
+            This objective is consistent with the Base-PP because this functionality is beyond the scope of what the Base-PP defines. Therefore, the use and strength of 
             external authorization factors does not affect the ability of any Base-PP SFRs or objectives to be satisfied.
           </consistency-rationale>
         </SOE>
