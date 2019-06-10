@@ -3361,7 +3361,30 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           
           <f-element id="FCS_VAL_EXT.1.1 ">
-            <title>The TSF shall perform validation of the 
+            <title>The TSF shall perform validation of the [<h:i>user</h:i>] by 
+              [<h:i>validating the <selectables>
+                  <selectable>submask</selectable>
+                  <selectable>intermediate key</selectable>
+                </selectables> using the following methods: <selectables>
+                  <selectable>key wrap as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                  <selectable>hash the 
+                    <selectables>
+                      <selectable>submask</selectable>
+                      <selectable>intermediate key</selectable>
+                      <selectable>FEK</selectable> 
+                    </selectables> as specified in FCS_COP.1<h:b>(2)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                  <selectable>decrypt a known value using the 
+                    <selectables>
+                      <selectable>submask</selectable>
+                      <selectable>intermediate key</selectable>
+                      <selectable>FEK</selectable>
+                    </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+                </selectables></h:i>.
+              
+              
+            
+   <!--           
+              The TSF shall perform validation of the 
               <selectables>
                 <selectable>submask</selectable>
                 <selectable>intermediate key</selectable>
@@ -3381,13 +3404,14 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>FEK</selectable>
 
                   </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
-              </selectables>. 
+              </selectables>.  -->
 
             </title>
           </f-element>
           <f-element id="FCS_VAL_EXT.1.2">
-            <title>The TSF shall require validation as specified in FCS_VAL_EXT.1.1 prior to decrypting any FEK.</title>
+            <title>The TSF shall require validation of the [<h:i>user</h:i>] as specified in FCS_VAL_EXT.1.1 prior to [<h:i>decrypting any FEK</h:i>].</title>
           </f-element>
+          
           <f-element id="FCS_VAL_EXT.1.3">
             <title>The TSF shall 
               <selectables linebreak="yes">
@@ -3433,6 +3457,61 @@ Some examples of what is expected to be in the documentation are provided here. 
 </aactivity>
 
           </f-element>
+          
+          <!--
+          <f-element-ecd id="FCS_VAL_EXT.1.1">
+            <title>The TSF shall perform validation of the <assignable>subject requiring validation</assignable> by 
+              <selectables>
+                <selectable>receiving assertion of the subject's validity from <assignable>Operational Environment component responsible for authentication</assignable></selectable>
+                <selectable>validating the <selectables>
+                  <selectable>submask</selectable>
+                  <selectable>intermediate key</selectable>
+                </selectables> using the following methods: <selectables>
+                  <selectable>key wrap as specified in FCS_COP.1</selectable>
+                  <selectable>hash the 
+                    <selectables>
+                      <selectable>submask</selectable>
+                      <selectable>intermediate key</selectable>
+                      <selectable>FEK</selectable> 
+                    </selectables> as specified in FCS_COP.1 and compare it to a stored hash</selectable> 
+                <selectable>decrypt a known value using the 
+                  <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                    <selectable>FEK</selectable>
+
+                  </selectables> as specified in FCS_COP.1 and compare it against a stored known value</selectable>
+              </selectables></selectable>
+              </selectables>. 
+
+            </title>
+          </f-element-ecd>
+          -->
+          
+          <!--
+          <f-element-ecd id="FCS_VAL_EXT.1.2">
+            <title>
+            The TSF shall require validation of the <assignable>subject requiring validation</assignable> as specified in FCS_VAL_EXT.1.1 prior to <assignable>TSF-mediated action(s)</assignable>.
+            </title>
+          </f-element-ecd>
+          -->
+          
+          <!--
+          <f-element-ecd id="FCS_VAL_EXT.1.3">
+            <title>The TSF shall 
+              <selectables linebreak="yes">
+                <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
+                <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
+                <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+
+                <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+
+              </selectables>.
+            </title>
+          </f-element-ecd>
+          -->
+          
+          
         </f-component>
         </subsection>
     </sel-sfrs>
