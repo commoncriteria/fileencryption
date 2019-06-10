@@ -1235,25 +1235,25 @@ Some examples of what is expected to be in the documentation are provided here. 
           <f-element id="FCS_KYC_EXT.1.1">
             <title> The TSF shall maintain a key chain of: 
               <selectables linebreak="yes">
-                <selectable>a conditioned password as the FEK</selectable>
-                <selectable id="HASKEK">KEKs originating from 
+                <selectable>a conditioned password as the [<h:i>FEK</h:i>]</selectable>
+                <selectable id="HASKEK">[<h:i>KEKs</h:i>] originating from <h:b> 
                   <selectables>
                     <selectable>one or more authorization factors(s)</selectable>
                     <selectable>a file encryption enterprise management server</selectable>
-                  </selectables> to 
+                  </selectables> </h:b> to <h:b> 
                   <selectables>
                     <selectable>the FEK(s)</selectable>
                     <selectable>a file encryption enterprise management server</selectable>
-                  </selectables>
+                  </selectables> </h:b>
                   using the following method(s): 
                   <selectables linebreak="yes">
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1(5)</selectable>
+                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
                     <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(7)</selectable>
-                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1(6)</selectable>
+                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
+                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
                     <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
                     <selectables>
@@ -1281,10 +1281,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1(5)</selectable>
+                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
                     <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1(7)</selectable>
-                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1(6)</selectable>
+                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
+                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
                     <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
@@ -1356,6 +1356,61 @@ Some examples of what is expected to be in the documentation are provided here. 
 <Tests>None. </Tests>
 </aactivity>
           </f-element>
+          
+          <!--
+          <f-element-ecd id="FCS_KYC_EXT.1.1">
+                      <title> The TSF shall maintain a key chain of: 
+              <selectables linebreak="yes">
+                <selectable>a conditioned password as the <assignable>key type</assignable></selectable>
+                <selectable id="HASKEK"><assignable>key type</assignable> originating from 
+                <assignable>origin of key</assignable> 
+                 to 
+                 <assignable>end point of key chain</assignable>
+                  using the following method(s): 
+                  <selectables linebreak="yes">
+                    <selectable>utilization of the platform key storage</selectable>
+                    <selectable>utilization of platform key storage that performs key wrap with a
+                      TSF provided key</selectable>
+                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
+                  </selectables> while maintaining an effective strength of 
+                    <selectables>
+                      <selectable>
+                        <selectables>
+                          <selectable>128 bits</selectable>
+                          <selectable>256 bits</selectable>
+                        </selectables> for symmetric keys
+                      </selectable>
+                      <selectable>
+                        <selectables>
+                          <selectable>128 bits</selectable>
+                          <selectable>192 bits</selectable>
+                          <selectable>256 bits</selectable>
+                        </selectables> for asymmetric keys
+                      </selectable>
+                    </selectables> commensurate with the strength of the FEK
+                </selectable>
+              </selectables> 
+              and 
+              <selectables>
+                <selectable> no supplemental key chains</selectable>
+                <selectable> other supplemental key chains that protect a key or keys in the primary key chain using the following method(s):
+                  <selectables linebreak="yes">
+                    <selectable>utilization of the platform key storage</selectable>
+                    <selectable>utilization of platform key storage that performs key wrap with a
+                      TSF provided key</selectable>
+                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
+                  </selectables></selectable>
+              </selectables>.
+          -->
+          
         </f-component>
 
 
