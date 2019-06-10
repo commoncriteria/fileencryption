@@ -906,7 +906,7 @@ The following sections describe any modifications that the ST author must make t
             <h:li>Manually perform cryptographic erasure.</h:li>
           </h:ul>
           </management>
-          <audit> The following actions should be auditable if FAU_GEN Security audit data
+          <audit>The following actions should be auditable if FAU_GEN Security audit data
             generation is included in the PP/ST:<h:ul>
               <h:li>Basic: Manual erasure of cryptographic data. </h:li>
             </h:ul>
@@ -1170,6 +1170,13 @@ Some examples of what is expected to be in the documentation are provided here. 
           <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
             methods specified by the Base-PP SFR FCS_CKM.1(2).
           </consistency-rationale>
+          
+          <comp-lev> specifies the required initialization vector generation methods used by the TSF for various cryptographic algorithms.</comp-lev>
+          <management>There are no specific management functions identified.
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           <f-element id="FCS_IV_EXT.1.1 ">
             <title>The application shall <selectables>
                 <selectable>implement platform-provided functionality to generate IVs</selectable>
@@ -1211,6 +1218,19 @@ Some examples of what is expected to be in the documentation are provided here. 
           <consistency-rationale>The Base-PP defines how stored keys are protected. This SFR extends that functionality by defining the logical hierarchy of how keys are logically
             protected by other keys or other secret data. 
           </consistency-rationale>
+          
+          <comp-lev> requires the TSF to specify how it implements key chaining.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of the cryptographic functionality.</h:li>
+          </h:ul>
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation<h:br/>
+          FCS_KDF_EXT.1 Cryptographic Key Derivation Function<h:br/>
+          FCS_SMC_EXT.1 Submask Combining</dependencies>
+          
+          
           <f-element id="FCS_KYC_EXT.1.1">
             <title> The TSF shall maintain a key chain of: 
               <selectables linebreak="yes">
@@ -1351,6 +1371,16 @@ Some examples of what is expected to be in the documentation are provided here. 
         <f-component id="FDP_PRT_EXT.1" name="Protection of Selected User Data">
           <consistency-rationale>This SFR is consistent with the Base-PP because it is a specific application of the FCS_COP.1(1) function defined in the Base-PP.
           </consistency-rationale>
+          
+          <comp-lev> requires the TOE to encrypt and decrypt sensitive data using a specified cryptographic algorithm.</comp-lev>
+          <management>There are no specific management functions identified.
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_CKM_EXT.4 Cryptographic Key Destruction<h:br/>
+          FCS_COP.1 Cryptographic Operation</dependencies>
+          
+          
           <f-element id="FDP_PRT_EXT.1.1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
               of files) in accordance with FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>. </title>
@@ -1468,6 +1498,16 @@ Some examples of what is expected to be in the documentation are provided here. 
           <consistency-rationale>This SFR relates to the destruction of key data, which is beyond the scope defined by the Base-PP and does not affect the ability of the Base-PP 
            SFRs to be enforced.
           </consistency-rationale>
+          
+          <comp-lev> requires the TOE to destroy any plaintext data that is created as a result of the encryption/decryption process for sensitive data.</comp-lev>
+          <management>There are no specific management functions identified.
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_CKM_EXT.4 Cryptographic Key Destruction<h:br/>
+          FDP_PRT_EXT.1 Protection of Selected User Data</dependencies>
+          
+          
         <f-element id="FDP_PRT_EXT.2.1">
           <title>The application shall <selectables>
             <selectable>invoke platform-provided functionality</selectable>
@@ -1574,6 +1614,22 @@ Some examples of what is expected to be in the documentation are provided here. 
           <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG_EXT.1 from the Base-PP in a manner consistent with its 
             definition, but otherwise does not relate to functionality defined by the Base-PP.
           </consistency-rationale>
+          
+          <comp-lev> specifies the manner in which the TSF performs user authorization.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of authentication factors.</h:li>
+          </h:ul>
+          </management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data
+            generation is included in the PP/ST:<h:ul>
+              <h:li>Minimal: Failure of authorization function.</h:li>
+              <h:li>Basic: All use of authorization function.</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>FCS_CKM_EXT.6 Cryptographic Password/Passphrase Conditioning<h:br/>
+            FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
+          
+          
           <f-element id="FIA_AUT_EXT.1.1">
             <title>The application shall 
               <selectables>
@@ -1682,6 +1738,15 @@ Some examples of what is expected to be in the documentation are provided here. 
         <f-component id="FMT_MEC_EXT.1" name="Supported Configuration Mechanism">
           <consistency-rationale>This SFR is intended to enhance the storage of configuration options that are currently permitted by the Base-PP.
           </consistency-rationale>
+          
+          <comp-lev> requires the TOE to specify whether it relies on platform functionality for storing its configuration options or if the TSF protects them.</comp-lev>
+          <management>There are no specific management functions identified.
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          
+          
           <f-element id="FMT_MEC_EXT.1.1">
             <title>SEE APPLICATION NOTE The TSF shall 
               <selectables>
@@ -1809,6 +1874,21 @@ Some examples of what is expected to be in the documentation are provided here. 
           <consistency-rationale>The Base-PP defines an SFR for secure storage of sensitive data. This SFR expands on that definition by describing the supported logical methods 
             for storage of key data.
           </consistency-rationale>
+          
+          <comp-lev> requires the TSF to protect stored key data in a specified manner.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of the cryptographic functionality.</h:li>
+          </h:ul>
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation<h:br/>
+          FCS_KDF_EXT.1 Cryptographic Key Derivation Function<h:br/>
+          FCS_KYC_EXT.1 Key Chaining and Key Storage<h:br/>
+          FCS_SMC_EXT.1 Submask Combining<h:br/>
+          FCS_STO_EXT.1 Storage of Credentials</dependencies>
+          
+          
           <f-element id="FPT_KYP_EXT.1.1">
             <title>The TSF shall 
               <selectables>
@@ -1870,7 +1950,7 @@ Some examples of what is expected to be in the documentation are provided here. 
     
     <opt-sfrs>
       
-      <subsection title="Cryptographi Support (FCS)" id="fcs_opt">
+      <subsection title="Cryptographic Support (FCS)" id="fcs_opt">
   
         <f-component id="FCS_CKM_EXT.5" name="File Authentication Key (FAK) Support">
           <consistency-rationale>This SFR supports the PP-Module's data authentication function, which does not relate to any functionality defined in the Base-PP.
@@ -1879,7 +1959,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <comp-lev> describes the secure storage of file encryption keys.</comp-lev>
           <management>There are no specific management functions identified.
           </management>
-          <audit> There are no auditable events foreseen.
+          <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>FCS_COP_EXT.1 FAK Encryption/Decryption Support<h:br/>
             FCS_RBG_EXT.1 Random Bit Generation Services<h:br/>
@@ -2016,6 +2096,21 @@ Some examples of what is expected to be in the documentation are provided here. 
          <f-component id="FDP_AUT_EXT.1" name="Authentication of Selected User Data">
            <consistency-rationale>This SFR relates to data authentication, which does not relate to any functionality defined in the Base-PP.
            </consistency-rationale>
+           
+           <comp-lev> requires the TSF to support data authentication and to specify the particular data authentication method that is supported.</comp-lev>
+           <management>There are no specific management functions identified.
+           </management>
+           <audit>The following actions should be auditable if FAU_GEN Security audit data
+             generation is included in the PP/ST:<h:ul>
+               <h:li>Minimal: Failed authentication attempts.</h:li>
+               <h:li>Basic: All authentication attempts.</h:li>
+             </h:ul>
+           </audit>
+           <dependencies>FDP_AUT_EXT.2 Data Authentication Using Cryptographic Keyed-Hash Functions<h:br/>
+           FDP_AUT_EXT.3 Data Authentication Using Asymmetric Signing and Verification 
+           </dependencies>
+           
+           
            <f-element id="FDP_AUT_EXT.1.1">
              <title>The TSF shall perform authentication of the user-selected file (or set of files)
                and provide notification to the user if modification had been detected. </title>
@@ -2099,6 +2194,19 @@ Some examples of what is expected to be in the documentation are provided here. 
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
+           
+           <comp-lev> requires the TOE to implement data authentication using a keyed hash function with a FAK as its key.</comp-lev>
+           <management>There are no specific management functions identified.
+           </management>
+           <audit>There are no auditable events foreseen.
+           </audit>
+           <dependencies>FCS_CKM_EXT.5 File Authentication Key (FAK) Support<h:br/>
+             FCS_COP.1 Cryptographic Operation<h:br/>
+             FCS_COP_EXT.1 FAK Encryption/Decryption Support<h:br/>
+             FCS_RBG_EXT.1 Random Bit Generation Services<h:br/>
+           </dependencies>
+           
+           
            <f-element id="FDP_AUT_EXT.2.1">
              <title>The TSF shall use a cryptographic, keyed hash function in accordance with
                FCS_COP.1(4) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
@@ -2167,6 +2275,17 @@ Some examples of what is expected to be in the documentation are provided here. 
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
+           
+           <comp-lev> requires the TOE to implement data authentication using a cryptographic signature and hash.</comp-lev>
+           <management>There are no specific management functions identified.
+           </management>
+           <audit>There are no auditable events foreseen.
+           </audit>
+           <dependencies>FCS_CKM.1 Cryptographic Key Generation<h:br/>
+             FCS_COP.1 Cryptographic Operation
+           </dependencies>
+           
+           
            <f-element id="FDP_AUT_EXT.3.1">
              <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) <h:b>(from 
                <cite linkend="bibAppPP"/>)</h:b> with the entire ciphertext file as input to create a
@@ -2234,6 +2353,17 @@ Some examples of what is expected to be in the documentation are provided here. 
                <consistency-rationale>This SFR describes the behavior of the TSF when its host platform is in a locked or unpowered state, which does not relate to any functionality 
                  defined in the Base-PP.
                </consistency-rationale>
+               
+               <comp-lev> requires the TOE to ensure that TSF-protected data does not lose its protections if the host platform is placed in a locked or unpowered state.</comp-lev>
+               <management>There are no specific management functions identified.
+               </management>
+               <audit>There are no auditable events foreseen.
+               </audit>
+               <dependencies>FDP_PRT_EXT.1 Protection of Selected User Data<h:br/>
+                 FIA_AUT_EXT.1 User Authorization
+               </dependencies>
+               
+               
                <f-element id="FDP_PM_EXT.1.1">
                  <title>The TSF shall protect all data selected for encryption during the transition to
                    the <assignable>powered-down state(s) or locked system states for which this capability is provided</assignable> state as
@@ -2301,6 +2431,15 @@ Some examples of what is expected to be in the documentation are provided here. 
                <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the Base-PP but 
                  does not prevent the Base-PP functions from being enforced.
                </consistency-rationale>
+               
+               <comp-lev> requires the TOE to destroy temporary files that may be created during the encryption or decryption process to prevent the inadvertent disclosure of sensitive data.</comp-lev>
+               <management>There are no specific management functions identified.
+               </management>
+               <audit>There are no auditable events foreseen.
+               </audit>
+               <dependencies>FDP_PRT_EXT.1 Protection of Selected User Data</dependencies>
+               
+               
                <f-element id="FDP_PRT_EXT.3.1">
                  <title>The TSF shall ensure that all temporary files created by 
                    <selectables>
@@ -2339,6 +2478,15 @@ Some examples of what is expected to be in the documentation are provided here. 
         <f-component id="FIA_FCT_EXT.1" name="Multi-User Authorization">
           <consistency-rationale>This SFR relates to the use of authorization factors, which does not relate to any behavior described in the Base-PP.
           </consistency-rationale>
+          
+          <comp-lev> requires the TSF to maintain differing authorization factors for multiple users.</comp-lev>
+          <management>There are no specific management functions identified.
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FIA_AUT_EXT.1 User Authorization</dependencies>
+          
+          
           <f-element id="FIA_FCT_EXT.1.1">
             <title>The TSF shall support the use of authorization factors from multiple users that result in unique KEKs.</title></f-element>
           
@@ -2383,6 +2531,15 @@ Some examples of what is expected to be in the documentation are provided here. 
         <f-component id="FIA_FCT_EXT.2" name="Authorized Key Sharing">
           <consistency-rationale>This SFR relates to key sharing, which does not relate to any behavior described in the Base-PP.
           </consistency-rationale>
+          
+          <comp-lev> requires the TSF to support some mechanism to share a valid authorization factor between different users.</comp-lev>
+          <management>There are no specific management functions identified.
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          
+          
           <f-element id="FIA_FCT_EXT.2.1">
             <title>The TSF shall support
               <selectables>
@@ -2968,6 +3125,19 @@ Some examples of what is expected to be in the documentation are provided here. 
           <consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the Base-PP 
             as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
+          
+          
+          <comp-lev> requires the TSF to specify how it performs key derivation.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of the cryptographic functionality.</h:li>
+          </h:ul>
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation <h:br/>
+            FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
+          
+          
           <f-element id="FCS_KDF_EXT.1.1">
             <title>
               The TSF shall accept 
@@ -3018,6 +3188,17 @@ Some examples of what is expected to be in the documentation are provided here. 
           <selection-depends req="FCS_KYC_EXT.1.1"  ids="USEKEYCOM"/>
           <consistency-rationale>This SFR relates to submask combining as a method of generating intermediary keys. Key hierarchy functionality is outside the scope of the Base-PP.
           </consistency-rationale>
+          
+          <comp-lev> requires the TSF to implement submask combining in a specific manner to support the generation of intermediate keys.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of the cryptographic functionality.</h:li>
+          </h:ul>
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          
+          
           <f-element id="FCS_SMC_EXT.1.1 ">
             <title>The TSF shall combine submasks using the following method <selectables>
               <selectable>exclusive OR (XOR)</selectable>
@@ -3059,6 +3240,22 @@ Some examples of what is expected to be in the documentation are provided here. 
           <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
             and take security-relevant action if the data is invalid.
           </consistency-rationale>
+          
+          <comp-lev> requires the TSF to specify what data is being validated, how the validation is performed, and what the TOE’s response is in the event of a validation failure.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
+            <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
+          </h:ul>
+          </management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data
+            generation is included in the PP/ST:<h:ul>
+              <h:li>Minimal: Change to configuration of validation function behavior.</h:li>
+              <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          
+          
           <f-element id="FCS_VAL_EXT.1.1 ">
             <title>The TSF shall perform validation of the 
               <selectables>
