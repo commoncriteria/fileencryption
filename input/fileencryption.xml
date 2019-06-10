@@ -3379,7 +3379,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable>
                     </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
-                </selectables></h:i>.
+                </selectables></h:i>].
               
               
             
@@ -3500,7 +3500,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <f-element-ecd id="FCS_VAL_EXT.1.3">
             <title>The TSF shall 
               <selectables linebreak="yes">
-                <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
+                <selectable>[<assignable>corrective action</assignable>] upon a configurable number of consecutive failed validation attempts</selectable>
                 <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
                 <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
 
