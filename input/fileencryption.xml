@@ -3141,23 +3141,24 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           <f-element id="FCS_KDF_EXT.1.1">
             <title>
-              The TSF shall accept 
-              <selectables>
-                <selectable>a RNG generated submask as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
-                <selectable>a conditioned password</selectable>
-                <selectable>an imported submask</selectable>
-              </selectables> to derive an intermediate key, as defined in
-              <selectables>
-                <selectable>NIST SP 800-108 
-                  <selectables>
-                    <selectable>KDF in Counter Mode</selectable>
-                    <selectable>KDF in Feedback Mode</selectable>
-                    <selectable>KDF in Double-Pipeline Iteration Mode</selectable>
-                  </selectables>
-                </selectable>
-                <selectable>NIST SP 800-132</selectable>
-              </selectables> using the keyed-hash functions specified in FCS_COP.1(4) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>, such that the output is at least of
-              equivalent security strength (in number of bits) to the FEK.
+                The TSF shall [<h:i>
+                  accept
+                    <selectables>
+                      <selectable>a RNG generated submask as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
+                      <selectable>a conditioned password</selectable>
+                      <selectable>an imported submask</selectable>
+                    </selectables> to derive an intermediate key, as defined in
+                    <selectables>
+                      <selectable>NIST SP 800-108 
+                        <selectables>
+                          <selectable>KDF in Counter Mode</selectable>
+                          <selectable>KDF in Feedback Mode</selectable>
+                          <selectable>KDF in Double-Pipeline Iteration Mode</selectable>
+                        </selectables>
+                      </selectable>
+                      <selectable>NIST SP 800-132</selectable>
+                    </selectables> using the keyed-hash functions specified in FCS_COP.1<h:b>(4) (from <cite linkend="bibAppPP"/>)</h:b>, such that the output is at least of
+                    equivalent security strength (in number of bits) to the [FEK]</h:i>].
             </title>
             <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
@@ -3179,6 +3180,35 @@ Some examples of what is expected to be in the documentation are provided here. 
               </Tests>
             </aactivity>
           </f-element>
+          
+          <!--
+          <f-element-ecd id="FCS_KDF_EXT.1.1">
+            <title>
+              The TSF shall <selectables>
+                <selectable>not derive keys</selectable>
+                <selectable>accept
+                  <selectables>
+                    <selectable>a RNG generated submask as specified in FCS_RBG_EXT.1</selectable>
+                    <selectable>a conditioned password</selectable>
+                    <selectable>an imported submask</selectable>
+                  </selectables> to derive an intermediate key, as defined in
+                  <selectables>
+                    <selectable>NIST SP 800-108 
+                      <selectables>
+                        <selectable>KDF in Counter Mode</selectable>
+                        <selectable>KDF in Feedback Mode</selectable>
+                        <selectable>KDF in Double-Pipeline Iteration Mode</selectable>
+                      </selectables>
+                    </selectable>
+                    <selectable>NIST SP 800-132</selectable>
+                  </selectables> using the keyed-hash functions specified in FCS_COP.1, such that the output is at least of
+                  equivalent security strength (in number of bits) to the <assignable>key that is being derived</assignable>.
+                </selectable>
+              </selectables>. 
+              
+            </title>
+          -->
+          
         </f-component>
         
         <ext-comp-def fam-id="FCS_SMC_EXT" title="Submask Combining">
@@ -3231,7 +3261,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           </f-element>
           
           <!--
-          <f-element-ecd id="FCS_SMC_EXT.1.1 ">
+          <f-element-ecd id="FCS_SMC_EXT.1.1">
             <title>The TSF shall 
               <selectables>
                 <selectable>not perform submask combining</selectable>
