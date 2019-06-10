@@ -1178,7 +1178,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           <f-element id="FCS_IV_EXT.1.1 ">
-            <title>The application shall <selectables>
+            <title>The TSF shall <selectables>
                 <selectable>implement platform-provided functionality to generate IVs</selectable>
               <selectable>generate IVs in the following manner
                 <selectables linebreak="yes">
@@ -1190,7 +1190,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   2^32 for a given secret key</selectable>
               </selectables></selectable>
               </selectables>.</title>
-            
+                        
             <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
               to easily determine which iteration applies to each TOE component.</note>
@@ -1208,6 +1208,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             </Tests>
 </aactivity>
           </f-element>
+          
         </f-component>
 
         <ext-comp-def fam-id="FCS_KYC_EXT" title="Key Chaining and Key Storage">
@@ -3200,7 +3201,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           
           <f-element id="FCS_SMC_EXT.1.1 ">
-            <title>The TSF shall combine submasks using the following method <selectables>
+            <title>The TSF shall [<h:i>combine submasks using the following method <selectables>
               <selectable>exclusive OR (XOR)</selectable>
               <selectable>SHA-256</selectable>
               <selectable>SHA-384</selectable>
@@ -3208,7 +3209,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               <selectable>HMAC-SHA-256</selectable>
               <selectable>HMAC-SHA-384</selectable>
               <selectable>HMAC-SHA-512</selectable>
-            </selectables> to generate an intermediary key.</title>
+            </selectables> to generate an intermediary key</h:i>].</title>
             <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
               to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
@@ -3228,6 +3229,24 @@ Some examples of what is expected to be in the documentation are provided here. 
               </Tests>
             </aactivity>
           </f-element>
+          
+          <!--
+          <f-element-ecd id="FCS_SMC_EXT.1.1 ">
+            <title>The TSF shall 
+              <selectables>
+                <selectable>not perform submask combining</selectable>
+                <selectable>combine submasks using the following method <selectables>
+                  <selectable>exclusive OR (XOR)</selectable>
+                  <selectable>SHA-256</selectable>
+                  <selectable>SHA-384</selectable>
+                  <selectable>SHA-512</selectable>
+                  <selectable>HMAC-SHA-256</selectable>
+                  <selectable>HMAC-SHA-384</selectable>
+                  <selectable>HMAC-SHA-512</selectable>
+                </selectables> to generate an intermediary key</selectable>
+              </selectables>.</title>
+          </f-element-ecd>
+          -->
         </f-component>
         
         
