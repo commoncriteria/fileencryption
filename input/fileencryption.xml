@@ -803,7 +803,7 @@ The following sections describe any modifications that the ST author must make t
 <man-sfrs>
    
       <subsection title="Cryptographic Support (FCS)" id="fcs">
-        <ext-comp-def fam-id="FCS_STG_EXT" title="Trusted Channel">
+        <ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
           <mod-def>Components in this family define requirements for key management activities that are beyond the scope of what is defined in the FCS_CKM family in CC Part 2. 
           </mod-def>
         </ext-comp-def>
