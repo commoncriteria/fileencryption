@@ -1162,7 +1162,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
 
 
-        <ext-comp-def fam-id="FCS_IVV_EXT" title="Initialization Vector Generation">
+        <ext-comp-def fam-id="FCS_IV_EXT" title="Initialization Vector Generation">
           <mod-def>Components in this family define requirements for initialization vector generation.
           </mod-def>
         </ext-comp-def>
@@ -1866,7 +1866,7 @@ Some examples of what is expected to be in the documentation are provided here. 
   
       <subsection title="Protection of the TSF (FPT)" id="fpt">
 
-        <ext-comp-def fam-id="FPT_KYP_EXT" title="Protection of Key and Key Magerial">
+        <ext-comp-def fam-id="FPT_KYP_EXT" title="Protection of Key and Key Material">
           <mod-def>Components in this family define requirements for secure storage of keys.
           </mod-def>
         </ext-comp-def>
@@ -2345,7 +2345,7 @@ Some examples of what is expected to be in the documentation are provided here. 
          </f-component>
          
          
-             <ext-comp-def fam-id="FDP_PMM_EXT" title="Protection of Data in Power Managed States">
+             <ext-comp-def fam-id="FDP_PM_EXT" title="Protection of Data in Power Managed States">
                <mod-def>Components in this family define requirements for the protection of data in cases where the host platform becomes locked or unpowered.
                </mod-def>
              </ext-comp-def>
