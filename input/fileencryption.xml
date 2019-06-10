@@ -1939,11 +1939,26 @@ Some examples of what is expected to be in the documentation are provided here. 
           </f-element>
         </f-component>
         
+        <ext-comp-def fam-id="FCS_COP_EXT" title="Cryptographic Operation">
+          <mod-def>Components in this family define requirements for cryptographic operations specific to file encryption. 
+          </mod-def>
+        </ext-comp-def>
         
         <f-component id="FCS_COP_EXT.1" name="FAK Encryption/Decryption Support">
           <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
             specific to this PP-Module and do not affect the ability for any Base-PP SFRs to be enforced.
           </consistency-rationale>
+          
+          <comp-lev> defines requirements for how to protect a file encryption key.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of the cryptographic functionality.</h:li>
+          </h:ul>
+          </management>
+          <audit>There are no auditable events foreseen.
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          
+          
           <f-element id="FCS_COP_EXT.1.1">
             <title>The FAK shall be protected in the same manner as the FEK, in accordance with
               FCS_COP.1(5).</title>
