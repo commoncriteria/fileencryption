@@ -1166,7 +1166,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <mod-def>Components in this family define requirements for initialization vector generation.
           </mod-def>
         </ext-comp-def>
-        <f-component id="FCS_IV_EXT.1" name="Initialization Vector Generation">
+        <f-component id="fcs_iv_ext.1" name="Initialization Vector Generation">
           <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
             methods specified by the Base-PP SFR FCS_CKM.1(2).
           </consistency-rationale>
