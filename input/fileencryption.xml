@@ -3486,6 +3486,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                 </selectables>.
               </title>
               <note role="Application">
+                This SFR is also defined as a selection-based SFR in PP-Module for File Encryption. If the File Encryption portion of the TOE claims this SFR,  
+                the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
+                to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+                
                 This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.</note>          
               <aactivity>
                 <TSS>
