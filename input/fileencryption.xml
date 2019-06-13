@@ -637,6 +637,7 @@
           <component-refer ref="FCS_CKM_EXT.2"/>
           <component-refer ref="FCS_IV_EXT.1"/>
           <component-refer ref="FCS_KYC_EXT.1"/>
+		  <component-refer ref="FCS_VAL_EXT.1"/>
           <component-refer ref="FCS_CKM_EXT.3 (selection-based)"/>
           <component-refer ref="FCS_CKM_EXT.6 (selection-based)"/>
           <component-refer ref="FCS_COP.1(5) (selection-based)"/>
@@ -644,7 +645,7 @@
           <component-refer ref="FCS_COP.1(7) (selection-based)"/>
           <component-refer ref="FCS_KDF_EXT.1 (selection-based)"/>
           <component-refer ref="FCS_SMC_EXT.1 (selection-based)"/>
-          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
+          <component-refer ref="FCS_VAL_EXT.2 (selection-based)"/>
                     
 
           <consistency-rationale>
@@ -1418,12 +1419,11 @@ Some examples of what is expected to be in the documentation are provided here. 
           </mod-def>
         </ext-comp-def>
         <f-component id="fcs_val_ext.1" name="Validation">
-          <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
-          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
-            and take security-relevant action if the data is invalid.
+      <!--    <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/> -->
+          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it.
           </consistency-rationale>
           
-          <comp-lev> requires the TSF to specify what data is being validated, how the validation is performed, and what the TOE’s response is in the event of a validation failure.</comp-lev>
+          <comp-lev> requires the TSF to specify what data is being validated and how the validation is performed.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul>
             <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
             <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
@@ -1832,10 +1832,10 @@ Some examples of what is expected to be in the documentation are provided here. 
             <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
               to easily determine which iteration applies to each TOE component.<h:br/><h:br/>
+			  
+			  If the ST author selects "provide user authorization", the selection-based requirement FCS_VAL_EXT.2 must also be claimed.<h:br/><h:br/>
               
-              FCS_RBG_EXT.1 is in the Application Software Protection Profile.
-
-             This requirement specifies what authorization factors the TOE accepts
+              This requirement specifies what authorization factors the TOE accepts
              from the user. A password entered by the user is one authorization factor that the TOE must 
              be able to condition, as specified in FCS_CKM_EXT.6. Another option is a smart card
              authorization factor, with the differentiating feature being how the value is generated - either
@@ -3453,11 +3453,10 @@ Some examples of what is expected to be in the documentation are provided here. 
           </ext-comp-def>
         <f-component id="fcs_val_ext.2" name="Validation Remediation">
             <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
-            <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
-              and take security-relevant action if the data is invalid.
+            <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can take security-relevant action if some data input to it is invalid.
             </consistency-rationale>
             
-            <comp-lev> requires the TSF to specify what data is being validated, how the validation is performed, and what the TOE’s response is in the event of a validation failure.</comp-lev>
+            <comp-lev> requires the TSF to specify what the TOE’s response is in the event of a data validation failure.</comp-lev>
             <management>The following actions could be considered for the management functions in FMT: <h:ul>
               <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
               <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
@@ -3484,10 +3483,11 @@ Some examples of what is expected to be in the documentation are provided here. 
                   
                 </selectables>.
               </title>
-              <note role="Application">
-                This SFR is also defined as a selection-based SFR in PP-Module for File Encryption. If the File Encryption portion of the TOE claims this SFR,  
-                the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-                to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+              <note role="Application">This SFR must be included if "provide user authorization" is selected in FIA_AUT_EXT.1.1.<h:br/><h:br/>
+                
+Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
+              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
+              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
                 
                 This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.</note>          
               <aactivity>
