@@ -1814,18 +1814,18 @@ Some examples of what is expected to be in the documentation are provided here. 
             </note>
             <aactivity>
               <TSS>The TSS evaluation activity in the Application Software PP for FMT_MEC_EXT.1 applies for either selection.  
-                Additionally, if "store and protect configuration options as specified in FCS_COP.1(1) (from <cite linkend="bibAppPP"/>)" is selected, the evaluator 
+                Additionally, if "store and protect configuration options as specified in FCS_COP.1(1)" is selected, the evaluator 
                 shall ensure that the TSS identifies those options, as well as indicates where the encrypted representation of these options is stored.
                 
                 [Conditional] For all configuration options listed in the TSS as being stored and protected using encryption 
-                per FCS_COP.1(1) (from <cite linkend="bibAppPP"/>), the evaluator shall examine the contents of the configuration option storage (identified in the TSS) to 
+                per FCS_COP.1(1), the evaluator shall examine the contents of the configuration option storage (identified in the TSS) to 
                 determine that the options have been encrypted. <h:br/><h:br/>
               </TSS>
               <Guidance> None.<h:br/><h:br/>
               </Guidance>
               <Tests>The test evaluation activities in the Application Software PP for FMT_MEC_EXT.1 apply to all configuration options 
                 identified as being stored and set using platform mechanisms.  The following test activity applies to any configuration 
-                options identified as being stored and protected using encryption per FCS_COP.1(1) (from <cite linkend="bibAppPP"/>). 
+                options identified as being stored and protected using encryption per FCS_COP.1(1). 
               </Tests>
             </aactivity>
           </f-element>
