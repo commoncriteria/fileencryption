@@ -1413,7 +1413,115 @@ Some examples of what is expected to be in the documentation are provided here. 
           
         </f-component>
 
-
+        <ext-comp-def fam-id="FCS_VAL_EXT" title="Validation">
+          <mod-def>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
+          </mod-def>
+        </ext-comp-def>
+        <f-component id="fcs_val_ext.1" name="Validation">
+          <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
+          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
+            and take security-relevant action if the data is invalid.
+          </consistency-rationale>
+          
+          <comp-lev> requires the TSF to specify what data is being validated, how the validation is performed, and what the TOE’s response is in the event of a validation failure.</comp-lev>
+          <management>The following actions could be considered for the management functions in FMT: <h:ul>
+            <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
+            <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
+          </h:ul>
+          </management>
+          <audit>The following actions should be auditable if FAU_GEN Security audit data
+            generation is included in the PP/ST:<h:ul>
+              <h:li>Minimal: Change to configuration of validation function behavior.</h:li>
+              <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
+            </h:ul>
+          </audit>
+          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          
+          
+          <f-element id="FCS_VAL_EXT.1.1 ">
+            <title>The TSF shall 
+              <selectables>
+                <selectable>leverage the platform for validation</selectable>
+                <selectable>perform validation of the [<h:i>user</h:i>] by 
+                  [<h:i>validating the <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                  </selectables> using the following methods: <selectables>
+                    <selectable>key wrap as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                    <selectable>hash the 
+                      <selectables>
+                        <selectable>submask</selectable>
+                        <selectable>intermediate key</selectable>
+                        <selectable>FEK</selectable> 
+                      </selectables> as specified in FCS_COP.1<h:b>(2)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                    <selectable>decrypt a known value using the 
+                      <selectables>
+                        <selectable>submask</selectable>
+                        <selectable>intermediate key</selectable>
+                        <selectable>FEK</selectable>
+                      </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+                  </selectables></h:i>]</selectable>
+              </selectables>.
+              
+              
+              
+              
+              <!--           
+              The TSF shall perform validation of the 
+              <selectables>
+                <selectable>submask</selectable>
+                <selectable>intermediate key</selectable>
+              </selectables> using the following method(s): 
+              <selectables>
+                <selectable>key wrap as specified in FCS_COP.1(5)</selectable>
+                <selectable>hash the 
+                  <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                    <selectable>FEK</selectable> 
+                  </selectables> as specified in FCS_COP.1(2) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                <selectable>decrypt a known value using the 
+                  <selectables>
+                    <selectable>submask</selectable>
+                    <selectable>intermediate key</selectable>
+                    <selectable>FEK</selectable>
+                    
+                  </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+              </selectables>.  -->
+              
+            </title>
+          </f-element>
+          <f-element id="FCS_VAL_EXT.1.2">
+            <title>The TSF shall require validation of the [<h:i>user</h:i>] as specified in FCS_VAL_EXT.1.1 prior to [<h:i>decrypting any FEK</h:i>].</title>
+            
+            
+            <note role="Application">Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
+              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
+              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+            </note>          
+            <aactivity>
+              <TSS>
+                
+                Conditional: <h:br/>If the TOE performs validation, the evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
+                Tthe evaluator shall examine the TSS to review a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
+                the TSS shall describe how each is validated(e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
+                
+                Conditional: <h:br/>If the platform handles the validation the TOE shall describe the enviroments that can be leveraged with the TOE and how each claims to perform validation,
+                the evaluator shall ensure that none of the platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/>
+                
+                
+              </TSS>
+              <Guidance>If the validation functionality is configurable, the evaluator shall examine the operational guidance
+                to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. <h:br/><h:br/>
+                
+              </Guidance>
+              <Tests>There are no test activities for this requirement.
+              </Tests>
+            </aactivity>
+            
+          </f-element>
+          
+        </f-component>
 
 
 
@@ -1656,115 +1764,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 
       </f-component>
 
-        <ext-comp-def fam-id="FCS_VAL_EXT" title="Validation">
-          <mod-def>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
-          </mod-def>
-        </ext-comp-def>
-        <f-component id="fcs_val_ext.1" name="Validation">
-          <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
-          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it 
-            and take security-relevant action if the data is invalid.
-          </consistency-rationale>
-          
-          <comp-lev> requires the TSF to specify what data is being validated, how the validation is performed, and what the TOE’s response is in the event of a validation failure.</comp-lev>
-          <management>The following actions could be considered for the management functions in FMT: <h:ul>
-            <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
-            <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
-          </h:ul>
-          </management>
-          <audit>The following actions should be auditable if FAU_GEN Security audit data
-            generation is included in the PP/ST:<h:ul>
-              <h:li>Minimal: Change to configuration of validation function behavior.</h:li>
-              <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
-            </h:ul>
-          </audit>
-          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
-          
-          
-          <f-element id="FCS_VAL_EXT.1.1 ">
-            <title>The TSF shall 
-              <selectables>
-                <selectable>leverage the platform for validation</selectable>
-                <selectable>perform validation of the [<h:i>user</h:i>] by 
-                  [<h:i>validating the <selectables>
-                    <selectable>submask</selectable>
-                    <selectable>intermediate key</selectable>
-                  </selectables> using the following methods: <selectables>
-                    <selectable>key wrap as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
-                    <selectable>hash the 
-                      <selectables>
-                        <selectable>submask</selectable>
-                        <selectable>intermediate key</selectable>
-                        <selectable>FEK</selectable> 
-                      </selectables> as specified in FCS_COP.1<h:b>(2)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
-                    <selectable>decrypt a known value using the 
-                      <selectables>
-                        <selectable>submask</selectable>
-                        <selectable>intermediate key</selectable>
-                        <selectable>FEK</selectable>
-                      </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
-                  </selectables></h:i>]</selectable>
-              </selectables>.
-              
-              
-              
-              
-              <!--           
-              The TSF shall perform validation of the 
-              <selectables>
-                <selectable>submask</selectable>
-                <selectable>intermediate key</selectable>
-              </selectables> using the following method(s): 
-              <selectables>
-                <selectable>key wrap as specified in FCS_COP.1(5)</selectable>
-                <selectable>hash the 
-                  <selectables>
-                    <selectable>submask</selectable>
-                    <selectable>intermediate key</selectable>
-                    <selectable>FEK</selectable> 
-                  </selectables> as specified in FCS_COP.1(2) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
-                <selectable>decrypt a known value using the 
-                  <selectables>
-                    <selectable>submask</selectable>
-                    <selectable>intermediate key</selectable>
-                    <selectable>FEK</selectable>
-                    
-                  </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
-              </selectables>.  -->
-              
-            </title>
-          </f-element>
-          <f-element id="FCS_VAL_EXT.1.2">
-            <title>The TSF shall require validation of the [<h:i>user</h:i>] as specified in FCS_VAL_EXT.1.1 prior to [<h:i>decrypting any FEK</h:i>].</title>
-          
-         
-            <note role="Application">Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
-              </note>          
-            <aactivity>
-              <TSS>
-                
-                Conditional: <h:br/>If the TOE performs validation, the evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
-                Tthe evaluator shall examine the TSS to review a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
-                the TSS shall describe how each is validated(e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
-                
-                Conditional: <h:br/>If the platform handles the validation the TOE shall describe the enviroments that can be leveraged with the TOE and how each claims to perform validation,
-                the evaluator shall ensure that none of the platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/>
-                
-                
-              </TSS>
-              <Guidance>If the validation functionality is configurable, the evaluator shall examine the operational guidance
-                to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. <h:br/><h:br/>
-                
-              </Guidance>
-              <Tests>There are no test activities for this requirement.
-              </Tests>
-            </aactivity>
-            
-          </f-element>
-          
-        </f-component>
+       
 
 
       </subsection>
