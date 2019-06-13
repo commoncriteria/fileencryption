@@ -1424,15 +1424,11 @@ Some examples of what is expected to be in the documentation are provided here. 
           </consistency-rationale>
           
           <comp-lev> requires the TSF to specify what data is being validated and how the validation is performed.</comp-lev>
-          <management>The following actions could be considered for the management functions in FMT: <h:ul>
-            <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
-            <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
-          </h:ul>
+          <management>There are no specific management functions identified.
           </management>
           <audit>The following actions should be auditable if FAU_GEN Security audit data
             generation is included in the PP/ST:<h:ul>
               <h:li>Minimal: Change to configuration of validation function behavior.</h:li>
-              <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
             </h:ul>
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
@@ -3458,13 +3454,12 @@ Some examples of what is expected to be in the documentation are provided here. 
             
             <comp-lev> requires the TSF to specify what the TOE’s response is in the event of a data validation failure.</comp-lev>
             <management>The following actions could be considered for the management functions in FMT: <h:ul>
-              <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
+			  <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
               <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
             </h:ul>
             </management>
             <audit>The following actions should be auditable if FAU_GEN Security audit data
               generation is included in the PP/ST:<h:ul>
-                <h:li>Minimal: Change to configuration of validation function behavior.</h:li>
                 <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
               </h:ul>
             </audit>
