@@ -859,7 +859,7 @@ The following sections describe any modifications that the ST author must make t
               platforms are taken into account. <h:br/> <h:br/> 
 
               Conditional: <h:br/> 
-              If using a RBG was selected the evaluator verify the TSS to determine that it describes how the functionality
+              If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes how the functionality
               described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
               generate FEK. To the extent possible from the description of the RBG functionality in
               FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>), the evaluator shall determine that the key size being
@@ -867,7 +867,7 @@ The following sections describe any modifications that the ST author must make t
               decryption/encryption of the user data (FCS_COP.1(1)) (from <cite linkend="bibAppPP"/>).  <h:br/> <h:br/> 
 
               Conditional: <h:br/>               
-              If derived from a password/password is selected the examination of the TSS section is performed as
+              If 'derived from a password/passphrase' is selected, the examination of the TSS section is performed as
               part of FCS_CKM_EXT.6 evaluation activities. <h:br/>  <h:br/> 
 
 
@@ -931,7 +931,7 @@ The following sections describe any modifications that the ST author must make t
                     <selectable>destruction of reference to the key directly followed by a request for garbage collection</selectable>
                   </selectables>
                 </selectable>
-                <selectable> For non-volatile memory that consists of 
+                <selectable> For non-volatile memory, the destruction shall be executed by
                   <selectables>
                     <selectable>destruction of all KEKs protecting the target key,
                       where none of the KEKs protecting the target key are derived
@@ -952,7 +952,7 @@ The following sections describe any modifications that the ST author must make t
                         <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
                       </selectables>
                     </selectable>
-                    <selectable>instructs the underlying platform to destroy the abstraction the represents the key</selectable>
+                    <selectable>instructs the underlying platform to destroy the abstraction that represents the key</selectable>
                   </selectables>
                     </selectable>
                   </selectables>
@@ -1179,8 +1179,8 @@ Some examples of what is expected to be in the documentation are provided here. 
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           <f-element id="FCS_IV_EXT.1.1 ">
             <title>The TSF shall <selectables>
-                <selectable>implement platform-provided functionality to generate IVs</selectable>
-              <selectable>generate IVs in the following manner
+                <selectable>invoke platform-provided functionality to generate IVs</selectable>
+              <selectable>generate IVs with the following properties
                 <selectables linebreak="yes">
                 <selectable>CBC: IVs shall be non-repeating and unpredictable</selectable>
                 <selectable>CCM: Nonce shall be non-repeating and unpredictable</selectable>
@@ -1250,11 +1250,11 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
-                    <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
-                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
-                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
+                    <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
                     <selectables>
                       <selectable>
@@ -1281,11 +1281,11 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
-                    <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
-                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
-                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
+                    <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
             </title>
@@ -1371,11 +1371,11 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
                     <selectables>
                       <selectable>
@@ -1402,11 +1402,11 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implement key wrapping as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYCOM">implement key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implement key encryption as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYTRA">implement key transport as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYDER">implement key derivation as specified in FCS_KDF_EXT.1</selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
           -->
@@ -1493,7 +1493,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </aactivity>
           </f-element>
           <f-element id="FDP_PRT_EXT.1.2">
-            <title> The application shall <selectables>
+            <title> The TSF shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
               </selectables> to ensure that all sensitive data created by the TOE when
@@ -1565,7 +1565,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           
         <f-element id="FDP_PRT_EXT.2.1">
-          <title>The application shall <selectables>
+          <title>The TSF shall <selectables>
             <selectable>invoke platform-provided functionality</selectable>
             <selectable>implement functionality</selectable>
           </selectables> to ensure that all original plaintext data created when
@@ -1687,7 +1687,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           
           <f-element id="FIA_AUT_EXT.1.1">
-            <title>The application shall 
+            <title>The TSF shall 
               <selectables>
                 <selectable id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</selectable>
@@ -1705,7 +1705,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>4096 bits</selectable>
                   </selectables> with user presence proved by presentation of the smart card and 
                   <selectables>
-                    <selectable>none</selectable>
+                    <selectable>no PIN</selectable>
                     <selectable>an OE defined PIN</selectable>
                     <selectable>a configurable PIN</selectable>
                   </selectables>
@@ -1949,7 +1949,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <title>The TSF shall 
               <selectables>
                 <selectable>not store keys in non-volatile memory</selectable>
-                <selectable>only store keys in non-volatile memory when
+                <selectable>store keys in non-volatile memory only when
                   <selectables linebreak="yes">
                     <selectable>wrapped, as specified in FCS_COP.1(5)</selectable>
                     <selectable>encrypted, as specified in FCS_COP.1(7)</selectable>
@@ -2765,12 +2765,12 @@ Some examples of what is expected to be in the documentation are provided here. 
           </f-element>
           <f-element id="FCS_CKM_EXT.6.3">
             <title>
-              The TSF shall perform [Password-based Key Derivation
-              Functions] in accordance with a specified cryptographic algorithm [<h:i>HMAC-<selectables>
+              The TSF shall perform Password-based Key Derivation
+              Functions in accordance with a specified cryptographic algorithm HMAC-<selectables>
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
                 <selectable>SHA-512</selectable>
-              </selectables></h:i>], with 
+              </selectables>, with 
               <selectables>
                 <selectable><assignable>positive integer of 4096 or more</assignable> iterations</selectable>
                 <selectable>value supported by the platform, greater than 1000</selectable>
@@ -2791,7 +2791,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               defined in FCS_CKM_EXT.6.1.</title>
           </f-element>
           <f-element id="FCS_CKM_EXT.6.5">
-            <title>The TSF shall generate all salts using a RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and with entropy 
+            <title>The TSF shall generate all salts using an RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and with entropy 
               corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.6.3.</title>
             
             <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
@@ -3196,10 +3196,9 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           <f-element id="FCS_KDF_EXT.1.1">
             <title>
-                The TSF shall [<h:i>
-                  accept
+                The TSF shall [<h:i>accept
                     <selectables>
-                      <selectable>a RNG generated submask as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
+                      <selectable>a submask generated by an RBG as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
                       <selectable>a conditioned password</selectable>
                       <selectable>an imported submask</selectable>
                     </selectables> to derive an intermediate key, as defined in
@@ -3272,7 +3271,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </ext-comp-def>
         <f-component id="fcs_smc_ext.1" name="Submask Combining">
           <selection-depends req="FCS_KYC_EXT.1.1"  ids="USEKEYCOM"/>
-          <consistency-rationale>This SFR relates to submask combining as a method of generating intermediary keys. Key hierarchy functionality is outside the scope of the Base-PP.
+          <consistency-rationale>This SFR relates to submask combining as a method of generating intermediate keys. Key hierarchy functionality is outside the scope of the Base-PP.
           </consistency-rationale>
           
           <comp-lev> requires the TSF to implement submask combining in a specific manner to support the generation of intermediate keys.</comp-lev>
@@ -3294,7 +3293,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               <selectable>HMAC-SHA-256</selectable>
               <selectable>HMAC-SHA-384</selectable>
               <selectable>HMAC-SHA-512</selectable>
-            </selectables> to generate an intermediary key</h:i>].</title>
+            </selectables> to generate an intermediate key</h:i>].</title>
             <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
               to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
@@ -3328,7 +3327,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   <selectable>HMAC-SHA-256</selectable>
                   <selectable>HMAC-SHA-384</selectable>
                   <selectable>HMAC-SHA-512</selectable>
-                </selectables> to generate an intermediary key</selectable>
+                </selectables> to generate an intermediate key</selectable>
               </selectables>.</title>
           </f-element-ecd>
           -->
