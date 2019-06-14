@@ -705,8 +705,8 @@
             authorization factor prior to the FEK being used to decrypt the data being
             protected.
           </description>
+          <component-refer ref="FCS_VAL_EXT.1"/>
           <component-refer ref="FIA_AUT_EXT.1"/>
-          <component-refer ref="FCS_VAL_EXT.1 (selection-based)"/>
 
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
@@ -1524,12 +1524,12 @@ Some examples of what is expected to be in the documentation are provided here. 
             <aactivity>
               <TSS>
                 
-                Conditional: <h:br/>If the TOE performs validation, the evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
-                Tthe evaluator shall examine the TSS to review a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
-                the TSS shall describe how each is validated(e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
+                Conditional: <h:br/>If 'validating' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
+                The evaluator shall examine the TSS to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
+                the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
                 
-                Conditional: <h:br/>If the platform handles the validation the TOE shall describe the enviroments that can be leveraged with the TOE and how each claims to perform validation,
-                the evaluator shall ensure that none of the platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/>
+                Conditional: <h:br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the enviroments that can be leveraged with the TOE and how each claims to perform validation.
+                The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/>
                 
                 
               </TSS>
@@ -3489,7 +3489,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
               </h:ul>
             </audit>
-            <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+            <dependencies>FCS_VAL_EXT.1 Validation</dependencies>
            
             
             
