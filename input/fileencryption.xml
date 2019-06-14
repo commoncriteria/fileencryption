@@ -1511,7 +1511,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   </selectables> as specified in FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
               </selectables>.  -->
               
-            </title>
+            
           </f-element>
           <f-element id="FCS_VAL_EXT.1.2">
             <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i>].</title>
