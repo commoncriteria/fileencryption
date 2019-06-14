@@ -1435,6 +1435,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           
           <f-element id="FCS_VAL_EXT.1.1 ">
+            <!--
             <title>The TSF shall 
               <selectables>
                 <selectable>leverage the platform for validation</selectable>
@@ -1458,7 +1459,32 @@ Some examples of what is expected to be in the documentation are provided here. 
                       </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
                   </selectables></h:i>]</selectable>
               </selectables>.
+              -->
+            <title>The TSF shall perform validation of the [<h:i>user</h:i>] by 
+              <selectables>
+                <selectable>receiving assertion of the subject's validity from <assignable>Operational Environment component responsible for authentication</assignable></selectable>
+                <selectable>validating the <selectables>
+                  <selectable>submask</selectable>
+                  <selectable>intermediate key</selectable>
+                </selectables> using the following methods: <selectables>
+                  <selectable>key wrap as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                  <selectable>hash the 
+                    <selectables>
+                      <selectable>submask</selectable>
+                      <selectable>intermediate key</selectable>
+                      <selectable>FEK</selectable> 
+                    </selectables> as specified in FCS_COP.1<h:b>(2)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                  <selectable>decrypt a known value using the 
+                    <selectables>
+                      <selectable>submask</selectable>
+                      <selectable>intermediate key</selectable>
+                      <selectable>FEK</selectable>
+                      
+                    </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+                </selectables></selectable>
+              </selectables>. 
               
+            </title>
               
               
               
@@ -1488,7 +1514,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             </title>
           </f-element>
           <f-element id="FCS_VAL_EXT.1.2">
-            <title>The TSF shall require validation of the [<h:i>user</h:i>] as specified in FCS_VAL_EXT.1.1 prior to [<h:i>decrypting any FEK</h:i>].</title>
+            <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i>].</title>
             
             
             <note role="Application">Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
