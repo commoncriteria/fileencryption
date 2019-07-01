@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="..\transforms\module2html.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <Module target-products="File Encryption" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://w.w3.org/1999/xhtml" name="file encryption">  
