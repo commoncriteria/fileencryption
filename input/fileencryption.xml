@@ -769,7 +769,7 @@
       product="application"
       name="Application Software" short="App" version="1.3" 
       url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
-      xmlurl="https://raw.githubusercontent.com/commoncriteria/application/c51970161d3a47fe8a7c23552f372745a638ba7d/input/application.xml">
+      xmlurl="https://github.com/commoncriteria/fileencryption/blob/master/input/fileencryption.xml">
 
       <sec-func-req-dir>
         The TOE is expected to rely on some of the security functions implemented by the application as a whole and evaluated against <cite linkend="bibAppPP"/>.
