@@ -449,10 +449,7 @@
           </h:p>
         </description>
       </cclaim>
-      <cclaim title="Package Claims">
-        <description>This <abbr linkend="PP-Module"/> is TLS Package Version 1.1
-          Conformant.</description>
-      </cclaim>
+     
     </cclaims>
   </chapter>
 
