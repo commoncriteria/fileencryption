@@ -7,7 +7,7 @@
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2019-06-26</PPPubDate>
+      <PPPubDate>2019-07-03</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -397,18 +397,15 @@
           platform layers that are abstracted away.
           Some evaluation activities are specific to the particular platform
           on which the application runs, in order to provide precision and
-          repeatability. The only platforms currently recognized by <cite linkend="bibAppPP"/> are those specified in SFR Evaluation Activities.
+          repeatability. The only platforms currently recognized by <cite linkend="bibAppPP"/> and this module are those specified in SFR Evaluation Activities.
           To test on a platform for which there are no EAs, a Vendor should contact NIAP with recommended EAs.
           NIAP will determine if the proposed platform is appropriate for the PP and accept, reject,
           or develop EAs as necessary in coordination with the technical community.
         </h:p><h:p>	
-          Applications include a diverse range of software such as office suites, thin
-          clients, <h:abbr title="Portable Document Format">PDF</h:abbr> readers, downloadable
-          smartphone apps, and apps running in a cloud container. The TOE includes 
+          The TOE includes 
           any software in the application installation package, even those pieces that may 
           extend or modify the functionality of the underlying platform, such as kernel drivers.  
-          Many platforms come bundled with applications
-          such as web browsers, email clients and media players and these too
+          Some platforms come bundled with file encryption product and these too
           should be considered subject to the requirements defined in this
           document although the expectation of formal Common Criteria evaluation
           depends upon the national scheme.  <h:abbr title="Basic Input/Output
