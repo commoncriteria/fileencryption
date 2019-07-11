@@ -2924,7 +2924,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               The password/passphrase is represented on the host machine as a sequence of characters whose 
               encoding depends on the TOE and the underlying OS. This sequence must be conditioned into a string of bits that is to be used as a KEK that is the same size as the FEK.
               
-              <h:br/><h:br/>For FCS_CKM_EXT.6.1, the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters. 
+              <h:br/><h:br/>For FCS_CKM_EXT.6.1, the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters or a length defined by the platform. 
               The selection "maximum value supported by the platform" may only be selected if "implement platform-provided functionality to provide user authorization"
               was selected in FIA_AUT_EXT.1.
               
@@ -2953,12 +2953,13 @@ Some examples of what is expected to be in the documentation are provided here. 
             <aactivity>
               <TSS> FCS_CKM_EXT.6.1: There are two aspects of this component that require
                 evaluation: passwords/passphrases of the length specified in the requirement (at least
-                64 characters) are supported, and that the characters that are input are subject to the
+                64 characters or a length defined by the platform) are supported, and that the characters that are input are subject to the
                 selected conditioning function. These activities are separately addressed in the text
                 below. 
                 
                 <h:br/><h:br/>Support for minimum length: The evaluators shall check to ensure that the 
-                TSS describes the allowable ranges for password/passphrase lengths, and that at least 64 characters may be specified by the user.
+                TSS describes the allowable ranges for password/passphrase lengths, and that at least 64 characters or a length defined by the platform 
+		      may be specified by the user.
                 
                 <h:br/><h:br/>Support for character set: The evaluator shall check to ensure that the 
                 TSS describes the allowable character set and that it contains the characters listed in the SFR.
