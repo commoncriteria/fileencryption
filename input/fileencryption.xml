@@ -170,6 +170,11 @@
             <description>An implementation-independent set of security requirements for a category
               of products.</description>
           </entry>
+		 <entry>
+            <term><abbr title="Protection Profile Configuration">PP-Configuration</abbr></term>
+            <description> A comprehensive set of security requirements for a product type that 
+		    consists of at least one Base-PP and at least one PP-Module.</description>
+          </entry>
           <entry>
             <term><abbr title="Protection Profile Module">PP-Module</abbr></term>
             <description>An implementation-independent statement of security needs for a TOE type complementary to one or more Base Protection Profiles.</description>
