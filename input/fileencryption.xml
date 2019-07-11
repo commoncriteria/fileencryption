@@ -22,10 +22,10 @@
     <section title="Overview" id="ppoverview"> 
  The scope of the File Encryption <abbr linkend="PP-Module"/> is to describe the security functionality of a file encryption 
 	    product in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. 
-	    This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <htm:ul>
-        <htm:li>Application Software Protection Profile, Version 1.3</htm:li>
-      </htm:ul>
-      <htm:br/> This <abbr linkend="Base-PP"/>s is valid because a file encryption product is
+	    This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <h:ul>
+        <h:li>Application Software Protection Profile, Version 1.3</h:li>
+      </h:ul>
+      <h:br/> This <abbr linkend="Base-PP"/>s is valid because a file encryption product is
       a 3rd party application or application included with a operating system.
 	    
 <h:br/> <h:br/>This PP-Module describes security
@@ -440,7 +440,7 @@
             This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria Version 3.1, Revision 5 [CC]. 
             
             The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
-            <h:li>PP-Module for VPN Client, Version 2.1</h:li>
+            <h:ul><h:li>PP-Module for VPN Client, Version 2.1</h:li>
             <h:li>PP-Module for File Encryption Enterprise Management, Version 1.0</h:li></h:ul>
           </h:p>
         </description>
