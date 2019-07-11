@@ -1633,7 +1633,6 @@ Some examples of what is expected to be in the documentation are provided here. 
 
             <aactivity>
               <TSS>
-              <h:b>Requirement met by the TOE</h:b>
               <h:br/> The evaluator shall examine the TSS to ensure there is a high-level description
                 of how the FEK is protected. <h:br/><h:br/>
                 
