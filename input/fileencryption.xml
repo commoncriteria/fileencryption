@@ -1724,7 +1724,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              
               <test>If the TSS creates temporary files/resources
                 during file decryption/encryption, the evaluator shall perform the following tests
-                to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test should be repeated with a shared file.
+                to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file.
                 The evaluator shall use
                 a tool (e.g., procmon for a Windows system) that is capable of monitoring the
                 creation and deletion of files during the decryption/encryption process is
