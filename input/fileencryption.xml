@@ -974,7 +974,7 @@ The following section describe any modifications that the ST author must make to
 		  <h:br/><h:br/>
 		  
 		  This requirement is in addition to the same requirement in the File Encryption Module, it covers a different 
-		    keys that need to be destroyed, if both modules are included both requirements must be included.</note></note>
+		    keys that need to be destroyed, if both modules are included both requirements must be included.</note>
 
             <aactivity>
               <TSS>
