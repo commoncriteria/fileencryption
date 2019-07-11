@@ -5,7 +5,7 @@
 <Module target-products="File Encryption" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://w.w3.org/1999/xhtml" name="file encryption">  
   <PPReference>
     <ReferenceTable>
-      <PPVersion>2.0</PPVersion>
+      <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2019-07-03</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
@@ -13,31 +13,22 @@
   </PPReference>
   <RevisionHistory>
     <entry>
-      <version>v 0.1</version>
-      <date>2014-07-25</date>
-      <subject>Initial Release</subject>
-    </entry>
-    <entry>
       <version>v 1.0</version>
-      <date>2014-11-10</date>
-      <subject>Public release, incorporating comments received</subject>
-    </entry>
-    <entry>
-      <version>v 2.0</version>
-      <date>2019-06-26</date>
-      <subject>Enterprise Management, Requirement Clean Up, TDs Applied, Conversion to PP-Module</subject>
+      <date>2019-07-11</date>
+      <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
   <chapter title="Introduction" id="int">
-    <section title="Overview" id="ppoverview"> This PP-Module describes security
-      requirements for an encryption product that is configurable for the data it encrypts and is
-      intended to provide a minimal, baseline set of requirements that are targeted at mitigating
-      well defined and described threats. However, this PP-Module is not complete in itself, but rather
-      extends the Protection Profile for Application Software (<cite linkend="bibAppPP"/>). This
-      introduction will describe the features of a compliant Target of Evaluation, and will also
-      discuss how this PP-Module is to be used in conjunction with the <cite linkend="bibAppPP"/>. 
+    <section title="Overview" id="ppoverview"> 
+ The scope of the File Encryption <abbr linkend="PP-Module"/> is to describe the security functionality of a file encryption 
+	    product in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. 
+	    This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/> <h:br/> <h:ul>
+        <h:li>Application Software Protection Profile, Version 1.3</h:li>
+      </h:ul>
+      <h:br/> This <abbr linkend="Base-PP"/>s is valid because a file encryption product is
+      a 3rd party application or application included with a operating system.
 
-    File encryption is the process of encrypting individual files or sets of
+    <h:br/> <h:br/>File encryption is the process of encrypting individual files or sets of
     files (or volumes, or containers, etc.) on an end user device and permitting access to the
     encrypted data only after proper authentication is provided. Encryption products that
     conform to this PP-Module must render information inaccessible to anyone (or, in the case of other
@@ -179,10 +170,14 @@
             <description>An implementation-independent set of security requirements for a category
               of products.</description>
           </entry>
+		 <entry>
+            <term><abbr title="Protection Profile Configuration">PP-Configuration</abbr></term>
+            <description> A comprehensive set of security requirements for a product type that 
+		    consists of at least one Base-PP and at least one PP-Module.</description>
+          </entry>
           <entry>
             <term><abbr title="Protection Profile Module">PP-Module</abbr></term>
-            <description>An implementation-independent set of security requirements for a category
-              of products.</description>
+            <description>An implementation-independent statement of security needs for a TOE type complementary to one or more Base Protection Profiles.</description>
           </entry>
           <entry>
             <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
@@ -437,14 +432,12 @@
       <cclaim title="Conformance Statement">
         <description>
           <h:p>
-             <h:b>Conformance Claims</h:b> <h:br/>
             This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified Base-PP and as defined in the <cite linkend="bibCC"/> and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017).
             
             This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria Version 3.1, Revision 5 [CC]. 
             
             The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
-            <h:ul><h:li>Protection Profile for Application Software, Version 1.3</h:li>
-            <h:li>PP-Module for VPN Client, Version 2.1</h:li>
+            <h:ul><h:li>PP-Module for VPN Client, Version 2.1</h:li>
             <h:li>PP-Module for File Encryption Enterprise Management, Version 1.0</h:li></h:ul>
           </h:p>
         </description>
@@ -771,7 +764,6 @@ The following section describe any modifications that the ST author must make to
       </sec-func-req-dir>
       
       <modified-sfrs></modified-sfrs>
-      <additional-sfrs></additional-sfrs>
       <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
@@ -977,11 +969,20 @@ The following section describe any modifications that the ST author must make to
               that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
               type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a File Encryption 
               Key (FEK), destroying the KEK using one of the methods in FCS_CKM_EXT.4 is sufficient, since the FEK would no longer 
-              be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
+              be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). 
+		  
+		  <h:br/><h:br/>
+		  
+		  This requirement is in addition to the same requirement in the File Encryption Module, it covers a different 
+		    keys that need to be destroyed, if both modules are included both requirements must be included.</note></note>
 
             <aactivity>
               <TSS>
-                <h:h4>TSS + KMD  (Key Management Description may be used if necessary details describe proprietary information)</h:h4>
+                <h:h4>TSS</h:h4>
+		      The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
+		      to be no longer needed and when they should be expected to be destroyed.
+		      
+		 <h:h4>KMD</h:h4>     
               The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
@@ -1005,7 +1006,7 @@ The following section describe any modifications that the ST author must make to
               where none of the KEKs protecting the target key are derived" is included the evaluator shall examine the TOE's 
               keychain in the TSS and identify each instance when a key is destroyed by this method. In each instance the evaluator 
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
-              method in FCS_CKM_EXT.4.1 The evaluator shall verify that all of the keys capable of decrypting the target key are not 
+              method in FCS_CKM_EXT.4.1. The evaluator shall verify that all of the keys capable of decrypting the target key are not 
               able to be derived to reestablish the keychain after their destruction. <h:br/><h:br/>
 
               </TSS>
@@ -1638,7 +1639,6 @@ Some examples of what is expected to be in the documentation are provided here. 
 
             <aactivity>
               <TSS>
-              <h:b>Requirement met by the TOE</h:b>
               <h:br/> The evaluator shall examine the TSS to ensure there is a high-level description
                 of how the FEK is protected. <h:br/><h:br/>
                 
@@ -1730,7 +1730,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              
               <test>If the TSS creates temporary files/resources
                 during file decryption/encryption, the evaluator shall perform the following tests
-                to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test should be repeated with a shared file.
+                to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file.
                 The evaluator shall use
                 a tool (e.g., procmon for a Windows system) that is capable of monitoring the
                 creation and deletion of files during the decryption/encryption process is
@@ -2930,7 +2930,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               The password/passphrase is represented on the host machine as a sequence of characters whose 
               encoding depends on the TOE and the underlying OS. This sequence must be conditioned into a string of bits that is to be used as a KEK that is the same size as the FEK.
               
-              <h:br/><h:br/>For FCS_CKM_EXT.6.1, the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters. 
+              <h:br/><h:br/>For FCS_CKM_EXT.6.1, the ST author assigns the maximum size of the password/passphrase it supports; it must support at least 64 characters or a length defined by the platform. 
               The selection "maximum value supported by the platform" may only be selected if "implement platform-provided functionality to provide user authorization"
               was selected in FIA_AUT_EXT.1.
               
@@ -2959,12 +2959,13 @@ Some examples of what is expected to be in the documentation are provided here. 
             <aactivity>
               <TSS> FCS_CKM_EXT.6.1: There are two aspects of this component that require
                 evaluation: passwords/passphrases of the length specified in the requirement (at least
-                64 characters) are supported, and that the characters that are input are subject to the
+                64 characters or a length defined by the platform) are supported, and that the characters that are input are subject to the
                 selected conditioning function. These activities are separately addressed in the text
                 below. 
                 
                 <h:br/><h:br/>Support for minimum length: The evaluators shall check to ensure that the 
-                TSS describes the allowable ranges for password/passphrase lengths, and that at least 64 characters may be specified by the user.
+                TSS describes the allowable ranges for password/passphrase lengths, and that at least 64 characters or a length defined by the platform 
+		      may be specified by the user.
                 
                 <h:br/><h:br/>Support for character set: The evaluator shall check to ensure that the 
                 TSS describes the allowable character set and that it contains the characters listed in the SFR.
@@ -3084,12 +3085,47 @@ Some examples of what is expected to be in the documentation are provided here. 
               <Tests> 
                 The evaluation activity tests specified for AES in GCM mode in the underlying <cite linkend="bibAppPP"/> shall be performed in the case that "GCM" is selected in the requirement.
                 
-                <h:br/><h:br/>If AES Key Wrap is used to decrypt/encrypt the key, the evaluator shall examine the TSS to determine that it specifies that the implementation conforms to SP 800-38F with the appropriate (with or without padding) Key Wrap section using AES. 
-                The evaluator shall also perform the verification procedures outlined in the testing methodology, "The Key Wrap Validation System." (http://csrc.nist.gov/groups/STM/cavp/documents/mac/KWVS.pdf)
+                <h:br/><h:br/><h:p><h:b>AES Key Wrap (AES-KW) and Key Wrap with Padding (AES-KWP) Test</h:b></h:p>
+              <h:p>
+		The evaluator will test the authenticated encryption functionality of AES-KW for EACH
+		combination of the following input parameter lengths:
+              <h:ul>
+                <h:li>128 and 256 bit key encryption keys (KEKs)</h:li>
+                <h:li>Three plaintext lengths. One of the plaintext lengths shall be two semi-blocks (128
+                  bits). One of the plaintext lengths shall be three semi-blocks (192 bits). The third data
+                  unit length shall be the longest supported plaintext length less than or equal to 64
+                  semi-blocks (4096 bits).
+                </h:li>
+              </h:ul>
+              using a set of 100 key and plaintext pairs and obtain the ciphertext that results from AES-KW
+              authenticated encryption. To determine correctness, the evaluator will use the AES-KW
+              authenticated-encryption function of a known good implementation.
+	      </h:p>
+	      <h:p>
+
+              The evaluator will test the authenticated-decryption functionality of AES-KW using the
+              same test as for authenticated-encryption, replacing plaintext values with ciphertext values
+              and AES-KW authenticated-encryption with AES-KW authenticated-decryption.
+	      </h:p>
+	      <h:p>
+              The evaluator will test the authenticated-encryption functionality of AES-KWP using the
+              same test as for AES-KW authenticated-encryption with the following change in the three
+              plaintext lengths:
+              <h:ul>
+                <h:li>One plaintext length shall be one octet. One plaintext length shall be 20 octets (160
+                  bits).</h:li>
+                <h:li>
+                  One plaintext length shall be the longest supported plaintext length less than or equal
+                  to 512 octets (4096 bits).
+                </h:li>
+              </h:ul>
+              The evaluator will test the authenticated-decryption functionality of AES-KWP using the
+              same test as for AES-KWP authenticated-encryption, replacing plaintext values with
+              ciphertext values and AES-KWP authenticated-encryption with AES-KWP authenticated-decryption.
+              </h:p>
                 
                 <h:br/><h:br/>AES-CCM Tests
-                <h:br/>These tests are intended to be equivalent to those described in the NIST document, "The CCM Validation System (CCMVS)," updated 9 Jan 2012, found at http://csrc.nist.gov/groups/STM/cavp/documents/mac/CCMVS.pdf.
-                
+               
                 <h:br/><h:br/>It is not recommended that evaluators use values obtained from static sources such as 
                 http://csrc.nist.gov/groups/STM/cavp/documents/mac/ccmtestvectors.zip
                 or use values not generated expressly to exercise the AES-CCM implementation.
@@ -3215,12 +3251,12 @@ Some examples of what is expected to be in the documentation are provided here. 
                 If the KTS-KEM-KWS scheme was selected, the evaluator shall perform the
                 following tests:
                 <testlist>
-                  <test>The evaluator shall inspect each cipher text, C, produced by RSA-KEM-KWS
+                  <test>The evaluator shall inspect each cipher text, C, produced by KTS-KEM-KWS
                     encryption operation of the TOE and make sure the length (in bytes) of the
                     cipher text, cLen, is greater than nLen (the length, in bytes, of the modulus of
                     the RSA public key) and that cLen - nLen is consistent with the byte lengths
                     supported by the key wrapping algorithm. The evaluator shall feed into the
-                    RSA-KEM-KWS decryption operation a cipher text of unsupported length and
+                    KTS-KEM-KWS decryption operation a cipher text of unsupported length and
                     verify that an error is detected and that the decryption process stops.
                   </test><test>The evaluator shall separate the cipher text, C, produced by the sender-side of
                     the TOE into its C0 and C1 components and use the RSA decryption primitive to
@@ -3228,22 +3264,22 @@ Some examples of what is expected to be in the documentation are provided here. 
                     unsigned integer represented by Z is greater than 1 and less than n-1, where n is
                     the modulus of the RSA public key. The evaluator shall construct examples
                     where the cipher text is created with a secret value Z = 1 and make sure the
-                    RSA-KEM-KWS decryption process detects the error. Similarly, the evaluator
+                    KTS-KEM-KWS decryption process detects the error. Similarly, the evaluator
                     shall construct examples where the cipher text is created with a secret value Z =
-                    n - 1 and make sure the RSA-KEM-KWS decryption process detects the error.
+                    n - 1 and make sure the KTS-KEM-KWS decryption process detects the error.
                   </test><test>The evaluator shall attempt to successfully recover the secret value Z, derive the
-                    key wrapping key, KWK, and unwrap the KWA-cipher text following the RSAKEM-KWS
+                    key wrapping key, KWK, and unwrap the KWA-cipher text following the KTS-KEM-KWS
                     decryption process given in NISP SP 800-56B section 7.2.3.4. If the
                     key-wrapping algorithm is AES-CCM, the evaluator shall verify that the value
                     of any (unwrapped) associated data, A, that was passed with the wrapped keying
-                    material is correct The evaluator shall feed into the TOE's RSA-KEM-KWS
+                    material is correct The evaluator shall feed into the TOE's KTS-KEM-KWS
                     decryption operation examples of incorrect cipher text and verify that a
                     decryption error is detected. If the key-wrapping algorithm is AES-CCM, the
                     evaluator shall attempt at least one decryption where the wrong value of A is
-                    given to the RSA-KEM-KWS decryption operation and verify that a decryption
+                    given to the KTS-KEM-KWS decryption operation and verify that a decryption
                     error is detected. Similarly, if the key-wrapping algorithm is AES-CCM, the
                     evaluator shall attempt at least one decryption where the wrong nonce is given to
-                    the RSA-KEM-KWS decryption operation and verify that a decryption error is
+                    the KTS-KEM-KWS decryption operation and verify that a decryption error is
                     detected.
                   </test><test>The evaluator shall trigger all detectable decryption errors and validate that the
                     resulting error codes are the same and that no information is given back to the
@@ -3746,7 +3782,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       <entry id="bibAppPP">
         <tag>AppPP</tag>
         <description>
-          <h:a href="https://www.niap-ccevs.org/pp/">Protection Profile for Application Software</h:a>
+          <h:a href="https://www.niap-ccevs.org/pp/">Protection Profile for Application Software, Version 1.3</h:a>
         </description>
       </entry>
       <entry id="FIPS140-2">
