@@ -22,7 +22,7 @@
     <section title="Overview" id="ppoverview"> 
  The scope of the File Encryption <abbr linkend="PP-Module"/> is to describe the security functionality of a file encryption 
 	    product in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. 
-	    This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/>s: <h:ul>
+	    This <abbr linkend="PP-Module"/> is intended for use with the following <abbr linkend="Base-PP"/> <h:br/> <h:ul>
         <h:li>Application Software Protection Profile, Version 1.3</h:li>
       </h:ul>
       <h:br/> This <abbr linkend="Base-PP"/>s is valid because a file encryption product is
