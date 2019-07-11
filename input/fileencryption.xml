@@ -1000,7 +1000,7 @@ The following section describe any modifications that the ST author must make to
               where none of the KEKs protecting the target key are derived" is included the evaluator shall examine the TOE's 
               keychain in the TSS and identify each instance when a key is destroyed by this method. In each instance the evaluator 
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
-              method in FCS_CKM_EXT.4.1 The evaluator shall verify that all of the keys capable of decrypting the target key are not 
+              method in FCS_CKM_EXT.4.1. The evaluator shall verify that all of the keys capable of decrypting the target key are not 
               able to be derived to reestablish the keychain after their destruction. <h:br/><h:br/>
 
               </TSS>
