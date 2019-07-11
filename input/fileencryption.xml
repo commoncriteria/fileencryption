@@ -3119,8 +3119,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               </h:p>
                 
                 <h:br/><h:br/>AES-CCM Tests
-                <h:br/>These tests are intended to be equivalent to those described in the NIST document, "The CCM Validation System (CCMVS)," updated 9 Jan 2012, found at http://csrc.nist.gov/groups/STM/cavp/documents/mac/CCMVS.pdf.
-                
+               
                 <h:br/><h:br/>It is not recommended that evaluators use values obtained from static sources such as 
                 http://csrc.nist.gov/groups/STM/cavp/documents/mac/ccmtestvectors.zip
                 or use values not generated expressly to exercise the AES-CCM implementation.
