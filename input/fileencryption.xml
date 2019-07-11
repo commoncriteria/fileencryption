@@ -5,7 +5,7 @@
 <Module target-products="File Encryption" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://w.w3.org/1999/xhtml" name="file encryption">  
   <PPReference>
     <ReferenceTable>
-      <PPVersion>2.0</PPVersion>
+      <PPVersion>1.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2019-07-03</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
@@ -13,19 +13,9 @@
   </PPReference>
   <RevisionHistory>
     <entry>
-      <version>v 0.1</version>
-      <date>2014-07-25</date>
-      <subject>Initial Release</subject>
-    </entry>
-    <entry>
       <version>v 1.0</version>
-      <date>2014-11-10</date>
-      <subject>Public release, incorporating comments received</subject>
-    </entry>
-    <entry>
-      <version>v 2.0</version>
-      <date>2019-06-26</date>
-      <subject>Enterprise Management, Requirement Clean Up, TDs Applied, Conversion to PP-Module</subject>
+      <date>2019-07-11</date>
+      <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
   <chapter title="Introduction" id="int">
@@ -181,8 +171,7 @@
           </entry>
           <entry>
             <term><abbr title="Protection Profile Module">PP-Module</abbr></term>
-            <description>An implementation-independent set of security requirements for a category
-              of products.</description>
+            <description>An implementation-independent statement of security needs for a TOE type complementary to one or more Base Protection Profiles.</description>
           </entry>
           <entry>
             <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
