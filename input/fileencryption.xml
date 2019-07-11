@@ -27,14 +27,6 @@
       </h:ul>
       <h:br/> This <abbr linkend="Base-PP"/>s is valid because a file encryption product is
       a 3rd party application or application included with a operating system.
-	    
-<h:br/> <h:br/>This PP-Module describes security
-      requirements for an encryption product that is configurable for the data it encrypts and is
-      intended to provide a minimal, baseline set of requirements that are targeted at mitigating
-      well defined and described threats. However, this PP-Module is not complete in itself, but rather
-      extends the Protection Profile for Application Software (<cite linkend="bibAppPP"/>). This
-      introduction will describe the features of a compliant Target of Evaluation, and will also
-      discuss how this PP-Module is to be used in conjunction with the <cite linkend="bibAppPP"/>. 
 
     <h:br/> <h:br/>File encryption is the process of encrypting individual files or sets of
     files (or volumes, or containers, etc.) on an end user device and permitting access to the
