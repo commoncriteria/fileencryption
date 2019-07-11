@@ -3740,7 +3740,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       <entry id="bibAppPP">
         <tag>AppPP</tag>
         <description>
-          <h:a href="https://www.niap-ccevs.org/pp/">Protection Profile for Application Software</h:a>
+          <h:a href="https://www.niap-ccevs.org/pp/">Protection Profile for Application Software, Version 1.3</h:a>
         </description>
       </entry>
       <entry id="FIPS140-2">
