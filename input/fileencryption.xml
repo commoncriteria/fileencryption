@@ -978,7 +978,11 @@ The following section describe any modifications that the ST author must make to
 
             <aactivity>
               <TSS>
-                <h:h4>TSS + KMD  (Key Management Description may be used if necessary details describe proprietary information)</h:h4>
+                <h:h4>TSS</h:h4>
+		      The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
+		      to be no longer needed and when they should be expected to be destroyed.
+		      
+		 <h:h4>KMD</h:h4>     
               The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
