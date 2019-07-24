@@ -440,6 +440,8 @@
             <h:ul><h:li>PP-Module for VPN Client, Version 2.1</h:li>
             <h:li>PP-Module for File Encryption Enterprise Management, Version 1.0</h:li></h:ul>
           </h:p>
+		<h:br/><h:br/>
+		If claiming compliance to a PP-Configuration that includes multiple PP-Modules, the ST author ensure any duplicative SFRs are iterated using unique identifiers. This will allow the reader to easily determine which iteration applies to each TOE component
         </description>
       </cclaim>
      
