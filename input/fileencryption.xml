@@ -973,14 +973,37 @@ The following section describe any modifications that the ST author must make to
               Key (FEK), destroying the KEK using one of the methods in FCS_CKM_EXT.4 is sufficient, since the FEK would no longer 
               be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
 
+          </f-element>
+
+          <f-element id="FCS_CKM_EXT.4.2">
+            <title>The TSF shall destroy all keys and key material when no longer needed.</title>
+
+            <note role="application">
+              
+              Keys, including intermediate keys and key material that are no longer
+              needed are destroyed by using an approved method, FCS_CKM_EXT.4.1. Examples of keys are
+              intermediate keys, submasks. There may be instances where keys or key material
+              that are contained in persistent storage are no longer needed and require destruction. 
+              Base on their implementation, vendors will explain when certain keys are no longer needed. There
+              are multiple situations in which key material is no longer necessary, for example, a wrapped
+              key may need to be destroyed when a password is changed. However, there are instances
+              when keys are allowed to remain in memory, for example, a device identification key. If a
+              PIN was used for a smart card and managed by the TOE, ensuring that the PIN was properly destroyed must be addressed.
+                              
+              
+            </note>
             <aactivity>
-              <TSS>
-                <h:h4>TSS</h:h4>
-		      The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
+              <TSS>   The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
 		      to be no longer needed and when they should be expected to be destroyed.
 		      
-		 <h:h4>KMD</h:h4>     
-              The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
+		      The evaluator shall verify the TSS provides a high level description of what it means
+                for keys and key material to be no longer needed and when then should be expected to
+                be destroyed. <h:br/><h:br/>
+                
+                
+                
+              <h:h4>KMD</h:h4>   
+		       The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
 
@@ -1005,9 +1028,20 @@ The following section describe any modifications that the ST author must make to
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
               method in FCS_CKM_EXT.4.1. The evaluator shall verify that all of the keys capable of decrypting the target key are not 
               able to be derived to reestablish the keychain after their destruction. <h:br/><h:br/>
+		      
+                The evaluator shall verify the KMD includes a description of the areas where keys and
+                key material reside and when the keys and key material are no longer needed.<h:br/><h:br/>
+                
+                The evaluator shall verify the KMD includes a key lifecycle, that includes a description
+                where key material reside, how the key material is used, how it is determined that keys
+                and key material are no longer needed, and how the material is destroyed once it is not
+                needed and that the documentation in the KMD follows FCS_CKM_EXT.4.1 for the
+                destruction.<h:br/><h:br/>
+
 
               </TSS>
-              <Guidance> There are a variety of concerns that may prevent or delay key destruction in some cases.<h:br/><h:br/>
+		    
+              <Guidance>There are a variety of concerns that may prevent or delay key destruction in some cases.<h:br/><h:br/>
 
               The evaluator shall check that the guidance documentation identifies configurations or circumstances that may 
               not strictly conform to the key destruction requirement, and that this description is consistent with the 
@@ -1033,10 +1067,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               The drive should be healthy and contains minimal corrupted data and should be end of lifed before a significant 
               amount of damage to drive health occurs, this minimizes the risk that small amounts of 
               potentially recoverable data may remain in damaged areas of the drive.<h:br/><h:br/>
-
-              </Guidance>
-<Tests>
-  These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <h:br/><h:br/>
+</Guidance>
+              <Tests> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <h:br/><h:br/>
               <testlist>
                 <test>Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
@@ -1102,50 +1134,6 @@ Some examples of what is expected to be in the documentation are provided here. 
                       If the pattern is not found the test fails.</test><h:br/>
                                       
               </testlist>
-            </Tests>
-</aactivity>
-          </f-element>
-
-          <f-element id="FCS_CKM_EXT.4.2">
-            <title>The TSF shall destroy all keys and key material when no longer needed.</title>
-
-            <note role="application">
-              
-              Keys, including intermediate keys and key material that are no longer
-              needed are destroyed by using an approved method, FCS_CKM_EXT.4.1. Examples of keys are
-              intermediate keys, submasks. There may be instances where keys or key material
-              that are contained in persistent storage are no longer needed and require destruction. 
-              Base on their implementation, vendors will explain when certain keys are no longer needed. There
-              are multiple situations in which key material is no longer necessary, for example, a wrapped
-              key may need to be destroyed when a password is changed. However, there are instances
-              when keys are allowed to remain in memory, for example, a device identification key. If a
-              PIN was used for a smart card and managed by the TOE, ensuring that the PIN was properly destroyed must be addressed.
-                              
-              
-            </note>
-            <aactivity>
-              <TSS> The evaluator shall verify the TSS provides a high level description of what it means
-                for keys and key material to be no longer needed and when then should be expected to
-                be destroyed. <h:br/><h:br/>
-                
-                
-                
-              <h:h4>KMD</h:h4>           
-                The evaluator shall verify the KMD includes a description of the areas where keys and
-                key material reside and when the keys and key material are no longer needed.<h:br/><h:br/>
-                
-                The evaluator shall verify the KMD includes a key lifecycle, that includes a description
-                where key material reside, how the key material is used, how it is determined that keys
-                and key material are no longer needed, and how the material is destroyed once it is not
-                needed and that the documentation in the KMD follows FCS_CKM_EXT.4.1 for the
-                destruction.<h:br/><h:br/>
-
-
-              </TSS>
-              <Guidance>There are no additional guidance evaluation activities for FCS_CKM_EXT.4.2.<h:br/><h:br/>
-
-</Guidance>
-              <Tests> There are no additional test evaluation activities for FCS_CKM_EXT.4.2.
 
             </Tests> 
 </aactivity>
