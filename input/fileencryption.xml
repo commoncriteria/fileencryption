@@ -1003,28 +1003,28 @@ The following section describe any modifications that the ST author must make to
                 
                 
               <h:h4>KMD</h:h4>   
-		       The evaluator examines the TSS to ensure it describes how the keys are managed in volatile memory. 
+		       The evaluator examines the KMD to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
 
-              The evaluator shall check to ensure the TSS lists each type of key that is stored in in non-volatile memory, and 
+              The evaluator shall check to ensure the KMD lists each type of key that is stored in in non-volatile memory, and 
               identifies how the TOE interacts with the underlying platform to manage keys (e.g., store, retrieve, destroy). 
               The description includes details on the method of how the TOE interacts with the platform, including an identification 
               and description of the interfaces it uses to manage keys (e.g., file system APIs, platform key store APIs).<h:br/><h:br/>
 
               The evaluator examines the interface description for each different media type to ensure that the 
-              interface supports the selection(s) and description in the TSS.<h:br/><h:br/>
+              interface supports the selection(s) and description in the KMD.<h:br/><h:br/>
 
               If the ST makes use of the open assignment and fills in the type of pattern that is used, the evaluator 
-              examines the TSS to ensure it describes how that pattern is obtained and used. The evaluator shall 
+              examines the KMD to ensure it describes how that pattern is obtained and used. The evaluator shall 
               verify that the pattern does not contain any CSPs.<h:br/><h:br/>
 
-              The evaluator shall check that the TSS identifies any configurations or 
+              The evaluator shall check that the KMD identifies any configurations or 
               circumstances that may not strictly conform to the key destruction requirement.<h:br/><h:br/>
 
               If the selection "destruction of all KEKs protecting target key, 
               where none of the KEKs protecting the target key are derived" is included the evaluator shall examine the TOE's 
-              keychain in the TSS and identify each instance when a key is destroyed by this method. In each instance the evaluator 
+              keychain in the KMD and identify each instance when a key is destroyed by this method. In each instance the evaluator 
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
               method in FCS_CKM_EXT.4.1. The evaluator shall verify that all of the keys capable of decrypting the target key are not 
               able to be derived to reestablish the keychain after their destruction. <h:br/><h:br/>
