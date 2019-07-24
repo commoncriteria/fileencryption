@@ -119,7 +119,7 @@
       each platform listed in the ST) to identify Operational Environment(s) with the necessary
       features and to provide instructions for how to configure it correctly and securely. <h:br/> <h:br/>
 
-      The PP-Module contains requirements (Section 4) that must be met by either the TOE or the platform
+      The PP-Module contains requirements (Section 5 that must be met by either the TOE or the platform
       on which it operates. A "platform" is defined as a separate entity whose functions may be
       used by the TOE, but is not part of the TOE. A third-party library used by the TOE is not
       considered part of the TOE's "platform", but (for instance) cryptographic functionality that
