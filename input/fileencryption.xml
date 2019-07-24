@@ -1109,9 +1109,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <f-element id="FCS_CKM_EXT.4.2">
             <title>The TSF shall destroy all keys and key material when no longer needed.</title>
 
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/>
+            <note role="application">
               
               Keys, including intermediate keys and key material that are no longer
               needed are destroyed by using an approved method, FCS_CKM_EXT.4.1. Examples of keys are
@@ -1184,9 +1182,6 @@ Some examples of what is expected to be in the documentation are provided here. 
               </selectables></selectable>
               </selectables>.</title>
                         
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.</note>
             
             <aactivity>
               <TSS>
@@ -1282,9 +1277,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   </selectables></selectable>
               </selectables>.
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/>
+            <note role="application">
               
               
               Key Chaining is the method of using multiple layers of
@@ -1842,9 +1835,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 </selectable>
               </selectables>.
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/>
+            <note role="application">
 			  
 			  If the ST author selects "provide user authorization", the selection-based requirement FCS_VAL_EXT.2 must also be claimed.<h:br/><h:br/>
               
@@ -1970,9 +1961,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
               </selectables></h:b>.
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/>
+            <note role="application">
               
               The intent of this requirement is to express the management
               capabilities that may be included in the TOE. Several common options are given:<h:br/>
@@ -2096,9 +2085,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 </selectable>
                 </selectables>.
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/>
+            <note role="application">
               
               The plaintext key storage in non-volatile memory is allowed for
               several reasons. If the keys exist within protected memory that is not user accessible
@@ -2919,9 +2906,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <title>The TSF shall generate all salts using an RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and with entropy 
               corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.6.3.</title>
             
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+            <note role="application">
               
               
               The password/passphrase is represented on the host machine as a sequence of characters whose 
@@ -3048,10 +3033,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                         
                       </selectables> and no other standards</h:b>.
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
-              
+            <note role="application">
               This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
             <aactivity>
@@ -3176,9 +3158,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <selectable>4096</selectable>
               </selectables> bits that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+            <note role="application">
               
               This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
@@ -3306,9 +3286,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   </selectables> bits</h:b> that meet the following:
                   [<h:i>AES as specified in SP 800-38A</h:i>].
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+            <note role="application">
               
               This requirement is used in the body of the ST if the ST author chooses to
                 use AES encryption/decryption for protecting the keys as part of the key chaining approach
@@ -3375,9 +3353,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     </selectables> using the keyed-hash functions specified in FCS_COP.1<h:b>(4) (from <cite linkend="bibAppPP"/>)</h:b>, such that the output is at least of
                     equivalent security strength (in number of bits) to the [FEK]</h:i>].
             </title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+            <note role="application">
               
               This requirement is used in the body of the ST if the ST author chooses to
               use key derivation in the key chaining approach that is specified in FCS_KYC_EXT.1.
@@ -3455,9 +3431,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               <selectable>HMAC-SHA-384</selectable>
               <selectable>HMAC-SHA-512</selectable>
             </selectables> to generate an intermediate key</h:i>].</title>
-            <note role="application">This SFR is also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+            <note role="application">
               
               This requirement specifies the way that a product may combine the
               various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on FCS_KYC_EXT.1.1.</note>
