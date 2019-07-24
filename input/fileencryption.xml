@@ -971,12 +971,7 @@ The following section describe any modifications that the ST author must make to
               that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
               type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a File Encryption 
               Key (FEK), destroying the KEK using one of the methods in FCS_CKM_EXT.4 is sufficient, since the FEK would no longer 
-              be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). 
-		  
-		  <h:br/><h:br/>
-		  
-		  This requirement is in addition to the same requirement in the File Encryption Module, it covers a different 
-		    keys that need to be destroyed, if both modules are included both requirements must be included.</note>
+              be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
 
             <aactivity>
               <TSS>
