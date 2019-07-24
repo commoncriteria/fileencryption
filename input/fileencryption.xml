@@ -59,7 +59,7 @@
       asymmetric key pair, and is used for both encryption and decryption of the
       FEK. If a distinction needs to be made between the public key (which encrypts the FEK) and
       the private key (which decrypts the FEK), this is done in the requirements and the evaluation
-      activities below.<h:br/> <h:br/> 
+      activities.<h:br/> <h:br/> 
 
       The TOE may be capable of supporting multiple users with different authorization factors, such that different users
       are able to use the same platform and not be able to read each other's encrypted files. The
