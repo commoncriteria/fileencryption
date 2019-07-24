@@ -1981,7 +1981,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   conformance to this PP-Module.</h:li>
               </h:ul>
               <h:br/>
-              This list is in addition to the list of functions, SMF_FMT.1 in the Application Software Protection Profile.
+              This list is in addition to the list of functions as specified in, FMT_SMF.1 in the AppPP.
             </note>
             <aactivity>
               The evaluation activities for this component will be driven by the selections
