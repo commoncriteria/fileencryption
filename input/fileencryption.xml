@@ -1311,7 +1311,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               that are used to protect the KEK or FEK. <h:br/><h:br/>
               
               
-                <h:h4>KMD</h:h4>The evaluator shall examine the TSS to ensure it describes 
+                <h:h4>KMD</h:h4>The evaluator shall examine the KMD to ensure it describes 
               each key chain in detail, and these descriptions correspond with the selections of the requirement. 
               The description of each key chain shall be reviewed to ensure the options for maintaining the key chain are documented.<h:br/><h:br/>
 
