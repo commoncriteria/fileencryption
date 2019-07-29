@@ -2909,7 +2909,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               they should select "no other characters".
               
               <h:br/><h:br/>For FCS_CKM_EXT.6.3, the ST author selects the parameters based on the PBKDF used by the TSF. The key cryptographic
-              key sizes in FCS_CKM_EXT.6.3 are made to correspond to the KEK key sizes selected in FCS_CKM_EXT.3.
+              key sizes in FCS_CKM_EXT.6.3 are made to correspond to the KEK key sizes selected in FCS_KYC_EXT.1.
               
               <h:br/><h:br/>The password/passphrase must be conditioned into a string of bits that forms the submask to be used as input into the
               KEK. Conditioning is performed using one of the identified hash functions in accordance with the process described in
@@ -2952,7 +2952,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 are supported by the selections in this component as well as the selections concerning
                 the hash function itself. The evaluator shall verify that the TSS contains a description
                 of how the output of the hash function is used to form the submask that will be input
-                into the function and is the same length as the KEK as specified in FCS_CKM_EXT.4.
+                into the function and is the same length as the KEK as specified in FCS_KYC_EXT.1.
                 
                 <h:br/><h:br/>For the NIST SP 800-132-based conditioning of the password/passphrase, the required
                 evaluation activities will be performed when doing the evaluation activities for the
