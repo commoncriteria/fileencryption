@@ -2584,7 +2584,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              </f-component>
          
          
-             <f-component name="Protection of Third-Party Data" id="FDP_PRT_EXT.3">
+             <f-component name="Protection of Third-Party Data" id="fdp_prt_ext.3">
                <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the Base-PP but 
                  does not prevent the Base-PP functions from being enforced.
                </consistency-rationale>
