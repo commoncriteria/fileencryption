@@ -766,6 +766,7 @@ The following section describe any modifications that the ST author must make to
       </sec-func-req-dir>
       
       <modified-sfrs></modified-sfrs>
+      <additional-sfrs></additional-sfrs>
       <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
