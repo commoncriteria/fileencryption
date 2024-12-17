@@ -1,4 +1,4 @@
-Protection Profile for File Encryption
+PP-Module for Software File Encryption
 ===========
 ![Build](https://github.com/commoncriteria/fileencryption/workflows/Build/badge.svg)
 [![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/fileencryption.svg?maxAge=2592000)](https://github.com/commoncriteria/fileencryption/issues)
