@@ -29,7 +29,7 @@ issues Open]]
 
 === Release Version
 
-* [PP Module for Software File Encryption Version 1.0](https://www.niap-ccevs.org/protectionprofiles/415)
+* https://www.niap-ccevs.org/protectionprofiles/415[PP Module for Software File Encryption Version 1.0]
 
 === Contributing
 
