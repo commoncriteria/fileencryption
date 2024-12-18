@@ -12,12 +12,12 @@ A list of products that have passed evaluation against this Protection Profile c
 
 ## Draft Version
 
-* [Module for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-release.html) (html)
-* [Supporting Document for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption-sd.html) (html)
-* [Combined Document for Software File Encryption Version](https://commoncriteria.github.io/pp/fileencryption/fileencryption.html) (html)
+* [PP Module for Software File Encryption](https://commoncriteria.github.io/fileencryption/master/fileencryption-release.html) (html)
+* [Supporting Document for Software File Encryption Version](https://commoncriteria.github.io/fileencryption/master/fileencryption-sd.html) (html)
+* [Combined Document for Software File Encryption Version](https://commoncriteria.github.io/fileencryption/master/fileencryption.html) (html)
 
 ## Release Version
-* [Module for Software File Encryption Version 1.0](https://www.niap-ccevs.org/Profile/Info.cfm?id=318)
+* [Module for Software File Encryption Version 1.0](https://www.niap-ccevs.org/protectionprofiles/415)
 
 ## Contributing
 
