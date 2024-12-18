@@ -49,7 +49,7 @@ tracker]
 To clone this project along with its _transforms_ submodule run:
 
 ....
-  git clone --recursive git@github.com:commoncriteria/application.git
+  git clone --recursive git@github.com:commoncriteria/fileencryption.git
 ....
 
 To pull updates from the upstream _transforms_ submodule and commit them
