@@ -1,59 +1,83 @@
-PP-Module for Software File Encryption
-===========
-![Build](https://github.com/commoncriteria/fileencryption/workflows/Build/badge.svg)
-[![GitHub issues Open](https://img.shields.io/github/issues/commoncriteria/fileencryption.svg?maxAge=2592000)](https://github.com/commoncriteria/fileencryption/issues)
-![license](https://img.shields.io/badge/license-Unlicensed-blue.svg)
+== PP Module for Software File Encryption
 
-This repository hosts the draft version of the Module for Software File Encryption Version based on the 
-[Essential Security Requirements (ESR)](https://commoncriteria.github.io/pp/fileencryption/fileencryption-esr.html) for this technology class of 
-products. This repository is used to facilitate collaboration and development on the draft document. 
-See the [release](#Release-Version) section if you are looking for the officially released version for evaluations. 
-A list of products that have passed evaluation against this Protection Profile can be found [here](https://www.niap-ccevs.org/Product/PCL.cfm).
+[cols="1,1,1,1,1,1,1,1"]
+|===
+8+|fileencryption
+| https://github.com/commoncriteria/fileencryption/tree/master[master] 
+a| https://commoncriteria.github.io/fileencryption/master/fileencryption-release.html[📄]
+a|[link=https://github.com/commoncriteria/fileencryption/blob/gh-pages/master/ValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/fileencryption/gh-pages/master/validation.svg[Validation]
+a|[link=https://github.com/commoncriteria/fileencryption/blob/gh-pages/master/SanityChecksOutput.md]
+image::https://raw.githubusercontent.com/commoncriteria/fileencryption/gh-pages/master/warnings.svg[SanityChecks]
+a|[link=https://github.com/commoncriteria/fileencryption/blob/gh-pages/master/SpellCheckReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/fileencryption/gh-pages/master/spell-badge.svg[SpellCheck]
+a|[link=https://github.com/commoncriteria/fileencryption/blob/gh-pages/master/TDValidationReport.txt]
+image::https://raw.githubusercontent.com/commoncriteria/fileencryption/gh-pages/master/tds.svg[TDs]
+a|image::https://raw.githubusercontent.com/commoncriteria/fileencryption/gh-pages/master/transforms.svg[transforms,150]
+a| [link=https://github.com/commoncriteria/fileencryption/blob/gh-pages/master/HTMLs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/fileencryption/gh-pages/master/html_count.svg[HTML Count]
+[link=https://github.com/commoncriteria/fileencryption/blob/gh-pages/master/PDFs.adoc]
+image::https://raw.githubusercontent.com/commoncriteria/fileencryption/gh-pages/master/pdf_count.svg[PDF Count]
+|===
 
-## Draft Version
+https://github.com/commoncriteria/fileencryption/issues[image:https://img.shields.io/github/issues/commoncriteria/fileencryption.svg?maxAge=2592000[GitHub
+issues Open]]
 
-* [PP Module for Software File Encryption](https://commoncriteria.github.io/fileencryption/master/fileencryption-release.html) (html)
-* [Supporting Document for Software File Encryption Version](https://commoncriteria.github.io/fileencryption/master/fileencryption-sd.html) (html)
-* [Combined Document for Software File Encryption Version](https://commoncriteria.github.io/fileencryption/master/fileencryption.html) (html)
+=== Draft Version
 
-## Release Version
-* [Module for Software File Encryption Version 1.0](https://www.niap-ccevs.org/protectionprofiles/415)
+* https://commoncriteria.github.io/fileencryption/master/fileencryption-release.html[PP Module for Software File Encryption] (html)
 
-## Contributing
+=== Release Version
 
-If you are interested in contributing directly to future versions the this Module, please consider joining the NIAP technical community.
-* [How to join the NIAP Technical Community (Mailing list and updates)](https://www.niap-ccevs.org/NIAP_Evolution/tech_communities.cfm)
+* [PP Module for Software File Encryption Version 1.0](https://www.niap-ccevs.org/protectionprofiles/415)
 
-## Feedback
+=== Contributing
 
-Questions, comments, and fixes can be submitted to the [repository issue tracker](https://github.com/commoncriteria/fileencryption/issues)
+If you are interested in contributing directly to future versions the
+this Protection Profile, please consider joining the NIAP technical
+community.
+* [NIAP Technical Communities](https://www.niap-ccevs.org/technical-communities)
 
-## Quickstart
+=== Feedback
+
+Questions, comments, and fixes can be submitted to the
+https://github.com/commoncriteria/application/issues[repository issue
+tracker]
+
+=== Quickstart
+
 To clone this project along with its _transforms_ submodule run:
 
-````
-  git clone --recursive git@github.com:commoncriteria/fileencryption.git
-````
-To pull updates from the upstream _transforms_ submodule and commit them run:
-````
+....
+  git clone --recursive git@github.com:commoncriteria/application.git
+....
+
+To pull updates from the upstream _transforms_ submodule and commit them
+run:
+
+....
  git submodule update --remote transforms
  git add transforms
  git commit
-````
+....
 
-### Development Info
-[Help working with Transforms Submodule](https://github.com/commoncriteria/transforms/wiki/Working-with-Transforms-as-a-Submodule)
+==== Development Info
 
-## Repository Content
-* input - Contains the 'meat' of the project. It's the input content (in XML form) that gets transformed to readable html.
-* output - The output directory where the html is placed after transformation.
+* https://github.com/commoncriteria/transforms/wiki/Working-with-Transforms-as-a-Submodule[Help
+working with Transforms Submodule]
+
+=== Repository Content
+
+* input - Contains the `meat' of the project. It’s the input content (in
+XML form) that gets transformed to readable html.
+* output - The output directory where the html is placed after
+transformation.
 * output/images - The directory where images are stored
-* transforms - Points to the transform subproject which is really a repository for resources shared amongst many Common Criteria projects.
+* transforms - Points to the transform subproject which is really a
+repository for resources shared amongst many Common Criteria projects.
 
-## Links 
-* [National Information Assurance Partnership (NIAP)](https://www.niap-ccevs.org/)
-* [Common Criteria Portal](https://www.commoncriteriaportal.org/)
+=== Links
 
-## License
-
-See [License](./LICENSE)
+* https://www.niap-ccevs.org/[National Information Assurance Partnership
+(NIAP)]
+* https://www.commoncriteriaportal.org/[Common Criteria Portal]
