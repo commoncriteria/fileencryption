@@ -28,7 +28,7 @@
      The scope of the File Encryption PP-Module is to describe the security functionality of a file encryption 
 	    product in terms of [CC] and to define functional and assurance requirements for such products. 
 	    This PP-Module is intended for use with the following Base-PP: <h:ul>
-        <h:li><xref to="b-apppp"/></h:li>	      
+        <h:li><xref to="bibAppPP"/></h:li>	      
       </h:ul><h:br/><h:br/>     
       This Base-PP is valid because a file encryption product is a 3rd party application or application included with a operating system.<h:br/><h:br/>
     
