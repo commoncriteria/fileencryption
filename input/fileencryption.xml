@@ -2,7 +2,11 @@
 <?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<Module target-products="File Encryption" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://w.w3.org/1999/xhtml" name="file encryption">  
+<Module target-product="File Encryption" name="PP-Module for File Encryption"
+  xmlns="https://niap-ccevs.org/cc/v1"
+  xmlns:sec="https://niap-ccevs.org/cc/v1/section"
+  xmlns:h="http://www.w3.org/1999/xhtml">
+  
   <PPReference>
     <ReferenceTable>
       <PPVersion>1.0</PPVersion>
@@ -18,24 +22,24 @@
       <subject>Initial Release</subject>
     </entry>
   </RevisionHistory>
-  <chapter title="Introduction" id="int">
-    <section title="Overview" id="ppoverview"> 
- The scope of the File Encryption <abbr linkend="PP-Module"/> is to describe the security functionality of a file encryption 
-	    product in terms of [<abbr linkend="CC"/>] and to define functional and assurance requirements for such products. 
-	    This <abbr linkend="PP-Module"/> is intended for use with the following Base-PP <h:br/> <h:br/> <h:ul>
-        <h:li>Application Software Protection Profile, Version 1.3</h:li>
-      </h:ul>
-      <h:br/> This Base-PP is valid because a file encryption product is
-      a 3rd party application or application included with a operating system.
-
-    <h:br/> <h:br/>File encryption is the process of encrypting individual files or sets of
-    files (or volumes, or containers, etc.) on an end user device and permitting access to the
-    encrypted data only after proper authentication is provided. Encryption products that
-    conform to this PP-Module must render information inaccessible to anyone (or, in the case of other
-    software on the machine, anything) that does not have the proper authentication credential.  
-    The encrypted files may be on a local machine or may be sent to other devices.
-
-      <h:br/> <h:br/>The foremost security objective of file
+  
+  <sec:Introduction>
+    <sec:Overview> 
+     The scope of the File Encryption PP-Module is to describe the security functionality of a file encryption 
+	    product in terms of [CC] and to define functional and assurance requirements for such products. 
+	    This PP-Module is intended for use with the following Base-PP: <h:ul>
+        <h:li><xref to="b-apppp"/></h:li>	      
+      </h:ul><h:br/><h:br/>     
+      This Base-PP is valid because a file encryption product is a 3rd party application or application included with a operating system.<h:br/><h:br/>
+    
+      File encryption is the process of encrypting individual files or sets of
+      files (or volumes, or containers, etc.) on an end user device and permitting access to the
+      encrypted data only after proper authentication is provided. Encryption products that
+      conform to this PP-Module must render information inaccessible to anyone (or, in the case of other
+      software on the machine, anything) that does not have the proper authentication credential.  
+      The encrypted files may be on a local machine or may be sent to other devices.<h:br/> <h:br/>
+      
+      The foremost security objective of file
       encryption is to force an adversary to perform a cryptographic exhaust against a
       prohibitively large key space. Technology is changing at a rapid rate and the
       definition of mobile devices and traditional laptop/PC devices is quickly merging.
@@ -43,12 +47,12 @@
       describe any differences. Either of these use cases may be an enterprise managed file encryption client. 
       Some of the security functionality may be provided by the OE.
       The vendor is required to provide configuration guidance (AGD_PRE, AGD_OPE) to correctly install and 
-      administer the TOE for every operational environment supported.<h:br/>  
-
-      <h:br/> The data that is to be secured by the encryption product is encrypted using a File
+      administer the TOE for every operational environment supported.<h:br/><h:br/>
+      
+      The data that is to be secured by the encryption product is encrypted using a File
       Encryption Key (FEK). A file encryptor may have zero or more Key Encryption Keys (KEKs) that
       protect (encrypt) the FEK. The number of keys and the types of keys may vary, but the design
-      should follow one of the following models:<h:br/>
+      should follow one of the following models:<h:br/><h:br/>
       <h:ol>
         <h:li>Condition a Password/Passphrase directly into a FEK</h:li>
         <h:li>Condition a Password/Passphrase into a KEK that is used to encrypt the randomly
@@ -59,7 +63,7 @@
       asymmetric key pair, and is used for both encryption and decryption of the
       FEK. If a distinction needs to be made between the public key (which encrypts the FEK) and
       the private key (which decrypts the FEK), this is done in the requirements and the evaluation
-      activities.<h:br/> <h:br/> 
+      activities.<h:br/><h:br/> 
 
       The TOE may be capable of supporting multiple users with different authorization factors, such that different users
       are able to use the same platform and not be able to read each other's encrypted files. The
@@ -107,9 +111,8 @@
       the FEK. The primary requirement dictating implementation of data authentication using a
       keyed hash function is FDP_AUT_EXT.2.<h:br/> <h:br/> Lastly, asymmetric signing in conjunction with a
       secure hash function may be used to authenticate the data. The implementation must use an
-      approved signing algorithm in accordance with FCS_COP.1(3) (from the <cite
-        linkend="bibAppPP"/>) and an approved secure hashing function in accordance with
-      FCS_COP.1(2) (from the <cite linkend="bibAppPP"/>). The primary requirement addressing data
+      approved signing algorithm in accordance with FCS_COP.1(3) (from the [AppPP]) and an approved secure hashing function in accordance with
+      FCS_COP.1(2) (from the [AppPP]). The primary requirement addressing data
       authentication via asymmetric signing is FDP_AUT_EXT.3. <h:br/><h:br/>
 
       <h:b>The TOE and Its Supporting Environment:</h:b><h:br/>
@@ -154,236 +157,100 @@
       possessing valid authorization factors for the TOE. While some of these functions specified
       in the PP-Module might be considered "administrative" functions for other types of TOEs, for file
       encryption products it is the expectation that all of these functions can be performed by
-      the end user of the software. 
-    </section>
+      the end user of the software.
+    </sec:Overview>
 
-    <section id="glossary" title="Terms">
-      <subsection title="Common Criteria Terms"> 
-        <glossary>
-          <entry>
-            <term><abbr title="Common Criteria">CC</abbr></term>
-            <description>Common Criteria for Information Technology Security
-              Evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Protection Profile">PP</abbr></term>
-            <description>An implementation-independent set of security requirements for a category
-              of products.</description>
-          </entry>
-		 <entry>
-            <term><abbr title="Protection Profile Configuration">PP-Configuration</abbr></term>
-            <description> A comprehensive set of security requirements for a product type that 
-		    consists of at least one Base-PP and at least one PP-Module.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Protection Profile Module">PP-Module</abbr></term>
-            <description>An implementation-independent statement of security needs for a TOE type complementary to one or more Base Protection Profiles.</description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Assurance Requirement">SAR</abbr></term>
-            <description>A requirement to assure the security of the <abbr linkend="TOE"/>.
-            </description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Functional Requirement">SFR</abbr></term>
-            <description>A requirement for security enforcement by the <abbr linkend="TOE"/>.
-            </description>
-          </entry>
-          <entry>
-            <term><abbr title="Security Target">ST</abbr></term>
-            <description>A set of implementation-dependent security requirements for a specific
-              product.</description>
-          </entry>
-
-          <entry>
-            <term><abbr title="Target of Evaluation">TOE</abbr></term>
-            <description>The product under evaluation. In this case, file encryption software and its
-              supporting documentation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="TOE Security Functionality">TSF</abbr></term>
-            <description>The security functionality of the product under evaluation.</description>
-          </entry>
-          <entry>
-            <term><abbr title="TOE Summary Specification">TSS</abbr></term>
-            <description>A description of how a <abbr linkend="TOE"/> satisfies the SFRs in a <abbr
-              linkend="ST"/>. </description>
-          </entry>
-
-        </glossary>
-      </subsection>
-
-      <subsection title="Technical Terms">
-        <glossary>
-          <entry>
-            <term>Administrator</term>
-            <description> Authorized Users with higher privileges and typically handle configuration
-              and management functions, such as configuring and updating the TOE. </description>
-          </entry>
-          <entry>
-            <term>Authorization factor (AF) </term>
-            <description>A value submitted by the user, present on the host, or present on a
-              separate protected hardware physical device used to establish that the user (and
-              potentially the host) is in the community authorized to use the TOE. The authorization
-              factors are used to generate the KEK. Note that these AFs are not used to establish
-              the particular identity of the user. </description>
-          </entry>
-          <entry>
-            <term>Authorized User </term>
-            <description>A user who has been provided Authorization factors by the administrator to
-              use the TOE. </description>
-          </entry>
-          <entry>
-            <term>Data Encryption </term>
-            <description>The process of encrypting all user data written to volatile memory.
-            </description>
-          </entry>
-          <entry>
-            <term>Deterministic Random Bit Generator (DRBG)</term>
-            <description>A cryptographic algorithm that produces a sequence of bits from a secret
+    <cc-terms>
+      <term abbr="CC" full="Common Criteria">Common Criteria for Information Technology Security Evaluation.</term>
+      <term abbr="PP" full="Protection Profile">An implementation-independent set of security requirements for a category of products.</term>
+      <term abbr="PP-Configuration" full="Protection Profile Configuration">A comprehensive set of security requirements for a product type that 
+		    consists of at least one Base-PP and at least one PP-Module.</term>
+      <term abbr="PP-Module" full="Protection Profile Module">An implementation-independent statement of security needs for a TOE type complementary
+        to one or more Base Protection Profiles.</term>
+      <term abbr="SAR" full="Security Assurance Requirement">A requirement to assure the security of the TOE.</term>
+      <term abbr="SFR" full="Security Functional Requirement">A requirement for security enforcement by the TOE.</term>
+      <term abbr="ST" full="Security Target">A set of implementation-dependent security requirements for a specific product.</term>
+      <term abbr="TOE" full="Target of Evaluation">The product under evaluation. In this case, file encryption software and its supporting documentation.</term>
+      <term abbr="TSF" full="TOE Security Functionality">The security functionality of the product under evaluation.</term>
+      <term abbr="TSS" full="TOE Summary Specification">A description of how a TOE satisfies the SFRs in an ST.</term>
+    </cc-terms>
+      
+    <tech-terms>  
+      <term full="Administrator">Authorized Users with higher privileges and typically handle configuration and management functions, such as configuring and 
+        updating the TOE.</term>
+      <term abbr="AF" full="Authorization factor">A value submitted by the user, present on the host, or present on a separate protected hardware physical 
+        device used to establish that the user (and potentially the host) is in the community authorized to use the TOE. The authorization factors are used
+        to generate the KEK. Note that these AFs are not used to establish the particular identity of the user.</term>
+      <term full="Authorized User">A user who has been provided Authorization factors by the administrator to
+              use the TOE.</term>
+      <term full="Data Encryption">The process of encrypting all user data written to volatile memory.</term>
+      <term abbr="DRBG" full="Deterministic Random Bit Generator">A cryptographic algorithm that produces a sequence of bits from a secret
               initial seed value. Without knowledge of the seed value, the output sequence should be
-              unpredictable up to the security level of the DRBG. </description>
-          </entry>
-          <entry>
-            <term>Entropy Source </term>
-            <description>This cryptographic function provides a seed for a random bit generator by
+              unpredictable up to the security level of the DRBG.</term>
+      <term full="Entropy Source">This cryptographic function provides a seed for a random bit generator by
               accumulating the outputs from one or more noise sources. The functionality includes a
               measure of the minimum work required to guess a given output and tests to ensure that
-              the noise sources are operating properly. </description>
-          </entry>
-          <entry>
-            <term>File/Set of files </term>
-            <description>The user data that is selected to be encrypted, which can include
+              the noise sources are operating properly.</term>
+      <term full="File/Set of files">The user data that is selected to be encrypted, which can include
               individual file encryption (with a FEK per file) or a set of files encrypted with a
-              single FEK. </description>
-          </entry>
-          <entry>
-            <term>File Authentication Key (FAK) </term>
-            <description>The secret value used as input when a keyed hash function is used to
-              perform data authentication. </description>
-          </entry>
-          <entry>
-            <term>File Encryption Key (FEK) </term>
-            <description>The key that is used by the encryption algorithm to encrypt the selected
-              user data on the host machine. </description>
-          </entry>
-          <entry>
-            <term>Key Chaining</term>
-            <description>The method of using multiple layers of encryption keys to protect data. 
-              A top layer key encrypts a lower layer key which encrypts the data; this method can have any number of layers.</description>
-          </entry>
-          <entry>
-            <term>Key Encryption Key (KEK) </term>
-            <description>The key that is used to encrypt another key. </description>
-          </entry>
-          <entry>
-            <term>Keying Material </term>
-            <description>The KEK, FEK, authorization factors and random numbers or any other values
-              from which keys are derived. </description>
-          </entry>
-          <entry>
-            <term>Key Sanitization</term>
-            <description>A method of sanitizing encrypted data by securely overwriting the key, as described in the key destruction requirement, that was encrypting the data. 
-            </description>
-          </entry>
-          <entry>
-            <term>Noise Source </term>
-            <description>The component of an RBG that contains the non-deterministic,
-              entropy-producing activity. </description>
-          </entry>
-          <entry>
-            <term>Operational Environment </term>
-            <description>Hardware and software that are outside the TOE boundary that support the
+              single FEK.</term>
+      <term abbr="FAK" full="File Authentication Key">The secret value used as input when a keyed hash function is used to
+              perform data authentication.</term>
+      <term abbr="FEK" full="File Encryption Key">The key that is used by the encryption algorithm to encrypt the selected
+              user data on the host machine.</term>
+      <term full="Key Chaining">The method of using multiple layers of encryption keys to protect data. 
+              A top layer key encrypts a lower layer key which encrypts the data; this method can have any number of layers.</term>
+      <term abbr="KEK" full="Key Encryption Key">The key that is used to encrypt another key.</term>
+      <term full="Keying Material">The KEK, FEK, authorization factors and random numbers or any other values
+              from which keys are derived.</term>
+      <term full="Key Sanitization">A method of sanitizing encrypted data by securely overwriting the key, as described in the key destruction requirement, that was encrypting the data.</term>
+      <term full="Noise Source">The component of an RBG that contains the non-deterministic,
+              entropy-producing activity.</term>
+      <term full="Operational Environment">Hardware and software that are outside the TOE boundary that support the
               TOE functionality and security policy, including the platform, its firmware, and
-              the operating system. </description>
-          </entry>
-          <entry>
-            <term>Password </term>
-            <description>A short string of characters used for authorization to the data on the
-              device. </description>
-          </entry>
-          <entry>
-            <term>Passphrase</term>
-            <description>A string of words that may be used for authorization to the data
-              on the device. </description>
-          </entry>
-      <entry>
-        <term>Primary Key Chain</term>
-        <description>The direct key chain from the authorization factor to the FEK.</description>
-      </entry>
-          <entry>
-            <term>Random Bit Generator (RBG) </term>
-            <description>A cryptographic function composed of an entropy source and DRBG that is
-              invoked for random bits needed to produce keying material.</description>
-          </entry>
-          <entry>
-            <term>Sensitive Data </term>
-            <description>Any data of which the compromise with respect to loss, misuse, or
+              the operating system.</term>
+      <term full="Password">A short string of characters used for authorization to the data on the
+              device.</term>
+      <term full="Passphrase">A string of words that may be used for authorization to the data
+              on the device.</term>
+      <term full="Primary Key Chain">The direct key chain from the authorization factor to the FEK.</term>
+      <term abbr="RBG" full="Random Bit Generator">A cryptographic function composed of an entropy source and DRBG that is
+              invoked for random bits needed to produce keying material.</term>
+      <term full="Sensitive Data">Any data of which the compromise with respect to loss, misuse, or
               unauthorized access to or modification of could adversely affect the interest of the
-              TOE user. </description>
-          </entry>
-          <entry>
-            <term>Shutdown </term>
-            <description>Power down or unintentional loss of power of the TOE or platform.
-            </description>
-          </entry>
-      <entry>
-        <term>Supplemental Key Chain</term>
-        <description>Other key chains that add protection or functionality without compromising the security of the primary key chain.</description>
-      </entry>
-          <entry>
-            <term>System files </term>
-            <description>Files that reside on the host machine that are used in the operation of
-              the file encryption software. </description>
-          </entry>
-          <entry>
-            <term>Temporary File </term>
-            <description>A file created by an application for short term storage of sensitive data.
-            </description>
-          </entry>
-          <entry>
-            <term>Trusted Host </term>
-            <description>Source/destination host configured and maintained to provide the TOE with
+              TOE user.</term>
+      <term full="Shutdown">Power down or unintentional loss of power of the TOE or platform.</term>
+      <term full="Supplemental Key Chain">Other key chains that add protection or functionality without compromising the security of the primary key chain.</term>
+      <term full="System files">Files that reside on the host machine that are used in the operation of
+              the file encryption software.</term>
+      <term full="Temporary File">A file created by an application for short term storage of sensitive data.</term>
+      <term full="Trusted Host">Source/destination host configured and maintained to provide the TOE with
               appropriate IT security commensurate with the value of the user data protected by the
-              TOE. </description>
-          </entry>
-          <entry>
-            <term>Unauthorized User </term>
-            <description>A user who has not been authorized to use the TOE and decrypt encrypted
-              user data. </description>
-          </entry>
-          <entry>
-            <term>User Data </term>
-            <description>All data that originate on the host, or is derived from data that
+              TOE.</term>
+      <term full="Unauthorized User">A user who has not been authorized to use the TOE and decrypt encrypted
+              user data.</term>
+      <term full="User Data">All data that originate on the host, or is derived from data that
               originate on the host, excluding system files and signed firmware updates from the TOE
-              manufacturer. </description>
-          </entry>
-          <entry>
-            <term>Volatile memory </term>
-            <description>Memory that loses its content when power is turned off. </description>
-          </entry>
-          <entry>
-            <term>Zeroize</term>
-            <description>This term is used to make a distinction between dereferencing a memory
+              manufacturer.</term>
+      <term full="Volatile memory">Memory that loses its content when power is turned off.</term>
+      <term full="Zeroize">This term is used to make a distinction between dereferencing a memory
               location and actively overwriting it with a constant. Keying material needs to be
-              overwritten when it is no longer needed. </description>
-          </entry>
-        </glossary>
-      </subsection>
-    </section>
+              overwritten when it is no longer needed</term>
+      </tech-terms>
 
-    <section title="Compliant Targets of Evaluation" id="complianttargets"> This PP-Module specifically
+    <section title="Compliant Targets of Evaluation" id="Complianttargets">
+      This PP-Module specifically
       addresses encryption of a set of data. This PP-Module addresses the primary threat that an
       unauthorized user will obtain access to a host machine containing encrypted information and be
       able to extract the sensitive data through the process of decryption. The Target of Evaluation
       (TOE) defined in this PP-Module is an encryption product that will inherently encrypt all of that
       data that the user selects to encrypt. For ease of explanation, "file" will frequently be used
       to refer to the object that is encrypted (however, it could be any number of things - folders,
-      volumes, containers, etc.).<h:br/> <h:br/>  
-      <subsection title="TOE Boundary" id="TOEboundary">
-        <h:p>
+      volumes, containers, etc.).<h:br/><h:br/>  
+      
+      <sec:TOE_Boundary>
           The application, which consists of the software provided by its vendor,
-          is installed onto the platform(s) it operates on.  It executes on the platform, which
+          is installed onto the platform(s) it operates on. It executes on the platform, which
           may be an operating system, hardware environment, 
           a software based execution environment, 
           or some combination of these. Those platforms may themselves run within other
@@ -392,25 +259,23 @@
           platform layers that are abstracted away.
           Some evaluation activities are specific to the particular platform
           on which the application runs, in order to provide precision and
-          repeatability. The only platforms currently recognized by <cite linkend="bibAppPP"/> and this module are those specified in SFR Evaluation Activities.
+          repeatability. The only platforms currently recognized by [AppPP] and this module are those specified in SFR Evaluation Activities.
           To test on a platform for which there are no EAs, a Vendor should contact NIAP with recommended EAs.
           NIAP will determine if the proposed platform is appropriate for the PP and accept, reject,
-          or develop EAs as necessary in coordination with the technical community.
-        </h:p><h:p>	
+          or develop EAs as necessary in coordination with the technical community.<h:br/><h:br/>
+        	
           The TOE includes 
           any software in the application installation package, even those pieces that may 
           extend or modify the functionality of the underlying platform, such as kernel drivers.  
           Some platforms come bundled with file encryption product and these too
           should be considered subject to the requirements defined in this
           document although the expectation of formal Common Criteria evaluation
-          depends upon the national scheme.  <h:abbr title="Basic Input/Output
+          depends upon the national scheme. <h:abbr title="Basic Input/Output
             System">BIOS</h:abbr> and other firmware, the operating system kernel,
           and other systems software (and drivers) provided as part of the
-          platform are outside the scope of this document.  
-          
-        </h:p>
-      </subsection>
-    </section>
+          platform are outside the scope of this document.
+      </sec:TOE_Boundary>
+    </section>    
 
     <section title="Use Cases" id="usecases">
       <usecases>
@@ -425,35 +290,30 @@
         </usecase>
       </usecases>
     </section>
-  </chapter>
+  </sec:Introduction>
 
-  <chapter title="Conformance Claims" id="conf">
-    <cclaims>
-      <cclaim title="Conformance Statement">
-        <description>
-          <h:p>
-            This <abbr linkend="PP-Module"/> inherits exact conformance as required from the specified Base-PP and as defined in the <cite linkend="bibCC"/> and CEM addenda for Exact Conformance, Selection-Based SFRs, and Optional SFRs (dated May 2017).
-            
-            This PP-Module is conformant to Parts 2 (extended) and 3 (extended) of Common Criteria Version 3.1, Revision 5 [CC]. 
-            
-            The following PPs and PP-Modules are allowed to be specified in a PP-Configuration with this PP-Module.
-            <h:ul><h:li>PP-Module for VPN Client, Version 2.1</h:li>
-            <h:li>PP-Module for File Encryption Enterprise Management, Version 1.0</h:li></h:ul>
-          </h:p>
-		<h:br/><h:br/>
-		If claiming compliance to a PP-Configuration that includes multiple PP-Modules, the ST author must ensure any duplicative SFRs are iterated using unique identifiers. This will allow the reader to easily determine which iteration applies to each TOE component
-        </description>
-      </cclaim>
-     
-    </cclaims>
-  </chapter>
-
-  <chapter title="Security Problem Description" id="spd"> The primary asset that is being protected
+  <section title="Conformance Claims" id="ccl" boilerplate="no">
+    <CClaimsInfo cc-version="cc-31r5" cc-approach="direct-rationale">
+      <cc-st-conf>exact</cc-st-conf>
+      <cc-pt2-conf>extended</cc-pt2-conf>
+      <cc-pt3-conf>extended</cc-pt3-conf>
+      <cc-pp-conf/>
+      <cc-pp-config-with>
+        <Mod-cc-ref>PP-Module for VPN Client, Version 2.1</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
+      </cc-pp-config-with>
+      <cc-pkg-claim/>        
+    </CClaimsInfo>	  
+  </section>
+  
+  <sec:spd title="Security Problem Definition">
+  The primary asset that is being protected
     is the sensitive user data stored on a system. The threat model thus focuses on a host machine
     that has been compromised by an unauthorized user. This section addresses threats to the TOE
     only. 
 
-    <section title="Threats" id="threats"> A threat consists of a threat agent, an asset, and
+    <sec:Threats>
+      A threat consists of a threat agent, an asset, and
       an adverse action of that threat agent on that asset. The model in this PP-Module only addresses
       risks that arise from the host machine being compromised by an unauthorized user.<h:br/><h:br/>
 
@@ -467,16 +327,16 @@
       memory of an application program that is operating on a decrypted file.<h:br/><h:br/> 
 
       Note that this PP-Module
-      does not repeat the threats identified in the <cite linkend="bibAppPP"/>, though they all
-      apply given the conformance and hence dependence of this PP-Module on the <cite linkend="bibAppPP"/>.
+      does not repeat the threats identified in the [AppPP], though they all
+      apply given the conformance and hence dependence of this PP-Module on the [AppPP].
       <h:br/><h:br/>
 
-      Note also that while the <cite linkend="bibAppPP"/> contains only threats to the ability of
+      Note also that while the [AppPP] contains only threats to the ability of
       the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
-      operational environment. Together the threats of <cite linkend="bibAppPP"/> and those defined in this PP-Module define
+      operational environment. Together the threats of [AppPP] and those defined in this PP-Module define
       the comprehensive set of security threats addressed by a file encryption TOE. 
       <threats>
-        <threat id="T.UNAUTHORIZED_DATA_ACCESS">
+        <threat name="T.UNAUTHORIZED_DATA_ACCESS">
           <description>
             <h:b>Unauthorized Data Access:</h:b> An attacker has access to an account that is not permitted to decrypt 
           files or has no access and uses forensic tools for examination.</description>
@@ -485,7 +345,7 @@
               provides for encryption of data.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.MANAGEMENT_ACCESS">
+        <threat name="T.MANAGEMENT_ACCESS">
           <description>
             <h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without authorization or a legitimate user may lack the ability to perform
             necessary security operations due to a lack of supported management functionality.</description>
@@ -494,7 +354,7 @@
               ensures proper management functionality.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.KEYING_MATERIAL_COMPROMISE">
+        <threat name="T.KEYING_MATERIAL_COMPROMISE">
           <description>
             <h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation, 
             plaintext keys, and other keying material to decrypt an encrypted file. </description>
@@ -503,7 +363,7 @@
               provides for protection of keys.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.UNSAFE_AUTHFACTOR_VERIFICATION">
+        <threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION">
           <description>
             <h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of 
             the authorization factor. </description>
@@ -512,7 +372,7 @@
               provides for properly supported authentication factors.</rationale>
           </objective-refer>
         </threat>
-        <threat id="T.KEYSPACE_EXHAUST">
+        <threat name="T.KEYSPACE_EXHAUST">
           <description>
             <h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data.
           </description>
@@ -521,7 +381,7 @@
               makes brute force attacks infeasible.</rationale>
             </objective-refer>
         </threat>
-        <threat id="T.PLAINTEXT_COMPROMISE">
+        <threat name="T.PLAINTEXT_COMPROMISE">
           <description>
             <h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools.
           </description>
@@ -532,11 +392,11 @@
         </threat>
 
       </threats>
-    </section>
+    </sec:Threats>
 
-    <section title="Assumptions" id="assumptions">
+    <sec:Assumptions>
       <assumptions>
-          <assumption id="A.AUTH_FACTOR">
+        <assumption name="A.AUTH_FACTOR">
             <description>An authorized user will be responsible for ensuring that all externally
               derived authorization factors have sufficient strength and entropy to reflect the
               sensitivity of the data being protected. This can apply to password- or
@@ -545,7 +405,7 @@
               <rationale>The operational environment objective OE.AUTHORIZATION_FACTOR_STRENGTH is realized through A.AUTH_FACTOR.</rationale>
             </objective-refer>
           </assumption>
-          <assumption id="A.EXTERNAL_FEK_PROTECTION">
+        <assumption name="A.EXTERNAL_FEK_PROTECTION">
             <description>External entities that implement ECC CDH or RSA that are used to encrypt
               and decrypt a FEK have the following characteristics: 
               <h:li>meet national requirements for the cryptographic mechanisms implemented</h:li>
@@ -556,14 +416,14 @@
               <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.EXTERNAL_FEK_PROTECTION.</rationale>
               </objective-refer>
           </assumption>
-          <assumption id="A.SHUTDOWN">
+        <assumption name="A.SHUTDOWN">
             <description>An authorized user will not leave the machine in a mode where sensitive
               information persists in non-volatile storage.</description>
             <objective-refer ref="OE.POWER_SAVE">
               <rationale>The operational environment objective OE.POWER_SAVE is realized through A.SHUTDOWN.</rationale>
             </objective-refer>
           </assumption>
-          <assumption id="A.STRONG_OE_CRYPTO">
+        <assumption name="A.STRONG_OE_CRYPTO">
             <description>All cryptography implemented in the Operational Environment and used by the
               TOE will meet the requirements listed in this PP-Module. This includes
               generation of external token authorization factors by a RBG.</description>
@@ -571,7 +431,7 @@
               <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.STRONG_OE_CRYPTO.</rationale>
             </objective-refer>
           </assumption>
-          <assumption id="A.FILE_INTEGRITY ">
+        <assumption name="A.FILE_INTEGRITY">
             <description>When the file is in transit, it is not modified, otherwise if that
               possibility exists, the appropriate selections in Appendix B are chosen for Data
               Authentication.</description>
@@ -580,22 +440,23 @@
             </objective-refer>
           </assumption>
         </assumptions>
-      </section>
+    </sec:Assumptions>
     
-     <section title="Organizational Security Policies" id="OSPs">
-      There are no Organizational Security Policies for the PP-Module.
-       </section>
-  </chapter>
-  <chapter title="Security Objectives" id="obj"> 
+     <sec:Organizational_Security_Policies>
+      <OSPs/>
+     </sec:Organizational_Security_Policies>
+  </sec:spd>
+  
+    <sec:Security_Objectives> 
     The Security Problem described in
-    <secref linkend="spd"/> will be addressed by a combination of cryptographic capabilities. Compliant TOEs
+    <xref to="spd"/> will be addressed by a combination of cryptographic capabilities. Compliant TOEs
     will provide security functionality that addresses threats to the TOE. The following subsections provide a description of the
     security objectives required to meet the threats previously discussed. The
-    description of these security objectives are in addition to that described in the <cite
-      linkend="bibAppPP"/>.<h:br/> 
-    <section title="Security Objectives for the TOE" id="objtoe"> 
-      <SOs>
-        <SO id="O.KEY_MATERIAL_PROTECTION">
+    description of these security objectives are in addition to that described in the [AppPP].<h:br/> 
+    
+      <sec:Security_Objectives_for_the_TOE>
+       <SOs>
+        <SO name="O.KEY_MATERIAL_PROTECTION">
           <description>
             <h:b>Protection of Key Material:</h:b> The TOE must ensure that sensitive plaintext key material used
             in performing its operations is cleared once it is no longer needed. Key material must
@@ -603,17 +464,14 @@
             those storage areas must be cleared in a timely manner and without interruptions. For
             example, authorization factors are only needed until the KEK is formed; at that point,
             volatile memory areas containing the authorization factors should be cleared. </description>
-          <component-refer ref="FCS_CKM_EXT.4"/>
-          <component-refer ref="FPT_KYP_EXT.1"/>
-
-          <consistency-rationale>
-
+           <consistency-rationale>
             This objective is consistent with the Base-PP because the Base-PP includes the O.PROTECTED_STORAGE objective. 
             The protection and timely destruction of key materials is consistent with the intent of that objective.
-
           </consistency-rationale>
+          <addressed-by><xref to="FCS_CKM_EXT.4"/></addressed-by><rationale/>
+          <addressed-by><xref to="FPT_KYP_EXT.1"/></addressed-by><rationale/>
         </SO>
-        <SO id="O.FEK_SECURITY">
+        <SO name="O.FEK_SECURITY">
           <description>
             <h:b>Encryption Using a Strong FEK and KEK:</h:b> In order to ensure that brute force
             attacks are infeasible, the TOE must ensure that the cryptographic strength of the keys
@@ -622,26 +480,24 @@
             conditioning requirements are also levied to help ensure that a brute force attack
             against these authorization factors (when used) has a similar level of resistance.
           </description>
-          <component-refer ref="FCS_COP.1(1) (from Base-PP)"/>
-          <component-refer ref="FCS_CKM_EXT.2"/>
-          <component-refer ref="FCS_IV_EXT.1"/>
-          <component-refer ref="FCS_KYC_EXT.1"/>
-		  <component-refer ref="FCS_VAL_EXT.1"/>
-          <component-refer ref="FCS_CKM_EXT.3 (selection-based)"/>
-          <component-refer ref="FCS_CKM_EXT.6 (selection-based)"/>
-          <component-refer ref="FCS_COP.1(5) (selection-based)"/>
-          <component-refer ref="FCS_COP.1(6) (selection-based)"/>
-          <component-refer ref="FCS_COP.1(7) (selection-based)"/>
-          <component-refer ref="FCS_KDF_EXT.1 (selection-based)"/>
-          <component-refer ref="FCS_SMC_EXT.1 (selection-based)"/>
-          <component-refer ref="FCS_VAL_EXT.2 (selection-based)"/>
-                    
-
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
+          <addressed-by><xref to="FCS_COP.1(1) (from Base-PP)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_CKM_EXT.2"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_KYC_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_CKM_EXT.3 (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_CKM_EXT.6 (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1(5) (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1(6) (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1(7) (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_KDF_EXT.1 (selection-based"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_SMC_EXT.1 (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_VAL_EXT.2 (selection-based)"/></addressed-by><rationale/>
         </SO>
-        <SO id="O.WIPE_MEMORY">
+        <SO name="O.WIPE_MEMORY">
           <description>
             <h:b>Removal of Plaintext Data:</h:b> To address the threat of unencrypted copies of data
             being left in non-volatile memory or temporary files where it may be accessed by an
@@ -649,16 +505,14 @@
             when no longer needed. The TOE's responsibility is to utilize the appropriate TOE
             platform method for secure erasure, but the TOE is not responsible for verifying that
             the secure erasure occurred as this will be the responsibility of the TOE platform. </description>
-          <component-refer ref="FDP_PRT_EXT.1"/>
-          <component-refer ref="FDP_PRT_EXT.2"/>
-          <component-refer ref="FDP_PRT_EXT.3 (optional)"/>
-
-
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
+          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_PRT_EXT.3 (optional)"/></addressed-by><rationale/>
         </SO>
-        <SO id="O.PROTECT_DATA">
+        <SO name="O.PROTECT_DATA">
           <description>
             <h:b>Protection of Data:</h:b> The TOE will encrypt data to protect the data from
             unauthorized access. Encrypting the file or set of files will protect the user data even
@@ -669,24 +523,23 @@
             
             The TOE will also optionally include data authentication functionality to protect data from unauthorized modification.
           </description>
-          <component-refer ref="FCS_COP.1(1) (from Base-PP)"/>
-          <component-refer ref="FCS_IV_EXT.1"/>
-          <component-refer ref="FDP_PRT_EXT.1"/>
-          <component-refer ref="FDP_PRT_EXT.2"/>
-          <component-refer ref="FCS_CKM_EXT.5 (optional)"/>
-          <component-refer ref="FCS_COP_EXT.1 (optional)"/>
-          <component-refer ref="FDP_AUT_EXT.1 (optional)"/>
-          <component-refer ref="FDP_AUT_EXT.2 (optional)"/>
-          <component-refer ref="FDP_AUT_EXT.3 (optional)"/>
-          <component-refer ref="FDP_PM_EXT.1 (optional)"/>
-          <component-refer ref="FDP_PRT_EXT.3 (optional)"/>
-          <component-refer ref="FIA_FCT_EXT.1 (optional)"/>
-
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
+          <addressed-by><xref to="FCS_COP.1(1) (from Base-PP)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_CKM_EXT.5 (optional)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP_EXT.1 (optional)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_AUT_EXT.1 (optional)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_AUT_EXT.2 (optional)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_AUT_EXT.3 (optional)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_PM_EXT.1 (optional)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FDP_PRT_EXT.3 (optional"/></addressed-by><rationale/>
+          <addressed-by><xref to="FIA_FCT_EXT.1 (optional)"/></addressed-by><rationale/>
         </SO>
-        <SO id="O.SAFE_AUTHFACTOR_VERIFICATION">
+        <SO name="O.SAFE_AUTHFACTOR_VERIFICATION">
           <description>
             <h:b>Safe Authentication Factor Verification:</h:b> In order to avoid exposing information
             that would allow an attacker to compromise or weaken any factors in the chain keys
@@ -694,32 +547,34 @@
             authorization factor prior to the FEK being used to decrypt the data being
             protected.
           </description>
-          <component-refer ref="FCS_VAL_EXT.1"/>
-          <component-refer ref="FIA_AUT_EXT.1"/>
-
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
+          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FIA_AUT_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to=""/></addressed-by><rationale/>
+          <addressed-by><xref to=""/></addressed-by><rationale/>
+          <addressed-by><xref to=""/></addressed-by><rationale/>
         </SO>
 
-        <SO id="O.MANAGE">
+        <SO name="O.MANAGE">
           <description>The TOE will provide all the functions and facilities necessary to support
             the authorized administrators in their management of the security of the TOE, and
             restrict these functions and facilities from unauthorized use.</description>
-          <component-refer ref="FMT_MEC_EXT.1"/>
-          <component-refer ref="FMT_SMF.1(2)"/>
-          
-
           <consistency-rationale>
             The Base-PP does not define functionality for protected administrative access to the TSF so this objective relates solely to material beyond the scope of the Base-PP.
           </consistency-rationale>
-        </SO>
+          <addressed-by><xref to="FMT_MEC_EXT.1"/></addressed-by><rationale/>
+          <addressed-by><xref to="FMT_SMF.1(2)"/></addressed-by><rationale/>
+          <addressed-by><xref to=""/></addressed-by><rationale/>
+          </SO>
       </SOs>
-    </section>
+      </sec:Security_Objectives_for_the_TOE>
 
-    <section title="Security Objectives for the Operational Environment" id="objenv">
+      <sec:Security_Objectives_for_the_Operational_Environment>
+    
       <SOEs>
-        <SOE id="OE.AUTHORIZATION_FACTOR_STRENGTH">
+        <SOE name="OE.AUTHORIZATION_FACTOR_STRENGTH">
           <description>An authorized user will be responsible for ensuring that all externally
             derived authorization factors have sufficient strength and entropy to reflect the
             sensitivity of the data being protected. This can apply to password or
@@ -729,7 +584,7 @@
             external authorization factors does not affect the ability of any Base-PP SFRs or objectives to be satisfied.
           </consistency-rationale>
         </SOE>
-        <SOE id="OE.POWER_SAVE">
+        <SOE name="OE.POWER_SAVE">
           <description>The non-mobile operational environment must be configurable so that there
             exists at least one mechanism that will cause the system to enter a safe power state (A.SHUTDOWN). Any
             such mechanism (e.g., sleep, hibernate) that does not conform to this requirement must
@@ -740,7 +595,7 @@
             This objective is consistent with the Base-PP because it is an extension of the Base-PP's OE.PLATFORM objective that is specific to this technology type.
           </consistency-rationale>
         </SOE>
-        <SOE id="OE.STRONG_ENVIRONMENT_CRYPTO">
+        <SOE name="OE.STRONG_ENVIRONMENT_CRYPTO">
           <description>The Operating environment will provide a cryptographic function capability
             that is commensurate with the requirements and capabilities of the TOE.</description>
           <consistency-rationale>
@@ -748,56 +603,57 @@
           </consistency-rationale>
         </SOE>
        </SOEs>
-    </section>
-
-    <section title="Security Objectives Rationale" id="SOR"/>
-  </chapter>
-
-  <chapter title="Security Requirements" id="sfr">
-    <base-pp 
+      </sec:Security_Objectives_for_the_Operational_Environment>
+    
+    <sec:Security_Objectives_Rationale>
+    </sec:Security_Objectives_Rationale>
+    </sec:Security_Objectives>
+  
+  <sec:Security_Requirements>
+    
+    <base-pp id="b-appp"
       product="application"
-      name="Application Software" short="App" version="1.3" 
-      url="https://www.niap-ccevs.org/Profile/Info.cfm?PPID=394&amp;id=394"
-      xmlurl="https://github.com/commoncriteria/fileencryption/blob/master/input/fileencryption.xml">
-
-      <sec-func-req-dir>
-        The TOE is expected to rely on some of the security functions implemented by the application as a whole and evaluated against <cite linkend="bibAppPP"/>.
-The following section describes any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.       
+      name="Application Software" short="App" version="1.3">
+      <url>https://github.com/commoncriteria/fileencryption/blob/master/input/fileencryption.xml</url>      
+    <sec-func-req-dir>
+        The TOE is expected to rely on some of the security functions implemented by the application
+        as a whole and evaluated against <xref to="bibAppPP"/>.
+        The following section describes any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.       
       </sec-func-req-dir>
       
-      <modified-sfrs></modified-sfrs>
+    <modified-sfrs>
+      
+    </modified-sfrs>
+        
       <additional-sfrs></additional-sfrs>
       <con-toe></con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
 
-      <con-mod id="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.PHYSICAL_ACCESS defined in the Base-PP.
+      <con-mod ref="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.PHYSICAL_ACCESS defined in the Base-PP.
         In this case, the "sensitive data at rest" is the data that the TOE is intended to protect.</con-mod>
-      <con-mod id="T.MANAGEMENT_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the Base-PP.
+      <con-mod ref="T.MANAGEMENT_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the Base-PP.
         The Base-PP does not define access-controlled management functions so this PP-Module goes beyond it by specifying misuse of the management interface, or
         inability to fully use the management interface, as threats to the TSF.</con-mod>
-      <con-mod id="T.KEYING_MATERIAL_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.KEYING_MATERIAL_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>      
-      <con-mod id="T.UNSAFE_AUTHFACTOR_VERIFICATION">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.UNSAFE_AUTHFACTOR_VERIFICATION">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod> 
-      <con-mod id="T.KEYSPACE_EXHAUST">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.KEYSPACE_EXHAUST">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod> 
-      <con-mod id="T.PLAINTEXT_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.PLAINTEXT_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod> 
-      
-      
-    
-      
-    </base-pp>
-<man-sfrs>
+      </base-pp>
+
+    <man-sfrs>
    
-      <subsection title="Cryptographic Support (FCS)" id="fcs">
+      <sec:fau title="Cryptographic Support (FCS)">
         <ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
           <mod-def>Components in this family define requirements for key management activities that are beyond the scope of what is defined in the FCS_CKM family in CC Part 2. 
           </mod-def>
         </ext-comp-def>
-        <f-component id="fcs_ckm_ext.2" name="File Encryption Key (FEK) Generation">
+        <f-component cc-id="fcs_ckm_ext.2" name="File Encryption Key (FEK) Generation">
 
           <consistency-rationale>This SFR describes behavior that is not in scope of the Base-PP. 
             It is consistent with the Base-PP because it may use the same random bit generation function defined in the Base-PP.
@@ -808,13 +664,14 @@ The following section describes any modifications that the ST author must make t
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
 
-          <f-element id="FCS_CKM_EXT.2.1">
+          <f-element id="fcs-ckm-ext-2e1">
             <title> The TSF shall 
               <selectables>
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
-                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes of
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
+                      <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes of
                       <selectables>
                         <selectable>128 bit</selectable>
                         <selectable>256 bit</selectable>
@@ -833,8 +690,7 @@ The following section describes any modifications that the ST author must make t
             -->
           </f-element>
 
-
-          <f-element id="FCS_CKM_EXT.2.2">
+          <f-element id="fcs-ckm-ext-2e2">
             <title>The TSF shall use a unique FEK for each file (or set of files) using the
               mechanism on the client as specified in FCS_CKM_EXT.2.1.</title>
 
@@ -850,11 +706,11 @@ The following section describes any modifications that the ST author must make t
 
               Conditional: <h:br/> 
               If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes how the functionality
-              described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
+              described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is invoked to
               generate FEK. To the extent possible from the description of the RBG functionality in
-              FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>), the evaluator shall determine that the key size being
+              FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
-              decryption/encryption of the user data (FCS_COP.1(1)) (from <cite linkend="bibAppPP"/>).  <h:br/> <h:br/> 
+              decryption/encryption of the user data (FCS_COP.1(1)) (from <xref to="bibAppPP"/>).  <h:br/> <h:br/> 
 
               Conditional: <h:br/>               
               If 'derived from a password/passphrase' is selected, the examination of the TSS section is performed as
@@ -880,13 +736,8 @@ The following section describes any modifications that the ST author must make t
 </aactivity>
           </f-element>
         </f-component>
-
-
-
-
-
-
-        <f-component id="fcs_ckm_ext.4" name="Cryptographic Key Destruction">
+        
+        <f-component cc-id="fcs_ckm_ext.4" name="Cryptographic Key Destruction">
           <consistency-rationale>This SFR extends the cryptographic functionality defined in the Base-PP by specifying a method for key destruction. 
             It is consistent with the Base-PP because keys generated by the Base-PP portion of the TOE may also be destroyed in the manner specified by this SFR.
           </consistency-rationale>
@@ -903,7 +754,7 @@ The following section describes any modifications that the ST author must make t
           </audit>
           <dependencies>No dependencies.</dependencies>
           
-          <f-element id="FCS_CKM_EXT.4.1">
+          <f-element id="fcs-ckm-ext-4e1">
             <title>The TSF shall destroy cryptographic keys in accordance with a specified cryptographic key destruction method 
               <selectables linebreak="yes">
                 <selectable> For volatile memory, the destruction shall be executed by a
@@ -976,7 +827,7 @@ The following section describes any modifications that the ST author must make t
 
           </f-element>
 
-          <f-element id="FCS_CKM_EXT.4.2">
+          <f-element id="fcs-ckm-ext-4e2">
             <title>The TSF shall destroy all keys and key material when no longer needed.</title>
 
             <note role="application">
@@ -1146,7 +997,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <mod-def>Components in this family define requirements for initialization vector generation.
           </mod-def>
         </ext-comp-def>
-        <f-component id="fcs_iv_ext.1" name="Initialization Vector Generation">
+        <f-component cc-id="fcs_iv_ext.1" name="Initialization Vector Generation">
           <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
             methods specified by the Base-PP SFR FCS_CKM.1(2).
           </consistency-rationale>
@@ -1157,7 +1008,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
-          <f-element id="FCS_IV_EXT.1.1 ">
+          <f-element id="fcs-iv-ext-1e1">
             <title>The TSF shall <selectables>
                 <selectable>invoke platform-provided functionality to generate IVs</selectable>
               <selectable>generate IVs with the following properties
@@ -1192,7 +1043,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <mod-def>Components in this family define requirements for the secure storage of keys through the use of a logical key chain.
           </mod-def>
         </ext-comp-def>
-        <f-component id="fcs_kyc_ext.1" name="Key Chaining and Key Storage">
+        <f-component cc-id="fcs_kyc_ext.1" name="Key Chaining and Key Storage">
           <consistency-rationale>The Base-PP defines how stored keys are protected. This SFR extends that functionality by defining the logical hierarchy of how keys are logically
             protected by other keys or other secret data. 
           </consistency-rationale>
@@ -1209,7 +1060,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           FCS_SMC_EXT.1 Submask Combining</dependencies>
           
           
-          <f-element id="FCS_KYC_EXT.1.1">
+          <f-element id="fcs-kyc-ext-1e1">
             <title> The TSF shall maintain a key chain of: 
               <selectables linebreak="yes">
                 <selectable>a conditioned password as the [<h:i>FEK</h:i>]</selectable>
@@ -1392,7 +1243,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <mod-def>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
           </mod-def>
         </ext-comp-def>
-        <f-component id="fcs_val_ext.1" name="Validation">
+        <f-component cc-id="fcs_val_ext.1" name="Validation">
       <!--    <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/> -->
           <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it.
           </consistency-rationale>
@@ -1408,7 +1259,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           
           
-          <f-element id="FCS_VAL_EXT.1.1 ">
+          <f-element id="fcs-val-ext-1e1">
             <!--
             <title>The TSF shall 
               <selectables>
@@ -1447,20 +1298,17 @@ Some examples of what is expected to be in the documentation are provided here. 
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable> 
-                    </selectables> as specified in FCS_COP.1<h:b>(2)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                    </selectables> as specified in FCS_COP.1<h:b>(2)</h:b> <h:b>(from <xref to="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
                   <selectable>decrypt a known value using the 
                     <selectables>
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable>
                       
-                    </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+                    </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <xref to="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
                 </selectables></selectable>
-              </selectables>. 
-              
+              </selectables>.               
             </title>
-              
-              
               
               <!--           
               The TSF shall perform validation of the 
@@ -1487,7 +1335,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               
             
           </f-element>
-          <f-element id="FCS_VAL_EXT.1.2">
+          <f-element id="fcs-val-ext-1e2">
             <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i>].</title>
             
             
@@ -1513,22 +1361,18 @@ Some examples of what is expected to be in the documentation are provided here. 
               </Guidance>
               <Tests>There are no test activities for this requirement.
               </Tests>
-            </aactivity>
-            
-          </f-element>
-          
+            </aactivity>            
+          </f-element>          
         </f-component>
-
-
-
-      </subsection>
-      <subsection title="User Data Protection (FDP)" id="fdp">
+      </sec:fau>
+      
+      <sec:fdp title="User Data Protection (FDP)">
         
         <ext-comp-def fam-id="FDP_PRT_EXT" title="Protection of Selected User Data">
           <mod-def>Components in this family define requirements for the TOE's ability to protect sensitive data at rest.
           </mod-def>
         </ext-comp-def>
-        <f-component id="fdp_prt_ext.1" name="Protection of Selected User Data">
+        <f-component cc-id="fdp_prt_ext.1" name="Protection of Selected User Data">
           <consistency-rationale>This SFR is consistent with the Base-PP because it is a specific application of the FCS_COP.1(1) function defined in the Base-PP.
           </consistency-rationale>
           
@@ -1541,9 +1385,9 @@ Some examples of what is expected to be in the documentation are provided here. 
           FCS_COP.1 Cryptographic Operation</dependencies>
           
           
-          <f-element id="FDP_PRT_EXT.1.1">
+          <f-element id="fdp-prt-ext-1e1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
-              of files) in accordance with FCS_COP.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>. </title>
+              of files) in accordance with FCS_COP.1(1) <h:b>(from <xref to="bibAppPP"/>)</h:b>. </title>
             <note role="application">This is the primary requirement for encrypting and decrypting
               the protected resources (files and sets of files). </note>
             <aactivity>
@@ -1596,7 +1440,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               decryption/encryption operation is completed. </Tests>
 </aactivity>
           </f-element>
-          <f-element id="FDP_PRT_EXT.1.2">
+          <f-element id="fdp-prt-ext-1e2">
             <title> The TSF shall <selectables>
                 <selectable>invoke platform-provided functionality</selectable>
                 <selectable>implement functionality</selectable>
@@ -1653,7 +1497,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </aactivity>
           </f-element>
         </f-component>
-        <f-component id="fdp_prt_ext.2" name="Destruction of Plaintext Data">
+        <f-component cc-id="fdp_prt_ext.2" name="Destruction of Plaintext Data">
           <consistency-rationale>This SFR relates to the destruction of key data, which is beyond the scope defined by the Base-PP and does not affect the ability of the Base-PP 
            SFRs to be enforced.
           </consistency-rationale>
@@ -1667,7 +1511,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           FDP_PRT_EXT.1 Protection of Selected User Data</dependencies>
           
           
-        <f-element id="FDP_PRT_EXT.2.1">
+          <f-element id="fdp-prt-ext-2e1">
           <title>The TSF shall <selectables>
             <selectable>invoke platform-provided functionality</selectable>
             <selectable>implement functionality</selectable>
@@ -1749,21 +1593,14 @@ Some examples of what is expected to be in the documentation are provided here. 
                 </h:ul>
                 <h:br/>  
               </test>
-            </testlist>
-  
-  
+            </testlist>  
  </Tests>
 </aactivity>
         </f-element>
-
-
-      </f-component>
-
-       
-
-
-      </subsection>
-      <subsection title="Identification and Authentication (FIA)" id="fia">
+      </f-component>     
+      </sec:fdp>
+      
+      <sec:fia title="Identification and Authentication (FIA)">
         
         <ext-comp-def fam-id="FIA_AUT_EXT" title="Authorization">
           <mod-def>Components in this family define requirements for how subject authorization is performed. 
@@ -1771,7 +1608,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             used to determine whether a subject’s presented authentication data is valid.
           </mod-def>
         </ext-comp-def>        
-        <f-component id="fia_aut_ext.1" name="Subject Authorization">
+        <f-component cc-id="fia_aut_ext.1" name="Subject Authorization">
           <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG_EXT.1 from the Base-PP in a manner consistent with its 
             definition, but otherwise does not relate to functionality defined by the Base-PP.
           </consistency-rationale>
@@ -1791,7 +1628,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
           
           
-          <f-element id="FIA_AUT_EXT.1.1">
+          <f-element id="fia-aut-ext-1e1">
             <title>The TSF shall 
               <selectables>
                 <selectable id="PLATAUTH">implement platform-provided functionality to provide user
@@ -1802,7 +1639,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable>
                 <selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
                    <selectables>
-                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>)</selectable>
+                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
                      <selectable>generated by the platform</selectable>
                    </selectables> protected using RSA with key size 
                   <selectables>
@@ -1818,7 +1655,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <selectable>an external USB token factor that is at least the same security strength as the FEK(s),
                    and is providing a submask generated by the 
                    <selectables>
-                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>)</selectable>
+                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
                      <selectable>platform</selectable>
                    </selectables>
                 </selectable>
@@ -1886,9 +1723,9 @@ Some examples of what is expected to be in the documentation are provided here. 
 </aactivity>
           </f-element>
         </f-component>
-
-      </subsection>
-      <subsection title="Security Management (FMT)" id="fmt"> 
+      </sec:fia>
+      
+      <sec:fmt title="Security Management (FMT)"> 
         
         <!--<ext-comp-def fam-id="FMT_MEC_EXT" title="Supported Configuration Mechanism">
           <mod-def>Components in this family define requirements for the TOE's use of platform configuration mechanisms to support its own management functions.
@@ -1935,11 +1772,12 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
 -->
 	      
-        <f-component id="fmt_smf.1(2)" name="Specification of File Encryption Management Functions">
+        <f-component cc-id="fmt_smf.1" name="Specification of File Encryption Management
+          Functions" iteration="2">
           <consistency-rationale>This SFR defines management functions for the TOE for functionality specific to this PP-Module. These functions are defined in addition to what 
             the Base-PP defines for its own operation.
           </consistency-rationale>
-          <f-element id="FMT_SMF.1.1(2)">
+          <f-element>
             <title>The TSF shall be capable of performing the following management functions: <h:b>
               <selectables linebreak="yes">
                 <selectable>configure cryptographic functionality</selectable>
@@ -2019,17 +1857,15 @@ Some examples of what is expected to be in the documentation are provided here. 
             </aactivity>
           </f-element>
         </f-component>
-
-      </subsection>
-  
-  
-      <subsection title="Protection of the TSF (FPT)" id="fpt">
+      </sec:fmt>
+      
+      <sec:fpt title="Protection of the TSF (FPT)">
 
         <ext-comp-def fam-id="FPT_KYP_EXT" title="Protection of Key and Key Material">
           <mod-def>Components in this family define requirements for secure storage of keys.
           </mod-def>
         </ext-comp-def>
-        <f-component id="fpt_kyp_ext.1" name="Protection of Keys and Key Material">
+        <f-component cc-id="fpt_kyp_ext.1" name="Protection of Keys and Key Material">
           <consistency-rationale>The Base-PP defines an SFR for secure storage of sensitive data. This SFR expands on that definition by describing the supported logical methods 
             for storage of key data.
           </consistency-rationale>
@@ -2045,10 +1881,9 @@ Some examples of what is expected to be in the documentation are provided here. 
           FCS_KDF_EXT.1 Cryptographic Key Derivation Function<h:br/>
           FCS_KYC_EXT.1 Key Chaining and Key Storage<h:br/>
           FCS_SMC_EXT.1 Submask Combining<h:br/>
-          FCS_STO_EXT.1 Storage of Credentials</dependencies>
+          FCS_STO_EXT.1 Storage of Credentials</dependencies>          
           
-          
-          <f-element id="FPT_KYP_EXT.1.1">
+          <f-element id="fpt-kyp-ext-1e1">
             <title>The TSF shall 
               <selectables>
                 <selectable>not store keys in non-volatile memory</selectable>
@@ -2056,7 +1891,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   <selectables linebreak="yes">
                     <selectable>wrapped, as specified in FCS_COP.1(5)</selectable>
                     <selectable>encrypted, as specified in FCS_COP.1(7)</selectable>
-                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
+                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
                     <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
                     <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
                     <selectable>the plaintext key is a key split that is combined as specified in FCS_SMC_EXT.1 and another contribution to the split is
@@ -2101,15 +1936,13 @@ Some examples of what is expected to be in the documentation are provided here. 
 </aactivity>
           </f-element>
         </f-component>
-      </subsection></man-sfrs>
- 
-    
+      </sec:fpt></man-sfrs>   
     
     <opt-sfrs>
       
-      <subsection title="Cryptographic Support (FCS)" id="fcs_opt">
+      <sec:fcs title="Cryptographic Support">
   
-        <f-component id="fcs_ckm_ext.5" name="File Authentication Key (FAK) Support">
+        <f-component cc-id="fcs_ckm_ext.5" name="File Authentication Key (FAK) Support" status="optional">
           <consistency-rationale>This SFR supports the PP-Module's data authentication function, which does not relate to any functionality defined in the Base-PP.
           </consistency-rationale>
           
@@ -2124,7 +1957,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           </dependencies>
           
           
-          <f-element id="FCS_CKM_EXT.5.1">
+          <f-element id="fcs-ckm-ext-5e1">
             <title> The TSF shall use a FAK to authenticate sensitive data when a cryptographic, keyed
               hashing function is used for data authentication and shall be supported in the following
               manner: <selectables linebreak="yes">
@@ -2136,17 +1969,17 @@ Some examples of what is expected to be in the documentation are provided here. 
               </selectables>.
             </title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.5.2">
+          <f-element id="fcs-ckm-ext-5e2">
             <title>The TSF shall create a unique FAK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
+              mechanism on the client as specified in FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>.</title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.5.3">
+          <f-element id="fcs-ckm-ext-5e3">
             <title>The FAKs must be generated by the TOE as specified in FDP_AUT_EXT.2.9.</title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.5.4">
+          <f-element id="fcs-ckm-ext-5e4">
             <title>The TSF will not write FAKs to non-volatile memory.</title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.5.5">
+          <f-element id="fcs-ckm-ext-5e5">
             <title>The FAK shall be protected in a manner conformant to FCS_COP_EXT.1.</title>
             <note role="application"> The intent of this requirement is to describe the different
               methods that a FAK can be created and formed. <h:br/><h:br/>FCS_CKM_EXT.5.1 details how a FAK is stored. <h:br/><h:br/>
@@ -2209,7 +2042,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           </mod-def>
         </ext-comp-def>
         
-        <f-component id="fcs_cop_ext.1" name="FAK Encryption/Decryption Support">
+        <f-component cc-id="fcs_cop_ext.1" name="FAK Encryption/Decryption Support" status="optional">
           <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
             specific to this PP-Module and do not affect the ability for any Base-PP SFRs to be enforced.
           </consistency-rationale>
@@ -2224,7 +2057,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           
           
-          <f-element id="FCS_COP_EXT.1.1">
+          <f-element id="fcs-cop-ext-1e1">
             <title>The FAK shall be protected in the same manner as the FEK, in accordance with
               FCS_COP.1(5).</title>
             <note role="application"> The intent of this requirement is to clarify that, if a FAK is
@@ -2242,15 +2075,15 @@ Some examples of what is expected to be in the documentation are provided here. 
           </f-element>
           
         </f-component>
-      </subsection>
+      </sec:fcs>
       
-           <subsection title="User Data Protection (FDP)" id="fdp_opt">
+           <sec:fdp title="User Data Protection">
 
              <ext-comp-def fam-id="FDP_AUT_EXT" title="User Data Authentication">
                <mod-def>Components in this family define requirements for authentication of protected user data.
                </mod-def>
              </ext-comp-def>
-         <f-component id="fdp_aut_ext.1" name="Authentication of Selected User Data">
+         <f-component cc-id="fdp_aut_ext.1" name="Authentication of Selected User Data" status="optional">
            <consistency-rationale>This SFR relates to data authentication, which does not relate to any functionality defined in the Base-PP.
            </consistency-rationale>
            
@@ -2268,11 +2101,11 @@ Some examples of what is expected to be in the documentation are provided here. 
            </dependencies>
            
            
-           <f-element id="FDP_AUT_EXT.1.1">
+           <f-element id="fdp-aut-ext-1e1">
              <title>The TSF shall perform authentication of the user-selected file (or set of files)
                and provide notification to the user if modification had been detected. </title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.1.2">
+           <f-element id="fdp-aut-ext-1e2">
              <title> The TSF shall implement a data authentication method based on <selectables>
                <selectable>cryptographic keyed hashing service and verification in accordance with
                  FDP_AUT_EXT.2</selectable>
@@ -2347,7 +2180,8 @@ Some examples of what is expected to be in the documentation are provided here. 
              </aactivity>
            </f-element>
          </f-component>
-             <f-component id="fdp_aut_ext.2" name="Data Authentication Using cryptographic Keyed-Hash Functions">
+             <f-component cc-id="fdp_aut_ext.2" name="Data Authentication Using cryptographic
+               Keyed-Hash Functions" status="optional">
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
@@ -2364,39 +2198,40 @@ Some examples of what is expected to be in the documentation are provided here. 
            </dependencies>
            
            
-           <f-element id="FDP_AUT_EXT.2.1">
+           <f-element id="fdp-aut-ext-2e1">
              <title>The TSF shall use a cryptographic, keyed hash function in accordance with
-               FCS_COP.1(4) <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
+               FCS_COP.1(4) <h:b>(from <xref to="bibAppPP"/>)</h:b>.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.2">
+               <f-element id="fdp-aut-ext-2e2">
              <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP_EXT.1
                and FCS_CKM_EXT.5 as the secret key to the keyed hash function.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.3">
+               <f-element id="fdp-aut-ext-2e3">
              <title>The TSF shall use the entirety of the ciphertext file as the message input to the
                keyed hash function.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.4">
+               <f-element id="fdp-aut-ext-2e4">
              <title>The TSF shall concatenate the output of the keyed hash function, the Message
                Authentication Code (MAC).</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.5">
+               <f-element id="fdp-aut-ext-2e5">
              <title>The TSF shall authenticate the encrypted file prior to decryption.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.6">
+               <f-element id="fdp-aut-ext-2e6">
              <title>The TSF shall authenticate the data by comparing the keyed hash output of the
                ciphertext against the stored MAC.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.7">
+               <f-element id="fdp-aut-ext-2e7">
              <title>The TSF shall notify the user of an unsuccessful authentication and prevent
                decryption of the ciphertext.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.8">
+               <f-element id="fdp-aut-ext-2e8">
              <title>During verification, the TSF shall verify the MAC is at the end of the ciphertext
                file.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.2.9">
-             <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>.</title>
+               <f-element id="fdp-aut-ext-2e9">
+             <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 <h:b>(from <xref
+               to="bibAppPP"/>)</h:b>.</title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
                FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1.</note>
@@ -2428,7 +2263,8 @@ Some examples of what is expected to be in the documentation are provided here. 
            </f-element>
          </f-component>
          
-             <f-component id="fdp_aut_ext.3" name="Data Authentication Using Asymmetric Signing and Verification">
+             <f-component cc-id="fdp_aut_ext.3" name="Data Authentication Using Asymmetric Signing
+               and Verification" status="optional">
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
@@ -2443,33 +2279,33 @@ Some examples of what is expected to be in the documentation are provided here. 
            </dependencies>
            
            
-           <f-element id="FDP_AUT_EXT.3.1">
+               <f-element id="fdp-aut-ext-3e1">
              <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) <h:b>(from 
-               <cite linkend="bibAppPP"/>)</h:b> with the entire ciphertext file as input to create a
+               <xref to="bibAppPP"/>)</h:b> with the entire ciphertext file as input to create a
                hash.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.3.2">
+               <f-element id="fdp-aut-ext-3e2">
              <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(3)
-               <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and must use the hash generated in accordance with
+               <h:b>(from <xref to="bibAppPP"/>)</h:b> and must use the hash generated in accordance with
                FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
                signing purposes is prohibited.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.3.3">
+               <f-element id="fdp-aut-ext-3e3">
              <title>The TSF shall use a public and private key pair generated in accordance with
-               FCS_CKM.1(1) <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and must use this key pair as part of the cryptographic signing process in
+               FCS_CKM.1(1) <h:b>(from <xref to="bibAppPP"/>)</h:b> and must use this key pair as part of the cryptographic signing process in
                accordance with FDP_AUT_EXT.3.2.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.3.4">
+               <f-element id="fdp-aut-ext-3e4">
              <title>The TSF shall authenticate the ciphertext data prior to decryption.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.3.5">
+               <f-element id="fdp-aut-ext-3e5">
              <title>The TSF shall notify the user of an unsuccessful authentication and prevent
                decryption of the ciphertext if such an event were to occur.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.3.6">
+               <f-element id="fdp-aut-ext-3e6">
              <title>The TSF shall append the signature to the end of the ciphertext file.</title>
            </f-element>
-           <f-element id="FDP_AUT_EXT.3.7">
+               <f-element id="fdp-aut-ext-3e7">
              <title>During verification, the TSF shall verify the signature is at the end of the
                ciphertext file.</title>
              <note role="application"> The intent of this requirement is to specify the secure way of
@@ -2506,7 +2342,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                <mod-def>Components in this family define requirements for the protection of data in cases where the host platform becomes locked or unpowered.
                </mod-def>
              </ext-comp-def>
-             <f-component id="fdp_pm_ext.1" name="Protection of Data in Power Managed States">
+             <f-component cc-id="fdp_pm_ext.1" name="Protection of Data in Power Managed States" status="optional">
                <consistency-rationale>This SFR describes the behavior of the TSF when its host platform is in a locked or unpowered state, which does not relate to any functionality 
                  defined in the Base-PP.
                </consistency-rationale>
@@ -2521,17 +2357,17 @@ Some examples of what is expected to be in the documentation are provided here. 
                </dependencies>
                
                
-               <f-element id="FDP_PM_EXT.1.1">
+               <f-element id="fdp-pm-ext-1e1">
                  <title>The TSF shall protect all data selected for encryption during the transition to
                    the <assignable>powered-down state(s) or locked system states for which this capability is provided</assignable> state as
                    per FDP_PRT_EXT.1.1.</title>
                </f-element>
-               <f-element id="FDP_PM_EXT.1.2">
+               <f-element id="fdp-pm-ext-1e2">
                  <title>On the return to a powered-on state from the state(s) indicated in FDP_PM_EXT.1.1,
                    the TSF shall authorize the user in the manner specified in FIA_AUT_EXT.1.1 once before
                    any protected data are decrypted. </title>
                </f-element>
-               <f-element id="FDP_PM_EXT.1.3">
+               <f-element id="fdp-pm-ext-1e3">
                  <title>The TSF shall destroy all key material and authentication factors stored in plaintext when transitioning to a
                    protected state as defined by FDP_PM_EXT.1.1.</title>
                  <note role="application"> For the first assignment, the ST author fills in the state(s) using
@@ -2584,7 +2420,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              </f-component>
          
          
-             <f-component name="Protection of Third-Party Data" id="fdp_prt_ext.3">
+             <f-component cc-id="fdp_prt_ext.3" name="Protection of Third-Party Data" status="optional">
                <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the Base-PP but 
                  does not prevent the Base-PP functions from being enforced.
                </consistency-rationale>
@@ -2597,7 +2433,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                <dependencies>FDP_PRT_EXT.1 Protection of Selected User Data</dependencies>
                
                
-               <f-element id="FDP_PRT_EXT.3.1">
+               <f-element id="fdp-prt-ext-1e1">
                  <title>The TSF shall ensure that all temporary files created by 
                    <selectables>
                      <selectable>all applications</selectable>
@@ -2624,15 +2460,14 @@ Some examples of what is expected to be in the documentation are provided here. 
                  </aactivity>
                </f-element>
              </f-component>
-         
-         
-       </subsection>  
-      <subsection title="Identification and Authentication (FIA)" id="fia_opt">
+           </sec:fdp>
+                
+      <sec:fia title="Identification and Authentication">
         <ext-comp-def fam-id="FIA_FCT_EXT" title="Authorization Factors">
           <mod-def>Components in this family define requirements for the use of alternative authorization factors for users to access protected data.
           </mod-def>
         </ext-comp-def>   
-        <f-component id="fia_fct_ext.1" name="Multi-User Authorization">
+        <f-component cc-id="fia_fct_ext.1" name="Multi-User Authorization">
           <consistency-rationale>This SFR relates to the use of authorization factors, which does not relate to any behavior described in the Base-PP.
           </consistency-rationale>
           
@@ -2644,10 +2479,10 @@ Some examples of what is expected to be in the documentation are provided here. 
           <dependencies>FIA_AUT_EXT.1 User Authorization</dependencies>
           
           
-          <f-element id="FIA_FCT_EXT.1.1">
+          <f-element id="fia-fct-ext-1e1">
             <title>The TSF shall support the use of authorization factors from multiple users that result in unique KEKs.</title></f-element>
           
-          <f-element id="FIA_FCT_EXT.1.2">
+          <f-element id="fia-fct-ext-1e2">
             <title>The TSF shall support the ability of each user to have files protected by a key chain tied only to that user's credentials.
             </title>
             
@@ -2685,7 +2520,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
         
 
-        <f-component id="fia_fct_ext.2" name="Authorized Key Sharing">
+        <f-component cc-id="fia_fct_ext.2" name="Authorized Key Sharing">
           <consistency-rationale>This SFR relates to key sharing, which does not relate to any behavior described in the Base-PP.
           </consistency-rationale>
           
@@ -2697,7 +2532,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           
           
-          <f-element id="FIA_FCT_EXT.2.1">
+          <f-element id="fia-fct-est-2e1">
             <title>The TSF shall support
               <selectables>
                 <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1(6)</selectable>
@@ -2753,20 +2588,14 @@ Some examples of what is expected to be in the documentation are provided here. 
             </aactivity>
           </f-element>
         </f-component>
-      </subsection>
-       
-
-       
+      </sec:fia>
 </opt-sfrs>
 
-
     <sel-sfrs>
-      <subsection title="Cryptographic Support (FCS)" id="fcs_sel">
+      <sec:fcs title="Cryptographic Support">
         
- 
-        
-        <f-component id="fcs_ckm_ext.3" name="Key Encrypting Key (KEK) Support">
-        <selection-depends req="FCS_KYC_EXT.1.1"  ids="HASKEK"/>
+        <f-component cc-id="fcs_ckm_ext.3" name="Key Encrypting Key (KEK) Support">
+          <depends on="fcs-kyc-ext-1e1" id="HASKEK"/>
         <consistency-rationale>This SFR relates to how KEKs are made available to the TSF, which are used for functionality that does not relate to the Base-PP.
         </consistency-rationale>
           
@@ -2775,13 +2604,14 @@ Some examples of what is expected to be in the documentation are provided here. 
         <audit>There are no auditable events foreseen.</audit>
         <dependencies>FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
           
-        <f-element id="FCS_CKM_EXT.3.1 ">
+        <f-element id="fcs-ckm-ext-3e1">
           <title> The TSF shall 
             <selectables>
               <selectable>accept KEK from an enterprise management server</selectable>
               <selectable> generate KEK cryptographic keys <h:br/>
                 <selectables linebreak="yes">
-                  <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b>
+                  <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 <h:b>(from
+                    <xref to="bibAppPP"/>)</h:b>
                     and with entropy corresponding to the security strength of AES key sizes of
                     <selectables>
                       <selectable>128 bit</selectable>
@@ -2805,9 +2635,9 @@ Some examples of what is expected to be in the documentation are provided here. 
 
             Conditional: <h:br/> 
             If using a RBG was selected the evaluator shall examine the TSS and verify that it describes how the functionality
-            described by FCS_RBG_EXT.1 (from the <cite linkend="bibAppPP"/>) is invoked to
+            described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is invoked to
             generate KEK(s). To the extent possible from the description of the RBG functionality in
-            FCS_RBG_EXT.1 (from <cite linkend="bibAppPP"/>), the evaluator shall determine that the key size being
+            FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
             requested is identical to the key size selected.  <h:br/> <h:br/> 
 
             Conditional: <h:br/>               
@@ -2828,10 +2658,10 @@ Some examples of what is expected to be in the documentation are provided here. 
       </f-component>
  
  
-        <f-component id="fcs_ckm_ext.6" name="Cryptographic Password/Passphrase Conditioning"> 
-          <selection-depends req="FIA_AUT_EXT.1.1" ids="USEPAS"/>
-          <selection-depends req="FCS_CKM_EXT.2.1" ids="DRVFEKPAS"/>
-          <selection-depends req="FCS_CKM_EXT.3.1" ids="DRVKEKPAS"/>
+        <f-component cc-id="fcs_ckm_ext.6" name="Cryptographic Password/Passphrase Conditioning"> 
+          <depends on="fia-aut-ext" id="USEPAS"/>
+          <depends on="fcs-ckm-ext-2e1" id="DRVFEKPAS"/>
+          <depends on="fcs-ckm-ext-3e1" id="DRVKEKPAS"/>
           
           <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 SFR from the Base-PP in its intended manner 
             but otherwise does not relate to the Base-PP's functionality.
@@ -2845,7 +2675,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
          
           
-          <f-element id="FCS_CKM_EXT.6.1">
+          <f-element id="fcs-ckm-ext-6e1">
             <title>
               The TSF shall support a password/passphrase of up to 
               <selectables>
@@ -2855,7 +2685,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               characters used to generate a password authorization factor.
             </title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.6.2">
+          <f-element id="fcs-ckm-ext-6e2">
             <title>
               The TSF shall allow passwords to be composed of any combination of upper case characters,
               lower case characters, numbers, and the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")",
@@ -2864,7 +2694,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <selectable>no other characters</selectable>
               </selectables>.</title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.6.3">
+          <f-element id="fcs-ckm-ext-6e3">
             <title>
               The TSF shall perform Password-based Key Derivation
               Functions in accordance with a specified cryptographic algorithm HMAC-<selectables>
@@ -2882,7 +2712,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               </selectables> that meet the following: [<h:i>NIST SP 800-132</h:i>]. 
             </title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.6.4">
+          <f-element id="fcs-ckm-ext-6e4">
             <title>
               The TSF shall not accept passwords less than 
               <selectables>
@@ -2891,8 +2721,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               </selectables> and greater than the maximum password length 
               defined in FCS_CKM_EXT.6.1.</title>
           </f-element>
-          <f-element id="FCS_CKM_EXT.6.5">
-            <title>The TSF shall generate all salts using an RBG that meets FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b> and with entropy 
+          <f-element id="fcs-ckm-ext-6e5">
+            <title>The TSF shall generate all salts using an RBG that meets FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy 
               corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.6.3.</title>
             
             <note role="application">
@@ -2965,8 +2795,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 
                 <h:br/><h:br/>FCS_CKM_EXT.6.2: The ST author shall provide a
                 description in the TSS regarding the salt generation. The evaluator shall confirm that
-                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <cite
-                  linkend="bibAppPP"/>). <h:br/><h:br/>
+                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>). <h:br/><h:br/>
                 
                 
                 
@@ -2992,13 +2821,13 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
  
  
-        <f-component id="fcs_cop.1(5)" name="Cryptographic operation (Key Wrapping)">
-          <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYWRA"/>
+        <f-component cc-id="fcs_cop.1" name="Cryptographic operation (Key Wrapping)" iteration="5">
+          <depends on="fcs-kyc-ext-1e1" id="USEKEYWRA"/>
           
           <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
             specific to this PP-Module and do not affect the ability of any Base-PP SFRs to be enforced.
           </consistency-rationale>
-          <f-element id="FCS_COP.1.1(5)">
+          <f-element>
             <title>
               The TSF shall <h:b>
                 <selectables>
@@ -3051,7 +2880,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 
               </Guidance>
               <Tests> 
-                The evaluation activity tests specified for AES in GCM mode in the underlying <cite linkend="bibAppPP"/> shall be performed in the case that "GCM" is selected in the requirement.
+                The evaluation activity tests specified for AES in GCM mode in the underlying <xref to="bibAppPP"/> shall be performed in the case that "GCM" is selected in the requirement.
                 
                 <h:br/><h:br/><h:p><h:b>AES Key Wrap (AES-KW) and Key Wrap with Padding (AES-KWP) Test</h:b></h:p>
               <h:p>
@@ -3130,11 +2959,11 @@ Some examples of what is expected to be in the documentation are provided here. 
         
 
 
-        <f-component id="fcs_cop.1(6)" name="Cryptographic operation (Key Transport)">
-          <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYTRA"/>
+        <f-component cc-id="fcs_cop.1" name="Cryptographic operation (Key Transport)" iteration="6">
+          <depends on ="fcs-kyc-ext.1.1" id="USEKEYTRA"/>
           <consistency-rationale>This SFR defines key transport functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
-          <f-element id="FCS_COP.1.1(6)">
+          <f-element>
             <title>
               The TSF shall perform [<h:i>key transport</h:i>] in accordance with a
               specified cryptographic algorithm [<h:i>RSA</h:i>] <h:b>in the following modes 
@@ -3257,11 +3086,11 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
      
  
-        <f-component id="fcs_cop.1(7)" name="Cryptographic operation (Key Encryption)">
-          <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYENC"/>
+        <f-component cc-id="fcs_cop.1" name="Cryptographic operation (Key Encryption)" iteration="7">
+          <depends on="fcs-kyc-ext-1e1" ids="USEKEYENC"/>
           <consistency-rationale>This SFR defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
-          <f-element id="FCS_COP.1.1(7)">
+          <f-element>
             <title>
               The TSF shall <h:b>
               <selectables>
@@ -3292,7 +3121,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </Guidance>
 <Tests> 
               The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in
-              the underlying <cite linkend="bibAppPP"/> shall be performed.
+              the underlying <xref to="bibAppPP"/> shall be performed.
               </Tests>
 </aactivity>
           </f-element>
@@ -3304,8 +3133,8 @@ Some examples of what is expected to be in the documentation are provided here. 
           <mod-def>Components in this family define requirements for the implementation of cryptographic key derivation functions
           </mod-def>
         </ext-comp-def>
-        <f-component id="fcs_kdf_ext.1" name="Cryptographic Key Derivation Function">
-          <selection-depends req="FCS_KYC_EXT.1.1" ids="USEKEYDER"/>
+        <f-component cc-id="fcs_kdf_ext.1" name="Cryptographic Key Derivation Function">
+          <depends on="fcs-kyc-ext-1e1" ids="USEKEYDER"/>
           <consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the Base-PP 
             as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
@@ -3322,11 +3151,12 @@ Some examples of what is expected to be in the documentation are provided here. 
             FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
           
           
-          <f-element id="FCS_KDF_EXT.1.1">
+          <f-element>
             <title>
                 The TSF shall [<h:i>accept
                     <selectables>
-                      <selectable>a submask generated by an RBG as specified in FCS_RBG_EXT.1 <h:b>(from <cite linkend="bibAppPP"/>)</h:b></selectable>
+                      <selectable>a submask generated by an RBG as specified in FCS_RBG_EXT.1
+                        <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
                       <selectable>a conditioned password</selectable>
                       <selectable>an imported submask</selectable>
                     </selectables> to derive an intermediate key, as defined in
@@ -3339,7 +3169,8 @@ Some examples of what is expected to be in the documentation are provided here. 
                         </selectables>
                       </selectable>
                       <selectable>NIST SP 800-132</selectable>
-                    </selectables> using the keyed-hash functions specified in FCS_COP.1<h:b>(4) (from <cite linkend="bibAppPP"/>)</h:b>, such that the output is at least of
+                    </selectables> using the keyed-hash functions specified in FCS_COP.1<h:b>(4)
+                      (from <xref to="bibAppPP"/>)</h:b>, such that the output is at least of
                     equivalent security strength (in number of bits) to the [FEK]</h:i>].
             </title>
             <note role="application">
@@ -3395,8 +3226,8 @@ Some examples of what is expected to be in the documentation are provided here. 
           <mod-def>Components in this family define requirements for generation of intermediate keys via submask combining.
           </mod-def>
         </ext-comp-def>
-        <f-component id="fcs_smc_ext.1" name="Submask Combining">
-          <selection-depends req="FCS_KYC_EXT.1.1"  ids="USEKEYCOM"/>
+        <f-component cc-id="fcs_smc_ext.1" name="Submask Combining">
+          <depends on="FCS_KYC_EXT.1.1" ids="USEKEYCOM"/>
           <consistency-rationale>This SFR relates to submask combining as a method of generating intermediate keys. Key hierarchy functionality is outside the scope of the Base-PP.
           </consistency-rationale>
           
@@ -3410,7 +3241,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
           
           
-          <f-element id="FCS_SMC_EXT.1.1 ">
+          <f-element>
             <title>The TSF shall [<h:i>combine submasks using the following method <selectables>
               <selectable>exclusive OR (XOR)</selectable>
               <selectable>SHA-256</selectable>
@@ -3465,8 +3296,8 @@ Some examples of what is expected to be in the documentation are provided here. 
             <mod-def>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
             </mod-def>
           </ext-comp-def>
-        <f-component id="fcs_val_ext.2" name="Validation Remediation">
-            <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
+        <f-component cc-id="fcs_val_ext.2" name="Validation Remediation">
+            <depends on="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
             <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can take security-relevant action if some data input to it is invalid.
             </consistency-rationale>
             
@@ -3485,7 +3316,7 @@ Some examples of what is expected to be in the documentation are provided here. 
            
             
             
-            <f-element id="FCS_VAL_EXT.2.1">
+            <f-element>
               <title>The TSF shall 
                 <selectables linebreak="yes">
                   <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
@@ -3576,11 +3407,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </selectables>.
             </title>
           </f-element-ecd>
-          -->
-          
-          
+          -->          
         </f-component>
-        </subsection>
+      </sec:fcs>
     </sel-sfrs>
 
     <obj-sfrs></obj-sfrs>
@@ -3611,10 +3440,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
     </section>
 
     -->
-  </chapter>
-  <appendix title="Key Management Description" id="KMD"> 
-        
-
+    <impl-dep-sfrs></impl-dep-sfrs></sec:Security_Requirements>
+  
+<appendix title="Key Management Description" id="KMD">
       The documentation of the product’s encryption key management should be detailed enough
       that, after reading, the evaluator will thoroughly understand the product’s key management and
       how it meets the requirements to ensure the keys are adequately protected. This documentation
@@ -3686,6 +3514,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       when a user or administrator first provisions the product.</h:li>
     
   </appendix>
+  
+  
 <!--  
   <appendix title="Optional Requirements" id="optional" >
     As indicated in <secref linkend="ccl"/>, the baseline requirements (those that must be
@@ -3804,117 +3634,5 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           Operation: Methods for Key Wrapping, December 2012 </description>
       </entry>
     </bibliography>
-
-    <acronyms>
-      <entry>
-        <term>AES</term>
-        <description>Advanced Encryption Standard</description>
-      </entry>
-      <entry>
-        <term>CC</term>
-        <description>Common Criteria</description>
-      </entry>
-      <entry>
-        <term>FAK</term>
-        <description>File Authentication Key</description>
-      </entry>
-      <entry>
-        <term>FEK</term>
-        <description>File Encryption Key</description>
-      </entry>
-      <entry>
-        <term>DRBG</term>
-        <description>Deterministic Random Bit Generator</description>
-      </entry>
-      <entry>
-        <term>EAL</term>
-        <description>Evaluation Assurance Level</description>
-      </entry>
-      <entry>
-        <term>ECC</term>
-        <description>Elliptic Curve Cryptography</description>
-      </entry>
-      <entry>
-        <term>ECC CDH</term>
-        <description>Elliptic Curve Cryptography Cofactor Diffie-Hellman (see NIST SP 800-56A rev 2,
-          section 6.2.2.2)</description>
-      </entry>
-      <entry>
-        <term>FIPS</term>
-        <description>Federal Information Processing Standards</description>
-      </entry>
-      <entry>
-        <term>ISSE</term>
-        <description>Information System Security Engineers</description>
-      </entry>
-      <entry>
-        <term>IT</term>
-        <description>Information Technology</description>
-      </entry>
-      <entry>
-        <term>KDF</term>
-        <description>Key Derivation Function</description>
-      </entry>
-      <entry>
-        <term>KEK</term>
-        <description>Key Encryption Key</description>
-      </entry>
-      <entry>
-        <term>PBKDF</term>
-        <description>Password-Based Key Derivation Function</description>
-      </entry>
-      <entry>
-        <term>PIN</term>
-        <description>Personnel Identification Number</description>
-      </entry>
-      <entry>
-        <term>PKI</term>
-        <description>Public Key Infrastructure</description>
-      </entry>
-      <entry>
-        <term>PP</term>
-        <description>Protection Profile</description>
-      </entry>
-      <entry>
-        <term>PUB</term>
-        <description>Publication</description>
-      </entry>
-      <entry>
-        <term>RBG</term>
-        <description>Random Bit Generator </description>
-      </entry>
-      <entry>
-        <term>SAR</term>
-        <description>Security Assurance Requirement</description>
-      </entry>
-      <entry>
-        <term>SF</term>
-        <description>Security Function</description>
-      </entry>
-      <entry>
-        <term>SFR</term>
-        <description>Security Functional Requirement</description>
-      </entry>
-      <entry>
-        <term>ST</term>
-        <description>Security Target</description>
-      </entry>
-      <entry>
-        <term>TOE</term>
-        <description>Target of Evaluation</description>
-      </entry>
-      <entry>
-        <term>TSF</term>
-        <description>TOE Security Functionality</description>
-      </entry>
-      <entry>
-        <term>TSFI</term>
-        <description>TSF Interface</description>
-      </entry>
-      <entry>
-        <term>TSS</term>
-        <description>TOE Summary Specification </description>
-      </entry>
-    </acronyms>
 
 </Module>
