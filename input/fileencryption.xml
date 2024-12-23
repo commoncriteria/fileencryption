@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 
 <?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<Module target-product="File Encryption" name="PP-Module for File Encryption"
+<Module target-product="File Encryption" target-products="File Encryption" name="PP-Module for File Encryption"
   xmlns="https://niap-ccevs.org/cc/v1"
   xmlns:sec="https://niap-ccevs.org/cc/v1/section"
   xmlns:h="http://www.w3.org/1999/xhtml">
@@ -28,7 +28,7 @@
      The scope of the File Encryption PP-Module is to describe the security functionality of a file encryption 
 	    product in terms of [CC] and to define functional and assurance requirements for such products. 
 	    This PP-Module is intended for use with the following Base-PP: <h:ul>
-        <h:li><xref to="bibAppPP"/></h:li>	      
+        <h:li>Application Software Protection Profile, Version 1.3</h:li>	      
       </h:ul><h:br/><h:br/>     
       This Base-PP is valid because a file encryption product is a 3rd party application or application included with a operating system.<h:br/><h:br/>
     
@@ -158,22 +158,7 @@
       in the PP-Module might be considered "administrative" functions for other types of TOEs, for file
       encryption products it is the expectation that all of these functions can be performed by
       the end user of the software.
-    </sec:Overview>
-
-    <cc-terms>
-      <term abbr="CC" full="Common Criteria">Common Criteria for Information Technology Security Evaluation.</term>
-      <term abbr="PP" full="Protection Profile">An implementation-independent set of security requirements for a category of products.</term>
-      <term abbr="PP-Configuration" full="Protection Profile Configuration">A comprehensive set of security requirements for a product type that 
-		    consists of at least one Base-PP and at least one PP-Module.</term>
-      <term abbr="PP-Module" full="Protection Profile Module">An implementation-independent statement of security needs for a TOE type complementary
-        to one or more Base Protection Profiles.</term>
-      <term abbr="SAR" full="Security Assurance Requirement">A requirement to assure the security of the TOE.</term>
-      <term abbr="SFR" full="Security Functional Requirement">A requirement for security enforcement by the TOE.</term>
-      <term abbr="ST" full="Security Target">A set of implementation-dependent security requirements for a specific product.</term>
-      <term abbr="TOE" full="Target of Evaluation">The product under evaluation. In this case, file encryption software and its supporting documentation.</term>
-      <term abbr="TSF" full="TOE Security Functionality">The security functionality of the product under evaluation.</term>
-      <term abbr="TSS" full="TOE Summary Specification">A description of how a TOE satisfies the SFRs in an ST.</term>
-    </cc-terms>
+    </sec:Overview>  
       
     <tech-terms>  
       <term full="Administrator">Authorized Users with higher privileges and typically handle configuration and management functions, such as configuring and 
@@ -1940,9 +1925,9 @@ Some examples of what is expected to be in the documentation are provided here. 
     
     <opt-sfrs>
       
-      <sec:fcs title="Cryptographic Support">
+      <sec:fcs title="Cryptographic Support (FCS)">
   
-        <f-component cc-id="fcs_ckm_ext.5" name="File Authentication Key (FAK) Support" status="optional">
+        <f-component cc-id="fcs_ckm_ext.5" name="File Authentication Key (FAK) Support">
           <consistency-rationale>This SFR supports the PP-Module's data authentication function, which does not relate to any functionality defined in the Base-PP.
           </consistency-rationale>
           
@@ -1954,8 +1939,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <dependencies>FCS_COP_EXT.1 FAK Encryption/Decryption Support<h:br/>
             FCS_RBG_EXT.1 Random Bit Generation Services<h:br/>
             FDP_AUT_EXT.2 Data Authentication Using Cryptographic Keyed-Hash Functions
-          </dependencies>
-          
+          </dependencies>          
           
           <f-element id="fcs-ckm-ext-5e1">
             <title> The TSF shall use a FAK to authenticate sensitive data when a cryptographic, keyed
@@ -2042,7 +2026,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           </mod-def>
         </ext-comp-def>
         
-        <f-component cc-id="fcs_cop_ext.1" name="FAK Encryption/Decryption Support" status="optional">
+        <f-component cc-id="fcs_cop_ext.1" name="FAK Encryption/Decryption Support">
           <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
             specific to this PP-Module and do not affect the ability for any Base-PP SFRs to be enforced.
           </consistency-rationale>
@@ -2077,13 +2061,13 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
       </sec:fcs>
       
-           <sec:fdp title="User Data Protection">
+           <sec:fdp title="User Data Protection (FDP)">
 
              <ext-comp-def fam-id="FDP_AUT_EXT" title="User Data Authentication">
                <mod-def>Components in this family define requirements for authentication of protected user data.
                </mod-def>
              </ext-comp-def>
-         <f-component cc-id="fdp_aut_ext.1" name="Authentication of Selected User Data" status="optional">
+         <f-component cc-id="fdp_aut_ext.1" name="Authentication of Selected User Data">
            <consistency-rationale>This SFR relates to data authentication, which does not relate to any functionality defined in the Base-PP.
            </consistency-rationale>
            
@@ -2181,7 +2165,7 @@ Some examples of what is expected to be in the documentation are provided here. 
            </f-element>
          </f-component>
              <f-component cc-id="fdp_aut_ext.2" name="Data Authentication Using cryptographic
-               Keyed-Hash Functions" status="optional">
+               Keyed-Hash Functions">
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
@@ -2264,7 +2248,7 @@ Some examples of what is expected to be in the documentation are provided here. 
          </f-component>
          
              <f-component cc-id="fdp_aut_ext.3" name="Data Authentication Using Asymmetric Signing
-               and Verification" status="optional">
+               and Verification">
            <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
              defined in the Base-PP.
            </consistency-rationale>
@@ -2342,7 +2326,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                <mod-def>Components in this family define requirements for the protection of data in cases where the host platform becomes locked or unpowered.
                </mod-def>
              </ext-comp-def>
-             <f-component cc-id="fdp_pm_ext.1" name="Protection of Data in Power Managed States" status="optional">
+             <f-component cc-id="fdp_pm_ext.1" name="Protection of Data in Power Managed States">
                <consistency-rationale>This SFR describes the behavior of the TSF when its host platform is in a locked or unpowered state, which does not relate to any functionality 
                  defined in the Base-PP.
                </consistency-rationale>
@@ -2420,7 +2404,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              </f-component>
          
          
-             <f-component cc-id="fdp_prt_ext.3" name="Protection of Third-Party Data" status="optional">
+             <f-component cc-id="fdp_prt_ext.3" name="Protection of Third-Party Data">
                <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the Base-PP but 
                  does not prevent the Base-PP functions from being enforced.
                </consistency-rationale>
@@ -2462,7 +2446,7 @@ Some examples of what is expected to be in the documentation are provided here. 
              </f-component>
            </sec:fdp>
                 
-      <sec:fia title="Identification and Authentication">
+      <sec:fia title="Identification and Authentication (FIA)">
         <ext-comp-def fam-id="FIA_FCT_EXT" title="Authorization Factors">
           <mod-def>Components in this family define requirements for the use of alternative authorization factors for users to access protected data.
           </mod-def>
@@ -2592,7 +2576,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </opt-sfrs>
 
     <sel-sfrs>
-      <sec:fcs title="Cryptographic Support">
+      <sec:fcs title="Cryptographic Support (FCS)">
         
         <f-component cc-id="fcs_ckm_ext.3" name="Key Encrypting Key (KEK) Support">
           <depends on="fcs-kyc-ext-1e1" id="HASKEK"/>
