@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../transforms/module/module2html.xsl"?>
 
-<?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../transforms/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <Module target-product="File Encryption" target-products="File Encryption" name="PP-Module for File Encryption"
   xmlns="https://niap-ccevs.org/cc/v1"
   xmlns:sec="https://niap-ccevs.org/cc/v1/section"
@@ -9,9 +9,9 @@
   
   <PPReference>
     <ReferenceTable>
-      <PPVersion>1.0</PPVersion>
+      <PPVersion>1.1</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2019-07-25</PPPubDate>
+      <PPPubDate>2025-01-31</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -20,6 +20,11 @@
       <version>v 1.0</version>
       <date>2019-07-25</date>
       <subject>Initial Release</subject>
+    </entry>
+    <entry>
+      <version>v 1.1</version>
+      <date>2025-01-31</date>
+      <subject>Update to CC:2022</subject>
     </entry>
   </RevisionHistory>
   
@@ -278,13 +283,13 @@
   </sec:Introduction>
 
   <section title="Conformance Claims" id="ccl" boilerplate="no">
-    <CClaimsInfo cc-version="cc-31r5" cc-approach="direct-rationale">
+    <CClaimsInfo cc-version="cc-2022r1" cc-approach="direct-rationale">
       <cc-st-conf>exact</cc-st-conf>
       <cc-pt2-conf>extended</cc-pt2-conf>
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
-        <Mod-cc-ref>PP-Module for VPN Client, Version 2.1</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for VPN Client, Version 2.3</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim/>        
@@ -611,7 +616,7 @@
     </modified-sfrs>
         
       <additional-sfrs></additional-sfrs>
-      <con-toe></con-toe>
+      <con-toe>When this PP-Module is used to extend the AppPP, the TOE type for the overall TOE is still an application. The TOE boundary is simply extended to include File Encryption functionality that is provided by the application.</con-toe>
       <con-sec-prob></con-sec-prob>
       <con-obj></con-obj>
       <con-op-en></con-op-en>
@@ -650,22 +655,35 @@
           <dependencies>FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
 
           <f-element id="fcs-ckm-ext-2e1">
-            <title> The TSF shall 
+            <title> The TSF shall
               <selectables>
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
                     <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
-                      <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes of
-                      <selectables>
-                        <selectable>128 bit</selectable>
-                        <selectable>256 bit</selectable>
-                      </selectables></selectable>
+                      <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes <h:i>[256-bit]</h:i></selectable>
+                    <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
                   </selectables>
                 </selectable>
               </selectables>.
             </title>
+            <ext-comp-def-title>
+            <title> The TSF shall
+              <selectables>
+                <selectable> accept FEK from an enterprise management server</selectable>
+                <selectable> generate FEK cryptographic keys <h:br/>
+                  <selectables linebreak="yes">
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
+                      <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes <assignable>supported key size</assignable></selectable>
+                    <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
+                    <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
+                  </selectables>
+                </selectable>
+              </selectables>.
+            </title>
+            </ext-comp-def-title>
+            <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key genration, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
             <!--Removed as repetative.
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
@@ -696,6 +714,13 @@
               FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
               decryption/encryption of the user data (FCS_COP.1(1)) (from <xref to="bibAppPP"/>).  <h:br/> <h:br/> 
+
+              Conditional: <h:br/>
+              If 'using key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify that
+              the TSS describes how the functionality described by NIST SP 800-133r1 is implemented to generate the FEK.
+              The evaluator shall verify that the description of the key generation method matches the methods described in
+              SP 800-133r1 and that the FEK is chained to an approved RBG. The evaluator shall verify that the key size and mode
+              being requested is identical to the key size and mode to be used for the decryption/encryption of the user data (FCS_COP.1(1)) (from <xref to="bibAppPP"/>) <h:br/> <h:br/>
 
               Conditional: <h:br/>               
               If 'derived from a password/passphrase' is selected, the examination of the TSS section is performed as
@@ -907,7 +932,9 @@ Some examples of what is expected to be in the documentation are provided here. 
 </Guidance>
               <Tests> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <h:br/><h:br/>
               <testlist>
-                <test>Applied to each key held in volatile memory and subject to destruction by overwrite by the 
+                <test> [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM_EXT.4.1 
+                  (assuming the selection "destruction of the reference followed by a request for garbage collection")]<h:br/>
+                  Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
                   In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. <h:br/><h:br/>
                     
@@ -927,7 +954,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     
                     Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</test><h:br/>
 
-                <test>[Conditional] If new value of a key is selected this test does not apply. <h:br/>
+                <test>[Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <h:br/>
                   Applied to each key held in non-volatile memory and subject to destruction by the TOE. <h:br/>
                   The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended.<h:br/>
                     
@@ -2214,8 +2241,11 @@ Some examples of what is expected to be in the documentation are provided here. 
                file.</title>
            </f-element>
                <f-element id="fdp-aut-ext-2e9">
-             <title>The FAK will be generated using a RBG that meets FCS_RBG_EXT.1 <h:b>(from <xref
-               to="bibAppPP"/>)</h:b>.</title>
+             <title>The FAK will be generated using 
+              <selectables> 
+                <selectable>a RBG that meets FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
+                <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
+              </selectables>.</title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
                FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1.</note>
@@ -2228,7 +2258,14 @@ Some examples of what is expected to be in the documentation are provided here. 
                  any file encryption utility will be able to identify where the MAC is placed. <h:br/><h:br/>The
                  evaluator will confirm that a FAK is used as part of the authentication process and will
                  identify the keyed hash function utilized. <h:br/><h:br/>
-                 
+                 Conditional:<h:br/>
+                 If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes
+                 how the functionality described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is used to generate the FAK. <h:br/><h:br/>
+                 Conditional:<h:br/>
+                 If 'key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify
+                 that the TSS describes how the functionality described by NIST SP 800-33r1 is implemented to generate the FAK.
+                 The evaluator shall verify that the description of the key generation method matches the methods described in
+                 SP 800-133r1 and that the FAK is chained to an approved RBG.
                </TSS>
                <Guidance> It is encouraged for
                  every implementation to use a FAK that is wholly different and independently generated
