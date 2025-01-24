@@ -1012,7 +1012,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </ext-comp-def>
         <f-component cc-id="fcs_iv_ext.1" name="Initialization Vector Generation">
           <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
-            methods specified by the Base-PP SFR FCS_CKM.1(2).
+            methods specified by the Base-PP SFR FCS_CKM.1/Hash.
           </consistency-rationale>
           
           <comp-lev> specifies the required initialization vector generation methods used by the TSF for various cryptographic algorithms.</comp-lev>
@@ -1091,10 +1091,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/5</h:b></selectable>
                     <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/7</h:b></selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
                     <selectables>
@@ -1122,10 +1122,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/5</h:b></selectable>
                     <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>(7)</h:b></selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>(6)</h:b></selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/7</h:b></selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
@@ -1323,7 +1323,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               </selectables>.               
             </title>
             <ext-comp-def-title>
-            <title>The TSF shall perform validation of the [<h:i>user</h:i>] by 
+            <title>The TSF shall perform validation of the <assignable>subject requiring validation</assignable> by 
               <selectables>
                 <selectable>receiving assertion of the subject's validity from <assignable>Operational Environment component responsible for authentication</assignable></selectable>
                 <selectable>validating the <selectables>
@@ -1376,6 +1376,9 @@ Some examples of what is expected to be in the documentation are provided here. 
           </f-element>
           <f-element id="fcs-val-ext-1e2">
             <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i>].</title>
+            <ext-comp-def-title>
+            <title>The TSF shall require validation of the <assignable>subject requiring validation</assignable> prior to <assignable>action requiring validation</assignable>.</title>
+            </ext-comp-def-title>
             
             
             <note role="Application">Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
@@ -1765,6 +1768,40 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 </selectable>
               </selectables>.
             </title>
+            <ext-comp-def-title>
+            <title>The TSF shall 
+              <selectables>
+                <selectable id="PLATAUTH">implement platform-provided functionality to provide user
+                  authorization</selectable>
+                <selectable id="APPAUTH">provide user authorization</selectable>
+              </selectables> based on 
+              <selectables>
+                <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable>
+                <selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
+                   <selectables>
+                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
+                     <selectable>generated by the platform</selectable>
+                   </selectables> protected using RSA with key size 
+                  <selectables>
+                    <selectable>3072 bits</selectable>
+                    <selectable>4096 bits</selectable>
+                  </selectables> with user presence proved by presentation of the smart card and 
+                  <selectables>
+                    <selectable>no PIN</selectable>
+                    <selectable>an OE defined PIN</selectable>
+                    <selectable>a configurable PIN</selectable>
+                  </selectables>
+                </selectable>
+                <selectable>an external USB token factor that is at least the same security strength as the FEK(s),
+                   and is providing a submask generated by the 
+                   <selectables>
+                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
+                     <selectable>platform</selectable>
+                   </selectables>
+                </selectable>
+              </selectables>.
+            </title>
+            </ext-comp-def-title>
             <note role="application">
 			  
 			  If the ST author selects "provide user authorization", the selection-based requirement FCS_VAL_EXT.2 must also be claimed.<h:br/><h:br/>
@@ -2113,6 +2150,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element id="fcs-ckm-ext-5e2">
             <title>The TSF shall create a unique FAK for each file (or set of files) using the
               mechanism on the client as specified in FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>.</title>
+              <ext-comp-def-title>
+              <title>The TSF shall create a unique FAK for each file (or set of files) using the
+              mechanism on the client as specified in FCS_RBG_EXT.1.</title>
+              </ext-comp-def-title>
           </f-element>
           <f-element id="fcs-ckm-ext-5e3">
             <title>The FAKs must be generated by the TOE as specified in FDP_AUT_EXT.2.9.</title>
@@ -2380,6 +2421,12 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>a RBG that meets FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
                 <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
               </selectables>.</title>
+              <ext-comp-def-title>
+              <title>The FAK will be generated using 
+              <selectables> 
+                <selectable>a RBG that meets FCS_RBG_EXT.1</selectable>
+                <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
+              </selectables>.</title></ext-comp-def-title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
                FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1.</note>
