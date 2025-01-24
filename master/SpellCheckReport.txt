@@ -33,6 +33,7 @@ output/fileencryption-release-linkable.html: PBKDF
 output/fileencryption-release-linkable.html: PCI
 output/fileencryption-release-linkable.html: PRF
 output/fileencryption-release-linkable.html: RSADP
+output/fileencryption-release-linkable.html: SKC
 output/fileencryption-release-linkable.html: STO
 output/fileencryption-release-linkable.html: Sanitization
 output/fileencryption-release-linkable.html: UAU
@@ -78,6 +79,7 @@ output/fileencryption-release.html: FIPS198
 output/fileencryption-release.html: NIST800
 output/fileencryption-release.html: PBKDF
 output/fileencryption-release.html: PRF
+output/fileencryption-release.html: SKC
 output/fileencryption-release.html: STO
 output/fileencryption-release.html: Sanitization
 output/fileencryption-release.html: UAU
@@ -121,6 +123,7 @@ output/fileencryption-sd.html: OEAP
 output/fileencryption-sd.html: PBKDF
 output/fileencryption-sd.html: PCI
 output/fileencryption-sd.html: RSADP
+output/fileencryption-sd.html: SKC
 output/fileencryption-sd.html: Sanitization
 output/fileencryption-sd.html: Zeroize
 output/fileencryption-sd.html: cLen
@@ -173,6 +176,7 @@ output/fileencryption.html: PBKDF
 output/fileencryption.html: PCI
 output/fileencryption.html: PRF
 output/fileencryption.html: RSADP
+output/fileencryption.html: SKC
 output/fileencryption.html: STO
 output/fileencryption.html: Sanitization
 output/fileencryption.html: UAU

@@ -26,7 +26,7 @@
      The scope of the File Encryption PP-Module is to describe the security functionality of a file encryption 
 	    product in terms of [CC] and to define functional and assurance requirements for such products. 
 	    This PP-Module is intended for use with the following Base-PP: <h:ul>
-        <h:li>Application Software Protection Profile, Version 1.3</h:li>	      
+        <h:li>Application Software Protection Profile, Version 1.4</h:li>	      
       </h:ul><h:br/><h:br/>     
       This Base-PP is valid because a file encryption product is a 3rd party application or application included with a operating system.<h:br/><h:br/>
     
@@ -103,14 +103,14 @@
       data should not allow the user to see the decrypted ciphertext and notification should be
       provided to the user if such an event were to occur.<h:br/> <h:br/> A keyed hashing service may also
       be used to accomplish data authentication. This will involve using an approved keyed hashing
-      service in accordance with FCS_COP.1(4) and proper protection of the File Authentication Key
+      service in accordance with FCS_COP.1/KeyedHash and proper protection of the File Authentication Key
       (FAK); the FAK being the secret value used as input to the keyed hash function. FAKs should
       be numerically different from the FEK, but will be protected in all of the same manners as
       the FEK. The primary requirement dictating implementation of data authentication using a
       keyed hash function is FDP_AUT_EXT.2.<h:br/> <h:br/> Lastly, asymmetric signing in conjunction with a
       secure hash function may be used to authenticate the data. The implementation must use an
-      approved signing algorithm in accordance with FCS_COP.1(3) (from the [AppPP]) and an approved secure hashing function in accordance with
-      FCS_COP.1(2) (from the [AppPP]). The primary requirement addressing data
+      approved signing algorithm in accordance with FCS_COP.1/Sig (from the [AppPP]) and an approved secure hashing function in accordance with
+      FCS_COP.1/Hash (from the [AppPP]). The primary requirement addressing data
       authentication via asymmetric signing is FDP_AUT_EXT.3. <h:br/><h:br/>
 
       <h:b>The TOE and Its Supporting Environment:</h:b><h:br/>
@@ -282,6 +282,7 @@
       <cc-pp-conf/>
       <cc-pp-config-with>
         <Mod-cc-ref>PP-Module for VPN Client, Version 2.3</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for VPN Client, Version 2.4</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim/>        
@@ -465,16 +466,16 @@
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_COP.1(1) (from Base-PP)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_CKM_EXT.2"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_KYC_EXT.1"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_CKM_EXT.3 (selection-based)"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_CKM_EXT.6 (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_COP.1(5) (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_COP.1(6) (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_COP.1(7) (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1/5 (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1/6 (selection-based)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1/7 (selection-based)"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_KDF_EXT.1 (selection-based"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_SMC_EXT.1 (selection-based)"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_VAL_EXT.2 (selection-based)"/></addressed-by><rationale/>
@@ -508,7 +509,7 @@
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_COP.1(1) (from Base-PP)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale/>
           <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale/>
           <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale/>
@@ -593,8 +594,8 @@
   
   <sec:Security_Requirements>
     
-    <base-pp id="b-appp" product="application" name="Application Software" short="App" version="1.3">
-      <url>https://github.com/commoncriteria/fileencryption/blob/master/input/fileencryption.xml</url>      
+    <base-pp id="b-appp" product="application" name="Application Software" short="App" version="1.4">
+      <url>https://www.niap-ccevs.org/protectionprofiles/462</url>     
     <sec-func-req-dir>
         The TOE is expected to rely on some of the security functions implemented by the application
         as a whole and evaluated against <xref to="bibAppPP"/>.
@@ -664,8 +665,8 @@
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
-                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
-                      <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes <assignable>supported key size</assignable></selectable>
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG.1
+                    and with entropy corresponding to the security strength of AES key sizes <assignable>supported key size</assignable></selectable>
                     <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
                   </selectables>
@@ -703,14 +704,14 @@
               generate FEK. To the extent possible from the description of the RBG functionality in
               FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
-              decryption/encryption of the user data (FCS_COP.1(1)) (from <xref to="bibAppPP"/>).  <h:br/> <h:br/> 
+              decryption/encryption of the user data (FCS_COP.1/SKC) (from <xref to="bibAppPP"/>).  <h:br/> <h:br/> 
 
               Conditional: <h:br/>
               If 'using key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify that
               the TSS describes how the functionality described by NIST SP 800-133r1 is implemented to generate the FEK.
               The evaluator shall verify that the description of the key generation method matches the methods described in
               SP 800-133r1 and that the FEK is chained to an approved RBG. The evaluator shall verify that the key size and mode
-              being requested is identical to the key size and mode to be used for the decryption/encryption of the user data (FCS_COP.1(1)) (from <xref to="bibAppPP"/>) <h:br/> <h:br/>
+              being requested is identical to the key size and mode to be used for the decryption/encryption of the user data (FCS_COP.1/SKC) (from <xref to="bibAppPP"/>). <h:br/> <h:br/>
 
               Conditional: <h:br/>               
               If 'derived from a password/passphrase' is selected, the examination of the TSS section is performed as
@@ -1294,23 +1295,49 @@ Some examples of what is expected to be in the documentation are provided here. 
                   <selectable>submask</selectable>
                   <selectable>intermediate key</selectable>
                 </selectables> using the following methods: <selectables>
-                  <selectable>key wrap as specified in FCS_COP.1<h:b>(5)</h:b></selectable>
+                  <selectable>key wrap as specified in FCS_COP.1<h:b>/5</h:b></selectable>
                   <selectable>hash the 
                     <selectables>
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable> 
-                    </selectables> as specified in FCS_COP.1<h:b>(2)</h:b> <h:b>(from <xref to="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                    </selectables> as specified in FCS_COP.1<h:b>/Hash (from <xref to="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
                   <selectable>decrypt a known value using the 
                     <selectables>
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable>
                       
-                    </selectables> as specified in FCS_COP.1<h:b>(1)</h:b> <h:b>(from <xref to="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+                    </selectables> as specified in FCS_COP.1<h:b>/SKC (from <xref to="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
                 </selectables></selectable>
               </selectables>.               
             </title>
+            <ext-comp-def-title>
+            <title>The TSF shall perform validation of the [<h:i>user</h:i>] by 
+              <selectables>
+                <selectable>receiving assertion of the subject's validity from <assignable>Operational Environment component responsible for authentication</assignable></selectable>
+                <selectable>validating the <selectables>
+                  <selectable>submask</selectable>
+                  <selectable>intermediate key</selectable>
+                </selectables> using the following methods: <selectables>
+                  <selectable>key wrap as specified in FCS_COP.1</selectable>
+                  <selectable>hash the 
+                    <selectables>
+                      <selectable>submask</selectable>
+                      <selectable>intermediate key</selectable>
+                      <selectable>FEK</selectable> 
+                    </selectables> as specified in FCS_COP.1 and compare it to a stored hash</selectable> 
+                  <selectable>decrypt a known value using the 
+                    <selectables>
+                      <selectable>submask</selectable>
+                      <selectable>intermediate key</selectable>
+                      <selectable>FEK</selectable>
+                      
+                    </selectables> as specified in FCS_COP.1 and compare it against a stored known value</selectable>
+                </selectables></selectable>
+              </selectables>.               
+            </title>
+            </ext-comp-def-title>
               
               <!--           
               The TSF shall perform validation of the 
@@ -1366,6 +1393,67 @@ Some examples of what is expected to be in the documentation are provided here. 
             </aactivity>            
           </f-element>          
         </f-component>
+        <f-component cc-id="fcs_val_ext.2" name="Validation Remediation">
+            <depends on="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
+            <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can take security-relevant action if some data input to it is invalid.
+            </consistency-rationale>
+            
+            <comp-lev> requires the TSF to specify what the TOE’s response is in the event of a data validation failure.</comp-lev>
+            <management>The following actions could be considered for the management functions in FMT: <h:ul>
+			  <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
+              <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
+            </h:ul>
+            </management>
+            <audit>The following actions should be auditable if FAU_GEN Security audit data
+              generation is included in the PP/ST:<h:ul>
+                <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
+              </h:ul>
+            </audit>
+            <dependencies>FCS_VAL_EXT.1 Validation</dependencies>
+           
+            
+            
+            <f-element>
+              <title>The TSF shall 
+                <selectables linebreak="yes">
+                  <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
+                  <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
+                  <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+                  
+                  <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+                  
+                </selectables>.
+              </title>
+              <note role="Application">This SFR must be included if "provide user authorization" is selected in FIA_AUT_EXT.1.1.<h:br/><h:br/>
+                
+Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
+              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
+              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
+                
+                This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.</note>          
+              <aactivity>
+                <TSS>
+                  The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<h:br/><h:br/>
+                </TSS>
+                
+                <Guidance>If the remediation functionality is configurable, the evaluator shall examine the operational guidance
+                  to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established.<h:br/><h:br/>
+                  
+                </Guidance>
+                <Tests>The evaluator shall perform the following tests: <h:br/>
+                  
+                  <testlist>
+                    <test>The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
+                      For each authentication factor supported, the evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
+                      protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such
+                      period. Then the evaluator will verify that the TOE behaves as described in the TSS.</test>
+                    
+                  </testlist>
+                </Tests>
+              </aactivity>
+              
+            </f-element>
+          </f-component>
       </sec:fau>
       
       <sec:fdp title="User Data Protection (FDP)">
@@ -1375,7 +1463,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           </mod-def>
         </ext-comp-def>
         <f-component cc-id="fdp_prt_ext.1" name="Protection of Selected User Data">
-          <consistency-rationale>This SFR is consistent with the Base-PP because it is a specific application of the FCS_COP.1(1) function defined in the Base-PP.
+          <consistency-rationale>This SFR is consistent with the Base-PP because it is a specific application of the FCS_COP.1/SKC function defined in the Base-PP.
           </consistency-rationale>
           
           <comp-lev> requires the TOE to encrypt and decrypt sensitive data using a specified cryptographic algorithm.</comp-lev>
@@ -1389,7 +1477,11 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           <f-element id="fdp-prt-ext-1e1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
-              of files) in accordance with FCS_COP.1(1) <h:b>(from <xref to="bibAppPP"/>)</h:b>. </title>
+              of files) in accordance with FCS_COP.1<h:b>/SKC (from <xref to="bibAppPP"/>)</h:b>. </title>
+            <ext-comp-def-title>
+            <title>The TSF shall perform encryption and decryption of the user-selected file (or set
+              of files) in accordance with FCS_COP.1. </title>
+            </ext-comp-def-title>
             <note role="application">This is the primary requirement for encrypting and decrypting
               the protected resources (files and sets of files). </note>
             <aactivity>
@@ -1890,26 +1982,53 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <selectable>not store keys in non-volatile memory</selectable>
                 <selectable>store keys in non-volatile memory only when
                   <selectables linebreak="yes">
-                    <selectable>wrapped, as specified in FCS_COP.1(5)</selectable>
-                    <selectable>encrypted, as specified in FCS_COP.1(7)</selectable>
+                    <selectable>wrapped, as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                    <selectable>encrypted, as specified in FCS_COP.1<h:b>/7</h:b></selectable>
                     <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
                     <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
                     <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
                     <selectable>the plaintext key is a key split that is combined as specified in FCS_SMC_EXT.1 and another contribution to the split is
                      <selectables linebreak="yes">
-                       <selectable>wrapped as specified in FCS_COP.1(5)</selectable>
-                       <selectable>encrypted as specified in FCS_COP.1(7)</selectable>
+                       <selectable>wrapped as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                       <selectable>encrypted as specified in FCS_COP.1<h:b>/7</h:b></selectable>
                        <selectable>derived as specified in FCS_KDF_EXT.1.1 and not stored in non-volatile memory</selectable>
                        <selectable>supplied by the enterprise management server</selectable>
                      </selectables>
                     </selectable>
                     <selectable>the plaintext key is stored on an external storage device for use as an authorization factor.</selectable>
-                    <selectable>the plaintext key is used to encrypt a key as specified in FCS_COP.1(7) or wrap a key as specified in FCS_COP.1(5) 
-                      that is already encrypted as specified in FCS_COP.1(7) or wrapped as specified in FCS_COP.1(5)</selectable>
+                    <selectable>the plaintext key is used to encrypt a key as specified in FCS_COP.1<h:b>/7</h:b> or wrap a key as specified in FCS_COP.1<h:b>/5</h:b>
+                      that is already encrypted as specified in FCS_COP.1<h:b>/7</h:b> or wrapped as specified in FCS_COP.1<h:b>/5</h:b></selectable>
                   </selectables>
                 </selectable>
                 </selectables>.
             </title>
+            <ext-comp-def-title>
+            <title>The TSF shall 
+              <selectables>
+                <selectable>not store keys in non-volatile memory</selectable>
+                <selectable>store keys in non-volatile memory only when
+                  <selectables linebreak="yes">
+                    <selectable>wrapped, as specified in FCS_COP.1</selectable>
+                    <selectable>encrypted, as specified in FCS_COP.1</selectable>
+                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1</selectable>
+                    <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
+                    <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
+                    <selectable>the plaintext key is a key split that is combined as specified in FCS_SMC_EXT.1 and another contribution to the split is
+                     <selectables linebreak="yes">
+                       <selectable>wrapped as specified in FCS_COP.1</selectable>
+                       <selectable>encrypted as specified in FCS_COP.1</selectable>
+                       <selectable>derived as specified in FCS_KDF_EXT.1.1 and not stored in non-volatile memory</selectable>
+                       <selectable>supplied by the enterprise management server</selectable>
+                     </selectables>
+                    </selectable>
+                    <selectable>the plaintext key is stored on an external storage device for use as an authorization factor.</selectable>
+                    <selectable>the plaintext key is used to encrypt a key as specified in FCS_COP.1 or wrap a key as specified in FCS_COP.1 
+                      that is already encrypted as specified in FCS_COP.1 or wrapped as specified in FCS_COP.1</selectable>
+                  </selectables>
+                </selectable>
+                </selectables>.
+            </title>
+            </ext-comp-def-title>
             <note role="application">
               
               The plaintext key storage in non-volatile memory is allowed for
@@ -1925,7 +2044,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <h:h4>KMD</h:h4>The evaluator shall verify
               the KMD to ensure it describes the storage location of all keys and the protection of
               all keys stored in non-volatile memory. The description of the key chain shall be
-              reviewed to ensure FCS_COP.1(5) is followed for the storage of wrapped or encrypted
+              reviewed to ensure FCS_COP.1/5 is followed for the storage of wrapped or encrypted
               keys in non-volatile memory and plaintext keys in non-volatile memory meet one of the
               criteria for storage. <h:br/><h:br/> 
 
@@ -1964,10 +2083,21 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <selectable>A FAK conditioned from a password/passphrase shall never be stored in
                   non-volatile memory</selectable>
                 <selectable>a FAK will be stored in non-volatile memory encrypted with a KEK as
-                  specified in FCS_COP.1(5) using authorization factors as specified in FIA_AUT_EXT.1
+                  specified in FCS_COP.1<h:b>/5</h:b> using authorization factors as specified in FIA_AUT_EXT.1
                 </selectable>
               </selectables>.
             </title>
+            <ext-comp-def-title>
+            <title> The TSF shall use a FAK to authenticate sensitive data when a cryptographic, keyed
+              hashing function is used for data authentication and shall be supported in the following
+              manner: <selectables linebreak="yes">
+                <selectable>A FAK conditioned from a password/passphrase shall never be stored in
+                  non-volatile memory</selectable>
+                <selectable>a FAK will be stored in non-volatile memory encrypted with a KEK as
+                  specified in FCS_COP.1 using authorization factors as specified in FIA_AUT_EXT.1
+                </selectable>
+              </selectables>.
+            </title></ext-comp-def-title>
           </f-element>
           <f-element id="fcs-ckm-ext-5e2">
             <title>The TSF shall create a unique FAK for each file (or set of files) using the
@@ -2059,13 +2189,13 @@ Some examples of what is expected to be in the documentation are provided here. 
           
           <f-element id="fcs-cop-ext-1e1">
             <title>The FAK shall be protected in the same manner as the FEK, in accordance with
-              FCS_COP.1(5).</title>
+              FCS_COP.1/5.</title>
             <note role="application"> The intent of this requirement is to clarify that, if a FAK is
               to be used, it should be treated as sensitive as the FEK, and thus, follow the same
               encryption and decryption practices. </note>
             <aactivity> 
               <TSS>The evaluator shall follow the evaluation activities as laid out in
-                FCS_COP.1(5) to assert proper FAK protection.<h:br/><h:br/> 
+                FCS_COP.1/5 to assert proper FAK protection.<h:br/><h:br/> 
               </TSS>
               <Guidance>None.<h:br/><h:br/></Guidance>
               <Tests>None.</Tests>
@@ -2199,7 +2329,11 @@ Some examples of what is expected to be in the documentation are provided here. 
            
            <f-element id="fdp-aut-ext-2e1">
              <title>The TSF shall use a cryptographic, keyed hash function in accordance with
-               FCS_COP.1(4) <h:b>(from <xref to="bibAppPP"/>)</h:b>.</title>
+               FCS_COP.1<h:b>/KeyedHash (from <xref to="bibAppPP"/>)</h:b>.</title>
+              <ext-comp-def-title>
+              <title>The TSF shall use a cryptographic, keyed hash function in accordance with
+               FCS_COP.1.</title>
+              </ext-comp-def-title>
            </f-element>
                <f-element id="fdp-aut-ext-2e2">
              <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP_EXT.1
@@ -2288,20 +2422,34 @@ Some examples of what is expected to be in the documentation are provided here. 
            
            
                <f-element id="fdp-aut-ext-3e1">
-             <title>The TSF shall use a secure hash function in accordance with FCS_COP.1(2) <h:b>(from 
+             <title>The TSF shall use a secure hash function in accordance with FCS_COP.1<h:b>/Hash (from 
                <xref to="bibAppPP"/>)</h:b> with the entire ciphertext file as input to create a
                hash.</title>
+               <ext-comp-def-title>
+               <title>The TSF shall use a secure hash function in accordance with FCS_COP.1 with the entire ciphertext file as input to create a
+               hash.</title>
+               </ext-comp-def-title>
            </f-element>
-               <f-element id="fdp-aut-ext-3e2">
-             <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1(3)
-               <h:b>(from <xref to="bibAppPP"/>)</h:b> and must use the hash generated in accordance with
+              <f-element id="fdp-aut-ext-3e2">
+                <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1<h:b>/Sig
+                (from <xref to="bibAppPP"/>)</h:b> and must use the hash generated in accordance with
                FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
                signing purposes is prohibited.</title>
-           </f-element>
+               <ext-comp-def-title>
+               <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1 and must use the hash generated in accordance with
+               FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
+               signing purposes is prohibited.</title>
+               </ext-comp-def-title>
+              </f-element>
                <f-element id="fdp-aut-ext-3e3">
              <title>The TSF shall use a public and private key pair generated in accordance with
-               FCS_CKM.1(1) <h:b>(from <xref to="bibAppPP"/>)</h:b> and must use this key pair as part of the cryptographic signing process in
+               FCS_CKM.1<h:b>/AK(from <xref to="bibAppPP"/>)</h:b> and must use this key pair as part of the cryptographic signing process in
                accordance with FDP_AUT_EXT.3.2.</title>
+               <ext-comp-def-title>
+                <title>The TSF shall use a public and private key pair generated in accordance with
+               FCS_CKM.1 and must use this key pair as part of the cryptographic signing process in
+               accordance with FDP_AUT_EXT.3.2.</title>
+               </ext-comp-def-title>
            </f-element>
                <f-element id="fdp-aut-ext-3e4">
              <title>The TSF shall authenticate the ciphertext data prior to decryption.</title>
@@ -2543,7 +2691,7 @@ Some examples of what is expected to be in the documentation are provided here. 
           <f-element id="fia-fct-est-2e1">
             <title>The TSF shall support
               <selectables>
-                <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1(6)</selectable>
+                <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1/6</selectable>
                 <selectable>Distribution of a shared key from an enterprise management Server</selectable>
               </selectables>.
             </title>
@@ -2618,8 +2766,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               <selectable>accept KEK from an enterprise management server</selectable>
               <selectable> generate KEK cryptographic keys <h:br/>
                 <selectables linebreak="yes">
-                  <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1 <h:b>(from
-                    <xref to="bibAppPP"/>)</h:b>
+                  <selectable> using a Random Bit Generator as specified in FCS_RBG.1
                     and with entropy corresponding to the security strength of AES key sizes of
                     <selectables>
                       <selectable>128 bit</selectable>
@@ -2730,7 +2877,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               defined in FCS_CKM_EXT.6.1.</title>
           </f-element>
           <f-element id="fcs-ckm-ext-6e5">
-            <title>The TSF shall generate all salts using an RBG that meets FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy 
+            <title>The TSF shall generate all salts using an RBG that meets FCS_RBG.1 and with entropy 
               corresponding to the security strength selected for PBKDF in FCS_CKM_EXT.6.3.</title>
             
             <note role="application">
@@ -3163,7 +3310,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <title>
                 The TSF shall [<h:i>accept
                     <selectables>
-                      <selectable>a submask generated by an RBG as specified in FCS_RBG_EXT.1
+                      <selectable>a submask generated by an RBG as specified in FCS_RBG.1
                         <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
                       <selectable>a conditioned password</selectable>
                       <selectable>an imported submask</selectable>
@@ -3177,10 +3324,31 @@ Some examples of what is expected to be in the documentation are provided here. 
                         </selectables>
                       </selectable>
                       <selectable>NIST SP 800-132</selectable>
-                    </selectables> using the keyed-hash functions specified in FCS_COP.1<h:b>(4)
-                      (from <xref to="bibAppPP"/>)</h:b>, such that the output is at least of
+                    </selectables> using the keyed-hash functions specified in FCS_COP.1<h:b>/KeyedHash
+                    (from <xref to="bibAppPP"/>)</h:b>, such that the output is at least of
                     equivalent security strength (in number of bits) to the [FEK]</h:i>].
             </title>
+            <ext-comp-def-title>
+            <title>
+                The TSF shall [<h:i>accept
+                    <selectables>
+                      <selectable>a submask generated by an RBG as specified in FCS_RBG.1</selectable>
+                      <selectable>a conditioned password</selectable>
+                      <selectable>an imported submask</selectable>
+                    </selectables> to derive an intermediate key, as defined in
+                    <selectables>
+                      <selectable>NIST SP 800-108 
+                        <selectables>
+                          <selectable>KDF in Counter Mode</selectable>
+                          <selectable>KDF in Feedback Mode</selectable>
+                          <selectable>KDF in Double-Pipeline Iteration Mode</selectable>
+                        </selectables>
+                      </selectable>
+                      <selectable>NIST SP 800-132</selectable>
+                    </selectables> using the keyed-hash functions specified in FCS_COP.1, such that the output is at least of
+                    equivalent security strength (in number of bits) to the [FEK]</h:i>].
+            </title>
+            </ext-comp-def-title>
             <note role="application">
               
               This requirement is used in the body of the ST if the ST author chooses to
@@ -3300,70 +3468,11 @@ Some examples of what is expected to be in the documentation are provided here. 
         
         
         
-          <ext-comp-def fam-id="FCS_VAL_EXT" title="Validation Remediation">
+          <!-- <ext-comp-def fam-id="FCS_VAL_EXT" title="Validation Remediation">
             <mod-def>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
             </mod-def>
-          </ext-comp-def>
-        <f-component cc-id="fcs_val_ext.2" name="Validation Remediation">
-            <depends on="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
-            <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can take security-relevant action if some data input to it is invalid.
-            </consistency-rationale>
-            
-            <comp-lev> requires the TSF to specify what the TOE’s response is in the event of a data validation failure.</comp-lev>
-            <management>The following actions could be considered for the management functions in FMT: <h:ul>
-			  <h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li>
-              <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li>
-            </h:ul>
-            </management>
-            <audit>The following actions should be auditable if FAU_GEN Security audit data
-              generation is included in the PP/ST:<h:ul>
-                <h:li>Minimal: Triggering of excessive validation failure response behavior.</h:li>
-              </h:ul>
-            </audit>
-            <dependencies>FCS_VAL_EXT.1 Validation</dependencies>
-           
-            
-            
-            <f-element>
-              <title>The TSF shall 
-                <selectables linebreak="yes">
-                  <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
-                  <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
-                  <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
-                  
-                  <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
-                  
-                </selectables>.
-              </title>
-              <note role="Application">This SFR must be included if "provide user authorization" is selected in FIA_AUT_EXT.1.1.<h:br/><h:br/>
-                
-Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
-                
-                This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.</note>          
-              <aactivity>
-                <TSS>
-                  The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<h:br/><h:br/>
-                </TSS>
-                
-                <Guidance>If the remediation functionality is configurable, the evaluator shall examine the operational guidance
-                  to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established.<h:br/><h:br/>
-                  
-                </Guidance>
-                <Tests>The evaluator shall perform the following tests: <h:br/>
-                  
-                  <testlist>
-                    <test>The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts.
-                      For each authentication factor supported, the evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the
-                      protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such
-                      period. Then the evaluator will verify that the TOE behaves as described in the TSS.</test>
-                    
-                  </testlist>
-                </Tests>
-              </aactivity>
-              
-            </f-element>
+          </ext-comp-def> -->
+        
           <!--
           <f-element-ecd id="FCS_VAL_EXT.1.1">
             <title>The TSF shall perform validation of the <assignable>subject requiring validation</assignable> by 
@@ -3416,7 +3525,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             </title>
           </f-element-ecd>
           -->          
-        </f-component>
+        <!-- </f-component> -->
       </sec:fcs>
     </sel-sfrs>
 
@@ -3580,7 +3689,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       <entry id="bibAppPP">
         <tag>AppPP</tag>
         <description>
-          <h:a href="https://www.niap-ccevs.org/pp/">Protection Profile for Application Software, Version 1.3</h:a>
+          <h:a href="https://www.niap-ccevs.org/protectionprofiles/462">Protection Profile for Application Software, Version 1.4</h:a>
         </description>
       </entry>
       <entry id="FIPS140-2">
