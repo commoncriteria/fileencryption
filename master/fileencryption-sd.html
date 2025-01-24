@@ -274,7 +274,7 @@
    </style></head><body><div style="text-align: center; margin-left: auto; margin-right: auto;"><h1 class="title" style="page-break-before:auto;">Supporting Document<br/>
         Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
     PP-Module for File Encryption<br/>
-      Version: 1.0<br/>2019-07-25<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
+      Version: 1.1<br/>2025-01-31<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
       and the associated Common Evaluation Methodology for
       Information Technology Security Evaluation.</p><p>SDs may be “Guidance Documents”, that highlight specific approaches 
       and application of the standard to areas where no mutual recognition of
@@ -284,7 +284,7 @@
       The usage of the latter class is not only mandatory, but certificates
       issued as a result of their application are recognized under the CCRA.</p><p><b>Technical Editor:</b><br/>
       National Information Assurance Partnership (NIAP)
-      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>v 1.0</td><td>2019-07-25</td><td>Initial Release</td></tr></table></p><p><b>General Purpose:</b><br/>
+      </p><p><b style="page-break-before:always;">Document history:</b><table><tr class="header"><th>Version</th><th>Date</th><th style="align:left;">Comment</th></tr><tr><td>v 1.0</td><td>2019-07-25</td><td>Initial Release</td></tr><tr><td>v 1.1</td><td>2025-01-31</td><td>Update to CC:2022</td></tr></table></p><p><b>General Purpose:</b><br/>
       The purpose of this SD is to define evaluation methods for the functional behavior of
       File Encryption      
       products.
@@ -305,7 +305,7 @@
     The PP-Module is intended for use with the following Base-PP:
         <ul><li>Application Software, version 1.3.</li></ul><br/>
     This SD is mandatory for evaluations of TOEs that claim conformance to a PP-Configuration that includes the PP-Module for :
-    <ul><li>File Encryption, Version 1.0</li></ul>
+    <ul><li>File Encryption, Version 1.1</li></ul>
     As such it defines Evaluation Activities for the functionality described in the PP-Module as well as any impacts to the Evaluation Activities to the Base-PP(s) it modifies.
     </p><p> 
 Although Evaluation Activities are defined mainly for the evaluators to follow, in general they also help developers to prepare for evaluation by identifying specific requirements for their TOE.
@@ -467,6 +467,13 @@ The following sections list Common Criteria and technology terms used in this do
               requested is identical to the key size and mode to be used for the
               decryption/encryption of the user data (FCS_COP.1(1)) (from <a href="#bibAppPP">[AppPP]</a>).  <br/> <br/> 
 
+              Conditional: <br/>
+              If 'using key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify that
+              the TSS describes how the functionality described by NIST SP 800-133r1 is implemented to generate the FEK.
+              The evaluator shall verify that the description of the key generation method matches the methods described in
+              SP 800-133r1 and that the FEK is chained to an approved RBG. The evaluator shall verify that the key size and mode
+              being requested is identical to the key size and mode to be used for the decryption/encryption of the user data (FCS_COP.1(1)) (from <a href="#bibAppPP">[AppPP]</a>) <br/> <br/>
+
               Conditional: <br/>               
               If 'derived from a password/passphrase' is selected, the examination of the TSS section is performed as
               part of FCS_CKM_EXT.6 evaluation activities. <br/>  <br/> 
@@ -565,7 +572,9 @@ Some examples of what is expected to be in the documentation are provided here. 
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/><br/>
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM_EXT.4:1</a>:
-      Applied to each key held in volatile memory and subject to destruction by overwrite by the 
+       [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM_EXT.4.1 
+                  (assuming the selection "destruction of the reference followed by a request for garbage collection")]<br/>
+                  Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
                   In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. <br/><br/>
                     
@@ -586,7 +595,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</li><br/>
 
                 <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_CKM_EXT.4:2</a>:
-      [Conditional] If new value of a key is selected this test does not apply. <br/>
+      [Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <br/>
                   Applied to each key held in non-volatile memory and subject to destruction by the TOE. <br/>
                   The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended.<br/>
                     
@@ -1051,7 +1060,14 @@ Some examples of what is expected to be in the documentation are provided here. 
                  any file encryption utility will be able to identify where the MAC is placed. <br/><br/>The
                  evaluator will confirm that a FAK is used as part of the authentication process and will
                  identify the keyed hash function utilized. <br/><br/>
-                 
+                 Conditional:<br/>
+                 If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes
+                 how the functionality described by FCS_RBG_EXT.1 (from the <a href="#bibAppPP">[AppPP]</a>) is used to generate the FAK. <br/><br/>
+                 Conditional:<br/>
+                 If 'key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify
+                 that the TSS describes how the functionality described by NIST SP 800-33r1 is implemented to generate the FAK.
+                 The evaluator shall verify that the description of the key generation method matches the methods described in
+                 SP 800-133r1 and that the FAK is chained to an approved RBG.
                </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> It is encouraged for
                  every implementation to use a FAK that is wholly different and independently generated
                  from the FEK.<br/><br/> 
