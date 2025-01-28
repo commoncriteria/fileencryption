@@ -27,6 +27,10 @@
       <subject>Update to CC:2022</subject>
     </entry>
   </RevisionHistory>
+
+  <pp-preferences>
+    <audit-events-in-sfrs/>
+  </pp-preferences>
   
   <sec:Introduction>
     <sec:Overview> 
@@ -459,7 +463,7 @@
             This objective is consistent with the Base-PP because the Base-PP includes the O.PROTECTED_STORAGE objective. 
             The protection and timely destruction of key materials is consistent with the intent of that objective.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_CKM_EXT.4"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_CKM.6"/></addressed-by><rationale/>
           <addressed-by><xref to="FPT_KYP_EXT.1"/></addressed-by><rationale/>
         </SO>
         <SO name="O.FEK_SECURITY">
@@ -641,8 +645,8 @@
    
       <sec:fau title="Cryptographic Support (FCS)">
         <ext-comp-def fam-id="FCS_CKM_EXT" title="Cryptographic Key Management">
-          <mod-def>Components in this family define requirements for key management activities that are beyond the scope of what is defined in the FCS_CKM family in CC Part 2. 
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for key management activities that are beyond the scope of what is defined in the FCS_CKM family in CC Part 2. 
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fcs_ckm_ext.2" name="File Encryption Key (FEK) Generation">
 
@@ -653,7 +657,7 @@
           <comp-lev> describes the method by which the TSF acquires or generates file encryption keys.</comp-lev>
           <management>There are no specific management functions identified.</management>
           <audit>There are no auditable events foreseen.</audit>
-          <dependencies>FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
+          <dependencies>FCS_RBG.1 Random Bit Generation Services</dependencies>
 
           <f-element id="fcs-ckm-ext-2e1">
             <title> The TSF shall
@@ -661,7 +665,7 @@
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
-                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG.1
                       <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes <h:i>[256-bit]</h:i></selectable>
                     <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
@@ -687,7 +691,7 @@
             <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key genration, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
             <!--Removed as repetative.
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
-              For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG_EXT.1 from the <cite
+              For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG.1 from the <cite
                 linkend="bibAppPP"/>)or the key is derived from the conditioning of a password/passphrase. The enterprise management server is described in the 
               File Encryption Enterprise Management PP-Module.<h:br/>
             </note>
@@ -710,9 +714,9 @@
 
               Conditional: <h:br/> 
               If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes how the functionality
-              described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is invoked to
+              described by FCS_RBG.1 (from the <xref to="bibAppPP"/>) is invoked to
               generate FEK. To the extent possible from the description of the RBG functionality in
-              FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
+              FCS_RBG.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
               decryption/encryption of the user data (FCS_COP.1/SKC) (from <xref to="bibAppPP"/>).  <h:br/> <h:br/> 
 
@@ -733,27 +737,33 @@
               resource and associated with that resource. The evaluator confirms that-per this description-the
               FEK is unique per resource (file or set of files) and that the FEK is established using
               the mechanisms specified in FCS_CKM_EXT.2.1). <h:br/> <h:br/>
+                
+              <h:h4>KMD</h:h4>
+              None. <h:br/> <h:br/>
+
 
               </TSS>
-<Guidance> The evaluator shall review the
+              <Guidance> The evaluator shall review the
               instructions in the AGD guidance to determine that any explicit actions that need to
               be taken by the user to establish a FEK exist-taking into account any differences that
               arise from different platforms-and are consistent with the description in the TSS.
-  <h:br/><h:br/>
+              <h:br/><h:br/>
 
-</Guidance>
-<Tests> None. 
-            </Tests>
-</aactivity>
+              </Guidance>
+              <Tests> None. 
+              </Tests>
+            </aactivity>
           </f-element>
+
+          <audit-event/>
         </f-component>
         
-        <f-component cc-id="fcs_ckm_ext.4" name="Cryptographic Key Destruction">
+        <f-component cc-id="fcs_ckm.6" name="Timing and event of cryptographic key destruction">
           <consistency-rationale>This SFR extends the cryptographic functionality defined in the Base-PP by specifying a method for key destruction. 
             It is consistent with the Base-PP because keys generated by the Base-PP portion of the TOE may also be destroyed in the manner specified by this SFR.
           </consistency-rationale>
           
-          <comp-lev> describes supported methods for key destruction.</comp-lev>
+          <!-- <comp-lev> describes supported methods for key destruction.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul>
             <h:li>Manually perform cryptographic erasure.</h:li>
           </h:ul>
@@ -763,88 +773,15 @@
               <h:li>Basic: Manual erasure of cryptographic data. </h:li>
             </h:ul>
           </audit>
-          <dependencies>No dependencies.</dependencies>
+          <dependencies>No dependencies.</dependencies> -->
           
-          <f-element id="fcs-ckm-ext-4e1">
-            <title>The TSF shall destroy cryptographic keys in accordance with a specified cryptographic key destruction method 
-              <selectables linebreak="yes">
-                <selectable> For volatile memory, the destruction shall be executed by a
-                  <selectables>
-                    <selectable>single overwrite consisting of 
-                      <selectables>
-                        <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
-                        <selectable>zeroes</selectable>
-                        <selectable>ones</selectable>
-                        <selectable>new value of a key</selectable>
-                        <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
-                      </selectables>
-                    </selectable>
-                    <selectable>removal of power to the memory</selectable>
-                    <selectable>destruction of reference to the key directly followed by a request for garbage collection</selectable>
-                  </selectables>
-                </selectable>
-                <selectable> For non-volatile memory, the destruction shall be executed by
-                  <selectables>
-                    <selectable>destruction of all KEKs protecting the target key,
-                      where none of the KEKs protecting the target key are derived
-                    </selectable>
-                    <selectable> the invocation of an interface provided by the underlying platform that
-                  <selectables>
-                    <selectable>logically addresses the storage location of the key and performs a
-                      <selectables>
-                        <selectable>single</selectable>
-                        <selectable><assignable>ST author defined multi-pass</assignable></selectable>
-                      </selectables>
-                      overwrite consisting of 
-                      <selectables>
-                        <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
-                        <selectable>zeroes</selectable>
-                        <selectable>ones</selectable>
-                        <selectable>new value of a key</selectable>
-                        <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
-                      </selectables>
-                    </selectable>
-                    <selectable>instructs the underlying platform to destroy the abstraction that represents the key</selectable>
-                  </selectables>
-                    </selectable>
-                  </selectables>
-
-
-                </selectable>
-              </selectables>.
-            </title>
-            <note role="application">              
-              The interface referenced in the requirement could take different forms, the most likely 
-              of which is an application programming interface to an OS kernel. There may be various levels of abstraction visible. 
-              For instance, in a given implementation that overwrites a key stored in non-volatile memory, the application may have 
-              access to the file system details and may be able to logically address specific memory locations. In another 
-              implementation that instructs the underlying platform to destroy the representation of a key stored in non-volatile 
-              memory, the application may simply have a handle to a resource and can only ask the platform to delete the resource, 
-              as may be the case with a platforms secure key store. The latter implementation should only be used for the most 
-              restricted access. The level of detail to which the TOE has access will be reflected in the TSS section of the ST. 
-              Several selections allow assignment of a 'value that does not contain any CSP'. This means that the TOE uses some 
-              other specified data not drawn from a source that may contain key material or reveal information about key material, 
-              and not being any of the particular values listed as other selection options. The point of the phrase 'does not contain 
-              any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might 
-              contain current or residual data that itself requires confidentiality protection.<h:br/><h:br/>
-
-              For the selection "destruction of all KEKs protecting target key, where 
-              none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that 
-              protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key 
-              that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
-              type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a File Encryption 
-              Key (FEK), destroying the KEK using one of the methods in FCS_CKM_EXT.4 is sufficient, since the FEK would no longer 
-              be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
-
-          </f-element>
-
-          <f-element id="fcs-ckm-ext-4e2">
-            <title>The TSF shall destroy all keys and key material when no longer needed.</title>
+          <f-element id="fcs-ckm-6e1">
+            <title>The TSF shall destroy [<h:i>all keys and key material</h:i>] when <h:i>no longer needed</h:i>.</title>
 
             <note role="application">
               
               Keys, including intermediate keys and key material that are no longer
-              needed are destroyed by using an approved method, FCS_CKM_EXT.4.1. Examples of keys are
+              needed are destroyed by using an approved method, FCS_CKM.6.2. Examples of keys are
               intermediate keys, submasks. There may be instances where keys or key material
               that are contained in persistent storage are no longer needed and require destruction. 
               Base on their implementation, vendors will explain when certain keys are no longer needed. There
@@ -856,17 +793,18 @@
               
             </note>
             <aactivity>
-              <TSS>   The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
-		      to be no longer needed and when they should be expected to be destroyed.
+              <TSS>   
+                The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
+		            to be no longer needed and when they should be expected to be destroyed.
 		      
-		      The evaluator shall verify the TSS provides a high level description of what it means
+		            The evaluator shall verify the TSS provides a high level description of what it means
                 for keys and key material to be no longer needed and when then should be expected to
                 be destroyed. <h:br/><h:br/>
                 
                 
                 
               <h:h4>KMD</h:h4>   
-		       The evaluator examines the KMD to ensure it describes how the keys are managed in volatile memory. 
+		          The evaluator examines the KMD to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
 
@@ -889,7 +827,7 @@
               where none of the KEKs protecting the target key are derived" is included the evaluator shall examine the TOE's 
               keychain in the KMD and identify each instance when a key is destroyed by this method. In each instance the evaluator 
               shall verify all keys capable of decrypting the target key are destroyed in accordance with a specified key destruction 
-              method in FCS_CKM_EXT.4.1. The evaluator shall verify that all of the keys capable of decrypting the target key are not 
+              method in FCS_CKM.6.2. The evaluator shall verify that all of the keys capable of decrypting the target key are not 
               able to be derived to reestablish the keychain after their destruction. <h:br/><h:br/>
 		      
                 The evaluator shall verify the KMD includes a description of the areas where keys and
@@ -898,7 +836,7 @@
                 The evaluator shall verify the KMD includes a key lifecycle, that includes a description
                 where key material reside, how the key material is used, how it is determined that keys
                 and key material are no longer needed, and how the material is destroyed once it is not
-                needed and that the documentation in the KMD follows FCS_CKM_EXT.4.1 for the
+                needed and that the documentation in the KMD follows FCS_CKM.6.2 for the
                 destruction.<h:br/><h:br/>
 
 
@@ -1003,12 +941,87 @@ Some examples of what is expected to be in the documentation are provided here. 
             </Tests> 
 </aactivity>
           </f-element>
+          <f-element id="fcs-ckm-6e2">
+            <title>The TSF shall destroy cryptographic keys and keying material specified by FCS_CKM.6.1
+            in accordance with a specified cryptographic key destruction method
+            [<h:i> 
+              <selectables linebreak="yes">
+                <selectable> For volatile memory, the destruction shall be executed by a
+                  <selectables>
+                    <selectable>single overwrite consisting of 
+                      <selectables>
+                        <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
+                        <selectable>zeroes</selectable>
+                        <selectable>ones</selectable>
+                        <selectable>new value of a key</selectable>
+                        <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
+                      </selectables>
+                    </selectable>
+                    <selectable>removal of power to the memory</selectable>
+                    <selectable>destruction of reference to the key directly followed by a request for garbage collection</selectable>
+                  </selectables>
+                </selectable>
+                <selectable> For non-volatile memory, the destruction shall be executed by
+                  <selectables>
+                    <selectable>destruction of all KEKs protecting the target key,
+                      where none of the KEKs protecting the target key are derived
+                    </selectable>
+                    <selectable> the invocation of an interface provided by the underlying platform that
+                  <selectables>
+                    <selectable>logically addresses the storage location of the key and performs a
+                      <selectables>
+                        <selectable>single</selectable>
+                        <selectable><assignable>ST author defined multi-pass</assignable></selectable>
+                      </selectables>
+                      overwrite consisting of 
+                      <selectables>
+                        <selectable>a pseudo-random pattern using the TSF's RBG</selectable>
+                        <selectable>zeroes</selectable>
+                        <selectable>ones</selectable>
+                        <selectable>new value of a key</selectable>
+                        <selectable><assignable>any value that does not contain any CSP</assignable></selectable>
+                      </selectables>
+                    </selectable>
+                    <selectable>instructs the underlying platform to destroy the abstraction that represents the key</selectable>
+                  </selectables>
+                    </selectable>
+                  </selectables>
+
+
+                </selectable>
+              </selectables>]</h:i>
+              that meets the following: [<h:i>no standard</h:i>].
+            </title>
+            <note role="application">              
+              The interface referenced in the requirement could take different forms, the most likely 
+              of which is an application programming interface to an OS kernel. There may be various levels of abstraction visible. 
+              For instance, in a given implementation that overwrites a key stored in non-volatile memory, the application may have 
+              access to the file system details and may be able to logically address specific memory locations. In another 
+              implementation that instructs the underlying platform to destroy the representation of a key stored in non-volatile 
+              memory, the application may simply have a handle to a resource and can only ask the platform to delete the resource, 
+              as may be the case with a platforms secure key store. The latter implementation should only be used for the most 
+              restricted access. The level of detail to which the TOE has access will be reflected in the TSS section of the ST. 
+              Several selections allow assignment of a 'value that does not contain any CSP'. This means that the TOE uses some 
+              other specified data not drawn from a source that may contain key material or reveal information about key material, 
+              and not being any of the particular values listed as other selection options. The point of the phrase 'does not contain 
+              any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might 
+              contain current or residual data that itself requires confidentiality protection.<h:br/><h:br/>
+
+              For the selection "destruction of all KEKs protecting target key, where 
+              none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that 
+              protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key 
+              that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
+              type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a File Encryption 
+              Key (FEK), destroying the KEK using one of the methods in FCS_CKM.6is sufficient, since the FEK would no longer 
+              be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
+
+          </f-element>
         </f-component>
 
 
         <ext-comp-def fam-id="FCS_IV_EXT" title="Initialization Vector Generation">
-          <mod-def>Components in this family define requirements for initialization vector generation.
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for initialization vector generation.
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fcs_iv_ext.1" name="Initialization Vector Generation">
           <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
@@ -1040,6 +1053,9 @@ Some examples of what is expected to be in the documentation are provided here. 
               <TSS>
               The evaluator shall ensure the TSS describes how nonces are created uniquely and how IVs and tweaks are handled (based on the AES mode).
               The evaluator shall confirm that the nonces are unique and the IVs and tweaks meet the stated requirements.<h:br/><h:br/>
+                
+              <h:h4>KMD</h:h4>
+              None. <h:br/><h:br/>
 
               </TSS>
               <Guidance>None.<h:br/><h:br/>
@@ -1049,12 +1065,12 @@ Some examples of what is expected to be in the documentation are provided here. 
             </Tests>
 </aactivity>
           </f-element>
-          
+          <audit-event/>
         </f-component>
 
         <ext-comp-def fam-id="FCS_KYC_EXT" title="Key Chaining and Key Storage">
-          <mod-def>Components in this family define requirements for the secure storage of keys through the use of a logical key chain.
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for the secure storage of keys through the use of a logical key chain.
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fcs_kyc_ext.1" name="Key Chaining and Key Storage">
           <consistency-rationale>The Base-PP defines how stored keys are protected. This SFR extends that functionality by defining the logical hierarchy of how keys are logically
@@ -1189,11 +1205,9 @@ Some examples of what is expected to be in the documentation are provided here. 
               as specified in the requirement.<h:br/><h:br/>
 
               </TSS>
-              <Guidance> None. <h:br/><h:br/>
-
-              </Guidance>
-<Tests>None. </Tests>
-</aactivity>
+              <Guidance> None. <h:br/><h:br/></Guidance>
+              <Tests>None. </Tests>
+            </aactivity>
           </f-element>
           
           <!--
@@ -1249,12 +1263,12 @@ Some examples of what is expected to be in the documentation are provided here. 
                   </selectables></selectable>
               </selectables>.
           -->
-          
+          <audit-event/>
         </f-component>
 
         <ext-comp-def fam-id="FCS_VAL_EXT" title="Validation">
-          <mod-def>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fcs_val_ext.1" name="Validation">
       <!--    <selection-depends req="FIA_AUT_EXT.1.1" ids="APPAUTH"/> -->
@@ -1310,7 +1324,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectables>
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
-                      <selectable>FEK</selectable> 
+                      <selectable>FEK</selectable>
                     </selectables> as specified in FCS_COP.1<h:b>/Hash (from <xref to="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
                   <selectable>decrypt a known value using the 
                     <selectables>
@@ -1394,6 +1408,9 @@ Some examples of what is expected to be in the documentation are provided here. 
                 
                 Conditional: <h:br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the enviroments that can be leveraged with the TOE and how each claims to perform validation.
                 The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/>
+               
+              <h:h4>KMD</h:h4>
+              None. <h:br/><h:br/>
                 
                 
               </TSS>
@@ -1429,7 +1446,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <f-element>
               <title>The TSF shall 
                 <selectables linebreak="yes">
-                  <selectable>[perform a key destruction of the FEK(s)] upon a configurable number of consecutive failed validation attempts</selectable>
+                  <selectable>perform a key destruction of the [<h:i>FEK(s)</h:i>] upon a configurable number of consecutive failed validation attempts</selectable>
                   <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
                   <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
                   
@@ -1437,6 +1454,18 @@ Some examples of what is expected to be in the documentation are provided here. 
                   
                 </selectables>.
               </title>
+              <ext-comp-def-title>
+              <title>The TSF shall 
+                <selectables linebreak="yes">
+                  <selectable>perform a key destruction of the <assignable>type of key(s)</assignable> upon a configurable number of consecutive failed validation attempts</selectable>
+                  <selectable>institute a delay such that only <assignable>ST author specified number of attempts</assignable> can be made within a 24 hour period</selectable>
+                  <selectable>block validation after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+                  
+                  <selectable>require power cycle/reset the TOE after <assignable>ST author specified number of attempts</assignable> of consecutive failed validation attempts</selectable>
+                  
+                </selectables>.
+              </title>
+              </ext-comp-def-title>
               <note role="Application">This SFR must be included if "provide user authorization" is selected in FIA_AUT_EXT.1.1.<h:br/><h:br/>
                 
 Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
@@ -1447,6 +1476,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <aactivity>
                 <TSS>
                   The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<h:br/><h:br/>
+
+                  <h:h4>KMD</h:h4>
+                  None. <h:br/><h:br/>
                 </TSS>
                 
                 <Guidance>If the remediation functionality is configurable, the evaluator shall examine the operational guidance
@@ -1472,8 +1504,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       <sec:fdp title="User Data Protection (FDP)">
         
         <ext-comp-def fam-id="FDP_PRT_EXT" title="Protection of Selected User Data">
-          <mod-def>Components in this family define requirements for the TOE's ability to protect sensitive data at rest.
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for the TOE's ability to protect sensitive data at rest.
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fdp_prt_ext.1" name="Protection of Selected User Data">
           <consistency-rationale>This SFR is consistent with the Base-PP because it is a specific application of the FCS_COP.1/SKC function defined in the Base-PP.
@@ -1484,7 +1516,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           </management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>FCS_CKM_EXT.4 Cryptographic Key Destruction<h:br/>
+          <dependencies>FCS_CKM.6 Timing and event of cryptographic key destruction<h:br/>
           FCS_COP.1 Cryptographic Operation</dependencies>
           
           
@@ -1513,16 +1545,19 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               and corresponding decryption scenarios. If other scenarios exist due to product
               implementation/features, the evaluator shall ensure that those scenarios are covered
               in the TSS as well. <h:br/><h:br/>
+              
+              <h:h4>KMD</h:h4>
+              None. <h:br/><h:br/>
 
               </TSS>
               
-<Guidance> If the TOE creates temporary objects and these
+              <Guidance> If the TOE creates temporary objects and these
               objects can be protected through administrative measures (e.g., the TOE creates
               temporary files in a designated directory that can be protected through configuration
               of its access control permissions), then the evaluator shall check the Operational
               Guidance to ensure that these measures are described. <h:br/><h:br/>
   
-  If there are special
+              If there are special
               measures necessary to configure the method by which the file or set of files are
               encrypted (e.g., choice of algorithm used, key size, etc.), then those instructions
               shall be included in the Operational Guidance and verified by the evaluator. In these
@@ -1545,7 +1580,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               that these resources are consistent with those identified in the TSS, and that they
               are protected as specified in the Operational Guidance and are deleted when the
               decryption/encryption operation is completed. </Tests>
-</aactivity>
+            </aactivity>
           </f-element>
           <f-element id="fdp-prt-ext-1e2">
             <title> The TSF shall <selectables>
@@ -1553,7 +1588,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>implement functionality</selectable>
               </selectables> to ensure that all sensitive data created by the TOE when
               decrypting/encrypting the user-selected file (or set of files) are destroyed in
-              volatile and non-volatile memory when the data is no longer needed according to FCS_CKM_EXT.4. </title>
+              volatile and non-volatile memory when the data is no longer needed according to FCS_CKM.6. </title>
 
             <note role="application"> The intent is that the TSF controls the use and clearing of any data
               that it manipulates that is not needed by the user (e.g. a temporary file created in non-volatile
@@ -1565,7 +1600,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               requirement on cleaning up the temporary files created by non-TSF application when operating on
               files protected by the TOE is FDP_PRT_EXT.3.1.
 
-            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4.</note>
+            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM.6.</note>
 
             <aactivity>
               <TSS>
@@ -1584,7 +1619,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <Guidance><h:br/>There are no additional guidance evaluation activities for FDP_PRT_EXT.1.2. <h:br/><h:br/>
 
               </Guidance>
-<Tests> 
+              <Tests> 
               <testlist><test>
                 This test only applies for application provided functionality.<h:br/><h:br/>
 
@@ -1600,9 +1635,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 4. The evaluator will search the underlying non-volatile storage for the known pattern.
                 The test fails if the known plaintext pattern is found in the search.<h:br/><h:br/>
                  </test></testlist>
-            </Tests>
-</aactivity>
+              </Tests>
+            </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         <f-component cc-id="fdp_prt_ext.2" name="Destruction of Plaintext Data">
           <consistency-rationale>This SFR relates to the destruction of key data, which is beyond the scope defined by the Base-PP and does not affect the ability of the Base-PP 
@@ -1614,7 +1650,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           </management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>FCS_CKM_EXT.4 Cryptographic Key Destruction<h:br/>
+          <dependencies>FCS_CKM.6 Timing and event of cryptographic key destruction<h:br/>
           FDP_PRT_EXT.1 Protection of Selected User Data</dependencies>
           
           
@@ -1624,7 +1660,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <selectable>implement functionality</selectable>
           </selectables> to ensure that all original plaintext data created when
             decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile
-            and non-volatile memory according to FCS_CKM_EXT.4 upon completion of the decryption/encryption operation.
+            and non-volatile memory according to FCS_CKM.6 upon completion of the decryption/encryption operation.
           </title>
 
           <note role="application"> This is the primary requirement for encrypting and decrypting
@@ -1638,7 +1674,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             operation after it has encrypted the file or set of files for storage in the file
             system. <h:br/><h:br/>
 
-            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM_EXT.4.
+            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM.6.
           </note>
 
           <aactivity>
@@ -1655,68 +1691,69 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <Guidance> None. <h:br/><h:br/>
 
             </Guidance>
-<Tests>
-            <testlist>
-             
-              <test>If the TSS creates temporary files/resources
-                during file decryption/encryption, the evaluator shall perform the following tests
-                to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file.
-                The evaluator shall use
-                a tool (e.g., procmon for a Windows system) that is capable of monitoring the
-                creation and deletion of files during the decryption/encryption process is
-                performed. A tool that can search the contents of the hard drive (e.g., winhex) will
-                also be needed. The tools used to perform the monitoring shall be identified in the
-                test report. <h:br/>
+            <Tests>
+              <testlist>
               
-              (Creating an encrypted document) <h:ul>
-                <h:li>Open an editing application.</h:li>
-                <h:li>Create a special string inside the document. The string could be 5-10 words. It is
-                  recommended to remove the spaces. This will create a one page document.</h:li>
-                <h:li>Start the file monitoring tool.</h:li>
-                <h:li>Save and close the file.</h:li>
-                <h:li>Encrypt the file using the TOE (if the TOE does not encrypt automatically for the
-                  user).</h:li>
-              </h:ul><h:br/>
-                <h:b>Analysis Steps </h:b>
-                <h:ul>
-                  <h:li>If needed, exit/close the TOE.</h:li>
-                  <h:li>Stop the file monitoring tool. View the results. Identify any temporary files that
-                    were created during the encryption process. Examine to see if the temporary files
-                    were destroyed when the TOE closed. </h:li>
-                  <h:li>If temporary files remain, these temporary files should be examined to ensure that
-                    no plaintext data remains. If plaintext data is found in these files, the test fails.</h:li>
-                  <h:li>Search the contents of the hard drive (using the second tool) for the plaintext
-                    string used above. (The search should be performed using both ASCII and Unicode
-                    formats.)</h:li>
-                  <h:li>If the string is found, this means that plaintext from the test fails. </h:li><h:br/>
-                </h:ul>(Creating, encrypting a blank document and then adding text): <h:ul>
-                  <h:li>Encrypt a blank document using the tool.</h:li>
+                <test>If the TSS creates temporary files/resources
+                  during file decryption/encryption, the evaluator shall perform the following tests
+                  to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file.
+                  The evaluator shall use
+                  a tool (e.g., procmon for a Windows system) that is capable of monitoring the
+                  creation and deletion of files during the decryption/encryption process is
+                  performed. A tool that can search the contents of the hard drive (e.g., winhex) will
+                  also be needed. The tools used to perform the monitoring shall be identified in the
+                  test report. <h:br/>
+                
+                (Creating an encrypted document) <h:ul>
+                  <h:li>Open an editing application.</h:li>
                   <h:li>Create a special string inside the document. The string could be 5-10 words. It is
                     recommended to remove the spaces. This will create a one page document.</h:li>
                   <h:li>Start the file monitoring tool.</h:li>
-                  <h:li>Save and close the file. </h:li>
-                  <h:li>Perform the "Analysis Steps" listed above.</h:li>
-                  
-                </h:ul>
-                <h:br/>  
-              </test>
-            </testlist>  
- </Tests>
-</aactivity>
+                  <h:li>Save and close the file.</h:li>
+                  <h:li>Encrypt the file using the TOE (if the TOE does not encrypt automatically for the
+                    user).</h:li>
+                </h:ul><h:br/>
+                  <h:b>Analysis Steps </h:b>
+                  <h:ul>
+                    <h:li>If needed, exit/close the TOE.</h:li>
+                    <h:li>Stop the file monitoring tool. View the results. Identify any temporary files that
+                      were created during the encryption process. Examine to see if the temporary files
+                      were destroyed when the TOE closed. </h:li>
+                    <h:li>If temporary files remain, these temporary files should be examined to ensure that
+                      no plaintext data remains. If plaintext data is found in these files, the test fails.</h:li>
+                    <h:li>Search the contents of the hard drive (using the second tool) for the plaintext
+                      string used above. (The search should be performed using both ASCII and Unicode
+                      formats.)</h:li>
+                    <h:li>If the string is found, this means that plaintext from the test fails. </h:li><h:br/>
+                  </h:ul>(Creating, encrypting a blank document and then adding text): <h:ul>
+                    <h:li>Encrypt a blank document using the tool.</h:li>
+                    <h:li>Create a special string inside the document. The string could be 5-10 words. It is
+                      recommended to remove the spaces. This will create a one page document.</h:li>
+                    <h:li>Start the file monitoring tool.</h:li>
+                    <h:li>Save and close the file. </h:li>
+                    <h:li>Perform the "Analysis Steps" listed above.</h:li>
+                    
+                  </h:ul>
+                  <h:br/>  
+                </test>
+              </testlist>  
+            </Tests>
+          </aactivity>
         </f-element>
+        <audit-event/>
       </f-component>     
       </sec:fdp>
       
       <sec:fia title="Identification and Authentication (FIA)">
         
         <ext-comp-def fam-id="FIA_AUT_EXT" title="Authorization">
-          <mod-def>Components in this family define requirements for how subject authorization is performed. 
+          <fam-behavior>Components in this family define requirements for how subject authorization is performed. 
             Where FIA_UAU in CC Part 2 defines circumstances where authentication is required, this family describes the specific computational methods 
             used to determine whether a subject’s presented authentication data is valid.
-          </mod-def>
+          </fam-behavior>
         </ext-comp-def>        
         <f-component cc-id="fia_aut_ext.1" name="Subject Authorization">
-          <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG_EXT.1 from the Base-PP in a manner consistent with its 
+          <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG.1 from the Base-PP in a manner consistent with its 
             definition, but otherwise does not relate to functionality defined by the Base-PP.
           </consistency-rationale>
           
@@ -1732,7 +1769,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             </h:ul>
           </audit>
           <dependencies>FCS_CKM_EXT.6 Cryptographic Password/Passphrase Conditioning<h:br/>
-            FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
+            FCS_RBG.1 Random Bit Generation Services</dependencies>
           
           
           <f-element id="fia-aut-ext-1e1">
@@ -1746,7 +1783,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable>
                 <selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
                    <selectables>
-                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
+                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
                      <selectable>generated by the platform</selectable>
                    </selectables> protected using RSA with key size 
                   <selectables>
@@ -1762,7 +1799,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>an external USB token factor that is at least the same security strength as the FEK(s),
                    and is providing a submask generated by the 
                    <selectables>
-                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
+                     <selectable>TOE (using the RBG as specified in FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
                      <selectable>platform</selectable>
                    </selectables>
                 </selectable>
@@ -1779,7 +1816,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable>
                 <selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
                    <selectables>
-                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
+                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG.1)</selectable>
                      <selectable>generated by the platform</selectable>
                    </selectables> protected using RSA with key size 
                   <selectables>
@@ -1795,7 +1832,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>an external USB token factor that is at least the same security strength as the FEK(s),
                    and is providing a submask generated by the 
                    <selectables>
-                     <selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
+                     <selectable>TOE (using the RBG as specified in FCS_RBG.1)</selectable>
                      <selectable>platform</selectable>
                    </selectables>
                 </selectable>
@@ -1843,6 +1880,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               ensure a description is included for how the TOE is invoking the platform
               functionality and how it is getting an authorization value that has appropriate
               entropy.<h:br/><h:br/> 
+              
+              <h:h4>KMD</h:h4>
+              None. <h:br/><h:br/>
 
               </TSS>
 <Guidance>The evaluator shall verify that the AGD guidance includes instructions for all of the
@@ -1869,8 +1909,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       <sec:fmt title="Security Management (FMT)"> 
         
         <!--<ext-comp-def fam-id="FMT_MEC_EXT" title="Supported Configuration Mechanism">
-          <mod-def>Components in this family define requirements for the TOE's use of platform configuration mechanisms to support its own management functions.
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for the TOE's use of platform configuration mechanisms to support its own management functions.
+          </fam-behavior>
         </ext-comp-def>
         <f-component id="fmt_mec_ext.1" name="Supported Configuration Mechanism">
           <consistency-rationale>This SFR is intended to enhance the storage of configuration options that are currently permitted by the Base-PP.
@@ -1923,7 +1963,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <selectables linebreak="yes">
                 <selectable>configure cryptographic functionality</selectable>
                 <selectable>change authentication factors</selectable>
-                <selectable>perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1</selectable>
+                <selectable>perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2</selectable>
                 <selectable>configure the number of failed validation attempts required to trigger corrective behavior  </selectable>
                 <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
                 <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
@@ -1941,7 +1981,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                   functionality offered can either be written in this requirement as bullet points,
                   or included in the TSS.</h:li>
                 <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
-                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM_EXT.4.1" will be included. 
+                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2" will be included. 
                   This function should be able to be triggered by a user or admin and may be triggered by uninstallation.</h:li>
                 <h:li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
@@ -1978,6 +2018,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 resources are associated with the KEK, the decryption and re-encryption process), and
                 ensure that the KEK and FEK are not exposed during this change. <h:br/><h:br/>
                 Cryptographic Configuration: None for this requirement. <h:br/><h:br/>
+
+                <h:h4>KMD</h:h4>
+                None. <h:br/><h:br/>
                 
               </TSS>
               <Guidance>
@@ -2003,8 +2046,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       <sec:fpt title="Protection of the TSF (FPT)">
 
         <ext-comp-def fam-id="FPT_KYP_EXT" title="Protection of Key and Key Material">
-          <mod-def>Components in this family define requirements for secure storage of keys.
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for secure storage of keys.
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fpt_kyp_ext.1" name="Protection of Keys and Key Material">
           <consistency-rationale>The Base-PP defines an SFR for secure storage of sensitive data. This SFR expands on that definition by describing the supported logical methods 
@@ -2100,9 +2143,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <Guidance> None. <h:br/><h:br/> 
 
               </Guidance>
-<Tests> None. </Tests>
-</aactivity>
+              <Tests> None. </Tests>
+            </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       </sec:fpt></man-sfrs>   
     
@@ -2120,7 +2164,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>FCS_COP_EXT.1 FAK Encryption/Decryption Support<h:br/>
-            FCS_RBG_EXT.1 Random Bit Generation Services<h:br/>
+            FCS_RBG.1 Random Bit Generation Services<h:br/>
             FDP_AUT_EXT.2 Data Authentication Using Cryptographic Keyed-Hash Functions
           </dependencies>          
           
@@ -2149,10 +2193,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           </f-element>
           <f-element id="fcs-ckm-ext-5e2">
             <title>The TSF shall create a unique FAK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>.</title>
+              mechanism on the client as specified in FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>.</title>
               <ext-comp-def-title>
               <title>The TSF shall create a unique FAK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_RBG_EXT.1.</title>
+              mechanism on the client as specified in FCS_RBG.1.</title>
               </ext-comp-def-title>
           </f-element>
           <f-element id="fcs-ckm-ext-5e3">
@@ -2183,7 +2227,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 FCS_CKM_EXT.5.3: The TSS must detail that the FAKs are generated on the client machine
                 and are not generated on an external server. <h:br/><h:br/> 
                 
-                FCS_CKM_EXT.5.4: FCS_CKM_EXT.4
+                FCS_CKM_EXT.5.4: FCS_CKM.6
                 contains the requirements necessary to ensure that plaintext keys and key material do
                 not remain in plaintext form in the TSF's non-volatile memory space. In TOEs where the
                 FAK is protected with a KEK, the FAK will need to be encrypted and stored in
@@ -2192,11 +2236,14 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 examine the TSS to ensure that it describes how the FAK is encrypted, both after its
                 initial creation and after it has been decrypted for use (note that in the entirely
                 likely possibility that the FAK is not re-encrypted, then this case must be indicated in
-                the TSS and the description for FCS_CKM_EXT.4 will cover disposal of the plaintext FEK
+                the TSS and the description for FCS_CKM.6 will cover disposal of the plaintext FEK
                 and FAK). The evaluator shall further check to ensure that the TSS describes how the FAK
                 and any other associated meta-data necessary to decrypt the file or set of files are
                 associated with the resource. This description can be combined with the description
                 required for FCS_COP_EXT.1. <h:br/><h:br/>
+
+                <h:h4>KMD</h:h4>
+                None. <h:br/><h:br/>
                 
               </TSS>
               <Guidance> None. <h:br/><h:br/>
@@ -2217,11 +2264,13 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 the reason for failure to comply with the requirement. </Tests>
             </aactivity>
           </f-element>
+
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FCS_COP_EXT" title="Cryptographic Operation">
-          <mod-def>Components in this family define requirements for cryptographic operations specific to file encryption. 
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for cryptographic operations specific to file encryption. 
+          </fam-behavior>
         </ext-comp-def>
         
         <f-component cc-id="fcs_cop_ext.1" name="FAK Encryption/Decryption Support">
@@ -2255,15 +2304,15 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             
             
           </f-element>
-          
+          <audit-event/>
         </f-component>
       </sec:fcs>
       
            <sec:fdp title="User Data Protection (FDP)">
 
              <ext-comp-def fam-id="FDP_AUT_EXT" title="User Data Authentication">
-               <mod-def>Components in this family define requirements for authentication of protected user data.
-               </mod-def>
+               <fam-behavior>Components in this family define requirements for authentication of protected user data.
+               </fam-behavior>
              </ext-comp-def>
          <f-component cc-id="fdp_aut_ext.1" name="Authentication of Selected User Data">
            <consistency-rationale>This SFR relates to data authentication, which does not relate to any functionality defined in the Base-PP.
@@ -2325,6 +2374,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  decryption scenarios. If other scenarios exist due to product implementation/features,
                  the evaluator shall ensure that those scenarios are covered in the TSS as well.<h:br/><h:br/>
                  
+                 <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
+
                </TSS>
                <Guidance>If the TOE creates temporary objects and these objects can be
                  protected through administrative measures (e.g., the TOE creates temporary files in a
@@ -2376,7 +2428,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
            <dependencies>FCS_CKM_EXT.5 File Authentication Key (FAK) Support<h:br/>
              FCS_COP.1 Cryptographic Operation<h:br/>
              FCS_COP_EXT.1 FAK Encryption/Decryption Support<h:br/>
-             FCS_RBG_EXT.1 Random Bit Generation Services<h:br/>
+             FCS_RBG.1 Random Bit Generation Services<h:br/>
            </dependencies>
            
            
@@ -2418,18 +2470,18 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                <f-element id="fdp-aut-ext-2e9">
              <title>The FAK will be generated using 
               <selectables> 
-                <selectable>a RBG that meets FCS_RBG_EXT.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
+                <selectable>a RBG that meets FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
                 <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
               </selectables>.</title>
               <ext-comp-def-title>
               <title>The FAK will be generated using 
               <selectables> 
-                <selectable>a RBG that meets FCS_RBG_EXT.1</selectable>
+                <selectable>a RBG that meets FCS_RBG.1</selectable>
                 <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
               </selectables>.</title></ext-comp-def-title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
-               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM_EXT.4.1.</note>
+               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM.6.</note>
              <aactivity>
                <TSS> The evaluator shall check the TSS section to confirm that it describes
                  how a request for each type of supported resource (file (or set of files)) will result
@@ -2441,12 +2493,15 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  identify the keyed hash function utilized. <h:br/><h:br/>
                  Conditional:<h:br/>
                  If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes
-                 how the functionality described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is used to generate the FAK. <h:br/><h:br/>
+                 how the functionality described by FCS_RBG.1 (from the <xref to="bibAppPP"/>) is used to generate the FAK. <h:br/><h:br/>
                  Conditional:<h:br/>
                  If 'key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify
                  that the TSS describes how the functionality described by NIST SP 800-33r1 is implemented to generate the FAK.
                  The evaluator shall verify that the description of the key generation method matches the methods described in
-                 SP 800-133r1 and that the FAK is chained to an approved RBG.
+                 SP 800-133r1 and that the FAK is chained to an approved RBG. <h:br/><h:br/>
+
+                 <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
                </TSS>
                <Guidance> It is encouraged for
                  every implementation to use a FAK that is wholly different and independently generated
@@ -2463,6 +2518,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                </Tests>
              </aactivity>
            </f-element>
+           <audit-event/>
          </f-component>
          
              <f-component cc-id="fdp_aut_ext.3" name="Data Authentication Using Asymmetric Signing
@@ -2537,6 +2593,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  signing function. The evaluator will confirm that the TSF notifies the user of an
                  unsuccessful authentication and prevents decryption.  The evaluator shall confirm
                  that the signature is appended to the end of the ciphertext file.<h:br/><h:br/>
+
+                 <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
                  
                </TSS>
                <Guidance> None.<h:br/><h:br/>
@@ -2551,12 +2610,13 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                </Tests>
              </aactivity>
            </f-element>
+           <audit-event/>
          </f-component>
          
          
              <ext-comp-def fam-id="FDP_PM_EXT" title="Protection of Data in Power Managed States">
-               <mod-def>Components in this family define requirements for the protection of data in cases where the host platform becomes locked or unpowered.
-               </mod-def>
+               <fam-behavior>Components in this family define requirements for the protection of data in cases where the host platform becomes locked or unpowered.
+               </fam-behavior>
              </ext-comp-def>
              <f-component cc-id="fdp_pm_ext.1" name="Protection of Data in Power Managed States">
                <consistency-rationale>This SFR describes the behavior of the TSF when its host platform is in a locked or unpowered state, which does not relate to any functionality 
@@ -2608,7 +2668,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                      <h:h4>KMD</h:h4> <h:br/>The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
                      The evaluator shall verify the KMD includes a key lifecycle that includes a description where key material reside,
                      how the key material is used, and how the material is destroyed once a claimed power state is entered
-                     and that the documentation in the KMD follows FCS_CKM_EXT.4.1 for the destruction.<h:br/><h:br/>
+                     and that the documentation in the KMD follows FCS_CKM.6.2 for the destruction.<h:br/><h:br/>
                      
                    </TSS>
                    <Guidance> The evaluator shall check the Operational Guidance to determine that
@@ -2633,6 +2693,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                    </Tests>
                  </aactivity>
                </f-element>
+               <audit-event/>
              </f-component>
          
          
@@ -2667,6 +2728,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                      examine the TSS to ensure that it describes how the TOE detects and encrypts temporary files (or set of files) that
                      are created in the filesystem of the host by third party products.<h:br/><h:br/>
                      
+                     <h:h4>KMD</h:h4>
+                      None. <h:br/><h:br/>
                    </TSS>
                    <Guidance> [conditional]  If any configuration is required for this process the evaluator shall verify it is 
                      described in the guidance documentation. <h:br/><h:br/>
@@ -2680,8 +2743,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 
       <sec:fia title="Identification and Authentication (FIA)">
         <ext-comp-def fam-id="FIA_FCT_EXT" title="Authorization Factors">
-          <mod-def>Components in this family define requirements for the use of alternative authorization factors for users to access protected data.
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for the use of alternative authorization factors for users to access protected data.
+          </fam-behavior>
         </ext-comp-def>   
         <f-component cc-id="fia_fct_ext.1" name="Multi-User Authorization">
           <consistency-rationale>This SFR relates to the use of authorization factors, which does not relate to any behavior described in the Base-PP.
@@ -2718,6 +2781,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 The evaluator shall examine the TSS to verify key chains are separate ensuring resources are protected from other users, 
                 with the exception of files permitted to be shared under the mechanism described in FIA_FCT_EXT.2.
                 <h:br/><h:br/>
+
+                <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
                 
                 
               </TSS>
@@ -2733,6 +2799,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
 
@@ -2777,6 +2844,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 with other users, if additional actions are necessary due to use of the encryption
                 product. If different for different underlying platforms, the evaluator determines that
                 all platforms listed in the ST are addressed.<h:br/><h:br/>
+
+                <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
                 
               </TSS>
               <Guidance> - The evaluator shall examine the operation guidance to
@@ -2803,6 +2873,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       </sec:fia>
 </opt-sfrs>
@@ -2818,7 +2889,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <comp-lev> describes the method by which the TSF acquires or generates key encryption keys.</comp-lev>
         <management>There are no specific management functions identified.</management>
         <audit>There are no auditable events foreseen.</audit>
-        <dependencies>FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
+        <dependencies>FCS_RBG.1 Random Bit Generation Services</dependencies>
           
         <f-element id="fcs-ckm-ext-3e1">
           <title> The TSF shall 
@@ -2850,26 +2921,29 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
 
             Conditional: <h:br/> 
             If using a RBG was selected the evaluator shall examine the TSS and verify that it describes how the functionality
-            described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is invoked to
+            described by FCS_RBG.1 (from the <xref to="bibAppPP"/>) is invoked to
             generate KEK(s). To the extent possible from the description of the RBG functionality in
-            FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
+            FCS_RBG.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
             requested is identical to the key size selected.  <h:br/> <h:br/> 
 
             Conditional: <h:br/>               
             If derived from a password/passphrase is selected the examination of the TSS section is performed as
             part of FCS_CKM_EXT.6 evaluation activities. <h:br/>  <h:br/> 
 
+            <h:h4>KMD</h:h4>
+            None. <h:br/><h:br/>
+
             </TSS>
-<Guidance> The evaluator shall review the
+            <Guidance> The evaluator shall review the
             instructions in the AGD guidance to determine that any explicit actions that need to
             be taken by the user to establish a KEK exist-taking into account any differences that
             arise from different platforms-and are consistent with the description in the TSS.<h:br/><h:br/>
-
-</Guidance>
-<Tests> None. 
-          </Tests>
-</aactivity>
+            </Guidance>
+            <Tests> None. 
+            </Tests>
+          </aactivity>
         </f-element>
+        <audit-event/>
       </f-component>
  
  
@@ -2878,7 +2952,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends on="fcs-ckm-ext-2e1" id="DRVFEKPAS"/>
           <depends on="fcs-ckm-ext-3e1" id="DRVKEKPAS"/>
           
-          <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 SFR from the Base-PP in its intended manner 
+          <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG.1 SFR from the Base-PP in its intended manner 
             but otherwise does not relate to the Base-PP's functionality.
           </consistency-rationale>
           
@@ -2887,7 +2961,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <management>There are no specific management functions identified.</management>
           <audit>There are no auditable events foreseen.</audit>
           <dependencies>FCS_COP.1 Cryptographic Operation<h:br/>
-            FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
+            FCS_RBG.1 Random Bit Generation Services</dependencies>
          
           
           <f-element id="fcs-ckm-ext-6e1">
@@ -3010,7 +3084,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 
                 <h:br/><h:br/>FCS_CKM_EXT.6.2: The ST author shall provide a
                 description in the TSS regarding the salt generation. The evaluator shall confirm that
-                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>). <h:br/><h:br/>
+                the salt is generated using an RBG described in FCS_RBG.1 (from the <xref to="bibAppPP"/>). <h:br/><h:br/>
+
+                <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
                 
                 
                 
@@ -3033,6 +3110,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 from the input password/passphrase is required. </Tests>
             </aactivity>
           </f-element>
+
+          <audit-event/>
         </f-component>
  
  
@@ -3345,8 +3424,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
 
         
         <ext-comp-def fam-id="FCS_KDF_EXT" title="Cryptographic Key Derivation Function">
-          <mod-def>Components in this family define requirements for the implementation of cryptographic key derivation functions
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for the implementation of cryptographic key derivation functions
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fcs_kdf_ext.1" name="Cryptographic Key Derivation Function">
           <depends on="fcs-kyc-ext-1e1" ids="USEKEYDER"/>
@@ -3363,7 +3442,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation <h:br/>
-            FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
+            FCS_RBG.1 Random Bit Generation Services</dependencies>
           
           
           <f-element>
@@ -3374,7 +3453,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                         <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
                       <selectable>a conditioned password</selectable>
                       <selectable>an imported submask</selectable>
-                    </selectables> to derive an intermediate key, as defined in
+                    </selectables></h:i>] to derive an intermediate key, as defined in
+                    [<h:i>
                     <selectables>
                       <selectable>NIST SP 800-108 
                         <selectables>
@@ -3384,29 +3464,16 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                         </selectables>
                       </selectable>
                       <selectable>NIST SP 800-132</selectable>
-                    </selectables> using the keyed-hash functions specified in FCS_COP.1<h:b>/KeyedHash
+                    </selectables></h:i>] using the keyed-hash functions specified in FCS_COP.1<h:b>/KeyedHash
                     (from <xref to="bibAppPP"/>)</h:b>, such that the output is at least of
-                    equivalent security strength (in number of bits) to the [FEK]</h:i>].
+                    equivalent security strength (in number of bits) to the [<h:i>FEK</h:i>].
             </title>
             <ext-comp-def-title>
             <title>
-                The TSF shall [<h:i>accept
-                    <selectables>
-                      <selectable>a submask generated by an RBG as specified in FCS_RBG.1</selectable>
-                      <selectable>a conditioned password</selectable>
-                      <selectable>an imported submask</selectable>
-                    </selectables> to derive an intermediate key, as defined in
-                    <selectables>
-                      <selectable>NIST SP 800-108 
-                        <selectables>
-                          <selectable>KDF in Counter Mode</selectable>
-                          <selectable>KDF in Feedback Mode</selectable>
-                          <selectable>KDF in Double-Pipeline Iteration Mode</selectable>
-                        </selectables>
-                      </selectable>
-                      <selectable>NIST SP 800-132</selectable>
-                    </selectables> using the keyed-hash functions specified in FCS_COP.1, such that the output is at least of
-                    equivalent security strength (in number of bits) to the [FEK]</h:i>].
+                The TSF shall <assignable>intermediate key derivation function</assignable>
+                to derive an intermediate key, as defined in <assignable>applicable key standard</assignable> 
+                using the keyed-hash functions specified in FCS_COP.1, such that the output is at least of
+                equivalent security strength (in number of bits) to the <assignable>derived key</assignable>.
             </title>
             </ext-comp-def-title>
             <note role="application">
@@ -3420,6 +3487,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 The evaluator shall verify the TSS includes a description of the key derivation
                 function and shall verify the key derivation uses an approved derivation mode and
                 key expansion algorithm according to SP 800-108 and SP 800-132. <h:br/><h:br/>
+
+                <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
               </TSS>
               <Guidance> None. <h:br/><h:br/>
               </Guidance>
@@ -3455,12 +3525,12 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               
             </title>
           -->
-          
+          <audit-event/>
         </f-component>
         
         <ext-comp-def fam-id="FCS_SMC_EXT" title="Submask Combining">
-          <mod-def>Components in this family define requirements for generation of intermediate keys via submask combining.
-          </mod-def>
+          <fam-behavior>Components in this family define requirements for generation of intermediate keys via submask combining.
+          </fam-behavior>
         </ext-comp-def>
         <f-component cc-id="fcs_smc_ext.1" name="Submask Combining">
           <depends on="FCS_KYC_EXT.1.1" ids="USEKEYCOM"/>
@@ -3478,15 +3548,14 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           
           
           <f-element>
-            <title>The TSF shall [<h:i>combine submasks using the following method <selectables>
+            <title>The TSF shall combine submasks using the following method [<h:i><selectables>
               <selectable>exclusive OR (XOR)</selectable>
-              <selectable>SHA-256</selectable>
               <selectable>SHA-384</selectable>
-              <selectable>SHA-512</selectable>
-              <selectable>HMAC-SHA-256</selectable>
               <selectable>HMAC-SHA-384</selectable>
-              <selectable>HMAC-SHA-512</selectable>
-            </selectables> to generate an intermediate key</h:i>].</title>
+            </selectables></h:i>] to generate an intermediate key.</title>
+            <ext-comp-def-title>
+            <title>The TSF shall combine submasks using the following method <assignable>combination method</assignable>
+            to generate an intermediate key.</title></ext-comp-def-title>
             <note role="application">
               
               This requirement specifies the way that a product may combine the
@@ -3496,6 +3565,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 shall identify how this is performed (e.g., if there are ordering requirements, checks
                 performed, etc.). The evaluator shall also confirm that the TSS describes how the length
                 of the output produced is at least the same as that of the FEK. <h:br/><h:br/>
+
+                <h:h4>KMD</h:h4>
+                 None. <h:br/><h:br/>
                 
               </TSS>
               <Guidance>None.<h:br/><h:br/>
@@ -3529,8 +3601,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         
         
           <!-- <ext-comp-def fam-id="FCS_VAL_EXT" title="Validation Remediation">
-            <mod-def>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
-            </mod-def>
+            <fam-behavior>Components in this family define requirements for validation of data supplied to the TOE and any consequences resulting from failed validation attempts. 
+            </fam-behavior>
           </ext-comp-def> -->
         
           <!--
@@ -3732,20 +3804,6 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
   -->
 
     <bibliography>
-      <entry id="bibCC">
-        <tag>CC</tag>
-        <description>Common Criteria for Information Technology Security Evaluation - <h:ul>
-          <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R4.pdf">Part
-                1: Introduction and General Model</h:a>, CCMB-2017-04-001, Version 3.1 Revision 5,
-              April 2017.</h:li>
-          <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R4.pdf">Part
-                2: Security Functional Components</h:a>, CCMB-2017-04-002, Version 3.1 Revision 5,
-              April 2017.</h:li>
-          <h:li><h:a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R4.pdf">Part
-                3: Security Assurance Components</h:a>, CCMB-2017-04-003, Version 3.1 Revision 5,
-              April 2017.</h:li>
-          </h:ul></description>
-      </entry>
       <entry id="bibAppPP">
         <tag>AppPP</tag>
         <description>
