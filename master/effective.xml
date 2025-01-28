@@ -861,7 +861,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </Guidance>
               <Tests> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <h:br/><h:br/>
               <testlist>
-                <test> [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM_EXT.4.1 
+                <test> [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
                   (assuming the selection "destruction of the reference followed by a request for garbage collection")]<h:br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
@@ -1677,6 +1677,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             are not filesystem objects, those objects shall be identified and described in the TSS
             as well. <h:br/><h:br/>
 
+            <h:h4>KMD</h:h4>None.<h:br/><h:br/>
+
             </TSS>
             <Guidance> None. <h:br/><h:br/>
 
@@ -2286,6 +2288,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <aactivity> 
               <TSS>The evaluator shall follow the evaluation activities as laid out in
                 FCS_COP.1/5 to assert proper FAK protection.<h:br/><h:br/> 
+                <h:h4>KMD</h:h4>None.<h:br/><h:br/>
               </TSS>
               <Guidance>None.<h:br/><h:br/></Guidance>
               <Tests>None.</Tests>
@@ -3277,6 +3280,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 If the KTS-KEM-KWS scheme was selected, the evaluator shall verify that the TSS
                 identifies the key derivation method, the AES-based key wrapping method, the secret
                 value encapsulation technique, and the random number generator. <h:br/><h:br/>
+                <h:h4>KMD</h:h4>None.<h:br/><h:br/>
               </TSS>
               <Guidance> None. <h:br/><h:br/>
               </Guidance>
@@ -3397,6 +3401,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               describes how the FEK encryption/decryption is invoked. <h:br/><h:br/>
               <h:h4>Requirement met by the TOE</h:h4> The evaluator shall verify the TSS includes a description of the key size used for
                 encryption and the mode used for the key encryption <h:br/><h:br/>
+              <h:h4>KMD</h:h4>None.<h:br/><h:br/>
               </TSS>
               <Guidance> None. <h:br/><h:br/>
 </Guidance>

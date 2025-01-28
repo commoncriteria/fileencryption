@@ -577,7 +577,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/><br/>
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.6:1</a>:
-       [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM_EXT.4.1 
+       [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
                   (assuming the selection "destruction of the reference followed by a request for garbage collection")]<br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
@@ -826,6 +826,8 @@ Some examples of what is expected to be in the documentation are provided here. 
             are not filesystem objects, those objects shall be identified and described in the TSS
             as well. <br/><br/>
 
+            <h4>KMD</h4>None.<br/><br/>
+
             </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/>
 
             </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
@@ -1038,6 +1040,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall follow the evaluation activities as laid out in
                 FCS_COP.1/5 to assert proper FAK protection.<br/><br/> 
+                <h4>KMD</h4>None.<br/><br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></span></div><h2 class="indexable" data-level="2" id="fdp">2.3.2 User Data Protection (FDP)</h2><div class="comp" id=""><h4>FDP_AUT_EXT.1 Authentication of Selected User Data</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_AUT_EXT.1</div>
                
                
@@ -1491,6 +1494,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 If the KTS-KEM-KWS scheme was selected, the evaluator shall verify that the TSS
                 identifies the key derivation method, the AES-based key wrapping method, the secret
                 value encapsulation technique, and the random number generator. <br/><br/>
+                <h4>KMD</h4>None.<br/><br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> 
                 For each supported key transport schema, the evaluator shall initiate at least 25
@@ -1592,6 +1596,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               describes how the FEK encryption/decryption is invoked. <br/><br/>
               <h4>Requirement met by the TOE</h4> The evaluator shall verify the TSS includes a description of the key size used for
                 encryption and the mode used for the key encryption <br/><br/>
+              <h4>KMD</h4>None.<br/><br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/>
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> 
               The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in

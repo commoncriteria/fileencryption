@@ -1345,7 +1345,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/><br/>
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.6:1</a>:
-       [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM_EXT.4.1 
+       [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a> 
                   (assuming the selection "destruction of the reference followed by a request for garbage collection")]<br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
@@ -1798,6 +1798,8 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
             host that are 1) persistent and 2) visible to other processes (users) on that host that
             are not filesystem objects, those objects shall be identified and described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
             as well. <br/><br/>
+
+            <h4>KMD</h4>None.<br/><br/>
 
             </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/>
 
@@ -2266,6 +2268,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall follow the evaluation activities as laid out in
                 <a href="#FCS_COP.1/5">FCS_COP.1/5</a> to assert proper <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> protection.<br/><br/> 
+                <h4>KMD</h4>None.<br/><br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></div></div></div>
       
       
@@ -3068,6 +3071,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 If the KTS-KEM-KWS scheme was selected, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
                 identifies the key derivation method, the AES-based key wrapping method, the secret
                 value encapsulation technique, and the random number generator. <br/><br/>
+                <h4>KMD</h4>None.<br/><br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> 
                 For each supported key transport schema, the evaluator shall initiate at least 25
@@ -3190,6 +3194,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               describes how the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> encryption/decryption is invoked. <br/><br/>
               <h4>Requirement met by the TOE</h4> The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of the key size used for
                 encryption and the mode used for the key encryption <br/><br/>
+              <h4>KMD</h4>None.<br/><br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/>
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> 
               The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in
