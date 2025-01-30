@@ -333,57 +333,94 @@
       <threats>
         <threat name="T.UNAUTHORIZED_DATA_ACCESS">
           <description>
-            <h:b>Unauthorized Data Access:</h:b> An attacker has access to an account that is not permitted to decrypt 
-          files or has no access and uses forensic tools for examination.</description>
-          <objective-refer ref="O.PROTECT_DATA">
+            <h:b>Unauthorized Data Access:</h:b> An attacker that is not permitted to decrypt files 
+            or has no access obtains access to an account and uses forensic tools for examination.</description>
+          <!-- <objective-refer ref="O.PROTECT_DATA">
             <rationale>The threat T.UNAUTHORIZED_DATA_ACCESS is countered by O.PROTECT_DATA as this
               provides for encryption of data.</rationale>
-          </objective-refer>
+          </objective-refer> -->
+          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale>
+          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
+          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale>
+          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale>
+          <addressed-by><xref to="FCS_CKM_EXT.5 (optional)"/></addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale>
+          <addressed-by><xref to="FCS_COP_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale>
+          <addressed-by><xref to="FDP_AUT_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale>
+          <addressed-by><xref to="FDP_AUT_EXT.2 (optional)"/></addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale>
+          <addressed-by><xref to="FDP_AUT_EXT.3 (optional)"/></addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale>
+          <addressed-by><xref to="FDP_PM_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale>
+          <addressed-by><xref to="FDP_PRT_EXT.3 (optional"/></addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale>
+          <addressed-by><xref to="FIA_FCT_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale>
+          <addressed-by><xref to="FIA_FCT_EXT.2 (optional)"/></addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale>
         </threat>
         <threat name="T.MANAGEMENT_ACCESS">
           <description>
-            <h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without authorization or a legitimate user may lack the ability to perform
+            <h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform
             necessary security operations due to a lack of supported management functionality.</description>
-          <objective-refer ref="O.MANAGE">
+          <!-- <objective-refer ref="O.MANAGE">
             <rationale>The threat T.UNAUTHORIZED_DATA_ACCESS is countered by O.MANAGE as this
               ensures proper management functionality.</rationale>
-          </objective-refer>
+          </objective-refer> -->
+          <addressed-by><xref to="FMT_MEC_EXT.1 (from Base-PP)"/></addressed-by><rationale>Mitigates the threat by storing configuration in a protected manner.</rationale>
+          <addressed-by><xref to="FMT_SMF.1/2"/></addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale>
         </threat>
         <threat name="T.KEYING_MATERIAL_COMPROMISE">
           <description>
             <h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation, 
             plaintext keys, and other keying material to decrypt an encrypted file. </description>
-          <objective-refer ref="O.KEY_MATERIAL_PROTECTION">
+          <!-- <objective-refer ref="O.KEY_MATERIAL_PROTECTION">
             <rationale>The threat T.KEYING_MATERIAL_COMPROMISE is countered by O.KEY_MATERIAL_PROTECTION as this
               provides for protection of keys.</rationale>
-          </objective-refer>
+          </objective-refer> -->
+          <addressed-by><xref to="FCS_CKM.6"/></addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale>
+          <addressed-by><xref to="FPT_KYP_EXT.1"/></addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale>
         </threat>
         <threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION">
           <description>
             <h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of 
-            the authorization factor. </description>
-          <objective-refer ref="O.SAFE_AUTHFACTOR_VERIFICATION">
+            the authorization factor, allowing access to secure information. </description>
+          <!-- <objective-refer ref="O.SAFE_AUTHFACTOR_VERIFICATION">
             <rationale>The threat T.UNSAFE_AUTHFACTOR_VERIFICATION is countered by O.SAFE_AUTHFACTOR_VERIFICATION as this
               provides for properly supported authentication factors.</rationale>
-          </objective-refer>
+          </objective-refer> -->
+          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale>
+          <addressed-by><xref to="FIA_AUT_EXT.1"/></addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale>
         </threat>
         <threat name="T.KEYSPACE_EXHAUST">
           <description>
-            <h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data.
+            <h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data,
+            allowing access to secure information.
           </description>
-          <objective-refer ref="O.FEK_SECURITY">
+          <!-- <objective-refer ref="O.FEK_SECURITY">
             <rationale>The threat T.KEYSPACE_EXHAUST is countered by O.FEK_SECURITY as this
               makes brute force attacks infeasible.</rationale>
-            </objective-refer>
+            </objective-refer> -->
+          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm..</rationale>
+          <addressed-by><xref to="FCS_CKM_EXT.2"/></addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale>
+          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
+          <addressed-by><xref to="FCS_KYC_EXT.1"/></addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale>
+          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale>
+          <addressed-by><xref to="FCS_CKM_EXT.3 (selection-based)"/></addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale>
+          <addressed-by><xref to="FCS_CKM_EXT.6 (selection-based)"/></addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale>
+          <addressed-by><xref to="FCS_COP.1/5 (selection-based)"/></addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale>
+          <addressed-by><xref to="FCS_COP.1/6 (selection-based)"/></addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale>
+          <addressed-by><xref to="FCS_COP.1/7 (selection-based)"/></addressed-by><rationale>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</rationale>
+          <addressed-by><xref to="FCS_KDF_EXT.1 (selection-based"/></addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale>
+          <addressed-by><xref to="FCS_SMC_EXT.1 (selection-based)"/></addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale>
+          <addressed-by><xref to="FCS_VAL_EXT.2 (selection-based)"/></addressed-by><rationale>Mitigates the threat by limiting the amount or rate of failed validation attempts.</rationale>
         </threat>
         <threat name="T.PLAINTEXT_COMPROMISE">
           <description>
-            <h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools.
+            <h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools, allowing access
+            to secure information.
           </description>
-          <objective-refer ref="O.WIPE_MEMORY">
+          <!-- <objective-refer ref="O.WIPE_MEMORY">
             <rationale>The threat T.PLAINTEXT_COMPROMISE is countered by O.WIPE_MEMORY as this
               provides data cleanup.</rationale>
-          </objective-refer>
+          </objective-refer> -->
+          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale>
+          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale>
+          <addressed-by><xref to="FDP_PRT_EXT.3 (optional)"/></addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale>
         </threat>
 
       </threats>
@@ -449,7 +486,7 @@
     security objectives required to meet the threats previously discussed. The
     description of these security objectives are in addition to that described in the [AppPP].<h:br/> 
     
-      <sec:Security_Objectives_for_the_TOE>
+      <!-- <sec:Security_Objectives_for_the_TOE>
        <SOs>
         <SO name="O.KEY_MATERIAL_PROTECTION">
           <description>
@@ -478,7 +515,7 @@
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale/>
+          <addressed-by><xref to="FCS_COP.1/SKC (frfom Base-PP)"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_CKM_EXT.2"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale/>
           <addressed-by><xref to="FCS_KYC_EXT.1"/></addressed-by><rationale/>
@@ -564,7 +601,7 @@
           <addressed-by><xref to=""/></addressed-by><rationale/>
           </SO>
       </SOs>
-      </sec:Security_Objectives_for_the_TOE>
+      </sec:Security_Objectives_for_the_TOE> -->
 
       <sec:Security_Objectives_for_the_Operational_Environment>
     
@@ -666,7 +703,7 @@
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
                     <selectable> using a Random Bit Generator as specified in FCS_RBG.1
-                      <h:b>(from <xref to="bibAppPP"/>)</h:b> and with entropy corresponding to the security strength of AES key sizes <h:i>[256-bit]</h:i></selectable>
+                      (from <xref to="bibAppPP"/>) and with entropy corresponding to the security strength of AES key sizes <h:i>[256-bit]</h:i></selectable>
                     <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
                   </selectables>
@@ -1093,15 +1130,15 @@ Some examples of what is expected to be in the documentation are provided here. 
             <title> The TSF shall maintain a key chain of: 
               <selectables linebreak="yes">
                 <selectable>a conditioned password as the [<h:i>FEK</h:i>]</selectable>
-                <selectable id="HASKEK">[<h:i>KEKs</h:i>] originating from <h:b> 
+                <selectable id="HASKEK">[<h:i>KEKs</h:i>] originating from 
                   <selectables>
                     <selectable>one or more authorization factors(s)</selectable>
                     <selectable>a file encryption enterprise management server</selectable>
-                  </selectables> </h:b> to <h:b> 
+                  </selectables> to
                   <selectables>
                     <selectable>the FEK(s)</selectable>
                     <selectable>a file encryption enterprise management server</selectable>
-                  </selectables> </h:b>
+                  </selectables>
                   using the following method(s): 
                   <selectables linebreak="yes">
                     <selectable>utilization of the platform key storage</selectable>
@@ -1112,6 +1149,51 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/7</h:b></selectable>
                     <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
+                  </selectables> while maintaining an effective strength of 
+                    <selectables>
+                      <selectable>
+                        <h:i>256 bits</h:i> for symmetric keys
+                      </selectable>
+                      <selectable>
+                       <h:i>256 bits</h:i> for asymmetric keys
+                      </selectable>
+                    </selectables> commensurate with the strength of the FEK
+                </selectable>
+              </selectables> 
+              and 
+              <selectables>
+                <selectable> no supplemental key chains</selectable>
+                <selectable> other supplemental key chains that protect a key or keys in the primary key chain using the following method(s):
+                  <selectables linebreak="yes">
+                    <selectable>utilization of the platform key storage</selectable>
+                    <selectable>utilization of platform key storage that performs key wrap with a
+                      TSF provided key</selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/7</h:b></selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
+                    <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
+                  </selectables></selectable>
+              </selectables>.
+            </title>
+            <ext-comp-def-title>
+            <title> The TSF shall maintain a key chain of: 
+              <selectables linebreak="yes">
+                <selectable>a conditioned password as the <assignable>key type</assignable></selectable>
+                <selectable> <assignable>key type</assignable> originating from
+                <assignable>origin of key</assignable> 
+                 to 
+                 <assignable>end point of key chain</assignable>
+                  using the following method(s): 
+                  <selectables linebreak="yes">
+                    <selectable>utilization of the platform key storage</selectable>
+                    <selectable>utilization of platform key storage that performs key wrap with a
+                      TSF provided key</selectable>
+                    <selectable>implementation of key wrapping as specified in FCS_COP.1</selectable>
+                    <selectable>implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable>implementation of key encryption as specified in FCS_COP.1</selectable>
+                    <selectable>implementation of key transport as specified in FCS_COP.1</selectable>
+                    <selectable>implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
                     <selectables>
                       <selectable>
@@ -1146,6 +1228,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   </selectables></selectable>
               </selectables>.
             </title>
+            </ext-comp-def-title>
             <note role="application">
               
               
@@ -1159,17 +1242,19 @@ Some examples of what is expected to be in the documentation are provided here. 
               , then the ST author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the ST author must also specify the 
               strength of the keys in the keychain.  It should be noted that "maintaining overall strength:
-              commensurate with the overall strength of the FEK" is meant to cover the use case for this PP-Module 
+              commensurate with the overall strength of the FEK" is meant to cover the threat for this PP-Module 
               of a powered-off device being recovered by an adversary, who subsequently attempts to recover 
               the FEK through a compromise of the key chain. <h:br/><h:br/>
 
               The third selection in the requirement is used to select the types of keys used in the key chain 
-              (both symmetric and asymmetric keys are allowed).  The bit sizes selected in the fourth 
+              (both symmetric and asymmetric keys are allowed).  
+              <!-- The bit sizes selected in the fourth 
               and fifth selections are chosen by the ST author to be commensurate with the strength of 
               the FEK in the following manner: for symmetric FEKs of 128 bits, the ST author can select 
               any of the choices for both symmetric and asymmetric keys.  For symmetric FEKs of 256 bits, 
               the ST author selects 256 bits if the symmetric key option is chosen and 192 bits or 256 bits 
-              if the asymmetric key option is chosen.<h:br/><h:br/>
+              if the asymmetric key option is chosen. -->
+              <h:br/><h:br/>
 
               If a supplemental keychain is used, then the ST author selects the second option in the sixth 
               selection and then chooses the method by which these keys are protected.  Keys in the 
@@ -1325,14 +1410,14 @@ Some examples of what is expected to be in the documentation are provided here. 
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable>
-                    </selectables> as specified in FCS_COP.1<h:b>/Hash (from <xref to="bibAppPP"/>)</h:b> and compare it to a stored hash</selectable> 
+                    </selectables> as specified in FCS_COP.1<h:b>/Hash</h:b> (from <xref to="bibAppPP"/>) and compare it to a stored hash</selectable> 
                   <selectable>decrypt a known value using the 
                     <selectables>
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable>
                       
-                    </selectables> as specified in FCS_COP.1<h:b>/SKC (from <xref to="bibAppPP"/>)</h:b> and compare it against a stored known value</selectable>
+                    </selectables> as specified in FCS_COP.1<h:b>/SKC</h:b> (from <xref to="bibAppPP"/>) and compare it against a stored known value</selectable>
                 </selectables></selectable>
               </selectables>.               
             </title>
@@ -1421,7 +1506,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               <Tests>There are no test activities for this requirement.
               </Tests>
             </aactivity>            
-          </f-element>          
+          </f-element>     
+          <audit-event/>     
         </f-component>
         <f-component cc-id="fcs_val_ext.2" name="Validation Remediation">
             <depends on="FIA_AUT_EXT.1.1" ids="APPAUTH"/>
@@ -1498,6 +1584,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </aactivity>
               
             </f-element>
+            <audit-event/>
           </f-component>
       </sec:fau>
       
@@ -1522,7 +1609,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           
           <f-element id="fdp-prt-ext-1e1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
-              of files) in accordance with FCS_COP.1<h:b>/SKC (from <xref to="bibAppPP"/>)</h:b>. </title>
+              of files) in accordance with FCS_COP.1<h:b>/SKC</h:b> (from <xref to="bibAppPP"/>). </title>
             <ext-comp-def-title>
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
               of files) in accordance with FCS_COP.1. </title>
@@ -1785,13 +1872,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable>
                 <selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
                    <selectables>
-                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
+                     <selectable>generated by the TOE (using the RBG as specified in FCS_RBG.1 (from <xref to="bibAppPP"/>))</selectable>
                      <selectable>generated by the platform</selectable>
-                   </selectables> protected using RSA with key size 
-                  <selectables>
-                    <selectable>3072 bits</selectable>
-                    <selectable>4096 bits</selectable>
-                  </selectables> with user presence proved by presentation of the smart card and 
+                   </selectables> protected using RSA with key size <h:i>3072 bits</h:i> 
+                   with user presence proved by presentation of the smart card and 
                   <selectables>
                     <selectable>no PIN</selectable>
                     <selectable>an OE defined PIN</selectable>
@@ -1801,7 +1885,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>an external USB token factor that is at least the same security strength as the FEK(s),
                    and is providing a submask generated by the 
                    <selectables>
-                     <selectable>TOE (using the RBG as specified in FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>)</selectable>
+                     <selectable>TOE (using the RBG as specified in FCS_RBG.1 (from <xref to="bibAppPP"/>))</selectable>
                      <selectable>platform</selectable>
                    </selectables>
                 </selectable>
@@ -1905,6 +1989,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             </Tests>
 </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       </sec:fia>
       
@@ -2042,6 +2127,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
       </sec:fmt>
       
@@ -2077,7 +2163,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                   <selectables linebreak="yes">
                     <selectable>wrapped, as specified in FCS_COP.1<h:b>/5</h:b></selectable>
                     <selectable>encrypted, as specified in FCS_COP.1<h:b>/7</h:b></selectable>
-                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
+                    <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 (from <xref to="bibAppPP"/>)</selectable>
                     <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
                     <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
                     <selectable>the plaintext key is a key split that is combined as specified in FCS_SMC_EXT.1 and another contribution to the split is
@@ -2195,7 +2281,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           </f-element>
           <f-element id="fcs-ckm-ext-5e2">
             <title>The TSF shall create a unique FAK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b>.</title>
+              mechanism on the client as specified in FCS_RBG.1 (from <xref to="bibAppPP"/>).</title>
               <ext-comp-def-title>
               <title>The TSF shall create a unique FAK for each file (or set of files) using the
               mechanism on the client as specified in FCS_RBG.1.</title>
@@ -2416,6 +2502,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  are completed. </Tests>
              </aactivity>
            </f-element>
+           <audit-event/>
          </f-component>
              <f-component cc-id="fdp_aut_ext.2" name="Data Authentication Using cryptographic
                Keyed-Hash Functions">
@@ -2437,7 +2524,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
            
            <f-element id="fdp-aut-ext-2e1">
              <title>The TSF shall use a cryptographic, keyed hash function in accordance with
-               FCS_COP.1<h:b>/KeyedHash (from <xref to="bibAppPP"/>)</h:b>.</title>
+               FCS_COP.1<h:b>/KeyedHash</h:b> (from <xref to="bibAppPP"/>).</title>
               <ext-comp-def-title>
               <title>The TSF shall use a cryptographic, keyed hash function in accordance with
                FCS_COP.1.</title>
@@ -2473,7 +2560,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                <f-element id="fdp-aut-ext-2e9">
              <title>The FAK will be generated using 
               <selectables> 
-                <selectable>a RBG that meets FCS_RBG.1 <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
+                <selectable>a RBG that meets FCS_RBG.1 (from <xref to="bibAppPP"/>)</selectable>
                 <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
               </selectables>.</title>
               <ext-comp-def-title>
@@ -2541,8 +2628,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
            
            
                <f-element id="fdp-aut-ext-3e1">
-             <title>The TSF shall use a secure hash function in accordance with FCS_COP.1<h:b>/Hash (from 
-               <xref to="bibAppPP"/>)</h:b> with the entire ciphertext file as input to create a
+             <title>The TSF shall use a secure hash function in accordance with FCS_COP.1<h:b>/Hash</h:b> (from 
+               <xref to="bibAppPP"/>) with the entire ciphertext file as input to create a
                hash.</title>
                <ext-comp-def-title>
                <title>The TSF shall use a secure hash function in accordance with FCS_COP.1 with the entire ciphertext file as input to create a
@@ -2550,8 +2637,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                </ext-comp-def-title>
            </f-element>
               <f-element id="fdp-aut-ext-3e2">
-                <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1<h:b>/Sig
-                (from <xref to="bibAppPP"/>)</h:b> and must use the hash generated in accordance with
+                <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1<h:b>/Sig</h:b>
+                (from <xref to="bibAppPP"/>) and must use the hash generated in accordance with
                FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
                signing purposes is prohibited.</title>
                <ext-comp-def-title>
@@ -2562,7 +2649,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </f-element>
                <f-element id="fdp-aut-ext-3e3">
              <title>The TSF shall use a public and private key pair generated in accordance with
-               FCS_CKM.1<h:b>/AK(from <xref to="bibAppPP"/>)</h:b> and must use this key pair as part of the cryptographic signing process in
+               FCS_CKM.1<h:b>/AK</h:b> (from <xref to="bibAppPP"/>) and must use this key pair as part of the cryptographic signing process in
                accordance with FDP_AUT_EXT.3.2.</title>
                <ext-comp-def-title>
                 <title>The TSF shall use a public and private key pair generated in accordance with
@@ -2741,6 +2828,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                    <Tests>The evaluator shall utilize any third party application that would be protected under this protection to generate files, then verify those files are being encrypted.</Tests>
                  </aactivity>
                </f-element>
+               <audit-event/>
              </f-component>
            </sec:fdp>
                 
@@ -2902,15 +2990,30 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectables linebreak="yes">
                   <selectable> using a Random Bit Generator as specified in FCS_RBG.1
                     and with entropy corresponding to the security strength of AES key sizes of
-                    <selectables>
-                      <selectable>128 bit</selectable>
-                      <selectable>256 bit</selectable>
-                    </selectables></selectable>
+                    <h:i>256 bit</h:i></selectable>
                   <selectable id="DRVKEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
                 </selectables>
               </selectable>
             </selectables>.
           </title>
+          <ext-comp-def-title>
+          <title> The TSF shall 
+            <selectables>
+              <selectable>accept KEK from an enterprise management server</selectable>
+              <selectable> generate KEK cryptographic keys <h:br/>
+                <selectables linebreak="yes">
+                  <selectable> using a Random Bit Generator as specified in FCS_RBG.1
+                    and with entropy corresponding to the security strength of AES key sizes of
+                    <selectables>
+                      <selectable>128 bit</selectable>
+                      <selectable>256 bit</selectable>
+                    </selectables></selectable>
+                  <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
+                </selectables>
+              </selectable>
+            </selectables>.
+          </title>
+          </ext-comp-def-title>
           <note role="Application">This requirement must be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
           <aactivity>
             <TSS>
@@ -2989,6 +3092,16 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element id="fcs-ckm-ext-6e3">
             <title>
               The TSF shall perform Password-based Key Derivation
+              Functions in accordance with a specified cryptographic algorithm HMAC-<h:i>SHA-384</h:i>, with 
+              <selectables>
+                <selectable><assignable>positive integer of 4096 or more</assignable> iterations</selectable>
+                <selectable>value supported by the platform, greater than 1000</selectable>
+              </selectables>, and
+              output cryptographic key sizes <h:i>256</h:i> that meet the following: [<h:i>NIST SP 800-132</h:i>]. 
+            </title>
+            <ext-comp-def-title>
+            <title>
+              The TSF shall perform Password-based Key Derivation
               Functions in accordance with a specified cryptographic algorithm HMAC-<selectables>
                 <selectable>SHA-256</selectable>
                 <selectable>SHA-384</selectable>
@@ -3001,8 +3114,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               output cryptographic key sizes <selectables>
                 <selectable>128</selectable>
                 <selectable>256</selectable>
-              </selectables> that meet the following: [<h:i>NIST SP 800-132</h:i>]. 
+              </selectables> that meet the following: <assignable>applicable standard</assignable>. 
             </title>
+            </ext-comp-def-title>
           </f-element>
           <f-element id="fcs-ckm-ext-6e4">
             <title>
@@ -3136,11 +3250,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                     <selectable>Key Wrap with Padding</selectable>
                     <selectable>GCM mode</selectable>
                     <selectable>CCM mode</selectable>
-                  </selectables></h:b> and cryptographic key sizes <h:b> 
-                    <selectables>
-                      <selectable>128 bits (AES)</selectable>
-                      <selectable>256 bits (AES)</selectable>
-                    </selectables></h:b> that meet the following: <h:b>
+                  </selectables></h:b> and cryptographic key sizes [<h:i>256 bits (AES)</h:i>] 
+                  that meet the following: <h:b>
                       <selectables linebreak="yes">
                         <selectable>"NIST SP 800-38C"</selectable>
                         <selectable>"NIST SP 800-38D"</selectable>
@@ -3252,6 +3363,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
         
 
@@ -3267,11 +3379,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectables>
                   <selectable>KTS-OAEP</selectable>
                   <selectable>KTS-KEM-KWS</selectable>
-                </selectables></h:b> and cryptographic key sizes 
-              <selectables>
-                <selectable>3072</selectable>
-                <selectable>4096</selectable>
-              </selectables> bits that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
+                </selectables></h:b> and cryptographic key sizes [<h:i>3072 bits</h:i>] that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
             </title>
             <note role="application">
               
@@ -3381,6 +3489,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                     values) are revealed to the sender.</test></testlist></Tests>
             </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
      
  
@@ -3395,12 +3504,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  <selectable>use platform-provided functionality to perform Key Encryption</selectable>
                  <selectable>perform key encryption and decryption</selectable>
                </selectables></h:b>
-              in accordance with a specified cryptographic algorithm [<h:i>AES used in CBC mode</h:i>] and cryptographic key sizes <h:b> 
-                  <selectables linebreak="yes">
-                    <selectable>128</selectable>
-                    <selectable>256</selectable>
-                  </selectables> bits</h:b> that meet the following:
-                  [<h:i>AES as specified in SP 800-38A</h:i>].
+              in accordance with a specified cryptographic algorithm [<h:i>AES used in CBC mode</h:i>] and cryptographic key sizes 
+              [<h:i>256 bits</h:i>] that meet the following: [<h:i>AES as specified in SP 800-38A</h:i>].
             </title>
             <note role="application">
               
@@ -3424,6 +3529,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </Tests>
 </aactivity>
           </f-element>
+          <audit-event/>
         </f-component>
 
 
@@ -3447,7 +3553,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <audit>There are no auditable events foreseen.
           </audit>
           <dependencies>FCS_COP.1 Cryptographic Operation <h:br/>
-            FCS_RBG.1 Random Bit Generation Services</dependencies>
+            FCS_RBG.1 Random Bit Generation Services <h:br/>
+            FCS_SMC_EXT.1 Submask Combining</dependencies>
           
           
           <f-element>
@@ -3455,7 +3562,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 The TSF shall [<h:i>accept
                     <selectables>
                       <selectable>a submask generated by an RBG as specified in FCS_RBG.1
-                        <h:b>(from <xref to="bibAppPP"/>)</h:b></selectable>
+                        (from <xref to="bibAppPP"/>)</selectable>
                       <selectable>a conditioned password</selectable>
                       <selectable>an imported submask</selectable>
                     </selectables></h:i>] to derive an intermediate key, as defined in
@@ -3469,8 +3576,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                         </selectables>
                       </selectable>
                       <selectable>NIST SP 800-132</selectable>
-                    </selectables></h:i>] using the keyed-hash functions specified in FCS_COP.1<h:b>/KeyedHash
-                    (from <xref to="bibAppPP"/>)</h:b>, such that the output is at least of
+                    </selectables></h:i>] using the keyed-hash functions specified in FCS_COP.1<h:b>/KeyedHash</h:b>
+                    (from <xref to="bibAppPP"/>), such that the output is at least of
                     equivalent security strength (in number of bits) to the [<h:i>FEK</h:i>].
             </title>
             <ext-comp-def-title>
@@ -3549,7 +3656,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           </management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          <dependencies>No dependencies.</dependencies>
           
           
           <f-element>
@@ -3599,6 +3706,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               </selectables>.</title>
           </f-element-ecd>
           -->
+          <audit-event/>
         </f-component>
         
         
@@ -3826,10 +3934,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <description> Federal Information Processing Standards Publication (FIPS-PUB) 180-4, Secure
           Hash Standard, March, 2012 </description>
       </entry>
-      <entry id="FIPS186-4">
-        <tag>FIPS186-4</tag>
-        <description> Federal Information Processing Standard Publication (FIPS-PUB) 186-4, Digital
-          Signature Standard (DSS), National Institute of Standards and Technology, July 2013
+      <entry id="FIPS186-5">
+        <tag>FIPS186-5</tag>
+        <description> Federal Information Processing Standard Publication (FIPS-PUB) 186-5, Digital
+          Signature Standard (DSS), National Institute of Standards and Technology, February 2023
         </description>
       </entry>
       <entry id="FIPS197">
