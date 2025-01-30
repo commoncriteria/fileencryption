@@ -1220,10 +1220,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1</selectable>
                     <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/7</h:b></selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1</selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1</selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
@@ -2378,7 +2378,11 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           
           <f-element id="fcs-cop-ext-1e1">
             <title>The FAK shall be protected in the same manner as the FEK, in accordance with
-              FCS_COP.1/5.</title>
+              FCS_COP.1<h:b>/5</h:b>.</title>
+              <ext-comp-def-title>
+              <title>The FAK shall be protected in the same manner as the FEK, in accordance with
+              FCS_COP.1.</title>
+              </ext-comp-def-title>
             <note role="application"> The intent of this requirement is to clarify that, if a FAK is
               to be used, it should be treated as sensitive as the FEK, and thus, follow the same
               encryption and decryption practices. </note>
@@ -2909,10 +2913,18 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element id="fia-fct-est-2e1">
             <title>The TSF shall support
               <selectables>
-                <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1/6</selectable>
+                <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
                 <selectable>Distribution of a shared key from an enterprise management Server</selectable>
               </selectables>.
             </title>
+            <ext-comp-def-title>
+            <title>The TSF shall support
+              <selectables>
+                <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1</selectable>
+                <selectable>Distribution of a shared key from an enterprise management Server</selectable>
+              </selectables>.
+            </title>
+            </ext-comp-def-title>
             
             
             <note role="application"> While FIA_FCT_EXT.1 requires that
