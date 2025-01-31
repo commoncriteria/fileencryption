@@ -395,14 +395,14 @@
             <rationale>The threat T.KEYSPACE_EXHAUST is countered by O.FEK_SECURITY as this
               makes brute force attacks infeasible.</rationale>
             </objective-refer> -->
-          <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm..</rationale>
+          <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale>
           <addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale>
           <addressed-by>FCS_IV_EXT.1</addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
           <addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale>
           <addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale>
           <addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale>
           <addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale>
-          <addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</rationale>
+          <addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys using a specified secure algorithm.</rationale>
           <addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale>
           <addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale>
           <addressed-by>FCS_KDF_EXT.1 (selection-based</addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale>
@@ -725,7 +725,7 @@
               </selectables>.
             </title>
             </ext-comp-def-title>
-            <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key genration, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
+            <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key generation, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
             <!--Removed as repetative.
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG.1 from the <cite
@@ -908,7 +908,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </Guidance>
               <Tests> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <h:br/><h:br/>
               <testlist>
-                <test> [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
+                <test> [Conditional; applies when the application does not perform the zeroization (i.e. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
                   (assuming the selection "destruction of the reference followed by a request for garbage collection")]<h:br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
@@ -1049,7 +1049,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key 
               that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
               type involved, will suffice. For example, if a product uses a Key Encryption Key (KEK) to encrypt a File Encryption 
-              Key (FEK), destroying the KEK using one of the methods in FCS_CKM.6is sufficient, since the FEK would no longer 
+              Key (FEK), destroying the KEK using one of the methods in FCS_CKM.6 is sufficient, since the FEK would no longer 
               be usable (of course, presumes the FEK is still encrypted and the KEK cannot be recovered or re-derived). </note>
 
           </f-element>
@@ -1491,7 +1491,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 The evaluator shall examine the TSS to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
                 
-                Conditional: <h:br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the enviroments that can be leveraged with the TOE and how each claims to perform validation.
+                Conditional: <h:br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the environments that can be leveraged with the TOE and how each claims to perform validation.
                 The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/>
                
               <h:h4>KMD</h:h4>
@@ -2937,8 +2937,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <aactivity>
               <TSS>  
                 The evaluator shall examine the TSS to determine that it
-                identifies each of the resources that is sharable in encrypted form (for instance,
-                encrypted files may be sharable among users, but encrypted directories may not), and the
+                identifies each of the resources that is shareable in encrypted form (for instance,
+                encrypted files may be shareable among users, but encrypted directories may not), and the
                 method by which the resource can be shared among users with different authorization
                 factors. <h:br/><h:br/>
                 
