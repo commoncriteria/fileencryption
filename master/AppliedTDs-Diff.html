@@ -1018,11 +1018,11 @@
             </div>
         </div>
         <h3 id="fmt" class="indexable" data-level="3">5.2.4 Security Management (FMT)</h3>
-        <div class="comp" id="FMT_SMF.1/2">
-            <h4>FMT_SMF.1/2 Specification of File Encryption Management Functions</h4>
+        <div class="comp" id="FMT_SMF.1/FE">
+            <h4>FMT_SMF.1/FE Specification of File Encryption Management Functions</h4>
             <div class="element">
-                <div class="reqid" id="FMT_SMF.1.1/2">
-                    <a href="#FMT_SMF.1.1/2" class="abbr">FMT_SMF.1.1/2</a>
+                <div class="reqid" id="FMT_SMF.1.1/FE">
+                    <a href="#FMT_SMF.1.1/FE" class="abbr">FMT_SMF.1.1/FE</a>
                 </div>
                 <div class="reqdesc">
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions: <b> [<b>selection</b>: 
@@ -1191,7 +1191,7 @@
                     </td><td><a href="#FMT_MEC_EXT.1 (from Base-PP)" class="dynref" data-format=""></a></td><td>Mitigates the threat by storing configuration in a protected manner.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FMT_SMF.1/2" class="dynref" data-format="">FMT_SMF.1/2 Specification of File Encryption Management Functions FMT_SMF.1.1/2The TSF shall be capable of performing the following management functions: [selection: configure cryptographic functionalitychange authentication factorsperform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2configure the number of failed validation attempts required to trigger corrective behavior configure the corrective behavior to issue in the event of an excessive number of failed validation attempts[assignment: other management functions provided by the TSF]]. Application Note: The intent of this requirement is to express the management capabilities that may be included in the TOE. Several common options are given: If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)-even if the configuration is the form of parameters that may be passed to cryptographic functionality implement on the TOE platform--then "configure cryptographic functionality" will be included, and the specifics of the functionality offered can either be written in this requirement as bullet points, or included in the TSS. If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password) , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2" will be included. This function should be able to be triggered by a user or admin and may be triggered by uninstallation. If "other management functions" are assigned, a validation authority must be consulted to ensure the evaluation activities and other functionality requirements that may be needed are appropriately specified so that the ST can claim conformance to this PP-Module. This list is in addition to the list of functions as specified in, FMT_SMF.1 in the AppPP.</a></td><td>Mitigates the threat by enumerating and protecting management functions.</td>
+                    <td><a href="#FMT_SMF.1/FE" class="dynref" data-format="">FMT_SMF.1/FE Specification of File Encryption Management Functions FMT_SMF.1.1/FEThe TSF shall be capable of performing the following management functions: [selection: configure cryptographic functionalitychange authentication factorsperform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2configure the number of failed validation attempts required to trigger corrective behavior configure the corrective behavior to issue in the event of an excessive number of failed validation attempts[assignment: other management functions provided by the TSF]]. Application Note: The intent of this requirement is to express the management capabilities that may be included in the TOE. Several common options are given: If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)-even if the configuration is the form of parameters that may be passed to cryptographic functionality implement on the TOE platform--then "configure cryptographic functionality" will be included, and the specifics of the functionality offered can either be written in this requirement as bullet points, or included in the TSS. If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password) , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2" will be included. This function should be able to be triggered by a user or admin and may be triggered by uninstallation. If "other management functions" are assigned, a validation authority must be consulted to ensure the evaluation activities and other functionality requirements that may be needed are appropriately specified so that the ST can claim conformance to this PP-Module. This list is in addition to the list of functions as specified in, FMT_SMF.1 in the AppPP.</a></td><td>Mitigates the threat by enumerating and protecting management functions.</td>
                 </tr>
                 <tr class="major-row">
                     <td rowspan="2"><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_​MATERIAL_​COMPROMISE</a>
@@ -1233,13 +1233,13 @@
                     <td><a href="#FCS_CKM_EXT.6 (selection-based)" class="dynref" data-format=""></a></td><td>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FCS_COP.1/5 (selection-based)" class="dynref" data-format=""></a></td><td>Mitigates the threat by wrapping keys using a specified secure algorithm.</td>
+                    <td><a href="#FCS_COP.1/KE (selection-based)" class="dynref" data-format=""></a></td><td>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FCS_COP.1/6 (selection-based)" class="dynref" data-format=""></a></td><td>Mitigates the threat by transporting keys using a specified secure algorithm.</td>
+                    <td><a href="#FCS_COP.1/KT (selection-based)" class="dynref" data-format=""></a></td><td>Mitigates the threat by transporting keys using a specified secure algorithm.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FCS_COP.1/7 (selection-based)" class="dynref" data-format=""></a></td><td>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</td>
+                    <td><a href="#FCS_COP.1/KW (selection-based)" class="dynref" data-format=""></a></td><td>Mitigates the threat by wrapping keys using a specified secure algorithm.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_KDF_EXT.1 (selection-based" class="dynref" data-format=""></a></td><td>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</td>
@@ -1381,7 +1381,7 @@
                 <td><a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines how user requests to access protected data are authorized. It uses FCS_RBG.1 from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in a manner consistent with its definition, but otherwise does not relate to functionality defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
-                <td><a href="#FMT_SMF.1/2">FMT_SMF.1/2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines management functions for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for functionality specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These functions are defined in addition to what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines for its own operation. </td>
+                <td><a href="#FMT_SMF.1/FE">FMT_SMF.1/FE</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines management functions for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> for functionality specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These functions are defined in addition to what the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines for its own operation. </td>
             </tr>
             <tr>
                 <td><a href="#FPT_KYP_EXT.1">FPT_KYP_EXT.1</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines an <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for secure storage of sensitive data. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> expands on that definition by describing the supported logical methods for storage of key data. </td>
@@ -1438,13 +1438,13 @@
                 <td><a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in its intended manner but otherwise does not relate to the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s functionality. </td>
             </tr>
             <tr>
-                <td><a href="#FCS_COP.1/5">FCS_COP.1/5</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines usage of AES functionality not defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. However, this functionality is only used in certain situations that are specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and do not affect the ability of any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> to be enforced. </td>
+                <td><a href="#FCS_COP.1/KT">FCS_COP.1/KT</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key transport functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
-                <td><a href="#FCS_COP.1/6">FCS_COP.1/6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key transport functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
+                <td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
-                <td><a href="#FCS_COP.1/7">FCS_COP.1/7</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
+                <td><a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines usage of AES functionality not defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. However, this functionality is only used in certain situations that are specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and do not affect the ability of any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> to be enforced. </td>
             </tr>
             <tr>
                 <td><a href="#FCS_KDF_EXT.1">FCS_KDF_EXT.1</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
@@ -1896,80 +1896,80 @@
                 </div>
             </div>
         </div>
-        <div class="comp" id="FCS_COP.1/5">
-            <h4>FCS_COP.1/5 Cryptographic operation (Key Wrapping)</h4>
+        <div class="comp" id="FCS_COP.1/KT">
+            <h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4>
             <div class="statustag">
                 <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
             </div>
             <div class="element">
-                <div class="reqid" id="FCS_COP.1.1/5">
-                    <a href="#FCS_COP.1.1/5" class="abbr">FCS_COP.1.1/5</a>
+                <div class="reqid" id="FCS_COP.1.1/KT">
+                    <a href="#FCS_COP.1.1/KT" class="abbr">FCS_COP.1.1/KT</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_226">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="_s_227">implement functionality to perform Key Wrapping</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
-                        <ul>
-                            <li style="">
-                                <span class="selectable-content" id="_s_228">Key Wrap</span>
-                            </li>
-                            <li style="">
-                                <span class="selectable-content" id="_s_229">Key Wrap with Padding</span>
-                            </li>
-                            <li style="">
-                                <span class="selectable-content" id="_s_230">GCM mode</span>
-                            </li>
-                            <li style="">
-                                <span class="selectable-content" id="_s_231">CCM mode</span>
-                            </li>
-                        </ul>
-                        ]</b> and cryptographic key sizes [<i>256 bits (AES)</i>] that meet the following: <b> [<b>selection</b>: 
-                        <ul>
-                            <li style="">
-                                <span class="selectable-content" id="_s_232">"NIST SP 800-38C"</span>
-                            </li>
-                            <li style="">
-                                <span class="selectable-content" id="_s_233">"NIST SP 800-38D"</span>
-                            </li>
-                            <li style="">
-                                <span class="selectable-content" id="_s_234">"NIST SP 800-38F"</span>
-                            </li>
-                        </ul>
-                        ] and no other standards</b>. 
-                    <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use key wrapping in the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="comp" id="FCS_COP.1/6">
-            <h4>FCS_COP.1/6 Cryptographic operation (Key Transport)</h4>
-            <div class="statustag">
-                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
-            </div>
-            <div class="element">
-                <div class="reqid" id="FCS_COP.1.1/6">
-                    <a href="#FCS_COP.1.1/6" class="abbr">FCS_COP.1.1/6</a>
-                </div>
-                <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>key transport</i>] in accordance with a specified cryptographic algorithm [<i>RSA</i>] <b>in the following modes [<b>selection</b>: <span class="selectable-content" id="_s_235">KTS-OAEP</span>, <span class="selectable-content" id="_s_236">KTS-KEM-KWS</span>]</b> and cryptographic key sizes [<i>3072 bits</i>] that meet the following: [<i>NIST SP 800-56B, Revision 1</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>key transport</i>] in accordance with a specified cryptographic algorithm [<i>RSA</i>] <b>in the following modes [<b>selection</b>: <span class="selectable-content" id="_s_226">KTS-OAEP</span>, <span class="selectable-content" id="_s_227">KTS-KEM-KWS</span>]</b> and cryptographic key sizes [<i>3072 bits</i>] that meet the following: [<i>NIST SP 800-56B, Revision 1</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use key transport in the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>. </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="comp" id="FCS_COP.1/7">
-            <h4>FCS_COP.1/7 Cryptographic operation (Key Encryption)</h4>
+        <div class="comp" id="FCS_COP.1/KE">
+            <h4>FCS_COP.1/KE Cryptographic operation (Key Encryption)</h4>
             <div class="statustag">
                 <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
             </div>
             <div class="element">
-                <div class="reqid" id="FCS_COP.1.1/7">
-                    <a href="#FCS_COP.1.1/7" class="abbr">FCS_COP.1.1/7</a>
+                <div class="reqid" id="FCS_COP.1.1/KE">
+                    <a href="#FCS_COP.1.1/KE" class="abbr">FCS_COP.1.1/KE</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_237">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="_s_238">perform key encryption and decryption</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_228">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="_s_229">perform key encryption and decryption</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use AES encryption/decryption for protecting the keys as part of the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="comp" id="FCS_COP.1/KW">
+            <h4>FCS_COP.1/KW Cryptographic operation (Key Wrapping)</h4>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
+            <div class="element">
+                <div class="reqid" id="FCS_COP.1.1/KW">
+                    <a href="#FCS_COP.1.1/KW" class="abbr">FCS_COP.1.1/KW</a>
+                </div>
+                <div class="reqdesc">
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_230">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="_s_231">implement functionality to perform Key Wrapping</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
+                        <ul>
+                            <li style="">
+                                <span class="selectable-content" id="_s_232">Key Wrap</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="_s_233">Key Wrap with Padding</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="_s_234">GCM mode</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="_s_235">CCM mode</span>
+                            </li>
+                        </ul>
+                        ]</b> and cryptographic key sizes [<i>256 bits (AES)</i>] that meet the following: <b> [<b>selection</b>: 
+                        <ul>
+                            <li style="">
+                                <span class="selectable-content" id="_s_236">"NIST SP 800-38C"</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="_s_237">"NIST SP 800-38D"</span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="_s_238">"NIST SP 800-38F"</span>
+                            </li>
+                        </ul>
+                        ] and no other standards</b>. 
+                    <div class="appnote">
+                        <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use key wrapping in the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
                     </div>
                 </div>
             </div>
