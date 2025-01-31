@@ -62,38 +62,3 @@
 * Warning: fdp_prt_ext.3 in opt-sfrs section is missing a _depends_/_optional_ sub tree (We're transitioning to using depends and not sections). /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/sec:fdp[1]""/f-component[5]""
 * Warning: fia_fct_ext.1 in opt-sfrs section is missing a _depends_/_optional_ sub tree (We're transitioning to using depends and not sections). /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/sec:fia[1]""/f-component[1]""
 * Warning: fia_fct_ext.2 in opt-sfrs section is missing a _depends_/_optional_ sub tree (We're transitioning to using depends and not sections). /Module[1]""/sec:Security_Requirements[1]""/opt-sfrs[1]""/sec:fia[1]""/f-component[2]""
- Failed to find a reference to FCS_COP.1/SKC (from Base-PP).
- Failed to find a reference to FCS_IV_EXT.1.
- Failed to find a reference to FDP_PRT_EXT.1.
- Failed to find a reference to FDP_PRT_EXT.2.
- Failed to find a reference to FCS_CKM_EXT.5 (optional).
- Failed to find a reference to FCS_COP_EXT.1 (optional).
- Failed to find a reference to FDP_AUT_EXT.1 (optional).
- Failed to find a reference to FDP_AUT_EXT.2 (optional).
- Failed to find a reference to FDP_AUT_EXT.3 (optional).
- Failed to find a reference to FDP_PM_EXT.1 (optional).
- Failed to find a reference to FDP_PRT_EXT.3 (optional.
- Failed to find a reference to FIA_FCT_EXT.1 (optional).
- Failed to find a reference to FIA_FCT_EXT.2 (optional).
- Failed to find a reference to FMT_MEC_EXT.1 (from Base-PP).
- Failed to find a reference to FMT_SMF.1/FE.
- Failed to find a reference to FCS_CKM.6.
- Failed to find a reference to FPT_KYP_EXT.1.
- Failed to find a reference to FCS_VAL_EXT.1.
- Failed to find a reference to FIA_AUT_EXT.1.
- Failed to find a reference to FCS_COP.1/SKC (from Base-PP).
- Failed to find a reference to FCS_CKM_EXT.2.
- Failed to find a reference to FCS_IV_EXT.1.
- Failed to find a reference to FCS_KYC_EXT.1.
- Failed to find a reference to FCS_VAL_EXT.1.
- Failed to find a reference to FCS_CKM_EXT.3 (selection-based).
- Failed to find a reference to FCS_CKM_EXT.6 (selection-based).
- Failed to find a reference to FCS_COP.1/KE (selection-based).
- Failed to find a reference to FCS_COP.1/KT (selection-based).
- Failed to find a reference to FCS_COP.1/KW (selection-based).
- Failed to find a reference to FCS_KDF_EXT.1 (selection-based.
- Failed to find a reference to FCS_SMC_EXT.1 (selection-based).
- Failed to find a reference to FCS_VAL_EXT.2 (selection-based).
- Failed to find a reference to FDP_PRT_EXT.1.
- Failed to find a reference to FDP_PRT_EXT.2.
- Failed to find a reference to FDP_PRT_EXT.3 (optional).
