@@ -1095,7 +1095,7 @@ provide all of its security functionality.
                 </span></li></ul>].
             <div class="appnote"><span class="note-header">Application
       Note:
-    </span><span class="note">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key genration, "derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>" must be selected so that <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> is included.</span></div></div></div>
+    </span><span class="note">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key generation, "derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>" must be selected so that <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> is included.</span></div></div></div>
 
           <div class="element"><div class="reqid" id="FCS_CKM_EXT.2.2"><a href="#FCS_CKM_EXT.2.2" class="abbr">FCS_CKM_EXT.2.2</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use a unique <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> for each file (or set of files) using the
               mechanism on the client as specified in <a href="#FCS_CKM_EXT.2.1">FCS_CKM_EXT.2.1</a>.</div></div>
@@ -1170,7 +1170,7 @@ provide all of its security functionality.
               protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key 
               that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory 
               type involved, will suffice. For example, if a product uses a Key Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>) to encrypt a File Encryption 
-              Key (<abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>), destroying the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> using one of the methods in FCS_CKM.6is sufficient, since the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would no longer 
+              Key (<abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>), destroying the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> using one of the methods in <a href="#FCS_CKM.6">FCS_CKM.6</a> is sufficient, since the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would no longer 
               be usable (of course, presumes the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is still encrypted and the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cannot be recovered or re-derived). </span></div></div></div>
         </div>
 
@@ -1509,14 +1509,14 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
 <tr><td><a href="#FPT_KYP_EXT.1">FPT_KYP_EXT.1</a></td><td>Mitigates the threat by protecting keys stored on non-volatile memory.</td></tr>
 <tr class="major-row"><td rowspan="2"><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_​AUTHFACTOR_​VERIFICATION</a><br/></td><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</td></tr>
 <tr><td><a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></td><td>Mitigates the threat by authorizing the user using an appropriate authorization factor.</td></tr>
-<tr class="major-row"><td rowspan="13"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a><br/></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm..</td></tr>
+<tr class="major-row"><td rowspan="13"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a><br/></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td></tr>
 <tr><td><a href="#FCS_IV_EXT.1">FCS_IV_EXT.1</a></td><td>Mitigates the threat by generating the IV unpredictably.</td></tr>
 <tr><td><a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a></td><td>Mitigates the threat by maintaining and storing secure key chains.</td></tr>
 <tr><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.3">FCS_CKM_EXT.3</a> (selection-based)</td><td>Mitigates the threat by using or generating secure KEKs.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> (selection-based)</td><td>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</td></tr>
-<tr><td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> (selection-based)</td><td>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</td></tr>
+<tr><td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> (selection-based)</td><td>Mitigates the threat by encrypting keys using a specified secure algorithm.</td></tr>
 <tr><td><a href="#FCS_COP.1/KT">FCS_COP.1/KT</a> (selection-based)</td><td>Mitigates the threat by transporting keys using a specified secure algorithm.</td></tr>
 <tr><td><a href="#FCS_COP.1/KW">FCS_COP.1/KW</a> (selection-based)</td><td>Mitigates the threat by wrapping keys using a specified secure algorithm.</td></tr>
 <tr><td><a href="#FCS_KDF_EXT.1">FCS_KDF_EXT.1</a> (selection-based</td><td>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</td></tr>

@@ -638,7 +638,7 @@
                     </ul>
                     ]. 
                     <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key genration, "derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>" must be selected so that <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> is included.</span>
+                        <span class="note-header">Application Note: </span><span class="note">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key generation, "derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>" must be selected so that <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> is included.</span>
                     </div>
                 </div>
             </div>
@@ -713,7 +713,7 @@
                         <span class="note-header">Application Note: </span><span class="note"> The interface referenced in the requirement could take different forms, the most likely of which is an application programming interface to an OS kernel. There may be various levels of abstraction visible. For instance, in a given implementation that overwrites a key stored in non-volatile memory, the application may have access to the file system details and may be able to logically address specific memory locations. In another implementation that instructs the underlying platform to destroy the representation of a key stored in non-volatile memory, the application may simply have a handle to a resource and can only ask the platform to delete the resource, as may be the case with a platforms secure key store. The latter implementation should only be used for the most restricted access. The level of detail to which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has access will be reflected in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> section of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Several selections allow assignment of a 'value that does not contain any CSP'. This means that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses some other specified data not drawn from a source that may contain key material or reveal information about key material, and not being any of the particular values listed as other selection options. The point of the phrase 'does not contain any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might contain current or residual data that itself requires confidentiality protection.
                             <br>
                             <br>
-                             For the selection "destruction of all KEKs protecting target key, where none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory type involved, will suffice. For example, if a product uses a Key Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>) to encrypt a File Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>), destroying the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> using one of the methods in FCS_CKM.6is sufficient, since the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would no longer be usable (of course, presumes the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is still encrypted and the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cannot be recovered or re-derived). </span>
+                             For the selection "destruction of all KEKs protecting target key, where none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory type involved, will suffice. For example, if a product uses a Key Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>) to encrypt a File Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>), destroying the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> using one of the methods in <a href="#FCS_CKM.6">FCS_CKM.6</a> is sufficient, since the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would no longer be usable (of course, presumes the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is still encrypted and the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cannot be recovered or re-derived). </span>
                     </div>
                 </div>
             </div>
@@ -1212,7 +1212,7 @@
                 <tr class="major-row">
                     <td rowspan="13"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a>
                         <br>
-                    </td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm..</td>
+                    </td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td>
@@ -1233,7 +1233,7 @@
                     <td><a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> (selection-based)</td><td>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> (selection-based)</td><td>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</td>
+                    <td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> (selection-based)</td><td>Mitigates the threat by encrypting keys using a specified secure algorithm.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_COP.1/KT">FCS_COP.1/KT</a> (selection-based)</td><td>Mitigates the threat by transporting keys using a specified secure algorithm.</td>

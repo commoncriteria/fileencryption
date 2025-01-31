@@ -577,7 +577,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/><br/>
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.6:1</a>:
-       [Conditional; applies when the application does not perform the zeroization (ie. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
+       [Conditional; applies when the application does not perform the zeroization (i.e. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
                   (assuming the selection "destruction of the reference followed by a request for garbage collection")]<br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
@@ -693,7 +693,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 The evaluator shall examine the TSS to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <br/><br/>
                 
-                Conditional: <br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the enviroments that can be leveraged with the TOE and how each claims to perform validation.
+                Conditional: <br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the environments that can be leveraged with the TOE and how each claims to perform validation.
                 The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<br/><br/>
                
               <h4>KMD</h4>
@@ -1243,8 +1243,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">  
                 The evaluator shall examine the TSS to determine that it
-                identifies each of the resources that is sharable in encrypted form (for instance,
-                encrypted files may be sharable among users, but encrypted directories may not), and the
+                identifies each of the resources that is shareable in encrypted form (for instance,
+                encrypted files may be shareable among users, but encrypted directories may not), and the
                 method by which the resource can be shared among users with different authorization
                 factors. <br/><br/>
                 
