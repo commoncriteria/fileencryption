@@ -339,19 +339,19 @@
             <rationale>The threat T.UNAUTHORIZED_DATA_ACCESS is countered by O.PROTECT_DATA as this
               provides for encryption of data.</rationale>
           </objective-refer> -->
-          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale>
-          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
-          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale>
-          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale>
-          <addressed-by><xref to="FCS_CKM_EXT.5 (optional)"/></addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale>
-          <addressed-by><xref to="FCS_COP_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale>
-          <addressed-by><xref to="FDP_AUT_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale>
-          <addressed-by><xref to="FDP_AUT_EXT.2 (optional)"/></addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale>
-          <addressed-by><xref to="FDP_AUT_EXT.3 (optional)"/></addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale>
-          <addressed-by><xref to="FDP_PM_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale>
-          <addressed-by><xref to="FDP_PRT_EXT.3 (optional"/></addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale>
-          <addressed-by><xref to="FIA_FCT_EXT.1 (optional)"/></addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale>
-          <addressed-by><xref to="FIA_FCT_EXT.2 (optional)"/></addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale>
+          <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale>
+          <addressed-by>FCS_IV_EXT.1</addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
+          <addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale>
+          <addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale>
+          <addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale>
+          <addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale>
+          <addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale>
+          <addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale>
+          <addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale>
+          <addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale>
+          <addressed-by>FDP_PRT_EXT.3 (optional</addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale>
+          <addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale>
+          <addressed-by>FIA_FCT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale>
         </threat>
         <threat name="T.MANAGEMENT_ACCESS">
           <description>
@@ -361,8 +361,8 @@
             <rationale>The threat T.UNAUTHORIZED_DATA_ACCESS is countered by O.MANAGE as this
               ensures proper management functionality.</rationale>
           </objective-refer> -->
-          <addressed-by><xref to="FMT_MEC_EXT.1 (from Base-PP)"/></addressed-by><rationale>Mitigates the threat by storing configuration in a protected manner.</rationale>
-          <addressed-by><xref to="FMT_SMF.1/FE"/></addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale>
+          <addressed-by>FMT_MEC_EXT.1 (from Base-PP)</addressed-by><rationale>Mitigates the threat by storing configuration in a protected manner.</rationale>
+          <addressed-by>FMT_SMF.1/FE</addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale>
         </threat>
         <threat name="T.KEYING_MATERIAL_COMPROMISE">
           <description>
@@ -372,8 +372,8 @@
             <rationale>The threat T.KEYING_MATERIAL_COMPROMISE is countered by O.KEY_MATERIAL_PROTECTION as this
               provides for protection of keys.</rationale>
           </objective-refer> -->
-          <addressed-by><xref to="FCS_CKM.6"/></addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale>
-          <addressed-by><xref to="FPT_KYP_EXT.1"/></addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale>
+          <addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale>
+          <addressed-by>FPT_KYP_EXT.1</addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale>
         </threat>
         <threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION">
           <description>
@@ -383,8 +383,8 @@
             <rationale>The threat T.UNSAFE_AUTHFACTOR_VERIFICATION is countered by O.SAFE_AUTHFACTOR_VERIFICATION as this
               provides for properly supported authentication factors.</rationale>
           </objective-refer> -->
-          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale>
-          <addressed-by><xref to="FIA_AUT_EXT.1"/></addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale>
+          <addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale>
+          <addressed-by>FIA_AUT_EXT.1</addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale>
         </threat>
         <threat name="T.KEYSPACE_EXHAUST">
           <description>
@@ -395,19 +395,19 @@
             <rationale>The threat T.KEYSPACE_EXHAUST is countered by O.FEK_SECURITY as this
               makes brute force attacks infeasible.</rationale>
             </objective-refer> -->
-          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm..</rationale>
-          <addressed-by><xref to="FCS_CKM_EXT.2"/></addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale>
-          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
-          <addressed-by><xref to="FCS_KYC_EXT.1"/></addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale>
-          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale>
-          <addressed-by><xref to="FCS_CKM_EXT.3 (selection-based)"/></addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale>
-          <addressed-by><xref to="FCS_CKM_EXT.6 (selection-based)"/></addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale>
-          <addressed-by><xref to="FCS_COP.1/KE (selection-based)"/></addressed-by><rationale>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</rationale>
-          <addressed-by><xref to="FCS_COP.1/KT (selection-based)"/></addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale>
-          <addressed-by><xref to="FCS_COP.1/KW (selection-based)"/></addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale>
-          <addressed-by><xref to="FCS_KDF_EXT.1 (selection-based"/></addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale>
-          <addressed-by><xref to="FCS_SMC_EXT.1 (selection-based)"/></addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale>
-          <addressed-by><xref to="FCS_VAL_EXT.2 (selection-based)"/></addressed-by><rationale>Mitigates the threat by limiting the amount or rate of failed validation attempts.</rationale>
+          <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm..</rationale>
+          <addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale>
+          <addressed-by>FCS_IV_EXT.1</addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
+          <addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale>
+          <addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale>
+          <addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale>
+          <addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale>
+          <addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys uisng a specified secure algorithm.</rationale>
+          <addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale>
+          <addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale>
+          <addressed-by>FCS_KDF_EXT.1 (selection-based</addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale>
+          <addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale>
+          <addressed-by>FCS_VAL_EXT.2 (selection-based)</addressed-by><rationale>Mitigates the threat by limiting the amount or rate of failed validation attempts.</rationale>
         </threat>
         <threat name="T.PLAINTEXT_COMPROMISE">
           <description>
@@ -418,9 +418,9 @@
             <rationale>The threat T.PLAINTEXT_COMPROMISE is countered by O.WIPE_MEMORY as this
               provides data cleanup.</rationale>
           </objective-refer> -->
-          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale>
-          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale>
-          <addressed-by><xref to="FDP_PRT_EXT.3 (optional)"/></addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale>
+          <addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale>
+          <addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale>
+          <addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale>
         </threat>
 
       </threats>
@@ -500,8 +500,8 @@
             This objective is consistent with the Base-PP because the Base-PP includes the O.PROTECTED_STORAGE objective. 
             The protection and timely destruction of key materials is consistent with the intent of that objective.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_CKM.6"/></addressed-by><rationale/>
-          <addressed-by><xref to="FPT_KYP_EXT.1"/></addressed-by><rationale/>
+          <addressed-by>FCS_CKM.6</addressed-by><rationale/>
+          <addressed-by>FPT_KYP_EXT.1</addressed-by><rationale/>
         </SO>
         <SO name="O.FEK_SECURITY">
           <description>
@@ -515,19 +515,19 @@
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_COP.1/SKC (frfom Base-PP)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_CKM_EXT.2"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_KYC_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_CKM_EXT.3 (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_CKM_EXT.6 (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_COP.1/5 (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_COP.1/6 (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_COP.1/7 (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_KDF_EXT.1 (selection-based"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_SMC_EXT.1 (selection-based)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_VAL_EXT.2 (selection-based)"/></addressed-by><rationale/>
+          <addressed-by>FCS_COP.1/SKC (frfom Base-PP)</addressed-by><rationale/>
+          <addressed-by>FCS_CKM_EXT.2</addressed-by><rationale/>
+          <addressed-by>FCS_IV_EXT.1</addressed-by><rationale/>
+          <addressed-by>FCS_KYC_EXT.1</addressed-by><rationale/>
+          <addressed-by>FCS_VAL_EXT.1</addressed-by><rationale/>
+          <addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale/>
+          <addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale/>
+          <addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale/>
+          <addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale/>
+          <addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale/>
+          <addressed-by>FCS_KDF_EXT.1 (selection-based</addressed-by><rationale/>
+          <addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale/>
+          <addressed-by>FCS_VAL_EXT.2 (selection-based)</addressed-by><rationale/>
         </SO>
         <SO name="O.WIPE_MEMORY">
           <description>
@@ -540,9 +540,9 @@
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
-          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_PRT_EXT.3 (optional)"/></addressed-by><rationale/>
+          <addressed-by>FDP_PRT_EXT.1</addressed-by><rationale/>
+          <addressed-by>FDP_PRT_EXT.2</addressed-by><rationale/>
+          <addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale/>
         </SO>
         <SO name="O.PROTECT_DATA">
           <description>
@@ -558,18 +558,18 @@
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_COP.1/SKC (from Base-PP)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_IV_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_PRT_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_PRT_EXT.2"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_CKM_EXT.5 (optional)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FCS_COP_EXT.1 (optional)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_AUT_EXT.1 (optional)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_AUT_EXT.2 (optional)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_AUT_EXT.3 (optional)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_PM_EXT.1 (optional)"/></addressed-by><rationale/>
-          <addressed-by><xref to="FDP_PRT_EXT.3 (optional"/></addressed-by><rationale/>
-          <addressed-by><xref to="FIA_FCT_EXT.1 (optional)"/></addressed-by><rationale/>
+          <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale/>
+          <addressed-by>FCS_IV_EXT.1</addressed-by><rationale/>
+          <addressed-by>FDP_PRT_EXT.1</addressed-by><rationale/>
+          <addressed-by>FDP_PRT_EXT.2</addressed-by><rationale/>
+          <addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale/>
+          <addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale/>
+          <addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale/>
+          <addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale/>
+          <addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale/>
+          <addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale/>
+          <addressed-by>FDP_PRT_EXT.3 (optional</addressed-by><rationale/>
+          <addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale/>
         </SO>
         <SO name="O.SAFE_AUTHFACTOR_VERIFICATION">
           <description>
@@ -582,11 +582,11 @@
           <consistency-rationale>
             This objective is consistent with the Base-PP because it is a method of supporting the Base-PP's O.PROTECTED_STORAGE objective that is specific to this technology type.
           </consistency-rationale>
-          <addressed-by><xref to="FCS_VAL_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FIA_AUT_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to=""/></addressed-by><rationale/>
-          <addressed-by><xref to=""/></addressed-by><rationale/>
-          <addressed-by><xref to=""/></addressed-by><rationale/>
+          <addressed-by>FCS_VAL_EXT.1</addressed-by><rationale/>
+          <addressed-by>FIA_AUT_EXT.1</addressed-by><rationale/>
+          <addressed-by></addressed-by><rationale/>
+          <addressed-by></addressed-by><rationale/>
+          <addressed-by></addressed-by><rationale/>
         </SO>
 
         <SO name="O.MANAGE">
@@ -596,9 +596,9 @@
           <consistency-rationale>
             The Base-PP does not define functionality for protected administrative access to the TSF so this objective relates solely to material beyond the scope of the Base-PP.
           </consistency-rationale>
-          <addressed-by><xref to="FMT_MEC_EXT.1"/></addressed-by><rationale/>
-          <addressed-by><xref to="FMT_SMF.1(2)"/></addressed-by><rationale/>
-          <addressed-by><xref to=""/></addressed-by><rationale/>
+          <addressed-by>FMT_MEC_EXT.1</addressed-by><rationale/>
+          <addressed-by>FMT_SMF.1(2)</addressed-by><rationale/>
+          <addressed-by></addressed-by><rationale/>
           </SO>
       </SOs>
       </sec:Security_Objectives_for_the_TOE> -->
@@ -1144,10 +1144,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
                     <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/7</h:b></selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/KE</h:b></selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of 
                     <selectables>
@@ -1168,10 +1168,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
                     <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/7</h:b></selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/KE</h:b></selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
@@ -1404,7 +1404,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   <selectable>submask</selectable>
                   <selectable>intermediate key</selectable>
                 </selectables> using the following methods: <selectables>
-                  <selectable>key wrap as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                  <selectable>key wrap as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
                   <selectable>hash the 
                     <selectables>
                       <selectable>submask</selectable>
@@ -2161,22 +2161,22 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>not store keys in non-volatile memory</selectable>
                 <selectable>store keys in non-volatile memory only when
                   <selectables linebreak="yes">
-                    <selectable>wrapped, as specified in FCS_COP.1<h:b>/5</h:b></selectable>
-                    <selectable>encrypted, as specified in FCS_COP.1<h:b>/7</h:b></selectable>
+                    <selectable>wrapped, as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
+                    <selectable>encrypted, as specified in FCS_COP.1<h:b>/KE</h:b></selectable>
                     <selectable>the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 (from <xref to="bibAppPP"/>)</selectable>
                     <selectable>the plaintext key is not part of the key chain as specified in FCS_KYC_EXT.1.</selectable>
                     <selectable>the plaintext key will no longer provide access to the encrypted data after initial provisioning</selectable>
                     <selectable>the plaintext key is a key split that is combined as specified in FCS_SMC_EXT.1 and another contribution to the split is
                      <selectables linebreak="yes">
-                       <selectable>wrapped as specified in FCS_COP.1<h:b>/5</h:b></selectable>
-                       <selectable>encrypted as specified in FCS_COP.1<h:b>/7</h:b></selectable>
+                       <selectable>wrapped as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
+                       <selectable>encrypted as specified in FCS_COP.1<h:b>/KE</h:b></selectable>
                        <selectable>derived as specified in FCS_KDF_EXT.1.1 and not stored in non-volatile memory</selectable>
                        <selectable>supplied by the enterprise management server</selectable>
                      </selectables>
                     </selectable>
                     <selectable>the plaintext key is stored on an external storage device for use as an authorization factor.</selectable>
-                    <selectable>the plaintext key is used to encrypt a key as specified in FCS_COP.1<h:b>/7</h:b> or wrap a key as specified in FCS_COP.1<h:b>/5</h:b>
-                      that is already encrypted as specified in FCS_COP.1<h:b>/7</h:b> or wrapped as specified in FCS_COP.1<h:b>/5</h:b></selectable>
+                    <selectable>the plaintext key is used to encrypt a key as specified in FCS_COP.1<h:b>/KE</h:b> or wrap a key as specified in FCS_COP.1<h:b>/KW</h:b>
+                      that is already encrypted as specified in FCS_COP.1<h:b>/KE</h:b> or wrapped as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
                   </selectables>
                 </selectable>
                 </selectables>.
@@ -2263,7 +2263,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>A FAK conditioned from a password/passphrase shall never be stored in
                   non-volatile memory</selectable>
                 <selectable>a FAK will be stored in non-volatile memory encrypted with a KEK as
-                  specified in FCS_COP.1<h:b>/5</h:b> using authorization factors as specified in FIA_AUT_EXT.1
+                  specified in FCS_COP.1<h:b>/KW</h:b> using authorization factors as specified in FIA_AUT_EXT.1
                 </selectable>
               </selectables>.
             </title>
@@ -2378,7 +2378,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           
           <f-element id="fcs-cop-ext-1e1">
             <title>The FAK shall be protected in the same manner as the FEK, in accordance with
-              FCS_COP.1<h:b>/5</h:b>.</title>
+              FCS_COP.1<h:b>/KW</h:b>.</title>
               <ext-comp-def-title>
               <title>The FAK shall be protected in the same manner as the FEK, in accordance with
               FCS_COP.1.</title>
@@ -2913,7 +2913,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element id="fia-fct-est-2e1">
             <title>The TSF shall support
               <selectables>
-                <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1<h:b>/6</h:b></selectable>
+                <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable>
                 <selectable>Distribution of a shared key from an enterprise management Server</selectable>
               </selectables>.
             </title>
