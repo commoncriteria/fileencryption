@@ -1,4 +1,4 @@
-== PP Module for Software File Encryption
+== PP Module for File Encryption
 
 [cols="1,1,1,1,1,1,1,1"]
 |===
@@ -25,11 +25,11 @@ issues Open]]
 
 === Draft Version
 
-* https://commoncriteria.github.io/fileencryption/master/fileencryption-release.html[PP Module for Software File Encryption] (html)
+* https://commoncriteria.github.io/fileencryption/master/fileencryption-release.html[PP Module for File Encryption] (html)
 
 === Release Version
 
-* https://www.niap-ccevs.org/protectionprofiles/415[PP Module for Software File Encryption Version 1.0]
+* https://www.niap-ccevs.org/protectionprofiles/415[PP Module for File Encryption Version 1.0]
 
 === Contributing
 
