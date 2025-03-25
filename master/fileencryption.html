@@ -1303,7 +1303,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/><br/>
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.6:1</a>:
-       [Conditional; applies when the application does not perform the zeroization (i.e. garbage collecting) for each key held in volatile memory for <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a> 
+       [Conditional; applies when the application does not perform the zeroization (e.g. garbage collecting) for each key held in volatile memory for <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a> 
                   (assuming the selection "destruction of the reference followed by a request for garbage collection")]<br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
