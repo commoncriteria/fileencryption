@@ -908,7 +908,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 </Guidance>
               <Tests> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <h:br/><h:br/>
               <testlist>
-                <test> [Conditional; applies when the application does not perform the zeroization (i.e. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
+                <test> [Conditional; applies when the application does not perform the zeroization (e.g. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 
                   (assuming the selection "destruction of the reference followed by a request for garbage collection")]<h:br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
