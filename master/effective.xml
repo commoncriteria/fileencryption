@@ -2044,6 +2044,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectable>perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2</selectable>
                 <selectable>configure the number of failed validation attempts required to trigger corrective behavior  </selectable>
                 <selectable>configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable>
+                <selectable>disable cryptographic functionality</selectable>
                 <selectable><assignable>other management functions provided by the TSF</assignable></selectable>
               </selectables></h:b>.
             </title>
@@ -2090,7 +2091,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               specified so that the ST can claim conformance to this PP-Module.<h:br/><h:br/>
               
               <TSS>
-                Conditional Activities: The evaluator shall examine the TSS to ensure that it
+                Conditional Activities: For all selected events,the evaluator shall examine the TSS to ensure that it
                 describes the sequence of activities that take place from an implementation
                 perspective when this activity is performed (for example, how it determines which
                 resources are associated with the KEK, the decryption and re-encryption process), and
@@ -2102,14 +2103,14 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 
               </TSS>
               <Guidance>
-                Conditional Activities: The evaluator shall examine the Operational Guidance to
-                ensure that it describes how the password/passphrase-based authorization factor is to
-                be changed. <h:br/><h:br/>
+                Conditional Activities: The evaluator shall examine the Operational Guidance for each included selection
+                to ensure that it either requires no configuration or describes how the functionality is configured.<h:br/><h:br/>
                 Cryptographic Configuration: The evaluator shall determine from the TSS for
                 other requirements (FCS_*, FDP_PRT_EXT, FIA_AUT_EXT) what portions of the
                 cryptographic functionality are configurable. The evaluator shall then review the AGD
                 documentation to determine that there are instructions for manipulating all of the
                 claimed mechanisms. <h:br/><h:br/>
+                
               </Guidance>
               <Tests>
                 Cryptographic Erase: If the TOE uses stored FEKS or KEKs, the evaluator shall 
