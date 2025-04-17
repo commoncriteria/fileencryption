@@ -655,7 +655,8 @@ function showTarget(id){
 	    This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is intended for use with the following <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>: <ul>
         <li>Application Software Protection Profile, Version 1.4</li>	      
       </ul><br/><br/>     
-      This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid because a file encryption product is a 3rd party application or application included with a operating system.<br/><br/>
+      This <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> is valid because a file encryption product is a 3rd party application or application 
+      included with a operating system.<br/><br/>
     
       File encryption is the process of encrypting individual files or sets of
       files (or volumes, or containers, etc.) on an end user device and permitting access to the
@@ -752,7 +753,8 @@ function showTarget(id){
       used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, but is not part of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. A third-party library used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not
       considered part of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s "platform", but (for instance) cryptographic functionality that
       is built into an Operating System on which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> executes can be considered part of the
-      platform. <br/> <br/> 
+      platform. Requirements that allow for the platform to provide functionality have selections 
+      that identify where it is acceptable.<br/> <br/> 
 
       Likewise, an external entity (such as a smart card) that performs
       cryptographic operations with respect to the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would also be considered a part of the "<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>
@@ -1490,7 +1492,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
           
         </div>
       <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
-    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">2</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="13"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a><br/></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td></tr>
+    showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">2</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="13"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td></tr>
 <tr><td><a href="#FCS_IV_EXT.1">FCS_IV_EXT.1</a></td><td>Mitigates the threat by generating the IV unpredictably.</td></tr>
 <tr><td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</td></tr>
 <tr><td><a href="#FDP_PRT_EXT.2">FDP_PRT_EXT.2</a></td><td>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</td></tr>
@@ -1503,13 +1505,13 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
 <tr><td><a href="#FDP_PRT_EXT.3">FDP_PRT_EXT.3</a> (optional</td><td>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</td></tr>
 <tr><td><a href="#FIA_FCT_EXT.1">FIA_FCT_EXT.1</a> (optional)</td><td>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</td></tr>
 <tr><td><a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a> (optional)</td><td>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</td></tr>
-<tr class="major-row"><td rowspan="2"><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_​ACCESS</a><br/></td><td>FMT_MEC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by storing configuration in a protected manner.</td></tr>
+<tr class="major-row"><td rowspan="2"><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_​ACCESS</a></td><td>FMT_MEC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by storing configuration in a protected manner.</td></tr>
 <tr><td><a href="#FMT_SMF.1/FE">FMT_SMF.1/FE</a></td><td>Mitigates the threat by enumerating and protecting management functions.</td></tr>
-<tr class="major-row"><td rowspan="2"><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_​MATERIAL_​COMPROMISE</a><br/></td><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by destroying keys and key material when not needed.</td></tr>
+<tr class="major-row"><td rowspan="2"><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_​MATERIAL_​COMPROMISE</a></td><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by destroying keys and key material when not needed.</td></tr>
 <tr><td><a href="#FPT_KYP_EXT.1">FPT_KYP_EXT.1</a></td><td>Mitigates the threat by protecting keys stored on non-volatile memory.</td></tr>
-<tr class="major-row"><td rowspan="2"><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_​AUTHFACTOR_​VERIFICATION</a><br/></td><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</td></tr>
+<tr class="major-row"><td rowspan="2"><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_​AUTHFACTOR_​VERIFICATION</a></td><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</td></tr>
 <tr><td><a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></td><td>Mitigates the threat by authorizing the user using an appropriate authorization factor.</td></tr>
-<tr class="major-row"><td rowspan="13"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a><br/></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td></tr>
+<tr class="major-row"><td rowspan="13"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td></tr>
 <tr><td><a href="#FCS_IV_EXT.1">FCS_IV_EXT.1</a></td><td>Mitigates the threat by generating the IV unpredictably.</td></tr>
 <tr><td><a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a></td><td>Mitigates the threat by maintaining and storing secure key chains.</td></tr>
@@ -1522,7 +1524,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
 <tr><td><a href="#FCS_KDF_EXT.1">FCS_KDF_EXT.1</a> (selection-based</td><td>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</td></tr>
 <tr><td><a href="#FCS_SMC_EXT.1">FCS_SMC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by combining submasks using a secure method.</td></tr>
 <tr><td><a href="#FCS_VAL_EXT.2">FCS_VAL_EXT.2</a> (selection-based)</td><td>Mitigates the threat by limiting the amount or rate of failed validation attempts.</td></tr>
-<tr class="major-row"><td rowspan="3"><a href="#T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_​COMPROMISE</a><br/></td><td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files.</td></tr>
+<tr class="major-row"><td rowspan="3"><a href="#T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_​COMPROMISE</a></td><td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files.</td></tr>
 <tr><td><a href="#FDP_PRT_EXT.2">FDP_PRT_EXT.2</a></td><td>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</td></tr>
 <tr><td><a href="#FDP_PRT_EXT.3">FDP_PRT_EXT.3</a> (optional)</td><td>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</td></tr>
 </table></p><h1 id="mod-conrat" class="indexable" data-level="1">6 Consistency Rationale</h1><h2 id="conrat-b-appp" class="indexable" data-level="2">6.1 

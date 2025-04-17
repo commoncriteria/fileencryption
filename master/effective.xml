@@ -32,7 +32,8 @@
 	    This PP-Module is intended for use with the following Base-PP: <h:ul>
         <h:li>Application Software Protection Profile, Version 1.4</h:li>	      
       </h:ul><h:br/><h:br/>     
-      This Base-PP is valid because a file encryption product is a 3rd party application or application included with a operating system.<h:br/><h:br/>
+      This Base-PP is valid because a file encryption product is a 3rd party application or application 
+      included with a operating system.<h:br/><h:br/>
     
       File encryption is the process of encrypting individual files or sets of
       files (or volumes, or containers, etc.) on an end user device and permitting access to the
@@ -129,7 +130,8 @@
       used by the TOE, but is not part of the TOE. A third-party library used by the TOE is not
       considered part of the TOE's "platform", but (for instance) cryptographic functionality that
       is built into an Operating System on which the TOE executes can be considered part of the
-      platform. <h:br/> <h:br/> 
+      platform. Requirements that allow for the platform to provide functionality have selections 
+      that identify where it is acceptable.<h:br/> <h:br/> 
 
       Likewise, an external entity (such as a smart card) that performs
       cryptographic operations with respect to the FEK would also be considered a part of the "TOE

@@ -114,7 +114,7 @@
          Since the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is purely a software solution, it must rely on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Operational Environment (system hardware, firmware, and operating system) for its execution domain and its proper usage. The vendor is expected to provide sufficient installation and configuration instructions (for each platform listed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>) to identify Operational Environment(s) with the necessary features and to provide instructions for how to configure it correctly and securely. 
         <br>
         <br>
-         The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> contains requirements (Section 5 that must be met by either the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or the platform on which it operates. A "platform" is defined as a separate entity whose functions may be used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, but is not part of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. A third-party library used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not considered part of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s "platform", but (for instance) cryptographic functionality that is built into an Operating System on which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> executes can be considered part of the platform. 
+         The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> contains requirements (Section 5 that must be met by either the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> or the platform on which it operates. A "platform" is defined as a separate entity whose functions may be used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, but is not part of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. A third-party library used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not considered part of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s "platform", but (for instance) cryptographic functionality that is built into an Operating System on which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> executes can be considered part of the platform. Requirements that allow for the platform to provide functionality have selections that identify where it is acceptable.
         <br>
         <br>
          Likewise, an external entity (such as a smart card) that performs cryptographic operations with respect to the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would also be considered a part of the "<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Platform". 
@@ -1145,9 +1145,7 @@
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="13"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a>
-                        <br>
-                    </td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
+                    <td rowspan="13"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_IV_EXT.1">FCS_IV_EXT.1</a></td><td>Mitigates the threat by generating the IV unpredictably.</td>
@@ -1186,33 +1184,25 @@
                     <td><a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a> (optional)</td><td>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="2"><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_​ACCESS</a>
-                        <br>
-                    </td><td>FMT_MEC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by storing configuration in a protected manner.</td>
+                    <td rowspan="2"><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_​ACCESS</a></td><td>FMT_MEC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by storing configuration in a protected manner.</td>
                 </tr>
                 <tr>
                     <td><a href="#FMT_SMF.1/FE">FMT_SMF.1/FE</a></td><td>Mitigates the threat by enumerating and protecting management functions.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="2"><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_​MATERIAL_​COMPROMISE</a>
-                        <br>
-                    </td><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by destroying keys and key material when not needed.</td>
+                    <td rowspan="2"><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_​MATERIAL_​COMPROMISE</a></td><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by destroying keys and key material when not needed.</td>
                 </tr>
                 <tr>
                     <td><a href="#FPT_KYP_EXT.1">FPT_KYP_EXT.1</a></td><td>Mitigates the threat by protecting keys stored on non-volatile memory.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="2"><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_​AUTHFACTOR_​VERIFICATION</a>
-                        <br>
-                    </td><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</td>
+                    <td rowspan="2"><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_​AUTHFACTOR_​VERIFICATION</a></td><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</td>
                 </tr>
                 <tr>
                     <td><a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></td><td>Mitigates the threat by authorizing the user using an appropriate authorization factor.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="13"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a>
-                        <br>
-                    </td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
+                    <td rowspan="13"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td>
@@ -1251,9 +1241,7 @@
                     <td><a href="#FCS_VAL_EXT.2">FCS_VAL_EXT.2</a> (selection-based)</td><td>Mitigates the threat by limiting the amount or rate of failed validation attempts.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="3"><a href="#T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_​COMPROMISE</a>
-                        <br>
-                    </td><td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files.</td>
+                    <td rowspan="3"><a href="#T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_​COMPROMISE</a></td><td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files.</td>
                 </tr>
                 <tr>
                     <td><a href="#FDP_PRT_EXT.2">FDP_PRT_EXT.2</a></td><td>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</td>
