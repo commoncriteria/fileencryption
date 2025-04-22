@@ -2621,7 +2621,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                </ext-comp-def-title>
            </f-element>
               <f-element id="fdp-aut-ext-3e2">
-                <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1<h:b>/Sig</h:b>
+                <title>The TSF shall use a cryptographic signing function in accordance with FCS_COP.1<h:b>/SigGen</h:b>
                 (from <xref to="bibAppPP"/>) and must use the hash generated in accordance with
                FDP_AUT_EXT.3.1 as input to the signing process. Additionally, use of ephemeral key for
                signing purposes is prohibited.</title>
@@ -2972,7 +2972,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <comp-lev> describes the method by which the TSF acquires or generates key encryption keys.</comp-lev>
         <management>There are no specific management functions identified.</management>
         <audit>There are no auditable events foreseen.</audit>
-        <dependencies>FCS_RBG.1 Random Bit Generation Services</dependencies>
+        <dependencies>FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
           
         <f-element id="fcs-ckm-ext-3e1">
           <title> The TSF shall 
@@ -2980,7 +2980,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <selectable>accept KEK from an enterprise management server</selectable>
               <selectable> generate KEK cryptographic keys <h:br/>
                 <selectables linebreak="yes">
-                  <selectable> using a Random Bit Generator as specified in FCS_RBG.1
+                  <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                     and with entropy corresponding to the security strength of AES key sizes of
                     <h:i>256 bit</h:i></selectable>
                   <selectable id="DRVKEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
@@ -2994,7 +2994,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <selectable>accept KEK from an enterprise management server</selectable>
               <selectable> generate KEK cryptographic keys <h:br/>
                 <selectables linebreak="yes">
-                  <selectable> using a Random Bit Generator as specified in FCS_RBG.1
+                  <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                     and with entropy corresponding to the security strength of AES key sizes of
                     <selectables>
                       <selectable>128 bit</selectable>
@@ -3021,7 +3021,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             If using a RBG was selected the evaluator shall examine the TSS and verify that it describes how the functionality
             described by FCS_RBG.1 (from the <xref to="bibAppPP"/>) is invoked to
             generate KEK(s). To the extent possible from the description of the RBG functionality in
-            FCS_RBG.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
+            FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
             requested is identical to the key size selected.  <h:br/> <h:br/> 
 
             Conditional: <h:br/>               
@@ -3050,7 +3050,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends on="fcs-ckm-ext-2e1" id="DRVFEKPAS"/>
           <depends on="fcs-ckm-ext-3e1" id="DRVKEKPAS"/>
           
-          <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG.1 SFR from the Base-PP in its intended manner 
+          <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 SFR from the Base-PP in its intended manner 
             but otherwise does not relate to the Base-PP's functionality.
           </consistency-rationale>
           
