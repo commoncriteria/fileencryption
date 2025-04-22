@@ -2347,7 +2347,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                <div class="element"><div class="reqid" id="FDP_AUT_EXT.2.8"><a href="#FDP_AUT_EXT.2.8" class="abbr">FDP_AUT_EXT.2.8</a></div><div class="reqdesc">During verification, the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall verify the MAC is at the end of the ciphertext
                file.</div></div>
                <div class="element"><div class="reqid" id="FDP_AUT_EXT.2.9"><a href="#FDP_AUT_EXT.2.9" class="abbr">FDP_AUT_EXT.2.9</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> will be generated using 
-              [<b>selection</b>: <span class="selectable-content" id="_s_177">a <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="_s_178">key generation methods compliant with NIST SP 800-133r1</span>].<div class="appnote"><span class="note-header">Application
+              [<b>selection</b>: <span class="selectable-content" id="_s_177">a <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="_s_178">key generation methods compliant with NIST SP 800-133r1</span>].<div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
@@ -3539,7 +3539,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
            </p><h4>FDP_AUT_EXT.2 Data Authentication Using cryptographic                Keyed-Hash Functions</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> File Authentication Key (<abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>) Support<br/>
              FCS_COP.1 Cryptographic Operation<br/>
              <a href="#FCS_COP_EXT.1">FCS_COP_EXT.1</a> <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> Encryption/Decryption Support<br/>
-             FCS_RBG.1 Random Bit Generation Services<br/>
+             FCS_RBG_EXT.1 Random Bit Generation Services<br/>
            </td></tr></table><h4 id="ext-comp-FDP_AUT_EXT.2.1">FDP_AUT_EXT.2.1</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use a cryptographic, keyed hash function in accordance with
                FCS_COP.1.<h4 id="ext-comp-FDP_AUT_EXT.2.2">FDP_AUT_EXT.2.2</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use a File Authentication Key (<abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>) in accordance with <a href="#FCS_COP_EXT.1">FCS_COP_EXT.1</a>
                and <a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> as the secret key to the keyed hash function.<h4 id="ext-comp-FDP_AUT_EXT.2.3">FDP_AUT_EXT.2.3</h4>The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use the entirety of the ciphertext file as the message input to the
