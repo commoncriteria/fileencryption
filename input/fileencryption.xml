@@ -1058,54 +1058,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
 
 
-        <ext-comp-def fam-id="FCS_IV_EXT" title="Initialization Vector Generation">
-          <fam-behavior>Components in this family define requirements for initialization vector generation.
-          </fam-behavior>
-        </ext-comp-def>
-        <f-component cc-id="fcs_iv_ext.1" name="Initialization Vector Generation">
-          <consistency-rationale>This SFR defines how IVs for AES keys must be generated. This is consistent with the Base-PP because it supplements the key generation 
-            methods specified by the Base-PP SFR FCS_CKM.1/Hash.
-          </consistency-rationale>
-          
-          <comp-lev> specifies the required initialization vector generation methods used by the TSF for various cryptographic algorithms.</comp-lev>
-          <management>There are no specific management functions identified.
-          </management>
-          <audit>There are no auditable events foreseen.
-          </audit>
-          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
-          <f-element id="fcs-iv-ext-1e1">
-            <title>The TSF shall <selectables>
-                <selectable>invoke platform-provided functionality to generate IVs</selectable>
-              <selectable>generate IVs with the following properties
-                <selectables linebreak="yes">
-                <selectable>CBC: IVs shall be non-repeating and unpredictable</selectable>
-                <selectable>CCM: Nonce shall be non-repeating and unpredictable</selectable>
-                <selectable>XTS: No IV. Tweak values shall be non-negative integers, assigned consecutively,
-                  and starting at an arbitrary non-negative integer</selectable>
-                <selectable>GCM: IV shall be non-repeating. The number of invocations of GCM shall not exceed
-                  2^32 for a given secret key</selectable>
-              </selectables></selectable>
-              </selectables>.</title>
-                        
-            
-            <aactivity>
-              <TSS>
-              The evaluator shall ensure the TSS describes how nonces are created uniquely and how IVs and tweaks are handled (based on the AES mode).
-              The evaluator shall confirm that the nonces are unique and the IVs and tweaks meet the stated requirements.<h:br/><h:br/>
-                
-              <h:h4>KMD</h:h4>
-              None. <h:br/><h:br/>
-
-              </TSS>
-              <Guidance>None.<h:br/><h:br/>
-
-              </Guidance>
-<Tests>None.
-            </Tests>
-</aactivity>
-          </f-element>
-          <audit-event/>
-        </f-component>
+        
 
         <ext-comp-def fam-id="FCS_KYC_EXT" title="Key Chaining and Key Storage">
           <fam-behavior>Components in this family define requirements for the secure storage of keys through the use of a logical key chain.
