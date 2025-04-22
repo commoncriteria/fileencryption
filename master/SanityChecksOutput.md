@@ -1,5 +1,5 @@
 * Error: Detected dangling id-reference to FIA_AUT_EXT.1.1 from attribute
-        on/Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:fau[1]""/f-component[6]""/depends[1]""/on[1]""
+        on/Module[1]""/sec:Security_Requirements[1]""/man-sfrs[1]""/sec:fau[1]""/f-component[5]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to fia-aut-ext from attribute
         on/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/sec:fcs[1]""/f-component[2]""/depends[1]""/on[1]""
 * Error: Detected dangling id-reference to fcs-kyc-ext.1.1 from attribute
