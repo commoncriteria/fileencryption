@@ -1843,7 +1843,7 @@
                     <a href="#FCS_CKM_EXT.6.3" class="abbr">FCS_CKM_EXT.6.3</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm HMAC-<i>SHA-384</i>, with [<b>selection</b>: <span class="selectable-content" id="_s_207">[<b>assignment</b>: <span class="assignable-content">positive integer of 4096 or more</span>] iterations</span>, <span class="selectable-content" id="_s_208">value supported by the platform, greater than 1000</span>], and output cryptographic key sizes <i>256</i> that meet the following: [<i>NIST SP 800-132</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<b>selection</b>: <span class="selectable-content" id="_s_207">HMAC-<i>SHA-384</i></span>, <span class="selectable-content" id="_s_208">HMAC-<i>SHA-512</i></span>], with [<b>selection</b>: <span class="selectable-content" id="_s_209">[<b>assignment</b>: <span class="assignable-content">positive integer of 10,000 or more</span>] iterations</span>, <span class="selectable-content" id="_s_210">value supported by the platform, greater than 1000</span>], and output cryptographic key sizes <i>256</i> that meet the following: [<i>NIST SP 800-132</i>]. 
                 </div>
             </div>
             <div class="element">
@@ -1851,7 +1851,7 @@
                     <a href="#FCS_CKM_EXT.6.4" class="abbr">FCS_CKM_EXT.6.4</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="_s_216">a value settable by the administrator</span>, <span class="selectable-content" id="_s_217">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1 </span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="_s_218">a value settable by the administrator</span>, <span class="selectable-content" id="_s_219">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1 </span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
                 </div>
             </div>
             <div class="element">
@@ -1876,7 +1876,7 @@
                             The password/passphrase must be conditioned into a string of bits that forms the submask to be used as input into the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>. Conditioning is performed using one of the identified hash functions in accordance with the process described in NIST SP 800-132. SP 800-132 requires the use of a pseudo-random function (PRF) consisting of HMAC with an approved hash function. 
                             <br>
                             <br>
-                            Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive a key from a password and, therefore, increase the workload of performing a password recovery attack. However, for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, a minimum iteration count of 4096 is required in order to ensure that twelve bits of security is added to the password/passphrase value. A significantly higher value is recommended to ensure optimal security. If the platform is leveraged for authentication the value may be a minimum of 1000, this selection may only be selected if "implement platform-provided functionality to provide user authorization" was selected in <a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a>. 
+                            Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive a key from a password and, therefore, increase the workload of performing a password recovery attack. However, for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>, a minimum iteration count of 10,000 is required in order to ensure that twelve bits of security is added to the password/passphrase value. A significantly higher value is recommended to ensure optimal security. If the platform is leveraged for authentication the value may be a minimum of 1000, this selection may only be selected if "implement platform-provided functionality to provide user authorization" was selected in <a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a>. 
                             <br>
                             <br>
                             For <a href="#FCS_CKM_EXT.6.4">FCS_CKM_EXT.6.4</a> If the minimum password length is settable, then <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses "a value settable by the administrator for this component for FMT_SMF.1.2. If the minimum length is not settable, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author fills in the assignment with the minimum length the password must be (zero-length passwords are not allowed for compliant <abbr class="dyn-abbr"><a href="#abbr_TOE">TOEs</a></abbr>). 
@@ -1897,7 +1897,7 @@
                     <a href="#FCS_COP.1.1/KT" class="abbr">FCS_COP.1.1/KT</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>key transport</i>] in accordance with a specified cryptographic algorithm [<i>RSA</i>] <b>in the following modes [<b>selection</b>: <span class="selectable-content" id="_s_218">KTS-OAEP</span>, <span class="selectable-content" id="_s_219">KTS-KEM-KWS</span>]</b> and cryptographic key sizes [<i>3072 bits</i>] that meet the following: [<i>NIST SP 800-56B, Revision 1</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>key transport</i>] in accordance with a specified cryptographic algorithm [<i>RSA</i>] <b>in the following modes [<b>selection</b>: <span class="selectable-content" id="_s_220">KTS-OAEP</span>, <span class="selectable-content" id="_s_221">KTS-KEM-KWS</span>]</b> and cryptographic key sizes [<i>3072 bits</i>] that meet the following: [<i>NIST SP 800-56B, Revision 1</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use key transport in the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>. </span>
                     </div>
@@ -1914,7 +1914,7 @@
                     <a href="#FCS_COP.1.1/KE" class="abbr">FCS_COP.1.1/KE</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_220">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="_s_221">perform key encryption and decryption</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_222">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="_s_223">perform key encryption and decryption</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use AES encryption/decryption for protecting the keys as part of the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
                     </div>
@@ -1931,31 +1931,31 @@
                     <a href="#FCS_COP.1.1/KW" class="abbr">FCS_COP.1.1/KW</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_222">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="_s_223">implement functionality to perform Key Wrapping</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_224">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="_s_225">implement functionality to perform Key Wrapping</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_224">Key Wrap</span>
+                                <span class="selectable-content" id="_s_226">Key Wrap</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_225">Key Wrap with Padding</span>
+                                <span class="selectable-content" id="_s_227">Key Wrap with Padding</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_226">GCM mode</span>
+                                <span class="selectable-content" id="_s_228">GCM mode</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_227">CCM mode</span>
+                                <span class="selectable-content" id="_s_229">CCM mode</span>
                             </li>
                         </ul>
                         ]</b> and cryptographic key sizes [<i>256 bits (AES)</i>] that meet the following: <b> [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_228">"NIST SP 800-38C"</span>
+                                <span class="selectable-content" id="_s_230">"NIST SP 800-38C"</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_229">"NIST SP 800-38D"</span>
+                                <span class="selectable-content" id="_s_231">"NIST SP 800-38D"</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_230">"NIST SP 800-38F"</span>
+                                <span class="selectable-content" id="_s_232">"NIST SP 800-38F"</span>
                             </li>
                         </ul>
                         ] and no other standards</b>. 
@@ -1975,13 +1975,13 @@
                     <a href="#FCS_KDF_EXT.1.1" class="abbr">FCS_KDF_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>accept [<b>selection</b>: <span class="selectable-content" id="_s_231">a submask generated by an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="_s_232">a conditioned password</span>, <span class="selectable-content" id="_s_233">an imported submask</span>]</i>] to derive an intermediate key, as defined in [<i> [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>accept [<b>selection</b>: <span class="selectable-content" id="_s_233">a submask generated by an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="_s_234">a conditioned password</span>, <span class="selectable-content" id="_s_235">an imported submask</span>]</i>] to derive an intermediate key, as defined in [<i> [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_234">NIST SP 800-108 [<b>selection</b>: <span class="selectable-content" id="_s_235">KDF in Counter Mode</span>, <span class="selectable-content" id="_s_236">KDF in Feedback Mode</span>, <span class="selectable-content" id="_s_237">KDF in Double-Pipeline Iteration Mode</span>] </span>
+                                <span class="selectable-content" id="_s_236">NIST SP 800-108 [<b>selection</b>: <span class="selectable-content" id="_s_237">KDF in Counter Mode</span>, <span class="selectable-content" id="_s_238">KDF in Feedback Mode</span>, <span class="selectable-content" id="_s_239">KDF in Double-Pipeline Iteration Mode</span>] </span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_238">NIST SP 800-132</span>
+                                <span class="selectable-content" id="_s_240">NIST SP 800-132</span>
                             </li>
                         </ul>
                         ]</i>] using the keyed-hash functions specified in FCS_COP.1<b>/KeyedHash</b> (from <a href="#bibAppPP">[AppPP]</a>), such that the output is at least of equivalent security strength (in number of bits) to the [<i><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></i>]. 
@@ -2001,7 +2001,7 @@
                     <a href="#FCS_SMC_EXT.1.1" class="abbr">FCS_SMC_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall combine submasks using the following method [<i>[<b>selection</b>: <span class="selectable-content" id="_s_239">exclusive OR (XOR)</span>, <span class="selectable-content" id="_s_240">SHA-384</span>, <span class="selectable-content" id="_s_241">HMAC-SHA-384</span>]</i>] to generate an intermediate key.
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall combine submasks using the following method [<i>[<b>selection</b>: <span class="selectable-content" id="_s_241">exclusive OR (XOR)</span>, <span class="selectable-content" id="_s_242">SHA-384</span>, <span class="selectable-content" id="_s_243">HMAC-SHA-384</span>]</i>] to generate an intermediate key.
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement specifies the way that a product may combine the various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.</span>
                     </div>
@@ -2235,9 +2235,9 @@
                         <h4 id="ext-comp-FCS_CKM_EXT.6.2">FCS_CKM_EXT.6.2</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow passwords to be composed of any combination of upper case characters, lower case characters, numbers, and the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")", and [<b>selection</b>: <span class="selectable-content" id="_s_205">[<b>assignment</b>: <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_206">no other characters</span>].
                         <h4 id="ext-comp-FCS_CKM_EXT.6.3">FCS_CKM_EXT.6.3</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_209">SHA-256</span>, <span class="selectable-content" id="_s_210">SHA-384</span>, <span class="selectable-content" id="_s_211">SHA-512</span>], with [<b>selection</b>: <span class="selectable-content" id="_s_212">[<b>assignment</b>: <span class="assignable-content">positive integer of 4096 or more</span>] iterations</span>, <span class="selectable-content" id="_s_213">value supported by the platform, greater than 1000</span>], and output cryptographic key sizes [<b>selection</b>: <span class="selectable-content" id="_s_214">128</span>, <span class="selectable-content" id="_s_215">256</span>] that meet the following: [<b>assignment</b>: <span class="assignable-content">applicable standard</span>]. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_211">SHA-256</span>, <span class="selectable-content" id="_s_212">SHA-384</span>, <span class="selectable-content" id="_s_213">SHA-512</span>], with [<b>selection</b>: <span class="selectable-content" id="_s_214">[<b>assignment</b>: <span class="assignable-content">positive integer of 4096 or more</span>] iterations</span>, <span class="selectable-content" id="_s_215">value supported by the platform, greater than 1000</span>], and output cryptographic key sizes [<b>selection</b>: <span class="selectable-content" id="_s_216">128</span>, <span class="selectable-content" id="_s_217">256</span>] that meet the following: [<b>assignment</b>: <span class="assignable-content">applicable standard</span>]. 
                         <h4 id="ext-comp-FCS_CKM_EXT.6.4">FCS_CKM_EXT.6.4</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="_s_216">a value settable by the administrator</span>, <span class="selectable-content" id="_s_217">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1 </span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="_s_218">a value settable by the administrator</span>, <span class="selectable-content" id="_s_219">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1 </span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
                         <h4 id="ext-comp-FCS_CKM_EXT.6.5">FCS_CKM_EXT.6.5</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG.1 and with entropy corresponding to the security strength selected for PBKDF in <a href="#FCS_CKM_EXT.6.3">FCS_CKM_EXT.6.3</a>.
                     </div>

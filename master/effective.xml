@@ -3071,9 +3071,13 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element id="fcs-ckm-ext-6e3">
             <title>
               The TSF shall perform Password-based Key Derivation
-              Functions in accordance with a specified cryptographic algorithm HMAC-<h:i>SHA-384</h:i>, with 
+              Functions in accordance with a specified cryptographic algorithm 
               <selectables>
-                <selectable><assignable>positive integer of 4096 or more</assignable> iterations</selectable>
+                <selectable>HMAC-<h:i>SHA-384</h:i></selectable>
+                <selectable>HMAC-<h:i>SHA-512</h:i></selectable>
+              </selectables>, with 
+              <selectables>
+                <selectable><assignable>positive integer of 10,000 or more</assignable> iterations</selectable>
                 <selectable>value supported by the platform, greater than 1000</selectable>
               </selectables>, and
               output cryptographic key sizes <h:i>256</h:i> that meet the following: [<h:i>NIST SP 800-132</h:i>]. 
@@ -3132,7 +3136,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               
               <h:br/><h:br/>Appendix A of SP 800-132 recommends setting the iteration count in order to increase the computation needed to derive
               a key from a password and, therefore, increase the workload of performing a password recovery attack. However, for this PP-Module,
-              a minimum iteration count of 4096 is required in order to ensure that twelve bits of security is added to the password/passphrase value.
+              a minimum iteration count of 10,000 is required in order to ensure that twelve bits of security is added to the password/passphrase value.
               A significantly higher value is recommended to ensure optimal security. If the platform is leveraged for authentication the value may be a 
               minimum of 1000, this selection may only be selected if "implement platform-provided functionality to provide user authorization"
               was selected in FIA_AUT_EXT.1.
