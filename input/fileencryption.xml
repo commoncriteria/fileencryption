@@ -2261,7 +2261,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           </f-element>
           <f-element id="fcs-ckm-ext-5e2">
             <title>The TSF shall create a unique FAK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_RBG.1 (from <xref to="bibAppPP"/>).</title>
+              mechanism on the client as specified in FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>).</title>
               <ext-comp-def-title>
               <title>The TSF shall create a unique FAK for each file (or set of files) using the
               mechanism on the client as specified in FCS_RBG.1.</title>
