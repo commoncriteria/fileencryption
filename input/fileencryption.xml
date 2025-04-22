@@ -3661,7 +3661,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <title>The TSF shall combine submasks using the following method [<h:i><selectables>
               <selectable>exclusive OR (XOR)</selectable>
               <selectable>SHA-384</selectable>
+              <selectable>SHA-512</selectable>
               <selectable>HMAC-SHA-384</selectable>
+              <selectable>HMAC-SHA-512</selectable>
             </selectables></h:i>] to generate an intermediate key.</title>
             <ext-comp-def-title>
             <title>The TSF shall combine submasks using the following method <assignable>combination method</assignable>
