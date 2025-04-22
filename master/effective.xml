@@ -686,7 +686,7 @@
           <comp-lev> describes the method by which the TSF acquires or generates file encryption keys.</comp-lev>
           <management>There are no specific management functions identified.</management>
           <audit>There are no auditable events foreseen.</audit>
-          <dependencies>FCS_RBG.1 Random Bit Generation Services</dependencies>
+          <dependencies>FCS_RBG_EXT.1 Random Bit Generation Services</dependencies>
 
           <f-element id="fcs-ckm-ext-2e1">
             <title> The TSF shall
@@ -694,7 +694,7 @@
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
-                    <selectable> using a Random Bit Generator as specified in FCS_RBG.1
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                       (from <xref to="bibAppPP"/>) and with entropy corresponding to the security strength of AES key sizes <h:i>[256-bit]</h:i></selectable>
                     <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
@@ -708,7 +708,7 @@
                 <selectable> accept FEK from an enterprise management server</selectable>
                 <selectable> generate FEK cryptographic keys <h:br/>
                   <selectables linebreak="yes">
-                    <selectable> using a Random Bit Generator as specified in FCS_RBG.1
+                    <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                     and with entropy corresponding to the security strength of AES key sizes <assignable>supported key size</assignable></selectable>
                     <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
@@ -743,7 +743,7 @@
 
               Conditional: <h:br/> 
               If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes how the functionality
-              described by FCS_RBG.1 (from the <xref to="bibAppPP"/>) is invoked to
+              described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is invoked to
               generate FEK. To the extent possible from the description of the RBG functionality in
               FCS_RBG.1 (from <xref to="bibAppPP"/>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the

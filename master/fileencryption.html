@@ -1092,7 +1092,7 @@ provide all of its security functionality.
 
           <div class="element"><div class="reqid" id="FCS_CKM_EXT.2.1"><a href="#FCS_CKM_EXT.2.1" class="abbr">FCS_CKM_EXT.2.1</a></div><div class="reqdesc"> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_1"> accept <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> from an enterprise management server</span></li><li style=""><span class="selectable-content" id="_s_2"> generate <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> cryptographic keys <br/>
-                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_3"> using a Random Bit Generator as specified in FCS_RBG.1
+                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_3"> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                       (from <a href="#bibAppPP">[AppPP]</a>) and with entropy corresponding to the security strength of AES key sizes <i>[256-bit]</i></span></li><li style=""><span class="selectable-content" id="_s_4">using key generation methods compliant with NIST SP 800-133r1,</span></li><li style=""><span class="selectable-content" id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> </span></li></ul>]
                 </span></li></ul>].
             <div class="appnote"><span class="note-header">Application
@@ -1118,7 +1118,7 @@ provide all of its security functionality.
 
               Conditional: <br/> 
               If 'using a Random Bit Generator' was selected, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the functionality
-              described by FCS_RBG.1 (from the <a href="#bibAppPP">[AppPP]</a>) is invoked to
+              described by FCS_RBG_EXT.1 (from the <a href="#bibAppPP">[AppPP]</a>) is invoked to
               generate <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>. To the extent possible from the description of the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> functionality in
               FCS_RBG.1 (from <a href="#bibAppPP">[AppPP]</a>), the evaluator shall determine that the key size being
               requested is identical to the key size and mode to be used for the
@@ -3323,9 +3323,9 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
              Key Encrypting Key (<abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>) Support,
               describes the method by which the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> acquires or generates key encryption keys.</p><p><a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a>,
              Cryptographic Password/Passphrase Conditioning,
-              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement password/passphrase conditioning using a specified algorithm and with specific constraints on the password/passphrase composition.</p><h4>Management: FCS_CKM_EXT.2</h4><p>There are no specific management functions identified.</p><h4>Audit: FCS_CKM_EXT.2</h4><p>There are no auditable events foreseen.</p><h4>FCS_CKM_EXT.2 File Encryption Key (FEK) Generation</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_RBG.1 Random Bit Generation Services</td></tr></table><h4 id="ext-comp-FCS_CKM_EXT.2.1">FCS_CKM_EXT.2.1</h4> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
+              requires the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> to implement password/passphrase conditioning using a specified algorithm and with specific constraints on the password/passphrase composition.</p><h4>Management: FCS_CKM_EXT.2</h4><p>There are no specific management functions identified.</p><h4>Audit: FCS_CKM_EXT.2</h4><p>There are no auditable events foreseen.</p><h4>FCS_CKM_EXT.2 File Encryption Key (FEK) Generation</h4><div style="margin-left: 1em;"><table class="ecd_heir_dep" style="width: 100%"><tr><td style="whitespace: nowrap">Hierarchical to:</td><td style="width: 100%">No other components.</td></tr><tr style="background-color: inherit"><td>Dependencies to:</td><td>FCS_RBG_EXT.1 Random Bit Generation Services</td></tr></table><h4 id="ext-comp-FCS_CKM_EXT.2.1">FCS_CKM_EXT.2.1</h4> The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_6"> accept <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> from an enterprise management server</span></li><li style=""><span class="selectable-content" id="_s_7"> generate <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> cryptographic keys <br/>
-                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_8"> using a Random Bit Generator as specified in FCS_RBG.1
+                  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="_s_8"> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                     and with entropy corresponding to the security strength of AES key sizes [<b>assignment</b>: 
      <span class="assignable-content">supported key size</span>]</span></li><li style=""><span class="selectable-content" id="_s_9">using key generation methods compliant with NIST SP 800-133r1,</span></li><li style=""><span class="selectable-content" id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> </span></li></ul>]
                 </span></li></ul>].
