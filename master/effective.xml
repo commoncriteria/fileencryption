@@ -1141,15 +1141,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/KE</h:b></selectable>
                     <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
-                  </selectables> while maintaining an effective strength of 
-                    <selectables>
-                      <selectable>
-                        <h:i>256 bits</h:i> for symmetric keys
-                      </selectable>
-                      <selectable>
-                       <h:i>256 bits</h:i> for asymmetric keys
-                      </selectable>
-                    </selectables> commensurate with the strength of the FEK
+                  </selectables> while maintaining an effective strength of commensurate with the strength of the FEK
                 </selectable>
               </selectables> 
               and 
@@ -1186,22 +1178,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>implementation of key encryption as specified in FCS_COP.1</selectable>
                     <selectable>implementation of key transport as specified in FCS_COP.1</selectable>
                     <selectable>implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
-                  </selectables> while maintaining an effective strength of 
-                    <selectables>
-                      <selectable>
-                        <selectables>
-                          <selectable>128 bits</selectable>
-                          <selectable>256 bits</selectable>
-                        </selectables> for symmetric keys
-                      </selectable>
-                      <selectable>
-                        <selectables>
-                          <selectable>128 bits</selectable>
-                          <selectable>192 bits</selectable>
-                          <selectable>256 bits</selectable>
-                        </selectables> for asymmetric keys
-                      </selectable>
-                    </selectables> commensurate with the strength of the FEK
+                  </selectables> while maintaining an effective strength of commensurate with the strength of the FEK
                 </selectable>
               </selectables> 
               and 
