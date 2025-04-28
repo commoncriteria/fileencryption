@@ -40,6 +40,7 @@ output/fileencryption-release-linkable.html: Sanitization
 output/fileencryption-release-linkable.html: UAU
 output/fileencryption-release-linkable.html: Unmanaged
 output/fileencryption-release-linkable.html: Zeroize
+output/fileencryption-release-linkable.html: assymetric
 output/fileencryption-release-linkable.html: cLen
 output/fileencryption-release-linkable.html: configurability
 output/fileencryption-release-linkable.html: dereferencing
@@ -84,6 +85,7 @@ output/fileencryption-release.html: Sanitization
 output/fileencryption-release.html: UAU
 output/fileencryption-release.html: Unmanaged
 output/fileencryption-release.html: Zeroize
+output/fileencryption-release.html: assymetric
 output/fileencryption-release.html: configurability
 output/fileencryption-release.html: dereferencing
 output/fileencryption-release.html: encryptor
@@ -179,6 +181,7 @@ output/fileencryption.html: Sanitization
 output/fileencryption.html: UAU
 output/fileencryption.html: Unmanaged
 output/fileencryption.html: Zeroize
+output/fileencryption.html: assymetric
 output/fileencryption.html: cLen
 output/fileencryption.html: configurability
 output/fileencryption.html: dereferencing
