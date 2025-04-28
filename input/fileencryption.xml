@@ -1541,7 +1541,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           
           <f-element id="fdp-prt-ext-1e1">
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
-              of files) in accordance with FCS_COP.1<h:b>/SKC</h:b> (from <xref to="bibAppPP"/>). </title>
+              of files) in accordance with FCS_COP.1/SKC (from <xref to="bibAppPP"/>). </title>
             <ext-comp-def-title>
             <title>The TSF shall perform encryption and decryption of the user-selected file (or set
               of files) in accordance with FCS_COP.1. </title>
