@@ -1,6 +1,7 @@
 output/fileencryption-release-linkable.html: 0x00
 output/fileencryption-release-linkable.html: 0x01
 output/fileencryption-release-linkable.html: 133r1
+output/fileencryption-release-linkable.html: 133r2
 output/fileencryption-release-linkable.html: 33r1
 output/fileencryption-release-linkable.html: 38A
 output/fileencryption-release-linkable.html: 38C
@@ -56,6 +57,7 @@ output/fileencryption-release-linkable.html: uninstallation
 output/fileencryption-release-linkable.html: unpowered
 output/fileencryption-release-linkable.html: winhex
 output/fileencryption-release.html: 133r1
+output/fileencryption-release.html: 133r2
 output/fileencryption-release.html: 38A
 output/fileencryption-release.html: 38C
 output/fileencryption-release.html: 38D
@@ -94,6 +96,7 @@ output/fileencryption-release.html: unpowered
 output/fileencryption-sd.html: 0x00
 output/fileencryption-sd.html: 0x01
 output/fileencryption-sd.html: 133r1
+output/fileencryption-sd.html: 133r2
 output/fileencryption-sd.html: 33r1
 output/fileencryption-sd.html: 38A
 output/fileencryption-sd.html: 38F
@@ -140,6 +143,7 @@ output/fileencryption-sd.html: winhex
 output/fileencryption.html: 0x00
 output/fileencryption.html: 0x01
 output/fileencryption.html: 133r1
+output/fileencryption.html: 133r2
 output/fileencryption.html: 33r1
 output/fileencryption.html: 38A
 output/fileencryption.html: 38C

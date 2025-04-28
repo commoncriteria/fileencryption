@@ -696,7 +696,7 @@
                   <selectables linebreak="yes">
                     <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                       (from <xref to="bibAppPP"/>) and with entropy corresponding to the security strength of AES key sizes <h:i>[256-bit]</h:i></selectable>
-                    <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
+                    <selectable>using key generation methods compliant with NIST SP 800-133r2,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
                   </selectables>
                 </selectable>
@@ -750,8 +750,8 @@
               decryption/encryption of the user data (FCS_COP.1/SKC) (from <xref to="bibAppPP"/>).  <h:br/> <h:br/> 
 
               Conditional: <h:br/>
-              If 'using key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify that
-              the TSS describes how the functionality described by NIST SP 800-133r1 is implemented to generate the FEK.
+              If 'using key generation methods compliant with NIST SP 800-133r2' was selected, the evaluator shall verify that
+              the TSS describes how the functionality described by NIST SP 800-133r2 is implemented to generate the FEK.
               The evaluator shall verify that the description of the key generation method matches the methods described in
               SP 800-133r1 and that the FEK is chained to an approved RBG. The evaluator shall verify that the key size and mode
               being requested is identical to the key size and mode to be used for the decryption/encryption of the user data (FCS_COP.1/SKC) (from <xref to="bibAppPP"/>). <h:br/> <h:br/>
