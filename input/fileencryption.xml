@@ -1099,10 +1099,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1/KW</selectable>
                     <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/KE</h:b></selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1/KE</selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1/KT</selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables> while maintaining an effective strength of commensurate with the strength of the FEK
                 </selectable>
@@ -1115,10 +1115,10 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1/KW</selectable>
                     <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1<h:b>/KE</h:b></selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1/KE</selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1/KT</selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
