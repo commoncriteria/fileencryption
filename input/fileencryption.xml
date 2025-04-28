@@ -720,14 +720,14 @@
                   <selectables linebreak="yes">
                     <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
                     and with entropy corresponding to the security strength of AES key sizes <assignable>supported key size</assignable></selectable>
-                    <selectable>using key generation methods compliant with NIST SP 800-133r1,</selectable>
+                    <selectable>using key generation methods compliant with NIST SP 800-133r2,</selectable>
                     <selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
                   </selectables>
                 </selectable>
               </selectables>.
             </title>
             </ext-comp-def-title>
-            <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r1 for password-based key generation, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
+            <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r2 for password-based key generation, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
             <!--Removed as repetative.
             <note role="application"> For the first selection, the TOE may accept FEKS from an file encryption enterprise managment server.
               For the second selection, the key generation capability of the TOE uses a RBG implemented on the TOE device (FCS_RBG.1 from the <cite
@@ -763,7 +763,7 @@
               If 'using key generation methods compliant with NIST SP 800-133r2' was selected, the evaluator shall verify that
               the TSS describes how the functionality described by NIST SP 800-133r2 is implemented to generate the FEK.
               The evaluator shall verify that the description of the key generation method matches the methods described in
-              SP 800-133r1 and that the FEK is chained to an approved RBG. The evaluator shall verify that the key size and mode
+              SP 800-133r2 and that the FEK is chained to an approved RBG. The evaluator shall verify that the key size and mode
               being requested is identical to the key size and mode to be used for the decryption/encryption of the user data (FCS_COP.1/SKC) (from <xref to="bibAppPP"/>). <h:br/> <h:br/>
 
               Conditional: <h:br/>               
@@ -2498,13 +2498,13 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
              <title>The FAK will be generated using 
               <selectables> 
                 <selectable>a RBG that meets FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>)</selectable>
-                <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
+                <selectable>key generation methods compliant with NIST SP 800-133r2</selectable>
               </selectables>.</title>
               <ext-comp-def-title>
               <title>The FAK will be generated using 
               <selectables> 
                 <selectable>a RBG that meets FCS_RBG_EXT.1</selectable>
-                <selectable>key generation methods compliant with NIST SP 800-133r1</selectable>
+                <selectable>key generation methods compliant with NIST SP 800-133r2</selectable>
               </selectables>.</title></ext-comp-def-title>
              <note role="application">The intent of this requirement is to specify the correct way of
                using a keyed hash function to authenticate the data, and enable authentication of data. 
@@ -2522,10 +2522,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  If 'using a Random Bit Generator' was selected, the evaluator shall verify that the TSS describes
                  how the functionality described by FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>) is used to generate the FAK. <h:br/><h:br/>
                  Conditional:<h:br/>
-                 If 'key generation methods compliant with NIST SP 800-133r1' was selected, the evaluator shall verify
+                 If 'key generation methods compliant with NIST SP 800-133r2' was selected, the evaluator shall verify
                  that the TSS describes how the functionality described by NIST SP 800-33r1 is implemented to generate the FAK.
                  The evaluator shall verify that the description of the key generation method matches the methods described in
-                 SP 800-133r1 and that the FAK is chained to an approved RBG. <h:br/><h:br/>
+                 SP 800-133r2 and that the FAK is chained to an approved RBG. <h:br/><h:br/>
 
                  <h:h4>KMD</h:h4>
                  None. <h:br/><h:br/>
