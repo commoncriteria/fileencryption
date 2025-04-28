@@ -1326,20 +1326,20 @@ Some examples of what is expected to be in the documentation are provided here. 
                   <selectable>submask</selectable>
                   <selectable>intermediate key</selectable>
                 </selectables> using the following methods: <selectables>
-                  <selectable>key wrap as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
+                  <selectable>key wrap as specified in FCS_COP.1/KW</selectable>
                   <selectable>hash the 
                     <selectables>
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable>
-                    </selectables> as specified in FCS_COP.1<h:b>/Hash</h:b> (from <xref to="bibAppPP"/>) and compare it to a stored hash</selectable> 
+                    </selectables> as specified in FCS_COP.1/Hash (from <xref to="bibAppPP"/>) and compare it to a stored hash</selectable> 
                   <selectable>decrypt a known value using the 
                     <selectables>
                       <selectable>submask</selectable>
                       <selectable>intermediate key</selectable>
                       <selectable>FEK</selectable>
                       
-                    </selectables> as specified in FCS_COP.1<h:b>/SKC</h:b> (from <xref to="bibAppPP"/>) and compare it against a stored known value</selectable>
+                    </selectables> as specified in FCS_COP.1/SKC (from <xref to="bibAppPP"/>) and compare it against a stored known value</selectable>
                 </selectables></selectable>
               </selectables>.               
             </title>
