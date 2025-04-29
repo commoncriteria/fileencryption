@@ -2093,8 +2093,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                      </selectables>
                     </selectable>
                     <selectable>the plaintext key is stored on an external storage device for use as an authorization factor.</selectable>
-                    <selectable>the plaintext key is used to encrypt a key as specified in FCS_COP.1/KE or wrap a key as specified in FCS_COP.1<h:b>/KW</h:b>
-                      that is already encrypted as specified in FCS_COP.1/KE or wrapped as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
+                    <selectable>the plaintext key is used to encrypt a key as specified in FCS_COP.1/KE or wrap a key as specified in FCS_COP.1/KW
+                      that is already encrypted as specified in FCS_COP.1/KE or wrapped as specified in FCS_COP.1/KW</selectable>
                   </selectables>
                 </selectable>
                 </selectables>.
@@ -3175,7 +3175,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <selectables>
                   <selectable>KTS-OAEP</selectable>
                   <selectable>KTS-KEM-KWS</selectable>
-                </selectables></h:b> and cryptographic key sizes [<h:i>3072 bits</h:i>] that meet the following: [<h:i>NIST SP 800-56B, Revision 1</h:i>].
+                </selectables></h:b> and cryptographic key sizes [<h:i>3072 bits</h:i>] that meet the following: [<h:i>NIST SP 800-56B, Revision 2</h:i>].
             </title>
             <note role="application">
               
