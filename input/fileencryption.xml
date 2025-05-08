@@ -3184,11 +3184,13 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element>
             <title>
               The TSF shall perform [<h:i>key transport</h:i>] in accordance with a
-              specified cryptographic algorithm [<h:i>RSA</h:i>] <h:b>in the following modes 
-                <selectables>
-                  <selectable>KTS-OAEP</selectable>
-                  <selectable>KTS-KEM-KWS</selectable>
-                </selectables></h:b> and cryptographic key sizes [<h:i>3072 bits</h:i>] that meet the following: [<h:i>NIST SP 800-56B, Revision 2</h:i>].
+              specified cryptographic algorithm [<h:i>RSA</h:i>] <h:b>in the following modes: 
+                <h:li>KTS-OAEP</h:li></h:b> 
+              and cryptographic key sizes 
+              <selectables>
+                <selectable>3072</selectable>
+                <selectable>4096</selectable>
+              </selectables> that meet the following: [<h:i>NIST SP 800-56B, Revision 2</h:i>].
             </title>
             <note role="application">
               
