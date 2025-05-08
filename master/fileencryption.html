@@ -2888,8 +2888,8 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/KT"><a href="#FCS_COP.1.1/KT" class="abbr">FCS_COP.1.1/KT</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>key transport</i>] in accordance with a
-              specified cryptographic algorithm [<i>RSA</i>] <b>in the following modes: 
-                <li>KTS-OAEP</li></b> 
+              specified cryptographic algorithm [<i>RSA</i>] in the following modes: 
+              <b><li>KTS-OAEP</li></b> 
               and cryptographic key sizes 
               [<b>selection</b>: <span class="selectable-content" id="_s_212">3072</span>, <span class="selectable-content" id="_s_213">4096</span>] that meet the following: [<i>NIST SP 800-56B, Revision 2</i>].
             <div class="appnote"><span class="note-header">Application
@@ -2912,12 +2912,10 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 key size. There may be more than one key size to specify - an RSA modulus size
                 (and/or encryption exponent size), an AES key size, hash sizes, MAC key/MAC tag
                 size.<br/><br/>
-                If the KTS-OAEP scheme was selected, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
+                The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
                 identifies the hash function, the mask generating function, the random bit generator,
                 the encryption primitive and decryption primitive.
-                If the KTS-KEM-KWS scheme was selected, the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
-                identifies the key derivation method, the AES-based key wrapping method, the secret
-                value encapsulation technique, and the random number generator. <br/><br/>
+                 <br/><br/>
                 <h4>KMD</h4>None.<br/><br/>
               </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/>
               </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> 
@@ -2926,8 +2924,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 of a key transport entity, using known RSA key-pairs. The evaluator shall observe
                 traffic passed from the sender-side and to the receiver-side of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and shall
                 perform the following tests, specific to which key transport scheme was employed.
-                If the KTS-OAEP scheme was selected, the evaluator shall perform the following
-                tests:
+               
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCS_COP.1/KT:1</a>:
       The evaluator shall inspect each cipher text, C, produced by the RSA-OAEP
@@ -2969,48 +2966,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                     sender on which type of error occurred. The evaluator shall also validate that no
                     intermediate results from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s receiver-side operations are revealed to the
                     sender.</li></ul></span><br/>
-                If the KTS-KEM-KWS scheme was selected, the evaluator shall perform the
-                following tests:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_24" class="defined" href="#_t_24">Test FCS_COP.1/KT:6</a>:
-      The evaluator shall inspect each cipher text, C, produced by KTS-KEM-KWS
-                    encryption operation of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and make sure the length (in bytes) of the
-                    cipher text, cLen, is greater than nLen (the length, in bytes, of the modulus of
-                    the RSA public key) and that cLen - nLen is consistent with the byte lengths
-                    supported by the key wrapping algorithm. The evaluator shall feed into the
-                    KTS-KEM-KWS decryption operation a cipher text of unsupported length and
-                    verify that an error is detected and that the decryption process stops.
-                  </li><li class="test-"><a id="_t_25" class="defined" href="#_t_25">Test FCS_COP.1/KT:7</a>:
-      The evaluator shall separate the cipher text, C, produced by the sender-side of
-                    the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> into its C0 and C1 components and use the RSA decryption primitive to
-                    recover the secret value, Z, from C0. The evaluator shall check that the
-                    unsigned integer represented by Z is greater than 1 and less than n-1, where n is
-                    the modulus of the RSA public key. The evaluator shall construct examples
-                    where the cipher text is created with a secret value Z = 1 and make sure the
-                    KTS-KEM-KWS decryption process detects the error. Similarly, the evaluator
-                    shall construct examples where the cipher text is created with a secret value Z =
-                    n - 1 and make sure the KTS-KEM-KWS decryption process detects the error.
-                  </li><li class="test-"><a id="_t_26" class="defined" href="#_t_26">Test FCS_COP.1/KT:8</a>:
-      The evaluator shall attempt to successfully recover the secret value Z, derive the
-                    key wrapping key, KWK, and unwrap the KWA-cipher text following the KTS-KEM-KWS
-                    decryption process given in NISP SP 800-56B section 7.2.3.4. If the
-                    key-wrapping algorithm is AES-CCM, the evaluator shall verify that the value
-                    of any (unwrapped) associated data, A, that was passed with the wrapped keying
-                    material is correct The evaluator shall feed into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s KTS-KEM-KWS
-                    decryption operation examples of incorrect cipher text and verify that a
-                    decryption error is detected. If the key-wrapping algorithm is AES-CCM, the
-                    evaluator shall attempt at least one decryption where the wrong value of A is
-                    given to the KTS-KEM-KWS decryption operation and verify that a decryption
-                    error is detected. Similarly, if the key-wrapping algorithm is AES-CCM, the
-                    evaluator shall attempt at least one decryption where the wrong nonce is given to
-                    the KTS-KEM-KWS decryption operation and verify that a decryption error is
-                    detected.
-                  </li><li class="test-"><a id="_t_27" class="defined" href="#_t_27">Test FCS_COP.1/KT:9</a>:
-      The evaluator shall trigger all detectable decryption errors and validate that the
-                    resulting error codes are the same and that no information is given back to the
-                    sender on which type of error occurred. The evaluator shall also validate that no
-                    intermediate results from the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s receiver-side operations (in particular, no Z
-                    values) are revealed to the sender.</li></ul></span></div></div></div></div></div>
+                </div></div></div></div></div>
      
      
      
