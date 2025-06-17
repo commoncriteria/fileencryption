@@ -37,7 +37,7 @@
      The scope of the File Encryption PP-Module is to describe the security functionality of a file encryption 
 	    product in terms of [CC] and to define functional and assurance requirements for such products. 
 	    This PP-Module is intended for use with the following Base-PP: <h:ul><h:br/>
-        <h:li>Application Software Protection Profile, Version 1.4</h:li>	      
+        <h:li>Application Software Protection Profile, Version 2.0</h:li>	      
       </h:ul><h:br/>   
       This Base-PP is valid because a file encryption product is a 3rd party application or application 
       included with a operating system.<h:br/><h:br/>
@@ -647,8 +647,8 @@
     
     <base-pp id="b-appp"
       product="application"
-      name="Application Software" short="App" version="1.4">
-      <url>https://www.niap-ccevs.org/protectionprofiles/462</url>     
+      name="Application Software" short="App" version="2.0">
+      <url>https://www.niap-ccevs.org/protectionprofiles/516</url>     
     <sec-func-req-dir>
         The TOE is expected to rely on some of the security functions implemented by the application
         as a whole and evaluated against <xref to="bibAppPP"/>.
@@ -3831,7 +3831,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       <entry id="bibAppPP">
         <tag>AppPP</tag>
         <description>
-          <h:a href="https://www.niap-ccevs.org/protectionprofiles/462">Protection Profile for Application Software, Version 1.4</h:a>
+          <h:a href="https://www.niap-ccevs.org/protectionprofiles/516"
+            >Protection Profile for Application Software, Version 2.0, June 16, 2025</h:a>
         </description>
       </entry>
       <entry id="FIPS140-2">
