@@ -1099,11 +1099,12 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1/KW</selectable>
-                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1/KE</selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1/KT</selectable>
+                    <selectable id="USEKEYWRA">implementation of key establishment as specified in FCS_CKM.2 (from the Base-PP)</selectable>
                     <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
+                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1/KW</selectable>
+                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1/KE</selectable>
+                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
+                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1/KT</selectable>
                   </selectables> while maintaining an effective strength of commensurate with the strength of the FEK
                 </selectable>
               </selectables> 
@@ -1115,11 +1116,12 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectable>utilization of the platform key storage</selectable>
                     <selectable>utilization of platform key storage that performs key wrap with a
                       TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1/KW</selectable>
-                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1/KE</selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1/KT</selectable>
-                    <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
+                    <selectable id="SUPPKEYEST">implementation of key establishment as specified in FCS_CKM.2 (from the Base-PP)</selectable>
+                    <selectable id="SUPPKEYENC">implementation of key encryption as specified in FCS_COP.1/KE</selectable>
+                    <selectable id="SUPPKEYTRA">implementation of key transport as specified in FCS_COP.1/KT</selectable>
+                    <selectable id="SUPPKEYWRA">implementation of key wrapping as specified in FCS_COP.1/KW</selectable>
+                    <selectable id="SUPPKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
+                    <selectable id="SUPPKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
                   </selectables></selectable>
               </selectables>.
             </title>
@@ -1131,33 +1133,16 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <assignable>origin of key</assignable> 
                  to 
                  <assignable>end point of key chain</assignable>
-                  using the following method(s): 
-                  <selectables linebreak="yes">
-                    <selectable>utilization of the platform key storage</selectable>
-                    <selectable>utilization of platform key storage that performs key wrap with a
-                      TSF provided key</selectable>
-                    <selectable>implementation of key wrapping as specified in FCS_COP.1</selectable>
-                    <selectable>implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable>implementation of key encryption as specified in FCS_COP.1</selectable>
-                    <selectable>implementation of key transport as specified in FCS_COP.1</selectable>
-                    <selectable>implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
-                  </selectables> while maintaining an effective strength of commensurate with the strength of the FEK
+                  using the following method(s): <assignable>list of supported key protection methods</assignable>
+                  while maintaining an effective strength of commensurate with the strength of the FEK
                 </selectable>
               </selectables> 
               and 
               <selectables>
                 <selectable> no supplemental key chains</selectable>
                 <selectable> other supplemental key chains that protect a key or keys in the primary key chain using the following method(s):
-                  <selectables linebreak="yes">
-                    <selectable>utilization of the platform key storage</selectable>
-                    <selectable>utilization of platform key storage that performs key wrap with a
-                      TSF provided key</selectable>
-                    <selectable id="USEKEYWRA">implementation of key wrapping as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYCOM">implementation of key combining as specified in FCS_SMC_EXT.1</selectable>
-                    <selectable id="USEKEYENC">implementation of key encryption as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYTRA">implementation of key transport as specified in FCS_COP.1</selectable>
-                    <selectable id="USEKEYDER">implementation of key derivation as specified in FCS_KDF_EXT.1</selectable>
-                  </selectables></selectable>
+                  <assignable>list of supported key protection methods</assignable>
+                  </selectable>
               </selectables>.
             </title>
             </ext-comp-def-title>
@@ -2836,21 +2821,24 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           </management>
           <audit>There are no auditable events foreseen.
           </audit>
-          <dependencies>FCS_COP.1 Cryptographic Operation</dependencies>
+          <dependencies>FCS_CKM.2 Cryptographic Key Distribution<h:br/>
+          FCS_COP.1 Cryptographic Operation</dependencies>
           
           
           <f-element id="fia-fct-est-2e1">
             <title>The TSF shall support
               <selectables>
                 <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable>
-                <selectable>Distribution of a shared key from an enterprise management Server</selectable>
+                <selectable>Authorized User Key sharing via key wrapping as specified in FCS_COP.1<h:b>/KW</h:b></selectable>
+                <selectable>Distribution of a shared key from [<h:i>an enterprise management server</h:i>] as specified in FCS_CKM.2 <h:b>(from Base-PP)</h:b></selectable>
               </selectables>.
             </title>
             <ext-comp-def-title>
             <title>The TSF shall support
               <selectables>
                 <selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1</selectable>
-                <selectable>Distribution of a shared key from an enterprise management Server</selectable>
+                <selectable>Authorized User Key sharing via key wrapping as specified in FCS_COP.1</selectable>
+                <selectable>Distribution of a shared key from <assignable>external IT entity</assignable> as specified in FCS_CKM.2</selectable>
               </selectables>.
             </title>
             </ext-comp-def-title>
@@ -2944,11 +2932,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <selectable> generate KEK cryptographic keys <h:br/>
                 <selectables linebreak="yes">
                   <selectable> using a Random Bit Generator as specified in FCS_RBG_EXT.1
-                    and with entropy corresponding to the security strength of AES key sizes of
-                    <selectables>
-                      <selectable>128 bit</selectable>
-                      <selectable>256 bit</selectable>
-                    </selectables></selectable>
+                    and with entropy corresponding to the security strength of AES key sizes of 256 bits</selectable>
                   <selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6 </selectable>
                 </selectables>
               </selectable>
@@ -3045,22 +3029,19 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               output cryptographic key sizes <h:i>256</h:i> that meet the following: [<h:i>NIST SP 800-132</h:i>]. 
             </title>
             <ext-comp-def-title>
-            <title>
-              The TSF shall perform Password-based Key Derivation
-              Functions in accordance with a specified cryptographic algorithm HMAC-<selectables>
-                <selectable>SHA-256</selectable>
-                <selectable>SHA-384</selectable>
-                <selectable>SHA-512</selectable>
-              </selectables>, with 
-              <selectables>
-                <selectable><assignable>positive integer of 4096 or more</assignable> iterations</selectable>
-                <selectable>value supported by the platform, greater than 1000</selectable>
-              </selectables>, and
-              output cryptographic key sizes <selectables>
-                <selectable>128</selectable>
-                <selectable>256</selectable>
-              </selectables> that meet the following: <assignable>applicable standard</assignable>. 
-            </title>
+              <title>
+                The TSF shall perform Password-based Key Derivation
+                Functions in accordance with a specified cryptographic algorithm HMAC-<selectables>
+                  <selectable>SHA-384</selectable>
+                  <selectable>SHA-512</selectable>
+                </selectables>, with 
+                <selectables>
+                  <selectable><assignable>positive integer of 4096 or more</assignable> iterations</selectable>
+                  <selectable>value supported by the platform, greater than 1000</selectable>
+                </selectables>, and
+                output cryptographic key sizes <assignable>output key size</assignable> 
+                that meet the following: <assignable>applicable standard</assignable>. 
+              </title>
             </ext-comp-def-title>
           </f-element>
           <f-element id="fcs-ckm-ext-6e4">
