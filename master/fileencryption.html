@@ -915,7 +915,8 @@ The following sections list Common Criteria and technology terms used in this do
         
 
     <h2 class="indexable" data-level="2" id="usecases">1.4 Use Cases</h2>
-      <dl><dt id="usecase1"> [USE CASE 1] Unmanaged Endpoint</dt><dd><span class="description">The traditional ability to encrypt files without external management and power down the machine and know the data is securely protected.</span></dd><dt id="usecase2"> [USE CASE 2] Managed Endpoint</dt><dd><span class="description">The traditional ability to encrypt files and power down the machine and know the data is securely protected, while communicating with an Enterprise Management server.</span></dd><dt id="usecase3"> [USE CASE 3] Encrypted Distribution</dt><dd><span class="description">The ability to encrypt a file on a machine and then send the encrypted file securely using a non-encrypted data in transit method.</span></dd></dl>
+      <dl><dt id="usecase1"> [USE CASE 1] Unmanaged Endpoint</dt><dd><span class="description">The traditional ability to encrypt files without external management and power down the machine and know the data is securely protected.</span></dd><dt id="usecase2"> [USE CASE 2] Managed Endpoint</dt><dd><span class="description">The traditional ability to encrypt files and power down the machine and know
+            the data is securely protected, while communicating with an enterprise management server.</span></dd><dt id="usecase3"> [USE CASE 3] Encrypted Distribution</dt><dd><span class="description">The ability to encrypt a file on a machine and then send the encrypted file securely using a non-encrypted data in transit method.</span></dd></dl>
     
   <h1 class="indexable" data-level="1" id="ccl">2 Conformance Claims</h1>
     <dl><dt>Conformance Statement</dt><p></p><dd>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance 
@@ -937,7 +938,7 @@ The following sections list Common Criteria and technology terms used in this do
 					any Protection Profile.
 				</dd><p></p><dd>The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a 
 					<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>:
-					<ul><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 2.3</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 2.4</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for File Encryption Enterprise Management, Version 1.0</li></ul></dd><dt>Package Claim</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is not conformant to any 
+					<ul><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 3.0</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for File Encryption Enterprise Management, Version 1.0</li></ul></dd><dt>Package Claim</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is not conformant to any 
 						Functional or Assurance Packages.</dd></dl>	  
   <h1 class="indexable" data-level="1" id="spd">3 Security Problem Definition</h1>
   The primary asset that is being protected
@@ -1244,7 +1245,7 @@ provide all of its security functionality.
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<br/><br/>
 
-              The evaluator shall check to ensure the KMD lists each type of key that is stored in in non-volatile memory, and 
+              The evaluator shall check to ensure the KMD lists each type of key that is stored in non-volatile memory, and 
               identifies how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interacts with the underlying platform to manage keys (e.g., store, retrieve, destroy). 
               The description includes details on the method of how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> interacts with the platform, including an identification 
               and description of the interfaces it uses to manage keys (e.g., file system APIs, platform key store APIs).<br/><br/>
@@ -1299,7 +1300,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               upon their deletion. If a RAID array is being used, only set-ups that support TRIM are utilized. If the drive is 
               connected via PCI-Express, the operating system supports TRIM over that channel.<br/><br/>
 
-              The drive should be healthy and contains minimal corrupted data and should be end of lifed before a significant 
+              The drive should be healthy and contain minimal corrupted data and should be at
+              end-of-life before a significant 
               amount of damage to drive health occurs, this minimizes the risk that small amounts of 
               potentially recoverable data may remain in damaged areas of the drive.<br/><br/>
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/><br/>
@@ -1413,8 +1415,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>. For the first selection, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author
               selects the method used for the keychain.  <br/><br/>
 
-              If the second option is chosen ("KEKs originating:")
-              , then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses all methods for production and protection of KEKs in the keychain 
+              If the second option is chosen ("KEKs originating:"), then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must also specify the 
               strength of the keys in the keychain.  It should be noted that "maintaining overall strength:
               commensurate with the overall strength of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>" is meant to cover the threat for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> 
@@ -1498,7 +1499,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">
                 
                 Conditional: <br/>If 'validating' is selected in <a href="#FCS_VAL_EXT.1.1">FCS_VAL_EXT.1.1</a>, the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine which authorization factors support validation.<br/><br/>
-                The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
+                The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that it contains a high-level description of how the submasks are validated. If multiple submasks are used within the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
                 the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <br/><br/>
                 
                 Conditional: <br/>If 'receiving assertion' is selected in <a href="#FCS_VAL_EXT.1.1">FCS_VAL_EXT.1.1</a>, the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes the environments that can be leveraged with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and how each claims to perform validation.
@@ -1740,7 +1741,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                   The evaluator shall use
                   a tool (e.g., procmon for a Windows system) that is capable of monitoring the
                   creation and deletion of files during the decryption/encryption process is
-                  performed. A tool that can search the contents of the hard drive (e.g., winhex) will
+                  performed. A tool that can search the contents of the hard drive (e.g., WinHex) will
                   also be needed. The tools used to perform the monitoring shall be identified in the
                   test report. <br/>
                 
@@ -1796,7 +1797,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               [<b>selection</b>: <span class="selectable-content" id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</span>, <span class="selectable-content" id="APPAUTH">provide user authorization</span>] based on 
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="USEPAS"> a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span></li><li style=""><span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is 
-                   [<b>selection</b>: <span class="selectable-content" id="_s_102">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="_s_103">generated by the platform</span>] protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>)
+                   [<b>selection</b>: <span class="selectable-content" id="_s_102">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="_s_103">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>)
                    with user presence proved by presentation of the smart card and 
                   [<b>selection</b>: <span class="selectable-content" id="_s_104">no PIN</span>, <span class="selectable-content" id="_s_105">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="_s_106">a configurable PIN</span>]
                 </span></li><li style=""><span class="selectable-content" id="_s_107">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s),
@@ -1890,8 +1891,8 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                   "configure cryptographic functionality" will be included, and the specifics of the
                   functionality offered can either be written in this requirement as bullet points,
                   or included in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</li>
-                <li>If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses stored FEKS or KEKs(the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is not directly derived from a password)
-                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a>" will be included. 
+                <li>If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses stored FEKS or KEKs (the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is not directly derived from a
+                  password), then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a>" will be included. 
                   This function should be able to be triggered by a user or admin and may be triggered by uninstallation.</li>
                 <li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
@@ -2595,7 +2596,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                  None. <br/><br/>
                 
                 
-              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
+              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to establish multiple accounts and protect resources from other users.
                 If different for different underlying platforms, the evaluator determines that all platforms listed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> are addressed.<br/><br/>
                 
@@ -2646,7 +2647,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 <h4>KMD</h4>
                  None. <br/><br/>
                 
-              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
+              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the
                 encryption product. If different for different underlying platforms, the
@@ -3410,7 +3411,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               [<b>selection</b>: <span class="selectable-content" id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</span>, <span class="selectable-content" id="APPAUTH">provide user authorization</span>] based on 
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="USEPAS"> a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span></li><li style=""><span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is 
-                   [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and 
+                   [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and 
                   [<b>selection</b>: <span class="selectable-content" id="_s_116">no PIN</span>, <span class="selectable-content" id="_s_117">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="_s_118">a configurable PIN</span>]
                 </span></li><li style=""><span class="selectable-content" id="_s_119">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s),
                    and is providing a submask generated by the 

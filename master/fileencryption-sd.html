@@ -516,7 +516,7 @@ The following sections list Common Criteria and technology terms used in this do
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<br/><br/>
 
-              The evaluator shall check to ensure the KMD lists each type of key that is stored in in non-volatile memory, and 
+              The evaluator shall check to ensure the KMD lists each type of key that is stored in non-volatile memory, and 
               identifies how the TOE interacts with the underlying platform to manage keys (e.g., store, retrieve, destroy). 
               The description includes details on the method of how the TOE interacts with the platform, including an identification 
               and description of the interfaces it uses to manage keys (e.g., file system APIs, platform key store APIs).<br/><br/>
@@ -571,7 +571,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               upon their deletion. If a RAID array is being used, only set-ups that support TRIM are utilized. If the drive is 
               connected via PCI-Express, the operating system supports TRIM over that channel.<br/><br/>
 
-              The drive should be healthy and contains minimal corrupted data and should be end of lifed before a significant 
+              The drive should be healthy and contain minimal corrupted data and should be at
+              end-of-life before a significant 
               amount of damage to drive health occurs, this minimizes the risk that small amounts of 
               potentially recoverable data may remain in damaged areas of the drive.<br/><br/>
 </div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea"> These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/><br/>
@@ -676,7 +677,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">
                 
                 Conditional: <br/>If 'validating' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to determine which authorization factors support validation.<br/><br/>
-                The evaluator shall examine the TSS to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
+                The evaluator shall examine the TSS to ensure that it contains a high-level description of how the submasks are validated. If multiple submasks are used within the TOE, 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <br/><br/>
                 
                 Conditional: <br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the environments that can be leveraged with the TOE and how each claims to perform validation.
@@ -826,7 +827,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                   The evaluator shall use
                   a tool (e.g., procmon for a Windows system) that is capable of monitoring the
                   creation and deletion of files during the decryption/encryption process is
-                  performed. A tool that can search the contents of the hard drive (e.g., winhex) will
+                  performed. A tool that can search the contents of the hard drive (e.g., WinHex) will
                   also be needed. The tools used to perform the monitoring shall be identified in the
                   test report. <br/>
                 
@@ -1215,7 +1216,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                  None. <br/><br/>
                 
                 
-              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
+              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to establish multiple accounts and protect resources from other users.
                 If different for different underlying platforms, the evaluator determines that all platforms listed in the ST are addressed.<br/><br/>
                 
@@ -1243,7 +1244,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <h4>KMD</h4>
                  None. <br/><br/>
                 
-              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
+              </div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the
                 encryption product. If different for different underlying platforms, the
