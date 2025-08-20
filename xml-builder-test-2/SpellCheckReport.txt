@@ -23,7 +23,6 @@ output/fileencryption-release-linkable.html: FIPS186
 output/fileencryption-release-linkable.html: FIPS198
 output/fileencryption-release-linkable.html: KMD
 output/fileencryption-release-linkable.html: MBR
-output/fileencryption-release-linkable.html: MEC
 output/fileencryption-release-linkable.html: NIST800
 output/fileencryption-release-linkable.html: OEAP
 output/fileencryption-release-linkable.html: PBKDF
@@ -69,7 +68,6 @@ output/fileencryption-release.html: FIPS140
 output/fileencryption-release.html: FIPS180
 output/fileencryption-release.html: FIPS186
 output/fileencryption-release.html: FIPS198
-output/fileencryption-release.html: MEC
 output/fileencryption-release.html: NIST800
 output/fileencryption-release.html: PBKDF
 output/fileencryption-release.html: PRF
@@ -152,7 +150,6 @@ output/fileencryption.html: FIPS186
 output/fileencryption.html: FIPS198
 output/fileencryption.html: KMD
 output/fileencryption.html: MBR
-output/fileencryption.html: MEC
 output/fileencryption.html: NIST800
 output/fileencryption.html: OEAP
 output/fileencryption.html: PBKDF
