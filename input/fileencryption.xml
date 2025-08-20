@@ -279,7 +279,8 @@
         <description>The traditional ability to encrypt files without external management and power down the machine and know the data is securely protected.</description>
       </usecase>
         <usecase title="Managed Endpoint" id="usecase2">
-          <description>The traditional ability to encrypt files and power down the machine and know the data is securely protected, while communicating with an Enterprise Management server.</description>
+          <description>The traditional ability to encrypt files and power down the machine and know
+            the data is securely protected, while communicating with an enterprise management server.</description>
         </usecase>
         <usecase title="Encrypted Distribution" id="usecase3">
           <description>The ability to encrypt a file on a machine and then send the encrypted file securely using a non-encrypted data in transit method.</description>
@@ -295,8 +296,7 @@
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
-        <Mod-cc-ref>PP-Module for VPN Client, Version 2.3</Mod-cc-ref>
-        <Mod-cc-ref>PP-Module for VPN Client, Version 2.4</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for VPN Client, Version 3.0</Mod-cc-ref>        
         <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim/>        
@@ -847,7 +847,7 @@
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
 
-              The evaluator shall check to ensure the KMD lists each type of key that is stored in in non-volatile memory, and 
+              The evaluator shall check to ensure the KMD lists each type of key that is stored in non-volatile memory, and 
               identifies how the TOE interacts with the underlying platform to manage keys (e.g., store, retrieve, destroy). 
               The description includes details on the method of how the TOE interacts with the platform, including an identification 
               and description of the interfaces it uses to manage keys (e.g., file system APIs, platform key store APIs).<h:br/><h:br/>
@@ -904,7 +904,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               upon their deletion. If a RAID array is being used, only set-ups that support TRIM are utilized. If the drive is 
               connected via PCI-Express, the operating system supports TRIM over that channel.<h:br/><h:br/>
 
-              The drive should be healthy and contains minimal corrupted data and should be end of lifed before a significant 
+              The drive should be healthy and contain minimal corrupted data and should be at
+              end-of-life before a significant 
               amount of damage to drive health occurs, this minimizes the risk that small amounts of 
               potentially recoverable data may remain in damaged areas of the drive.<h:br/><h:br/>
 </Guidance>
@@ -1155,8 +1156,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               of the FEK. For the first selection, the ST author
               selects the method used for the keychain.  <h:br/><h:br/>
 
-              If the second option is chosen ("KEKs originating:")
-              , then the ST author chooses all methods for production and protection of KEKs in the keychain 
+              If the second option is chosen ("KEKs originating:"), then the ST author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the ST author must also specify the 
               strength of the keys in the keychain.  It should be noted that "maintaining overall strength:
               commensurate with the overall strength of the FEK" is meant to cover the threat for this PP-Module 
@@ -1405,7 +1405,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               <TSS>
                 
                 Conditional: <h:br/>If 'validating' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
-                The evaluator shall examine the TSS to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
+                The evaluator shall examine the TSS to ensure that it contains a high-level description of how the submasks are validated. If multiple submasks are used within the TOE, 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
                 
                 Conditional: <h:br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the environments that can be leveraged with the TOE and how each claims to perform validation.
@@ -1706,7 +1706,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                   The evaluator shall use
                   a tool (e.g., procmon for a Windows system) that is capable of monitoring the
                   creation and deletion of files during the decryption/encryption process is
-                  performed. A tool that can search the contents of the hard drive (e.g., winhex) will
+                  performed. A tool that can search the contents of the hard drive (e.g., WinHex) will
                   also be needed. The tools used to perform the monitoring shall be identified in the
                   test report. <h:br/>
                 
@@ -1791,7 +1791,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                    <selectables>
                      <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>))</selectable>
                      <selectable>generated by the platform</selectable>
-                   </selectables> protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>)
+                   </selectables> protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>)
                    with user presence proved by presentation of the smart card and 
                   <selectables>
                     <selectable>no PIN</selectable>
@@ -1821,7 +1821,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                    <selectables>
                      <selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable>
                      <selectable>generated by the platform</selectable>
-                   </selectables> protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>) with user presence proved by presentation of the smart card and 
+                   </selectables> protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>) with user presence proved by presentation of the smart card and 
                   <selectables>
                     <selectable>no PIN</selectable>
                     <selectable>an OE defined PIN</selectable>
@@ -1981,8 +1981,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                   "configure cryptographic functionality" will be included, and the specifics of the
                   functionality offered can either be written in this requirement as bullet points,
                   or included in the TSS.</h:li>
-                <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
-                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2" will be included. 
+                <h:li>If the TOE uses stored FEKS or KEKs (the FEK is not directly derived from a
+                  password), then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2" will be included. 
                   This function should be able to be triggered by a user or admin and may be triggered by uninstallation.</h:li>
                 <h:li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
@@ -2796,7 +2796,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 
                 
               </TSS>
-              <Guidance> - The evaluator shall examine the operation guidance to
+              <Guidance>The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to establish multiple accounts and protect resources from other users.
                 If different for different underlying platforms, the evaluator determines that all platforms listed in the ST are addressed.<h:br/><h:br/>
                 
@@ -2869,7 +2869,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  None. <h:br/><h:br/>
                 
               </TSS>
-              <Guidance> - The evaluator shall examine the operation guidance to
+              <Guidance>The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the
                 encryption product. If different for different underlying platforms, the
