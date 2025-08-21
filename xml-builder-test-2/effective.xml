@@ -2142,6 +2142,49 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
     <obj-sfrs/>
     <impl-dep-sfrs/>
   </sec:Security_Requirements>
+  <appendix title="Appendix - Key Management Description" previous_section="">
+      The documentation of the product’s encryption key management should be detailed enough
+      that, after reading, the evaluator will thoroughly understand the product’s key management and
+      how it meets the requirements to ensure the keys are adequately protected. This documentation
+      should include an essay and diagram(s). This documentation is not required to be part of the
+      TSS - it can be submitted as a separate document and marked as developer proprietary.
+      <h:br/><h:br/>
+      Essay:
+      <h:br/><h:br/>
+      The essay will provide the following information for all keys in the key chain:
+      <h:br/><h:br/><h:li>The purpose of the key</h:li><h:li>If the key is stored in non-volatile memory</h:li><h:li>How and when the key is protected</h:li><h:li>How and when the key is derived</h:li><h:li>The strength of the key</h:li><h:li>When or if the key would be no longer needed, along with a justification</h:li><h:li>How and when the key may be shared</h:li><h:br/><h:br/>
+      The essay will also describe the following topics:
+      <h:br/><h:br/><h:li>A description of all authorization factors that are supported by the product and how
+      each factor is handled, including any conditioning and combining performed.</h:li><h:li>If validation is implemented, the process for validation shall be described, noting what
+      value is used for validation and the process used to perform the validation. It shall
+      describe how this process ensures no keys in the key chain are weakened or exposed
+      by this process.</h:li><h:li>The authorization process that leads to the decryption of the FEK(s). This section
+      shall detail the key chain used by the product. It shall describe which keys are used in
+      the protection of the FEK(s) and how they meet the encryption or derivation requirements including the direct chain from the initial
+      authorization to the FEK(s). It shall also include any values that add into that key chain
+      or interact with the key chain and the protections that ensure those values do not
+      weaken or expose the overall strength of the key chain.</h:li><h:li>The diagram and essay will clearly illustrate the key hierarchy to ensure that at no
+      point the chain could be broken without a cryptographic exhaust or all of the initial
+      authorization values and the effective strength of the FEK(s) is maintained throughout
+      the key chain.</h:li><h:li>A description of the data encryption engine, its components, and details about its
+      implementation (e.g. initialization of the product, drivers, libraries (if
+      applicable), logical interfaces for encryption/decryption, and how resources to be encrypted are identified.
+      The description should also include the data flow from the device’s host interface to the device’s persistent media storing the data,
+      information on those conditions in which the data bypasses the data encryption engine. The
+      description should be detailed enough to verify all platforms ensure that when the
+      user enables encryption, the product encrypts all selected resources.</h:li><h:li>The process for destroying keys when they are no longer needed by describing the
+      storage location of all keys and the protection of all keys stored in non-volatile
+      memory.</h:li><h:br/><h:br/>
+      Diagram:
+      
+      <h:br/><h:br/><h:li>The diagram will include all keys from the initial authorization factor(s) to the FEK(s)
+      and any keys or values that contribute into the chain. It must list the cryptographic
+      strength of each key and indicate how each key along the chain is protected with
+      either options from key chaining requirement. The diagram
+      should indicate the input used to derive or decrypt each key in the chain.</h:li><h:li>A functional (block) diagram showing the main components (such as memories and
+      processors) the initial steps needed
+      for the activities the TOE performs to ensure it encrypts the targeted resources
+      when a user or administrator first provisions the product.</h:li></appendix>
   <bibliography>
     <cc-entry/>
     <entry id="bibAppPP">

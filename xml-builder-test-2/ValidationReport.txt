@@ -1,0 +1,2 @@
+/home/runner/work/fileencryption/fileencryption/input/fileencryption.xml:2151:79: error: attribute "previous_section" not allowed here; expected attribute "boilerplate" or "id"
+/home/runner/work/fileencryption/fileencryption/input/fileencryption.xml:2151:79: error: element "appendix" missing required attribute "id"
