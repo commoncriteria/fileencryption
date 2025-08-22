@@ -426,7 +426,7 @@
     <!-- 5.2 TOE Security Functional Requirements -->
     <man-sfrs>
       <!-- 5.2.1 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="fcs">
+      <section title="Cryptographic Support (FCS)" id="fcs-mandatory">
         <ext-comp-def title="Cryptographic Key Management" fam-id="FCS_CKM_EXT">
           <fam-behavior>Components in this family define requirements for key management activities that are beyond the scope of what is defined in the FCS_CKM family in CC Part 2.</fam-behavior>
         </ext-comp-def>
@@ -795,7 +795,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
       </section>
       <!-- 5.2.2 User Data Protection (FDP) -->
-      <section title="User Data Protection (FDP)" id="fdp">
+      <section title="User Data Protection (FDP)" id="fdp-mandatory">
         <ext-comp-def title="Protection of Selected User Data" fam-id="FDP_PRT_EXT">
           <fam-behavior>Components in this family define requirements for the TOE's ability to protect sensitive data at rest.</fam-behavior>
         </ext-comp-def>
@@ -918,7 +918,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
       </section>
       <!-- 5.2.3 Identification and Authentication (FIA) -->
-      <section title="Identification and Authentication (FIA)" id="fia">
+      <section title="Identification and Authentication (FIA)" id="fia-mandatory">
         <ext-comp-def title="Authorization" fam-id="FIA_AUT_EXT">
           <fam-behavior>Components in this family define requirements for how subject authorization is performed. Where FIA_UAU in CC Part 2 defines circumstances where authentication is required, this family describes the specific computational methods used to determine whether a subject’s presented authentication data is valid.</fam-behavior>
         </ext-comp-def>
@@ -998,7 +998,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
       </section>
       <!-- 5.2.4 Security Management (FMT) -->
-      <section title="Security Management (FMT)" id="fmt">
+      <section title="Security Management (FMT)" id="fmt-mandatory">
         <!-- FMT_SMF.1/FE Specification of File Encryption Management
           Functions -->
         <f-component cc-id="fmt_smf.1" id="fmt-smf-1-fe" name="Specification of File Encryption Management
@@ -1120,7 +1120,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
       </section>
       <!-- 5.2.5 Protection of the TSF (FPT) -->
-      <section title="Protection of the TSF (FPT)" id="fpt">
+      <section title="Protection of the TSF (FPT)" id="fpt-mandatory">
         <ext-comp-def title="Protection of Key and Key Material" fam-id="FPT_KYP_EXT">
           <fam-behavior>Components in this family define requirements for secure storage of keys.</fam-behavior>
         </ext-comp-def>
@@ -1172,7 +1172,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
     </man-sfrs>
     <opt-sfrs>
       <!-- 5.2.6 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="fcs">
+      <section title="Cryptographic Support (FCS)" id="fcs-optional">
         <ext-comp-def title="Cryptographic Operation" fam-id="FCS_COP_EXT">
           <fam-behavior>Components in this family define requirements for cryptographic operations specific to file encryption.</fam-behavior>
         </ext-comp-def>
@@ -1295,7 +1295,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
       </section>
       <!-- 5.2.7 User Data Protection (FDP) -->
-      <section title="User Data Protection (FDP)" id="fdp">
+      <section title="User Data Protection (FDP)" id="fdp-optional">
         <ext-comp-def title="Protection of Selected User Data" fam-id="FDP_PRT_EXT">
           <fam-behavior>Components in this family define requirements for the TOE's ability to protect sensitive data at rest.</fam-behavior>
         </ext-comp-def>
@@ -1647,7 +1647,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
       </section>
       <!-- 5.2.8 Identification and Authentication (FIA) -->
-      <section title="Identification and Authentication (FIA)" id="fia">
+      <section title="Identification and Authentication (FIA)" id="fia-optional">
         <ext-comp-def title="Authorization" fam-id="FIA_AUT_EXT">
           <fam-behavior>Components in this family define requirements for how subject authorization is performed. Where FIA_UAU in CC Part 2 defines circumstances where authentication is required, this family describes the specific computational methods used to determine whether a subject’s presented authentication data is valid.</fam-behavior>
         </ext-comp-def>
@@ -1752,7 +1752,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
     </opt-sfrs>
     <sel-sfrs>
       <!-- 5.2.9 Cryptographic Support (FCS) -->
-      <section title="Cryptographic Support (FCS)" id="fcs">
+      <section title="Cryptographic Support (FCS)" id="fcs-selectionBased">
         <ext-comp-def title="Cryptographic Operation" fam-id="FCS_COP_EXT">
           <fam-behavior>Components in this family define requirements for cryptographic operations specific to file encryption.</fam-behavior>
         </ext-comp-def>
