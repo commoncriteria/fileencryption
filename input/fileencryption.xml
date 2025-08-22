@@ -361,6 +361,10 @@
             derived authorization factors have sufficient strength and entropy to reflect the
             sensitivity of the data being protected. This can apply to password or
             passphrase based, ECC CDH, and RSA authorization factors.</description>
+          <consistency-rationale>
+            This objective is consistent with the Base-PP because this functionality is beyond the scope of what the Base-PP defines. Therefore, the use and strength of 
+            external authorization factors does not affect the ability of any Base-PP SFRs or objectives to be satisfied.
+          </consistency-rationale>
         </SOE>
         <SOE name="OE.POWER_SAVE">
           <description>The non-mobile operational environment must be configurable so that there
@@ -369,10 +373,16 @@
             be capable of being disabled. The mobile operational environment must be
             configurable such that there exists at least one mechanism that will cause the system to
             lock upon a period of time. </description>
+          <consistency-rationale>
+            This objective is consistent with the Base-PP because it is an extension of the Base-PP's OE.PLATFORM objective that is specific to this technology type.
+          </consistency-rationale>
         </SOE>
         <SOE name="OE.STRONG_ENVIRONMENT_CRYPTO">
           <description>The Operating environment will provide a cryptographic function capability
             that is commensurate with the requirements and capabilities of the TOE.</description>
+          <consistency-rationale>
+            This objective is consistent with the Base-PP because the Base-PP allows for the TOE to use platform-provided cryptography.
+          </consistency-rationale>
         </SOE>
       </SOEs>
     </sec:Security_Objectives_for_the_Operational_Environment>
@@ -2148,7 +2158,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
     <obj-sfrs/>
     <impl-dep-sfrs/>
   </sec:Security_Requirements>
-  <appendix title="Appendix - Key Management Description">
+  <appendix title="Appendix - Key Management Description" id="KMD">
       The documentation of the product’s encryption key management should be detailed enough
       that, after reading, the evaluator will thoroughly understand the product’s key management and
       how it meets the requirements to ensure the keys are adequately protected. This documentation
