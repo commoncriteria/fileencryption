@@ -1,11 +1,8 @@
-* Error: Detected multiple elements with an id of 'fcs'.
 * Error: Detected multiple elements with an id of 'DRVFEKPAS'.
 * Error: Detected multiple elements with an id of 'DRVFEKPAS'.
 * Error: Detected multiple elements with an id of 'USEKEYWRA'.
 * Error: Detected multiple elements with an id of 'USEKEYWRA'.
-* Error: Detected multiple elements with an id of 'fdp'.
 * Error: Detected multiple elements with an id of 'fdp-prt-ext-1e1'.
-* Error: Detected multiple elements with an id of 'fia'.
 * Error: Detected multiple elements with an id of 'PLATAUTH'.
 * Error: Detected multiple elements with an id of 'APPAUTH'.
 * Error: Detected multiple elements with an id of 'USEPAS'.
@@ -14,11 +11,7 @@
 * Error: Detected multiple elements with an id of 'APPAUTH'.
 * Error: Detected multiple elements with an id of 'USEPAS'.
 * Error: Detected multiple elements with an id of 'USECAR'.
-* Error: Detected multiple elements with an id of 'fcs'.
-* Error: Detected multiple elements with an id of 'fdp'.
 * Error: Detected multiple elements with an id of 'fdp-prt-ext-1e1'.
-* Error: Detected multiple elements with an id of 'fia'.
-* Error: Detected multiple elements with an id of 'fcs'.
 * Warning: Since FCS_CKM_EXT.6.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
 * Warning: Since FCS_CKM_EXT.6.2 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
