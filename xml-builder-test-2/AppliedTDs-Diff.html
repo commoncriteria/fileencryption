@@ -622,7 +622,7 @@
                     <a href="#FCS_CKM.6.2" class="abbr">FCS_CKM.6.2</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy cryptographic keys and keying material specified by <a href="#FCS_CKM.6.1">FCS_CKM.6.1</a> in accordance with a specified cryptographic key destruction method [ <i> [<b>selection</b>: 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy cryptographic keys and keying material specified by <a href="#FCS_CKM.6.1">FCS_CKM.6.1</a> in accordance with a specified cryptographic key destruction method [<i>[<b>selection</b>: 
                         <ul>
                             <li style="">
                                 <span class="selectable-content" id="fcs_ckm.6.2_1">For volatile memory, the destruction shall be executed by a [<b>selection</b>: 
@@ -992,7 +992,7 @@
                     <a href="#FMT_SMF.1.1/FE" class="abbr">FMT_SMF.1.1/FE</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions: <b> [<b>selection</b>: 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions: <b>[<b>selection</b>: 
                         <ul>
                             <li style="">
                                 <span class="selectable-content" id="fmt_smf.1.1_FE_1">configure cryptographic functionality</span>
@@ -1835,7 +1835,7 @@
                     <a href="#FCS_COP.1.1/KE" class="abbr">FCS_COP.1.1/KE</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KE_1">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="fcs_cop.1.1_KE_2">perform key encryption and decryption</span>] </b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>[<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KE_1">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="fcs_cop.1.1_KE_2">perform key encryption and decryption</span>] </b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use AES encryption/decryption for protecting the keys as part of the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
                     </div>
@@ -1873,7 +1873,7 @@
                     <a href="#FCS_COP.1.1/KW" class="abbr">FCS_COP.1.1/KW</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KW_1">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="fcs_cop.1.1_KW_2">implement functionality to perform Key Wrapping</span>] </b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>[<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KW_1">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="fcs_cop.1.1_KW_2">implement functionality to perform Key Wrapping</span>] </b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
                         <ul>
                             <li style="">
                                 <span class="selectable-content" id="fcs_cop.1.1_KW_3">Key Wrap</span>
@@ -1888,7 +1888,7 @@
                                 <span class="selectable-content" id="fcs_cop.1.1_KW_6">CCM mode</span>
                             </li>
                         </ul>
-                        ] </b> and cryptographic key sizes [<i>256 bits (AES)</i>] that meet the following: <b> [<b>selection</b>: 
+                        ] </b> and cryptographic key sizes [<i>256 bits (AES)</i>] that meet the following: <b>[<b>selection</b>: 
                         <ul>
                             <li style="">
                                 <span class="selectable-content" id="fcs_cop.1.1_KW_7">"NIST SP 800-38C"</span>
@@ -1917,7 +1917,7 @@
                     <a href="#FCS_KDF_EXT.1.1" class="abbr">FCS_KDF_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [ <i>accept [<b>selection</b>: <span class="selectable-content" id="fcs_kdf_ext.1.1_1">a submask generated by an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_2">a conditioned password</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_3">an imported submask</span>]</i>] to derive an intermediate key, as defined in [ <i> [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>accept [<b>selection</b>: <span class="selectable-content" id="fcs_kdf_ext.1.1_1">a submask generated by an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_2">a conditioned password</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_3">an imported submask</span>]</i>] to derive an intermediate key, as defined in [<i>[<b>selection</b>: 
                         <ul>
                             <li style="">
                                 <span class="selectable-content" id="fcs_kdf_ext.1.1_4">NIST SP 800-108 [<b>selection</b>: <span class="selectable-content" id="fcs_kdf_ext.1.1_5">KDF in Counter Mode</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_6">KDF in Feedback Mode</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_7">KDF in Double-Pipeline Iteration Mode</span>] </span>
@@ -1943,7 +1943,7 @@
                     <a href="#FCS_SMC_EXT.1.1" class="abbr">FCS_SMC_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall combine submasks using the following method [ <i> [<b>selection</b>: <span class="selectable-content" id="fcs_smc_ext.1.1_1">exclusive OR (XOR)</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_2">SHA-384</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_3">SHA-512</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_4">HMAC-SHA-384</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_5">HMAC-SHA-512</span>]</i>] to generate an intermediate key.
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall combine submasks using the following method [<i>[<b>selection</b>: <span class="selectable-content" id="fcs_smc_ext.1.1_1">exclusive OR (XOR)</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_2">SHA-384</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_3">SHA-512</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_4">HMAC-SHA-384</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_5">HMAC-SHA-512</span>]</i>] to generate an intermediate key.
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement specifies the way that a product may combine the various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.</span>
                     </div>
