@@ -463,7 +463,7 @@
 		      
 		            The evaluator shall verify the TSS provides a high level description of what it means
                 for keys and key material to be no longer needed and when then should be expected to
-                be destroyed. <h:br/><h:br/><h4>KMD</h4>   
+                be destroyed. <h:br/><h:br/><h:h4>KMD</h:h4>   
 		          The evaluator examines the KMD to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
@@ -618,7 +618,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               verify the TSS describes how a FEK is used for a protected
               resource and associated with that resource. The evaluator confirms that-per this description-the
               FEK is unique per resource (file or set of files) and that the FEK is established using
-              the mechanisms specified in FCS_CKM_EXT.2.1). <h:br/><h:br/><h4>KMD</h4>
+              the mechanisms specified in FCS_CKM_EXT.2.1). <h:br/><h:br/><h:h4>KMD</h:h4>
               None. <h:br/><h:br/></TSS>
               <Guidance> The evaluator shall review the
               instructions in the AGD guidance to determine that any explicit actions that need to
@@ -700,7 +700,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <aactivity level="component">
               <TSS>The evaluator shall verify the TSS contains a high level 
               description of all keychains and authorization methods selected in FIA_AUT_EXT.1 
-              that are used to protect the KEK or FEK. <h:br/><h:br/><h4>KMD</h4>The evaluator shall examine the KMD to ensure it describes 
+              that are used to protect the KEK or FEK. <h:br/><h:br/><h:h4>KMD</h:h4>The evaluator shall examine the KMD to ensure it describes 
               each key chain in detail, and these descriptions correspond with the selections of the requirement. 
               The description of each key chain shall be reviewed to ensure the options for maintaining the key chain are documented.<h:br/><h:br/>
 
@@ -741,7 +741,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
                 
                 Conditional: <h:br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the environments that can be leveraged with the TOE and how each claims to perform validation.
-                The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/><h4>KMD</h4>
+                The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<h:br/><h:br/><h:h4>KMD</h:h4>
               None. <h:br/><h:br/></TSS>
               <Guidance>If the validation functionality is configurable, the evaluator shall examine the operational guidance
                 to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. <h:br/><h:br/></Guidance>
@@ -780,7 +780,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 
                 This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.</note>
             <aactivity level="component">
-              <TSS>The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<h:br/><h:br/><h4>KMD</h4>
+              <TSS>The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<h:br/><h:br/><h:h4>KMD</h:h4>
                   None. <h:br/><h:br/></TSS>
               <Guidance>If the remediation functionality is configurable, the evaluator shall examine the operational guidance
                   to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established.<h:br/><h:br/></Guidance>
@@ -898,7 +898,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             decryption/encryption operation. Note that if other objects/resources are created on the
             host that are 1) persistent and 2) visible to other processes (users) on that host that
             are not filesystem objects, those objects shall be identified and described in the TSS
-            as well. <h:br/><h:br/><h4>KMD</h4>None.<h:br/><h:br/></TSS>
+            as well. <h:br/><h:br/><h:h4>KMD</h:h4>None.<h:br/><h:br/></TSS>
               <Guidance> None. <h:br/><h:br/></Guidance>
               <Tests>
                 <testlist>
@@ -985,7 +985,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               how the factors are input into the TOE.<h:br/><h:br/><h:b>Requirement met by the platform</h:b><h:br/> The evaluator shall examine the TSS to
               ensure a description is included for how the TOE is invoking the platform
               functionality and how it is getting an authorization value that has appropriate
-              entropy.<h:br/><h:br/><h4>KMD</h4>
+              entropy.<h:br/><h:br/><h:h4>KMD</h:h4>
               None. <h:br/><h:br/></TSS>
               <Guidance>The evaluator shall verify that the AGD guidance includes instructions for all of the
               authorization factors. The AGD will discuss the characteristics of external
@@ -1104,7 +1104,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 perspective when this activity is performed (for example, how it determines which
                 resources are associated with the KEK, the decryption and re-encryption process), and
                 ensure that the KEK and FEK are not exposed during this change. <h:br/><h:br/>
-                Cryptographic Configuration: None for this requirement. <h:br/><h:br/><h4>KMD</h4>
+                Cryptographic Configuration: None for this requirement. <h:br/><h:br/><h:h4>KMD</h:h4>
                 None. <h:br/><h:br/></TSS>
               <Guidance>
                 Conditional Activities: The evaluator shall examine the Operational Guidance for each included selection
@@ -1157,7 +1157,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               or encryption on keys that have already been protected. </note>
             <aactivity level="component">
               <TSS>The evaluator shall verify the TSS for a high level description of the method(s) used
-              to protect keys stored in non-volatile memory.<h:br/><h:br/><h4>KMD</h4>The evaluator shall verify
+              to protect keys stored in non-volatile memory.<h:br/><h:br/><h:h4>KMD</h:h4>The evaluator shall verify
               the KMD to ensure it describes the storage location of all keys and the protection of
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure FCS_COP.1/KW is followed for the storage of wrapped or encrypted
@@ -1236,7 +1236,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 and FAK). The evaluator shall further check to ensure that the TSS describes how the FAK
                 and any other associated meta-data necessary to decrypt the file or set of files are
                 associated with the resource. This description can be combined with the description
-                required for FCS_COP_EXT.1. <h:br/><h:br/><h4>KMD</h4>
+                required for FCS_COP_EXT.1. <h:br/><h:br/><h:h4>KMD</h:h4>
                 None. <h:br/><h:br/></TSS>
               <Guidance> None. <h:br/><h:br/></Guidance>
               <Tests>An example ciphertext file generated via the TOE shall be provided to the evaluator with the accompanying FAK and prerequisite authorization information used for encryption. The evaluator will use the TOE in conjunction with a debugging or forensics utility to attempt an authentication of the ciphertext file using the provided authorization information. The evaluator will then terminate processing of the TOE and perform a search through non-volatile memory using the provided FAK string. The evaluator must document each command, program or action taken during this process, and must confirm that the FAK was never written to non-volatile memory. This test must be performed three times to ensure repeatability. If during the course of this testing the evaluator finds that the FAK was written to non-volatile memory, they should be able to identify the cause (i.e. the TOE wrote the FAK to disk, the TOE platform dumped volatile memory as a page file, etc.), and document the reason for failure to comply with the requirement.</Tests>
@@ -1287,7 +1287,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               encryption and decryption practices. </note>
             <aactivity level="component">
               <TSS>The evaluator shall follow the evaluation activities as laid out in
-                FCS_COP.1/KW to assert proper FAK protection.<h:br/><h:br/><h4>KMD</h4>None.<h:br/><h:br/></TSS>
+                FCS_COP.1/KW to assert proper FAK protection.<h:br/><h:br/><h:h4>KMD</h:h4>None.<h:br/><h:br/></TSS>
               <Guidance>None.<h:br/><h:br/></Guidance>
               <Tests>None.</Tests>
             </aactivity>
@@ -1341,7 +1341,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  MAC appended to the data; it was authenticated and decrypted (by the TOE) for use by the
                  user, and is then subsequently re-encrypted with an updated MAC); and corresponding
                  decryption scenarios. If other scenarios exist due to product implementation/features,
-                 the evaluator shall ensure that those scenarios are covered in the TSS as well.<h:br/><h:br/><h4>KMD</h4>
+                 the evaluator shall ensure that those scenarios are covered in the TSS as well.<h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance>If the TOE creates temporary objects and these objects can be
                  protected through administrative measures (e.g., the TOE creates temporary files in a
@@ -1416,7 +1416,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  If 'key generation methods compliant with NIST SP 800-133r2' was selected, the evaluator shall verify
                  that the TSS describes how the functionality described by NIST SP 800-33r1 is implemented to generate the FAK.
                  The evaluator shall verify that the description of the key generation method matches the methods described in
-                 SP 800-133r2 and that the FAK is chained to an approved RBG. <h:br/><h:br/><h4>KMD</h4>
+                 SP 800-133r2 and that the FAK is chained to an approved RBG. <h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance> It is encouraged for
                  every implementation to use a FAK that is wholly different and independently generated
@@ -1500,7 +1500,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                  was used to create the hash and that the hash was used as input to the cryptographic
                  signing function. The evaluator will confirm that the TSF notifies the user of an
                  unsuccessful authentication and prevents decryption.  The evaluator shall confirm
-                 that the signature is appended to the end of the ciphertext file.<h:br/><h:br/><h4>KMD</h4>
+                 that the signature is appended to the end of the ciphertext file.<h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance> None.<h:br/><h:br/></Guidance>
               <Tests>
@@ -1577,7 +1577,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                      exited, and how the requirements are met during this transition to an operational state.<h:br/><h:br/>
                      
                      The evaluator shall verify the TSS provides a description of what keys and key material are destroyed when entering 
-                     any protected state.<h:br/><h:br/><h4>KMD</h4><h:br/>The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
+                     any protected state.<h:br/><h:br/><h:h4>KMD</h:h4><h:br/>The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
                      The evaluator shall verify the KMD includes a key lifecycle that includes a description where key material reside,
                      how the key material is used, and how the material is destroyed once a claimed power state is entered
                      and that the documentation in the KMD follows FCS_CKM.6.2 for the destruction.<h:br/><h:br/></TSS>
@@ -1637,7 +1637,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <aactivity level="component">
               <TSS>The evaluator shall
                      examine the TSS to ensure that it describes how the TOE detects and encrypts temporary files (or set of files) that
-                     are created in the filesystem of the host by third party products.<h:br/><h:br/><h4>KMD</h4>
+                     are created in the filesystem of the host by third party products.<h:br/><h:br/><h:h4>KMD</h:h4>
                       None. <h:br/><h:br/></TSS>
               <Guidance> [conditional]  If any configuration is required for this process the evaluator shall verify it is 
                      described in the guidance documentation. <h:br/><h:br/></Guidance>
@@ -1675,7 +1675,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 <h:br/><h:br/>
                 The evaluator shall examine the TSS to verify key chains are separate ensuring resources are protected from other users, 
                 with the exception of files permitted to be shared under the mechanism described in FIA_FCT_EXT.2.
-                <h:br/><h:br/><h4>KMD</h4>
+                <h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to establish multiple accounts and protect resources from other users.
@@ -1732,7 +1732,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 guidance to determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the encryption
                 product. If different for different underlying platforms, the evaluator determines that
-                all platforms listed in the ST are addressed.<h:br/><h:br/><h4>KMD</h4>
+                all platforms listed in the ST are addressed.<h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to set up and share resources
@@ -1798,7 +1798,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
 
             Conditional: <h:br/>               
             If derived from a password/passphrase is selected the examination of the TSS section is performed as
-            part of FCS_CKM_EXT.6 evaluation activities. <h:br/><h:br/><h4>KMD</h4>
+            part of FCS_CKM_EXT.6 evaluation activities. <h:br/><h:br/><h:h4>KMD</h:h4>
             None. <h:br/><h:br/></TSS>
               <Guidance> The evaluator shall review the
             instructions in the AGD guidance to determine that any explicit actions that need to
@@ -1865,7 +1865,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 
                 <h:br/><h:br/>FCS_CKM_EXT.6.2: The ST author shall provide a
                 description in the TSS regarding the salt generation. The evaluator shall confirm that
-                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>). <h:br/><h:br/><h4>KMD</h4>
+                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <xref to="bibAppPP"/>). <h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance>Support for minimum length: The evaluators shall check the Operational Guidance 
                 to determine that there are instructions on how to generate large passwords/passphrases, and
@@ -1965,10 +1965,10 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               use AES encryption/decryption for protecting the keys as part of the key chaining approach
               that is specified in FCS_KYC_EXT.1.</note>
             <aactivity level="component">
-              <TSS><h4>Requirement met by the platform</h4> If the platform provides the FEK
+              <TSS><h:h4>Requirement met by the platform</h:h4> If the platform provides the FEK
                 encryption/decryption, then the evaluator shall examine the TSS to verify that it
-                describes how the FEK encryption/decryption is invoked. <h:br/><h:br/><h4>Requirement met by the TOE</h4> The evaluator shall verify the TSS includes a description of the key size used for
-                encryption and the mode used for the key encryption <h:br/><h:br/><h4>KMD</h4>None.<h:br/><h:br/></TSS>
+                describes how the FEK encryption/decryption is invoked. <h:br/><h:br/><h:h4>Requirement met by the TOE</h:h4> The evaluator shall verify the TSS includes a description of the key size used for
+                encryption and the mode used for the key encryption <h:br/><h:br/><h:h4>KMD</h:h4>None.<h:br/><h:br/></TSS>
               <Guidance> None. <h:br/><h:br/></Guidance>
               <Tests>The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in the underlying <xref to="bibAppPP"/> shall be performed.</Tests>
             </aactivity>
@@ -2003,7 +2003,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 The evaluator shall verify that the TSS
                 identifies the hash function, the mask generating function, the random bit generator,
                 the encryption primitive and decryption primitive.
-                 <h:br/><h:br/><h4>KMD</h4>None.<h:br/><h:br/></TSS>
+                 <h:br/><h:br/><h:h4>KMD</h:h4>None.<h:br/><h:br/></TSS>
               <Guidance> None. <h:br/><h:br/></Guidance>
               <Tests>
                 For each supported key transport schema, the evaluator shall initiate at least 25 sessions that require key transport with an independently developed remote instance of a key transport entity, using known RSA key-pairs. The evaluator shall observe traffic passed from the sender-side and to the receiver-side of the TOE, and shall perform the following tests, specific to which key transport scheme was employed.
@@ -2046,7 +2046,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 
                 The evaluator shall verify the TSS includes a description of the key wrap function(s)
                 and shall verify the key wrap uses an approved key wrap algorithm according to the
-                appropriate specification.<h:br/><h:br/><h4>KMD</h4>
+                appropriate specification.<h:br/><h:br/><h:h4>KMD</h:h4>
                 The evaluator shall review the KMD to ensure that all keys are wrapped using the
                 approved method and a description of when the key wrapping occurs.<h:br/><h:br/></TSS>
               <Guidance> If multiple encryption modes are supported, the evaluator examines the guidance documentation
@@ -2119,7 +2119,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <aactivity level="component">
               <TSS>The evaluator shall verify the TSS includes a description of the key derivation
                 function and shall verify the key derivation uses an approved derivation mode and
-                key expansion algorithm according to SP 800-108 and SP 800-132. <h:br/><h:br/><h4>KMD</h4>
+                key expansion algorithm according to SP 800-108 and SP 800-132. <h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance> None. <h:br/><h:br/></Guidance>
               <Tests>None.</Tests>
@@ -2148,7 +2148,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <TSS>If keys are XORed together to form an intermediate key, the TSS section
                 shall identify how this is performed (e.g., if there are ordering requirements, checks
                 performed, etc.). The evaluator shall also confirm that the TSS describes how the length
-                of the output produced is at least the same as that of the FEK. <h:br/><h:br/><h4>KMD</h4>
+                of the output produced is at least the same as that of the FEK. <h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
               <Guidance>None.<h:br/><h:br/></Guidance>
               <Tests>None.</Tests>
