@@ -1045,60 +1045,6 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               If "other management functions" are assigned, a validation authority must be consulted to ensure the 
               evaluation activities and other functionality requirements that may be needed are appropriately 
               specified so that the ST can claim conformance to this PP-Module.<h:br/><h:br/>
-              The evaluation activities for this component will be driven by the selections
-              made by the ST author. This section describes evaluation activities for all possible
-              selections in an ST; it should be understood that if a capability is not selected in
-              the ST, the noted evaluation activity does not need to be performed. The following
-              sections are divided up into "Required Activities" and "Conditional Activities" for
-              ease of reference. <h:br/><h:br/>
-              
-              If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
-              "change" selection must be included.<h:br/><h:br/>
-              
-              If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)-
-              even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
-              the TOE platform--then "configure cryptographic functionality" will be included, and the specifics 
-              of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.<h:br/><h:br/>
-              
-              If "other management functions" are assigned, a validation authority must be consulted to ensure the 
-              evaluation activities and other functionality requirements that may be needed are appropriately 
-              specified so that the ST can claim conformance to this PP-Module.<h:br/><h:br/>
-              The evaluation activities for this component will be driven by the selections
-              made by the ST author. This section describes evaluation activities for all possible
-              selections in an ST; it should be understood that if a capability is not selected in
-              the ST, the noted evaluation activity does not need to be performed. The following
-              sections are divided up into "Required Activities" and "Conditional Activities" for
-              ease of reference. <h:br/><h:br/>
-              
-              If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
-              "change" selection must be included.<h:br/><h:br/>
-              
-              If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)-
-              even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
-              the TOE platform--then "configure cryptographic functionality" will be included, and the specifics 
-              of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.<h:br/><h:br/>
-              
-              If "other management functions" are assigned, a validation authority must be consulted to ensure the 
-              evaluation activities and other functionality requirements that may be needed are appropriately 
-              specified so that the ST can claim conformance to this PP-Module.<h:br/><h:br/>
-              The evaluation activities for this component will be driven by the selections
-              made by the ST author. This section describes evaluation activities for all possible
-              selections in an ST; it should be understood that if a capability is not selected in
-              the ST, the noted evaluation activity does not need to be performed. The following
-              sections are divided up into "Required Activities" and "Conditional Activities" for
-              ease of reference. <h:br/><h:br/>
-              
-              If password or passphrase authorization factors are implemented by the TOE, then the appropriate 
-              "change" selection must be included.<h:br/><h:br/>
-              
-              If the TOE provides configurability of the cryptographic functions (for example, key size of the FEK)-
-              even if the configuration is the form of parameters that may be passed to cryptographic functionality implemented on
-              the TOE platform--then "configure cryptographic functionality" will be included, and the specifics 
-              of the functionality offered can either be written in this requirement as bullet points, or included in the TSS.<h:br/><h:br/>
-              
-              If "other management functions" are assigned, a validation authority must be consulted to ensure the 
-              evaluation activities and other functionality requirements that may be needed are appropriately 
-              specified so that the ST can claim conformance to this PP-Module.<h:br/><h:br/>
               <TSS>Conditional Activities: For all selected events,the evaluator shall examine the TSS to ensure that it
                 describes the sequence of activities that take place from an implementation
                 perspective when this activity is performed (for example, how it determines which
