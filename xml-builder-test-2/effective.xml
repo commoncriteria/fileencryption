@@ -2198,7 +2198,6 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       for the activities the TOE performs to ensure it encrypts the targeted resources
       when a user or administrator first provisions the product.</h:li></appendix>
   <bibliography>
-    <cc-entry/>
     <entry id="bibAppPP">
       <tag>AppPP</tag>
       <description><h:a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software, Version 2.0, June 16, 2025</h:a></description>
