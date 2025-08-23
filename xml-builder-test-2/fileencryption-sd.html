@@ -455,7 +455,7 @@ The following sections list Common Criteria and technology terms used in this do
 		      
 		            The evaluator shall verify the TSS provides a high level description of what it means
                 for keys and key material to be no longer needed and when then should be expected to
-                be destroyed. <br/><br/>   
+                be destroyed. <br/><br/>KMD   
 		          The evaluator examines the KMD to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<br/><br/>
@@ -564,7 +564,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               verify the TSS describes how a FEK is used for a protected
               resource and associated with that resource. The evaluator confirms that-per this description-the
               FEK is unique per resource (file or set of files) and that the FEK is established using
-              the mechanisms specified in FCS_CKM_EXT.2.1). <br/><br/>
+              the mechanisms specified in FCS_CKM_EXT.2.1). <br/><br/>KMD
               None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> The evaluator shall review the
               instructions in the AGD guidance to determine that any explicit actions that need to
               be taken by the user to establish a FEK exist-taking into account any differences that
@@ -575,7 +575,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall verify the TSS contains a high level 
               description of all keychains and authorization methods selected in FIA_AUT_EXT.1 
-              that are used to protect the KEK or FEK. <br/><br/>The evaluator shall examine the KMD to ensure it describes 
+              that are used to protect the KEK or FEK. <br/><br/>KMDThe evaluator shall examine the KMD to ensure it describes 
               each key chain in detail, and these descriptions correspond with the selections of the requirement. 
               The description of each key chain shall be reviewed to ensure the options for maintaining the key chain are documented.<br/><br/>
 
@@ -594,13 +594,13 @@ Some examples of what is expected to be in the documentation are provided here. 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <br/><br/>
                 
                 Conditional: <br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the environments that can be leveraged with the TOE and how each claims to perform validation.
-                The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<br/><br/>
+                The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<br/><br/>KMD
               None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If the validation functionality is configurable, the evaluator shall examine the operational guidance
                 to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">There are no test activities for this requirement.</div></div></span></div><div class="comp" id="FCS-VAL-EXT-2"><h4>FCS_VAL_EXT.2 Validation Remediation</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_VAL_EXT.2</div>
               
               
               
-            <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<br/><br/>
+            <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<br/><br/>KMD
                   None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If the remediation functionality is configurable, the evaluator shall examine the operational guidance
                   to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests: <br/>
@@ -638,7 +638,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             decryption/encryption operation. Note that if other objects/resources are created on the
             host that are 1) persistent and 2) visible to other processes (users) on that host that
             are not filesystem objects, those objects shall be identified and described in the TSS
-            as well. <br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+            as well. <br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FDP_PRT_EXT.2:1</a>:
       If the TSS creates temporary files/resources during file decryption/encryption, the evaluator shall perform the following tests to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file. The evaluator shall use a tool (e.g., procmon for a Windows system) that is capable of monitoring the creation and deletion of files during the decryption/encryption process is performed. A tool that can search the contents of the hard drive (e.g., winhex) will also be needed. The tools used to perform the monitoring shall be identified in the test report. <br/><br/> (Creating an encrypted document) <ul><li>Open an editing application.</li> <li>Create a special string inside the document. The string could be 5-10 words. It is
@@ -674,7 +674,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               how the factors are input into the TOE.<br/><br/><b>Requirement met by the platform</b><br/> The evaluator shall examine the TSS to
               ensure a description is included for how the TOE is invoking the platform
               functionality and how it is getting an authorization value that has appropriate
-              entropy.<br/><br/>
+              entropy.<br/><br/>KMD
               None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the AGD guidance includes instructions for all of the
               authorization factors. The AGD will discuss the characteristics of external
               authorization factors (e.g., how the authorization factor is generated; format(s) or
@@ -761,7 +761,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 perspective when this activity is performed (for example, how it determines which
                 resources are associated with the KEK, the decryption and re-encryption process), and
                 ensure that the KEK and FEK are not exposed during this change. <br/><br/>
-                Cryptographic Configuration: None for this requirement. <br/><br/>
+                Cryptographic Configuration: None for this requirement. <br/><br/>KMD
                 None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
                 Conditional Activities: The evaluator shall examine the Operational Guidance for each included selection
                 to ensure that it either requires no configuration or describes how the functionality is configured.<br/><br/>
@@ -774,7 +774,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall verify the TSS for a high level description of the method(s) used
-              to protect keys stored in non-volatile memory.<br/><br/>The evaluator shall verify
+              to protect keys stored in non-volatile memory.<br/><br/>KMDThe evaluator shall verify
               the KMD to ensure it describes the storage location of all keys and the protection of
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure FCS_COP.1/KW is followed for the storage of wrapped or encrypted
@@ -809,13 +809,13 @@ Some examples of what is expected to be in the documentation are provided here. 
                 and FAK). The evaluator shall further check to ensure that the TSS describes how the FAK
                 and any other associated meta-data necessary to decrypt the file or set of files are
                 associated with the resource. This description can be combined with the description
-                required for FCS_COP_EXT.1. <br/><br/>
+                required for FCS_COP_EXT.1. <br/><br/>KMD
                 None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">An example ciphertext file generated via the TOE shall be provided to the evaluator with the accompanying FAK and prerequisite authorization information used for encryption. The evaluator will use the TOE in conjunction with a debugging or forensics utility to attempt an authentication of the ciphertext file using the provided authorization information. The evaluator will then terminate processing of the TOE and perform a search through non-volatile memory using the provided FAK string. The evaluator must document each command, program or action taken during this process, and must confirm that the FAK was never written to non-volatile memory. This test must be performed three times to ensure repeatability. If during the course of this testing the evaluator finds that the FAK was written to non-volatile memory, they should be able to identify the cause (i.e. the TOE wrote the FAK to disk, the TOE platform dumped volatile memory as a page file, etc.), and document the reason for failure to comply with the requirement.</div></div></span></div><div class="comp" id="FCS-COP-EXT-1"><h4>FCS_COP_EXT.1 FAK Encryption/Decryption Support</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP_EXT.1</div>
               
               
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall follow the evaluation activities as laid out in
-                FCS_COP.1/KW to assert proper FAK protection.<br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></span></div><h2 class="indexable" data-level="2" id="fdp-optional">2.3.2 User Data Protection (FDP)</h2><div class="comp" id="FDP-AUT-EXT-1"><h4>FDP_AUT_EXT.1 Authentication of Selected User Data</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_AUT_EXT.1</div>
+                FCS_COP.1/KW to assert proper FAK protection.<br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></span></div><h2 class="indexable" data-level="2" id="fdp-optional">2.3.2 User Data Protection (FDP)</h2><div class="comp" id="FDP-AUT-EXT-1"><h4>FDP_AUT_EXT.1 Authentication of Selected User Data</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_AUT_EXT.1</div>
               
               
               
@@ -836,7 +836,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                  MAC appended to the data; it was authenticated and decrypted (by the TOE) for use by the
                  user, and is then subsequently re-encrypted with an updated MAC); and corresponding
                  decryption scenarios. If other scenarios exist due to product implementation/features,
-                 the evaluator shall ensure that those scenarios are covered in the TSS as well.<br/><br/>
+                 the evaluator shall ensure that those scenarios are covered in the TSS as well.<br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If the TOE creates temporary objects and these objects can be
                  protected through administrative measures (e.g., the TOE creates temporary files in a
                  designated directory that can be protected through configuration of its access control
@@ -870,7 +870,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                  If 'key generation methods compliant with NIST SP 800-133r2' was selected, the evaluator shall verify
                  that the TSS describes how the functionality described by NIST SP 800-33r1 is implemented to generate the FAK.
                  The evaluator shall verify that the description of the key generation method matches the methods described in
-                 SP 800-133r2 and that the FAK is chained to an approved RBG. <br/><br/>
+                 SP 800-133r2 and that the FAK is chained to an approved RBG. <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> It is encouraged for
                  every implementation to use a FAK that is wholly different and independently generated
                  from the FEK.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
@@ -893,7 +893,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                  was used to create the hash and that the hash was used as input to the cryptographic
                  signing function. The evaluator will confirm that the TSF notifies the user of an
                  unsuccessful authentication and prevents decryption.  The evaluator shall confirm
-                 that the signature is appended to the end of the ciphertext file.<br/><br/>
+                 that the signature is appended to the end of the ciphertext file.<br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test:
                 <span class="testlist-"><ul>
@@ -915,7 +915,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                      exited, and how the requirements are met during this transition to an operational state.<br/><br/>
                      
                      The evaluator shall verify the TSS provides a description of what keys and key material are destroyed when entering 
-                     any protected state.<br/><br/><br/>The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
+                     any protected state.<br/><br/>KMD<br/>The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
                      The evaluator shall verify the KMD includes a key lifecycle that includes a description where key material reside,
                      how the key material is used, and how the material is destroyed once a claimed power state is entered
                      and that the documentation in the KMD follows FCS_CKM.6.2 for the destruction.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> The evaluator shall check the Operational Guidance to determine that
@@ -935,7 +935,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall
                      examine the TSS to ensure that it describes how the TOE detects and encrypts temporary files (or set of files) that
-                     are created in the filesystem of the host by third party products.<br/><br/>
+                     are created in the filesystem of the host by third party products.<br/><br/>KMD
                       None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> [conditional]  If any configuration is required for this process the evaluator shall verify it is 
                      described in the guidance documentation. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall utilize any third party application that would be protected under this protection to generate files, then verify those files are being encrypted.</div></div></span></div><h2 class="indexable" data-level="2" id="fia-optional">2.3.3 Identification and Authentication (FIA)</h2><div class="comp" id="FIA-FCT-EXT-1"><h4>FIA_FCT_EXT.1 Multi-User Authorization</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_FCT_EXT.1</div>
               
@@ -946,7 +946,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 <br/><br/>
                 The evaluator shall examine the TSS to verify key chains are separate ensuring resources are protected from other users, 
                 with the exception of files permitted to be shared under the mechanism described in FIA_FCT_EXT.2.
-                <br/><br/>
+                <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to establish multiple accounts and protect resources from other users.
                 If different for different underlying platforms, the evaluator determines that all platforms listed in the ST are addressed.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall ensure that different users using different authorization factors are unable to decrypt each others protected resources for each type of protected resource identified in the TSS. The test succeeds if the users are unable to decrypt resources not chained to them, with the exception of any resources linked in FIA_FCT_EXT.2.</div></div></span></div><div class="comp" id="FIA-FCT-EXT-2"><h4>FIA_FCT_EXT.2 Authorized Key Sharing</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_FCT_EXT.2</div>
@@ -963,7 +963,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 guidance to determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the encryption
                 product. If different for different underlying platforms, the evaluator determines that
-                all platforms listed in the ST are addressed.<br/><br/>
+                all platforms listed in the ST are addressed.<br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the
@@ -996,7 +996,7 @@ Some examples of what is expected to be in the documentation are provided here. 
 
             Conditional: <br/>               
             If derived from a password/passphrase is selected the examination of the TSS section is performed as
-            part of FCS_CKM_EXT.6 evaluation activities. <br/><br/>
+            part of FCS_CKM_EXT.6 evaluation activities. <br/><br/>KMD
             None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> The evaluator shall review the
             instructions in the AGD guidance to determine that any explicit actions that need to
             be taken by the user to establish a KEK exist-taking into account any differences that
@@ -1041,7 +1041,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 
                 <br/><br/>FCS_CKM_EXT.6.2: The ST author shall provide a
                 description in the TSS regarding the salt generation. The evaluator shall confirm that
-                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <a href="#bibAppPP">[AppPP]</a>). <br/><br/>
+                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the <a href="#bibAppPP">[AppPP]</a>). <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">Support for minimum length: The evaluators shall check the Operational Guidance 
                 to determine that there are instructions on how to generate large passwords/passphrases, and
                 instructions on how to configure the password/passphrase length 
@@ -1062,10 +1062,10 @@ Some examples of what is expected to be in the documentation are provided here. 
               
               
               
-            <div class="eacategory">TSS</div><div class="ea"><div class="ea">If the platform provides the FEK
+            <div class="eacategory">TSS</div><div class="ea"><div class="ea">Requirement met by the platform If the platform provides the FEK
                 encryption/decryption, then the evaluator shall examine the TSS to verify that it
-                describes how the FEK encryption/decryption is invoked. <br/><br/> The evaluator shall verify the TSS includes a description of the key size used for
-                encryption and the mode used for the key encryption <br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in the underlying <a href="#bibAppPP">[AppPP]</a> shall be performed.</div></div></span></div><div class="comp" id="FCS-COP-1-KT"><h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/KT</div>
+                describes how the FEK encryption/decryption is invoked. <br/><br/>Requirement met by the TOE The evaluator shall verify the TSS includes a description of the key size used for
+                encryption and the mode used for the key encryption <br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in the underlying <a href="#bibAppPP">[AppPP]</a> shall be performed.</div></div></span></div><div class="comp" id="FCS-COP-1-KT"><h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/KT</div>
               
               
               
@@ -1079,7 +1079,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 The evaluator shall verify that the TSS
                 identifies the hash function, the mask generating function, the random bit generator,
                 the encryption primitive and decryption primitive.
-                 <br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+                 <br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 For each supported key transport schema, the evaluator shall initiate at least 25 sessions that require key transport with an independently developed remote instance of a key transport entity, using known RSA key-pairs. The evaluator shall observe traffic passed from the sender-side and to the receiver-side of the TOE, and shall perform the following tests, specific to which key transport scheme was employed.
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCS_COP.1/KT:1</a>:
@@ -1109,7 +1109,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 
                 The evaluator shall verify the TSS includes a description of the key wrap function(s)
                 and shall verify the key wrap uses an approved key wrap algorithm according to the
-                appropriate specification.<br/><br/>
+                appropriate specification.<br/><br/>KMD
                 The evaluator shall review the KMD to ensure that all keys are wrapped using the
                 approved method and a description of when the key wrapping occurs.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> If multiple encryption modes are supported, the evaluator examines the guidance documentation
                 to determine that the method of choosing a specific mode/key size by the end user is described.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluation activity tests specified for AES in GCM mode in the underlying <a href="#bibAppPP">[AppPP]</a> shall be performed in the case that "GCM" is selected in the requirement. <br/> <br/> <p><b>AES Key Wrap (AES-KW) and Key Wrap with Padding (AES-KWP) Test</b></p> <p>
@@ -1146,7 +1146,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">The evaluator shall verify the TSS includes a description of the key derivation
                 function and shall verify the key derivation uses an approved derivation mode and
-                key expansion algorithm according to SP 800-108 and SP 800-132. <br/><br/>
+                key expansion algorithm according to SP 800-108 and SP 800-132. <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></span></div><div class="comp" id="FCS-SMC-EXT-1"><h4>FCS_SMC_EXT.1 Submask Combining</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_SMC_EXT.1</div>
               
               
@@ -1154,7 +1154,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             <div class="eacategory">TSS</div><div class="ea"><div class="ea">If keys are XORed together to form an intermediate key, the TSS section
                 shall identify how this is performed (e.g., if there are ordering requirements, checks
                 performed, etc.). The evaluator shall also confirm that the TSS describes how the length
-                of the output produced is at least the same as that of the FEK. <br/><br/>
+                of the output produced is at least the same as that of the FEK. <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></span></div><h2 class="indexable" data-level="1" id="obj-sfrs">2.5 Evaluation Activities for Objective SFRs</h2>The PP-Module does not define any objective requirements.<h2 class="indexable" data-level="1" id="impl-sfrs-">2.6 Evaluation Activities for Implementation-dependent SFRs</h2>The PP-Module does not define any implementation-dependent requirements.<h1 id="sar_aas" class="indexable" data-level="0">3 Evaluation Activities for SARs</h1><p>The PP-Module does not define any SARs beyond those defined within the
     
 	base App PP to which it must claim conformance.
@@ -1169,6 +1169,13 @@ Some examples of what is expected to be in the documentation are provided here. 
     and supplement that evaluation with the necessary SFRs that are taken from the PP-Module.
     </p><h1 id="sup-info" class="indexable" data-level="0">4 Required Supplementary Information</h1><p>This Supporting Document has no required supplementary information beyond the ST, operational
 guidance, and testing.</p><h1 id="biblio" class="indexable" data-level="A">Appendix A -  References</h1><table><tr class="header"><th>Identifier</th><th>Title</th></tr>
+    <tr><td><span id="bibCC"> [CC] </span></td><td>Common Criteria for Information Technology Security Evaluation - <ul><li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART1V3.1R5.pdf">Part
+                1: Introduction and General Model</a>, CCMB-2017-04-001, Version 3.1 Revision 5,
+              April 2017.</li><li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART2V3.1R5.pdf">Part
+                2: Security Functional Components</a>, CCMB-2017-04-002, Version 3.1 Revision 5,
+              April 2017.</li><li><a href="http://www.commoncriteriaportal.org/files/ccfiles/CCPART3V3.1R5.pdf">Part
+                3: Security Assurance Components</a>, CCMB-2017-04-003, Version 3.1 Revision 5,
+              April 2017.</li></ul></td></tr>
     <tr><td><span id="bibAppPP"></span>[AppPP]</td><td><a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software, Version 2.0, June 16, 2025</a></td></tr>
 
     <tr><td><span id="FIPS140-2"></span>[FIPS140-2]</td><td> Federal Information Processing Standard Publication (FIPS-PUB) 140-2, Security

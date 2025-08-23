@@ -1093,7 +1093,7 @@ provide all of its security functionality.
 		      
 		            The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> provides a high level description of what it means
                 for keys and key material to be no longer needed and when then should be expected to
-                be destroyed. <br/><br/>   
+                be destroyed. <br/><br/>KMD   
 		          The evaluator examines the KMD to ensure it describes how the keys are managed in volatile memory. 
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<br/><br/>
@@ -1217,7 +1217,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how a <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is used for a protected
               resource and associated with that resource. The evaluator confirms that-per this description-the
               <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is unique per resource (file or set of files) and that the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is established using
-              the mechanisms specified in <a href="#FCS_CKM_EXT.2.1">FCS_CKM_EXT.2.1</a>). <br/><br/>
+              the mechanisms specified in <a href="#FCS_CKM_EXT.2.1">FCS_CKM_EXT.2.1</a>). <br/><br/>KMD
               None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> The evaluator shall review the
               instructions in the AGD guidance to determine that any explicit actions that need to
               be taken by the user to establish a <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> exist-taking into account any differences that
@@ -1277,7 +1277,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> contains a high level 
               description of all keychains and authorization methods selected in <a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a> 
-              that are used to protect the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>. <br/><br/>The evaluator shall examine the KMD to ensure it describes 
+              that are used to protect the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> or <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>. <br/><br/>KMDThe evaluator shall examine the KMD to ensure it describes 
               each key chain in detail, and these descriptions correspond with the selections of the requirement. 
               The description of each key chain shall be reviewed to ensure the options for maintaining the key chain are documented.<br/><br/>
 
@@ -1313,7 +1313,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 the evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <br/><br/>
                 
                 Conditional: <br/>If 'receiving assertion' is selected in <a href="#FCS_VAL_EXT.1.1">FCS_VAL_EXT.1.1</a>, the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it describes the environments that can be leveraged with the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and how each claims to perform validation.
-                The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<br/><br/>
+                The evaluator shall ensure that none of the stated platform validation mechanisms weaken the key chain of the product.<br/><br/>KMD
               None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If the validation functionality is configurable, the evaluator shall examine the operational guidance
                 to ensure it describes how to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to ensure the limits regarding validation attempts can be established. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">There are no test activities for this requirement.</div></div></div></div></div>
         
@@ -1341,7 +1341,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               
               
               
-            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine which remediation options are supported for which authentication options.<br/><br/>
+            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to determine which remediation options are supported for which authentication options.<br/><br/>KMD
                   None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If the remediation functionality is configurable, the evaluator shall examine the operational guidance
                   to ensure it describes how to configure the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to ensure the limits regarding validation attempts can be established.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests: <br/>
@@ -1439,7 +1439,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
             decryption/encryption operation. Note that if other objects/resources are created on the
             host that are 1) persistent and 2) visible to other processes (users) on that host that
             are not filesystem objects, those objects shall be identified and described in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
-            as well. <br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+            as well. <br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FDP_PRT_EXT.2:1</a>:
       If the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> creates temporary files/resources during file decryption/encryption, the evaluator shall perform the following tests to verify that the temporary files/resources are destroyed. If the product supported shared files per <a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a>, this test must be repeated with a shared file. The evaluator shall use a tool (e.g., procmon for a Windows system) that is capable of monitoring the creation and deletion of files during the decryption/encryption process is performed. A tool that can search the contents of the hard drive (e.g., winhex) will also be needed. The tools used to perform the monitoring shall be identified in the test report. <br/><br/> (Creating an encrypted document) <ul><li>Open an editing application.</li> <li>Create a special string inside the document. The string could be 5-10 words. It is
@@ -1508,7 +1508,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               how the factors are input into the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>.<br/><br/><b>Requirement met by the platform</b><br/> The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to
               ensure a description is included for how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is invoking the platform
               functionality and how it is getting an authorization value that has appropriate
-              entropy.<br/><br/>
+              entropy.<br/><br/>KMD
               None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">The evaluator shall verify that the AGD guidance includes instructions for all of the
               authorization factors. The AGD will discuss the characteristics of external
               authorization factors (e.g., how the authorization factor is generated; format(s) or
@@ -1622,7 +1622,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 perspective when this activity is performed (for example, how it determines which
                 resources are associated with the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>, the decryption and re-encryption process), and
                 ensure that the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> are not exposed during this change. <br/><br/>
-                Cryptographic Configuration: None for this requirement. <br/><br/>
+                Cryptographic Configuration: None for this requirement. <br/><br/>KMD
                 None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">
                 Conditional Activities: The evaluator shall examine the Operational Guidance for each included selection
                 to ensure that it either requires no configuration or describes how the functionality is configured.<br/><br/>
@@ -1658,7 +1658,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> for a high level description of the method(s) used
-              to protect keys stored in non-volatile memory.<br/><br/>The evaluator shall verify
+              to protect keys stored in non-volatile memory.<br/><br/>KMDThe evaluator shall verify
               the KMD to ensure it describes the storage location of all keys and the protection of
               all keys stored in non-volatile memory. The description of the key chain shall be
               reviewed to ensure <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a> is followed for the storage of wrapped or encrypted
@@ -1841,7 +1841,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 and <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>). The evaluator shall further check to ensure that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>
                 and any other associated meta-data necessary to decrypt the file or set of files are
                 associated with the resource. This description can be combined with the description
-                required for <a href="#FCS_COP_EXT.1">FCS_COP_EXT.1</a>. <br/><br/>
+                required for <a href="#FCS_COP_EXT.1">FCS_COP_EXT.1</a>. <br/><br/>KMD
                 None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">An example ciphertext file generated via the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> shall be provided to the evaluator with the accompanying <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> and prerequisite authorization information used for encryption. The evaluator will use the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> in conjunction with a debugging or forensics utility to attempt an authentication of the ciphertext file using the provided authorization information. The evaluator will then terminate processing of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and perform a search through non-volatile memory using the provided <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> string. The evaluator must document each command, program or action taken during this process, and must confirm that the <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> was never written to non-volatile memory. This test must be performed three times to ensure repeatability. If during the course of this testing the evaluator finds that the <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> was written to non-volatile memory, they should be able to identify the cause (i.e. the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> wrote the <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> to disk, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform dumped volatile memory as a page file, etc.), and document the reason for failure to comply with the requirement.</div></div></div></div></div>
         
         <div class="comp" id="FCS_COP_EXT.1"><h4>FCS_COP_EXT.1 FAK Encryption/Decryption Support</h4>
@@ -1862,7 +1862,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall follow the evaluation activities as laid out in
-                <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a> to assert proper <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> protection.<br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></div></div></div>
+                <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a> to assert proper <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> protection.<br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></div></div></div>
       
       
       <h3 id="fdp-optional" class="indexable" data-level="3">A.1.2 User Data Protection (FDP)</h3>
@@ -1913,7 +1913,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                  MAC appended to the data; it was authenticated and decrypted (by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) for use by the
                  user, and is then subsequently re-encrypted with an updated MAC); and corresponding
                  decryption scenarios. If other scenarios exist due to product implementation/features,
-                 the evaluator shall ensure that those scenarios are covered in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> as well.<br/><br/>
+                 the evaluator shall ensure that those scenarios are covered in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> as well.<br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> creates temporary objects and these objects can be
                  protected through administrative measures (e.g., the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> creates temporary files in a
                  designated directory that can be protected through configuration of its access control
@@ -1977,7 +1977,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                  If 'key generation methods compliant with NIST SP 800-133r2' was selected, the evaluator shall verify
                  that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the functionality described by NIST SP 800-33r1 is implemented to generate the <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>.
                  The evaluator shall verify that the description of the key generation method matches the methods described in
-                 SP 800-133r2 and that the <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> is chained to an approved <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>. <br/><br/>
+                 SP 800-133r2 and that the <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> is chained to an approved <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>. <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> It is encouraged for
                  every implementation to use a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> that is wholly different and independently generated
                  from the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
@@ -2029,7 +2029,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                  was used to create the hash and that the hash was used as input to the cryptographic
                  signing function. The evaluator will confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> notifies the user of an
                  unsuccessful authentication and prevents decryption.  The evaluator shall confirm
-                 that the signature is appended to the end of the ciphertext file.<br/><br/>
+                 that the signature is appended to the end of the ciphertext file.<br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test:
                 <span class="testlist-"><ul>
@@ -2077,7 +2077,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                      exited, and how the requirements are met during this transition to an operational state.<br/><br/>
                      
                      The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> provides a description of what keys and key material are destroyed when entering 
-                     any protected state.<br/><br/><br/>The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
+                     any protected state.<br/><br/>KMD<br/>The evaluator shall verify the KMD includes a description of the areas where keys and key material reside.
                      The evaluator shall verify the KMD includes a key lifecycle that includes a description where key material reside,
                      how the key material is used, and how the material is destroyed once a claimed power state is entered
                      and that the documentation in the KMD follows <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a> for the destruction.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> The evaluator shall check the Operational Guidance to determine that
@@ -2115,7 +2115,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall
                      examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to ensure that it describes how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> detects and encrypts temporary files (or set of files) that
-                     are created in the filesystem of the host by third party products.<br/><br/>
+                     are created in the filesystem of the host by third party products.<br/><br/>KMD
                       None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> [conditional]  If any configuration is required for this process the evaluator shall verify it is 
                      described in the guidance documentation. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall utilize any third party application that would be protected under this protection to generate files, then verify those files are being encrypted.</div></div></div></div></div>
       
@@ -2150,7 +2150,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 <br/><br/>
                 The evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify key chains are separate ensuring resources are protected from other users, 
                 with the exception of files permitted to be shared under the mechanism described in <a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a>.
-                <br/><br/>
+                <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to establish multiple accounts and protect resources from other users.
                 If different for different underlying platforms, the evaluator determines that all platforms listed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> are addressed.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall ensure that different users using different authorization factors are unable to decrypt each others protected resources for each type of protected resource identified in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>. The test succeeds if the users are unable to decrypt resources not chained to them, with the exception of any resources linked in <a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a>.</div></div></div></div></div>
@@ -2186,7 +2186,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 guidance to determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the encryption
                 product. If different for different underlying platforms, the evaluator determines that
-                all platforms listed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> are addressed.<br/><br/>
+                all platforms listed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> are addressed.<br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the
@@ -2247,7 +2247,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
 
             Conditional: <br/>               
             If derived from a password/passphrase is selected the examination of the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> section is performed as
-            part of <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> evaluation activities. <br/><br/>
+            part of <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> evaluation activities. <br/><br/>KMD
             None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> The evaluator shall review the
             instructions in the AGD guidance to determine that any explicit actions that need to
             be taken by the user to establish a <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> exist-taking into account any differences that
@@ -2365,7 +2365,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 
                 <br/><br/><a href="#FCS_CKM_EXT.6.2">FCS_CKM_EXT.6.2</a>: The <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author shall provide a
                 description in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> regarding the salt generation. The evaluator shall confirm that
-                the salt is generated using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> described in FCS_RBG_EXT.1 (from the <a href="#bibAppPP">[AppPP]</a>). <br/><br/>
+                the salt is generated using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> described in FCS_RBG_EXT.1 (from the <a href="#bibAppPP">[AppPP]</a>). <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">Support for minimum length: The evaluators shall check the Operational Guidance 
                 to determine that there are instructions on how to generate large passwords/passphrases, and
                 instructions on how to configure the password/passphrase length 
@@ -2404,10 +2404,10 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               
               
               
-            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">If the platform provides the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>
+            <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">Requirement met by the platform If the platform provides the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>
                 encryption/decryption, then the evaluator shall examine the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> to verify that it
-                describes how the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> encryption/decryption is invoked. <br/><br/> The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of the key size used for
-                encryption and the mode used for the key encryption <br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in the underlying <a href="#bibAppPP">[AppPP]</a> shall be performed.</div></div></div></div></div>
+                describes how the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> encryption/decryption is invoked. <br/><br/>Requirement met by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of the key size used for
+                encryption and the mode used for the key encryption <br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluation activity tests specified for AES in CBC mode in FCS_COP.1.1(1) in the underlying <a href="#bibAppPP">[AppPP]</a> shall be performed.</div></div></div></div></div>
         
         <div class="comp" id="FCS_COP.1/KT"><h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
            <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.
@@ -2441,7 +2441,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 The evaluator shall verify that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>
                 identifies the hash function, the mask generating function, the random bit generator,
                 the encryption primitive and decryption primitive.
-                 <br/><br/>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
+                 <br/><br/>KMDNone.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 For each supported key transport schema, the evaluator shall initiate at least 25 sessions that require key transport with an independently developed remote instance of a key transport entity, using known RSA key-pairs. The evaluator shall observe traffic passed from the sender-side and to the receiver-side of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, and shall perform the following tests, specific to which key transport scheme was employed.
                 <span class="testlist-"><ul>
                   <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCS_COP.1/KT:1</a>:
@@ -2487,7 +2487,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                 
                 The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of the key wrap function(s)
                 and shall verify the key wrap uses an approved key wrap algorithm according to the
-                appropriate specification.<br/><br/>
+                appropriate specification.<br/><br/>KMD
                 The evaluator shall review the KMD to ensure that all keys are wrapped using the
                 approved method and a description of when the key wrapping occurs.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> If multiple encryption modes are supported, the evaluator examines the guidance documentation
                 to determine that the method of choosing a specific mode/key size by the end user is described.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluation activity tests specified for AES in GCM mode in the underlying <a href="#bibAppPP">[AppPP]</a> shall be performed in the case that "GCM" is selected in the requirement. <br/> <br/> <p><b>AES Key Wrap (AES-KW) and Key Wrap with Padding (AES-KWP) Test</b></p> <p>
@@ -2549,7 +2549,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> includes a description of the key derivation
                 function and shall verify the key derivation uses an approved derivation mode and
-                key expansion algorithm according to SP 800-108 and SP 800-132. <br/><br/>
+                key expansion algorithm according to SP 800-108 and SP 800-132. <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></div></div></div>
         
         <div class="comp" id="FCS_SMC_EXT.1"><h4>FCS_SMC_EXT.1 Submask Combining</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
@@ -2574,7 +2574,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
             <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea"><div class="ea">If keys are XORed together to form an intermediate key, the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> section
                 shall identify how this is performed (e.g., if there are ordering requirements, checks
                 performed, etc.). The evaluator shall also confirm that the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> describes how the length
-                of the output produced is at least the same as that of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>. <br/><br/>
+                of the output produced is at least the same as that of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>. <br/><br/>KMD
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">None.</div></div></div></div></div>
       
     <h1 id="ext-comp-defs" class="indexable" data-level="A">Appendix C -  Extended Component Definitions</h1>
