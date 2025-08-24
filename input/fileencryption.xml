@@ -457,7 +457,7 @@
                               
               
             </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
 		            to be no longer needed and when they should be expected to be destroyed.
 		      
@@ -586,7 +586,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     and with entropy corresponding to the security strength of AES key sizes <assignable>supported key size</assignable></selectable><selectable>using key generation methods compliant with NIST SP 800-133r2,</selectable><selectable id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6</selectable></selectables></selectable></selectables>.
             </title></ext-comp-def-title>
             <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r2 for password-based key generation, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>FCS_CKM_EXT.2.1: The evaluator shall review the TSS to determine that a
               description covering how and when the FEKs are generated exists. The description must
               cover all environments on which the TOE is claiming conformance, and include any
@@ -698,7 +698,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               The server may provide a key needed to start a chain or the server may receive a key that ends a chain.  <h:br/><h:br/>
               The key management internal to the server is not evaluated here. This permits the enterprise management server to 
             function in the middle of a larger key chain.</note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall verify the TSS contains a high level 
               description of all keychains and authorization methods selected in FIA_AUT_EXT.1 
               that are used to protect the KEK or FEK. <h:br/><h:br/><h:h4>KMD</h:h4>The evaluator shall examine the KMD to ensure it describes 
@@ -736,7 +736,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     <selectables><selectable>submask</selectable><selectable>intermediate key</selectable><selectable>FEK</selectable></selectables> as specified in FCS_COP.1 and compare it to a stored hash</selectable><selectable>decrypt a known value using the 
                     <selectables><selectable>submask</selectable><selectable>intermediate key</selectable><selectable>FEK</selectable></selectables> as specified in FCS_COP.1 and compare it against a stored known value</selectable></selectables></selectable></selectables>.               
             </title></ext-comp-def-title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>Conditional: <h:br/>If 'validating' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
                 The evaluator shall examine the TSS to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
@@ -780,7 +780,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               to easily determine which iteration applies to each TOE component.<h:br/><h:br/> 
                 
                 This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.</note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.<h:br/><h:br/><h:h4>KMD</h:h4>
                   None. <h:br/><h:br/></TSS>
               <Guidance>If the remediation functionality is configurable, the evaluator shall examine the operational guidance
@@ -824,7 +824,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               of files) in accordance with FCS_COP.1. </title></ext-comp-def-title>
             <note role="application">This is the primary requirement for encrypting and decrypting
               the protected resources (files and sets of files). </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS><h:br/> The evaluator shall examine the TSS to ensure there is a high-level description
                 of how the FEK is protected. <h:br/><h:br/>
                 
@@ -891,7 +891,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
 
             While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM.6.
           </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall
             examine the TSS to ensure that it describes all temporary file (or set of files) that
             are created in the filesystem of the host during the decryption/encryption process, and
@@ -966,7 +966,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
              multiple methods for a selection.<h:br/><h:br/>
              Use of multiple authorization factors is preferable; if more than one authorization factor is
              used, the submasks produced must be combined using FCS_SMC_EXT.1. </note>
-            <aactivity level="component">
+            <aactivity level="element">
               The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
@@ -1026,7 +1026,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                   conformance to this PP-Module.</h:li></h:ul><h:br/>
               This list is in addition to the list of functions as specified in, FMT_SMF.1 in the AppPP.
             </note>
-            <aactivity level="component">
+            <aactivity level="element">
               
               The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
@@ -1102,7 +1102,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               on the TOE or OE, the only methods that allow it to play a security relevant role for
               protecting the FEK is if it is a key split or providing additional layers of wrapping
               or encryption on keys that have already been protected. </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall verify the TSS for a high level description of the method(s) used
               to protect keys stored in non-volatile memory.<h:br/><h:br/><h:h4>KMD</h:h4>The evaluator shall verify
               the KMD to ensure it describes the storage location of all keys and the protection of
@@ -1156,7 +1156,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                   non-volatile memory</selectable><selectable>a FAK will be stored in non-volatile memory encrypted with a KEK as
                   specified in FCS_COP.1 using authorization factors as specified in FIA_AUT_EXT.1</selectable></selectables>.
             </title></ext-comp-def-title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>FCS_CKM_EXT.5.1: The evaluator shall examine the TSS to determine how the FAK is stored (or not stored) in memory.
                 <h:br/><h:br/> 
                 
@@ -1232,7 +1232,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <note role="application"> The intent of this requirement is to clarify that, if a FAK is
               to be used, it should be treated as sensitive as the FEK, and thus, follow the same
               encryption and decryption practices. </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall follow the evaluation activities as laid out in
                 FCS_COP.1/KW to assert proper FAK protection.<h:br/><h:br/><h:h4>KMD</h:h4>None.<h:br/><h:br/></TSS>
               <Guidance>None.<h:br/><h:br/></Guidance>
@@ -1270,7 +1270,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element id="fdp-aut-ext-1e1">
             <title>The TSF shall perform authentication of the user-selected file (or set of files)
                and provide notification to the user if modification had been detected. </title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall examine the TSS to determine that it lists each type of
                  resource that can be authenticated (e.g., file, directory) and what "authenticated"
                  means in terms of the resource (e.g., "authenticating a directory" means that all of the
@@ -1347,7 +1347,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                FCS_COP.1<h:b>/KeyedHash</h:b> (from  <xref to="bibAppPP"/>).</title>
             <ext-comp-def-title><title>The TSF shall use a cryptographic, keyed hash function in accordance with
                FCS_COP.1.</title></ext-comp-def-title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall check the TSS section to confirm that it describes
                  how a request for each type of supported resource (file (or set of files)) will result
                  in data authentication using a keyed hash function. The evaluator will confirm that the
@@ -1438,7 +1438,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                hash.</title>
             <ext-comp-def-title><title>The TSF shall use a secure hash function in accordance with FCS_COP.1 with the entire ciphertext file as input to create a
                hash.</title></ext-comp-def-title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall check the TSS section to confirm that it describes
                  how a request for each type of supported resource (file (or set of files)) will result
                  in data authentication using a secure hash and cryptographic signing process. The
@@ -1514,7 +1514,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <title>The TSF shall protect all data selected for encryption during the transition to
                    the  <assignable>powered-down state(s) or locked system states for which this capability is provided</assignable>  state as
                    per FDP_PRT_EXT.1.1.</title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall examine the TSS to ensure that it describes the state(s)
                      that are supported by this capability. For each state, the evaluator ensures that the
                      TSS contains a description of how the state is entered, and the actions of the TSF on
@@ -1581,7 +1581,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <note role="application"> This requirement is to cover the detection and encryption of temporary files created by third party applications.
                    If the FE provides a capability to allow specific applications to leverage it, the applications or method they would use to opt in may be included in the assignment.  
                  </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall
                      examine the TSS to ensure that it describes how the TOE detects and encrypts temporary files (or set of files) that
                      are created in the filesystem of the host by third party products.<h:br/><h:br/><h:h4>KMD</h:h4>
@@ -1616,7 +1616,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <dependencies>FIA_AUT_EXT.1 User Authorization</dependencies>
           <f-element id="fia-fct-ext-1e1">
             <title>The TSF shall support the use of authorization factors from multiple users that result in unique KEKs.</title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall examine the TSS to determine that it
                 identifies each of the resource protected in encrypted form and the key chain that protects that resource.
                 <h:br/><h:br/>
@@ -1668,7 +1668,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               other users. FIA_FCT_EXT.2 created a mechanism to safely share files between users.
 
             </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall examine the TSS to determine that it
                 identifies each of the resources that is shareable in encrypted form (for instance,
                 encrypted files may be shareable among users, but encrypted directories may not), and the
@@ -1727,7 +1727,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                     and with entropy corresponding to the security strength of AES key sizes of 256 bits</selectable><selectable> derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6</selectable></selectables></selectable></selectables>.
           </title></ext-comp-def-title>
             <note role="application">This requirement must be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall review the TSS to determine that a
             description covering how and when KEK(s) are generated exists. The description must
             cover all environments on which the TOE is claiming conformance, and include any
@@ -1774,7 +1774,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                <selectables><selectable id="fcs_ckm_ext.6.1_2" ><assignable>maximum value supported by the platform</assignable></selectable><selectable id="fcs_ckm_ext.6.1_4" ><assignable>maximum password size, positive integer of 64 or more</assignable></selectable></selectables> 
               characters used to generate a password authorization factor.
             </title>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>FCS_CKM_EXT.6.1: There are two aspects of this component that require
                 evaluation: passwords/passphrases of the length specified in the requirement (at least
                 64 characters or a length defined by the platform) are supported, and that the characters that are input are subject to the
@@ -1911,7 +1911,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               This requirement is used in the body of the ST if the ST author chooses to
               use AES encryption/decryption for protecting the keys as part of the key chaining approach
               that is specified in FCS_KYC_EXT.1.</note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS><h:h4>Requirement met by the platform</h:h4> If the platform provides the FEK
                 encryption/decryption, then the evaluator shall examine the TSS to verify that it
                 describes how the FEK encryption/decryption is invoked. <h:br/><h:br/><h:h4>Requirement met by the TOE</h:h4> The evaluator shall verify the TSS includes a description of the key size used for
@@ -1939,7 +1939,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
             </note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall verify the TSS provides a high level description of the RSA
                 scheme and the cryptographic key size that is being used, and that the asymmetric
                 algorithm being used for key transport is RSA. If more than one scheme/key size are
@@ -1981,7 +1981,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <note role="application">
               This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>Conditional: If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
                 describes how the FEK encryption/decryption is invoked. <h:br/><h:br/>
                 
@@ -2063,7 +2063,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               use key derivation in the key chaining approach that is specified in FCS_KYC_EXT.1.
               This requirement establishes acceptable methods for generating a new random key or an
               existing submask to create a new key along the key chain.</note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>The evaluator shall verify the TSS includes a description of the key derivation
                 function and shall verify the key derivation uses an approved derivation mode and
                 key expansion algorithm according to SP 800-108 and SP 800-132. <h:br/><h:br/><h:h4>KMD</h:h4>
@@ -2091,7 +2091,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               
               This requirement specifies the way that a product may combine the
               various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on FCS_KYC_EXT.1.1.</note>
-            <aactivity level="component">
+            <aactivity level="element">
               <TSS>If keys are XORed together to form an intermediate key, the TSS section
                 shall identify how this is performed (e.g., if there are ordering requirements, checks
                 performed, etc.). The evaluator shall also confirm that the TSS describes how the length
