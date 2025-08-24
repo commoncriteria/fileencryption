@@ -348,44 +348,12 @@
     </sec:Organizational_Security_Policies>
   </sec:Security_Problem_Definition>
   <!-- 4.0 Security Objectives -->
-  <sec:Security_Objectives>
-    <!-- 4.1 Security Objectives for the TOE -->
-    <!-- 4.2 Security Objctives for the Operational Environment -->
-    <sec:Security_Objectives_for_the_Operational_Environment>
-      <SOEs>
-        <SOE name="OE.AUTHORIZATION_FACTOR_STRENGTH">
-          <description>An authorized user will be responsible for ensuring that all externally
-            derived authorization factors have sufficient strength and entropy to reflect the
-            sensitivity of the data being protected. This can apply to password or
-            passphrase based, ECC CDH, and RSA authorization factors.</description>
-          <consistency-rationale>
-            This objective is consistent with the Base-PP because this functionality is beyond the scope of what the Base-PP defines. Therefore, the use and strength of 
-            external authorization factors does not affect the ability of any Base-PP SFRs or objectives to be satisfied.
-          </consistency-rationale>
-        </SOE>
-        <SOE name="OE.POWER_SAVE">
-          <description>The non-mobile operational environment must be configurable so that there
-            exists at least one mechanism that will cause the system to enter a safe power state (A.SHUTDOWN). Any
-            such mechanism (e.g., sleep, hibernate) that does not conform to this requirement must
-            be capable of being disabled. The mobile operational environment must be
-            configurable such that there exists at least one mechanism that will cause the system to
-            lock upon a period of time. </description>
-          <consistency-rationale>
-            This objective is consistent with the Base-PP because it is an extension of the Base-PP's OE.PLATFORM objective that is specific to this technology type.
-          </consistency-rationale>
-        </SOE>
-        <SOE name="OE.STRONG_ENVIRONMENT_CRYPTO">
-          <description>The Operating environment will provide a cryptographic function capability
-            that is commensurate with the requirements and capabilities of the TOE.</description>
-          <consistency-rationale>
-            This objective is consistent with the Base-PP because the Base-PP allows for the TOE to use platform-provided cryptography.
-          </consistency-rationale>
-        </SOE>
-      </SOEs>
-    </sec:Security_Objectives_for_the_Operational_Environment>
-    <!-- 4.3 Security Objectives Rationale -->
-    <sec:Security_Objectives_Rationale/>
-  </sec:Security_Objectives>
+  <sec:Security_Objectives> 
+    The Security Problem described in
+    <xref to="spd"/> will be addressed by a combination of cryptographic capabilities. Compliant TOEs
+    will provide security functionality that addresses threats to the TOE. The following subsections provide a description of the
+    security objectives required to meet the threats previously discussed. The
+    description of these security objectives are in addition to that described in the [AppPP].<h:br/></sec:Security_Objectives>
   <!-- 5.0 Security Requirements -->
   <sec:Security_Requirements title="Security Requirements">
     <!-- 5.1 App PP Security Functional Requirements Direction -->
