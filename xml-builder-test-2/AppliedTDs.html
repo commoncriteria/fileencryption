@@ -890,7 +890,8 @@ The following sections list Common Criteria and technology terms used in this do
       
     
     <h2 class="indexable" data-level="2" id="Use_Cases">1.4 Use Cases</h2>
-      <dl><dt id="usecase1"> [USE CASE 1] Unmanaged Endpoint</dt><dd><span class="description">The traditional ability to encrypt files without external management and power down the machine and know the data is securely protected.</span></dd><dt id="usecase2"> [USE CASE 2] Managed Endpoint</dt><dd><span class="description">The traditional ability to encrypt files and power down the machine and know the data is securely protected, while communicating with an Enterprise Management server.</span></dd><dt id="usecase3"> [USE CASE 3] Encrypted Distribution</dt><dd><span class="description">The ability to encrypt a file on a machine and then send the encrypted file securely using a non-encrypted data in transit method.</span></dd></dl>
+      <dl><dt id="usecase1"> [USE CASE 1] Unmanaged Endpoint</dt><dd><span class="description">The traditional ability to encrypt files without external management and power down the machine and know the data is securely protected.</span></dd><dt id="usecase2"> [USE CASE 2] Managed Endpoint</dt><dd><span class="description">The traditional ability to encrypt files and power down the machine and know
+            the data is securely protected, while communicating with an enterprise management server.</span></dd><dt id="usecase3"> [USE CASE 3] Encrypted Distribution</dt><dd><span class="description">The ability to encrypt a file on a machine and then send the encrypted file securely using a non-encrypted data in transit method.</span></dd></dl>
     
   <h1 class="indexable" data-level="1" id="Conformance_Claims">2 Conformance Claims</h1>
     <dl><dt>Conformance Statement</dt><p></p><dd>An <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> must claim exact conformance 
@@ -912,7 +913,7 @@ The following sections list Common Criteria and technology terms used in this do
 					any Protection Profile.
 				</dd><p></p><dd>The following <abbr class="dyn-abbr"><a href="#abbr_PP">PPs</a></abbr> and <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>-Modules are allowed to be specified in a 
 					<abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> with this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>:
-					<ul><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 2.3</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 2.4</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for File Encryption Enterprise Management, Version 1.0</li></ul></dd><dt>Package Claim</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is not conformant to any 
+					<ul><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for VPN Client, Version 3.0</li><li><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for File Encryption Enterprise Management, Version 1.0</li></ul></dd><dt>Package Claim</dt><p></p><dd>This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is not conformant to any 
 						Functional or Assurance Packages.</dd></dl>
   <h1 class="indexable" data-level="1" id="Security_Problem_Definition">3 Security Problem Definition</h1>
     
@@ -1128,8 +1129,7 @@ provide all of its security functionality.
               of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>. For the first selection, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author
               selects the method used for the keychain.  <br/><br/>
 
-              If the second option is chosen ("KEKs originating:")
-              , then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses all methods for production and protection of KEKs in the keychain 
+              If the second option is chosen ("KEKs originating:"), then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must also specify the 
               strength of the keys in the keychain.  It should be noted that "maintaining overall strength:
               commensurate with the overall strength of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>" is meant to cover the threat for this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> 
@@ -1268,7 +1268,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
           
           <div class="element"><div class="reqid" id="FIA_AUT_EXT.1.1"><a href="#FIA_AUT_EXT.1.1" class="abbr">FIA_AUT_EXT.1.1</a></div><div class="reqdesc">The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall 
                [<b>selection</b>: <span class="selectable-content" id="PLATAUTH">implement platform-provided functionality to provide user authorization</span>, <span class="selectable-content" id="APPAUTH">provide user authorization</span>]  based on 
-               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="USEPAS">a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span></li><li style=""><span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_1">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="fia_aut_ext.1.1_2">generated by the platform</span>] protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_3">no PIN</span>, <span class="selectable-content" id="fia_aut_ext.1.1_4">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="fia_aut_ext.1.1_5">a configurable PIN</span>] </span></li><li style=""><span class="selectable-content" id="fia_aut_ext.1.1_6">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is providing a submask generated by the [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_7"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="fia_aut_ext.1.1_8">platform</span>] </span></li></ul>].
+               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="USEPAS">a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span></li><li style=""><span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_1">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="fia_aut_ext.1.1_2">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_3">no PIN</span>, <span class="selectable-content" id="fia_aut_ext.1.1_4">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="fia_aut_ext.1.1_5">a configurable PIN</span>] </span></li><li style=""><span class="selectable-content" id="fia_aut_ext.1.1_6">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is providing a submask generated by the [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_7"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="fia_aut_ext.1.1_8">platform</span>] </span></li></ul>].
             <div class="appnote"><span class="note-header">Application
       Note:
     </span><span class="note">
@@ -1305,8 +1305,8 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
                   be passed to cryptographic functionality implement on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> platform--then
                   "configure cryptographic functionality" will be included, and the specifics of the
                   functionality offered can either be written in this requirement as bullet points,
-                  or included in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</li> <li>If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses stored FEKS or KEKs(the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is not directly derived from a password)
-                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a>" will be included. 
+                  or included in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr>.</li> <li>If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses stored FEKS or KEKs (the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is not directly derived from a
+                  password), then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a>" will be included. 
                   This function should be able to be triggered by a user or admin and may be triggered by uninstallation.</li> <li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
                   that may be needed are appropriately specified so that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> can claim
@@ -1689,9 +1689,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
         
         
         
-        <div class="comp" id="FCS_CKM_EXT.3"><h4>FCS_CKM_EXT.3 Key Encrypting Key (KEK) Support</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_CKM_EXT.3"><h4>FCS_CKM_EXT.3 Key Encrypting Key (KEK) Support</h4><div class="statustag"></div>
           
           
           
@@ -1705,9 +1703,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
     </span><span class="note">This requirement must be included in <abbr class="dyn-abbr"><a href="#abbr_ST">STs</a></abbr> in which KEKs originating from is chosen in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </span></div></div></div>
         </div>
         
-        <div class="comp" id="FCS_CKM_EXT.6"><h4>FCS_CKM_EXT.6 Cryptographic Password/Passphrase Conditioning</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_CKM_EXT.2.1">FCS_CKM_EXT.2.1</a>, <a href="#FIA_AUT_EXT.1.1">FIA_AUT_EXT.1.1</a>, <a href="#FCS_CKM_EXT.3.1">FCS_CKM_EXT.3.1</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_CKM_EXT.6"><h4>FCS_CKM_EXT.6 Cryptographic Password/Passphrase Conditioning</h4><div class="statustag"></div>
           
           
           
@@ -1778,9 +1774,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               <br/><br/>This requirement is selection dependent on <a href="#FIA_AUT_EXT.1.1">FIA_AUT_EXT.1.1</a>.</span></div></div></div>
         </div>
         
-        <div class="comp" id="FCS_COP.1/KE"><h4>FCS_COP.1/KE Cryptographic operation (Key Encryption)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_COP.1/KE"><h4>FCS_COP.1/KE Cryptographic operation (Key Encryption)</h4><div class="statustag"></div>
           
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/KE"><a href="#FCS_COP.1.1/KE" class="abbr">FCS_COP.1.1/KE</a></div><div class="reqdesc">
@@ -1796,9 +1790,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span></div></div></div>
         </div>
         
-        <div class="comp" id="FCS_COP.1/KT"><h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_COP.1/KT"><h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4><div class="statustag"></div>
           
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/KT"><a href="#FCS_COP.1.1/KT" class="abbr">FCS_COP.1.1/KT</a></div><div class="reqdesc">
@@ -1816,9 +1808,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
             </span></div></div></div>
         </div>
         
-        <div class="comp" id="FCS_COP.1/KW"><h4>FCS_COP.1/KW Cryptographic operation (Key Wrapping)</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_COP.1/KW"><h4>FCS_COP.1/KW Cryptographic operation (Key Wrapping)</h4><div class="statustag"></div>
           
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/KW"><a href="#FCS_COP.1.1/KW" class="abbr">FCS_COP.1.1/KW</a></div><div class="reqdesc">
@@ -1832,9 +1822,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               use key wrapping in the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span></div></div></div>
         </div>
         
-        <div class="comp" id="FCS_KDF_EXT.1"><h4>FCS_KDF_EXT.1 Cryptographic Key Derivation Function</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_KDF_EXT.1"><h4>FCS_KDF_EXT.1 Cryptographic Key Derivation Function</h4><div class="statustag"></div>
           
           
           
@@ -1857,9 +1845,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               existing submask to create a new key along the key chain.</span></div></div></div>
         </div>
         
-        <div class="comp" id="FCS_SMC_EXT.1"><h4>FCS_SMC_EXT.1 Submask Combining</h4><div class="statustag"><b><i>The inclusion of this selection-based component depends upon selection in
-           <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.
-           </i></b></div>
+        <div class="comp" id="FCS_SMC_EXT.1"><h4>FCS_SMC_EXT.1 Submask Combining</h4><div class="statustag"></div>
           
           
           
@@ -2031,7 +2017,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               [<b>selection</b>: <span class="selectable-content" id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</span>, <span class="selectable-content" id="APPAUTH">provide user authorization</span>] based on 
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="USEPAS"> a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span></li><li style=""><span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is 
-                   [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and 
+                   [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and 
                   [<b>selection</b>: <span class="selectable-content" id="_s_116">no PIN</span>, <span class="selectable-content" id="_s_117">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="_s_118">a configurable PIN</span>]</span></li><li style=""><span class="selectable-content" id="_s_119">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s),
                    and is providing a submask generated by the 
                    [<b>selection</b>: <span class="selectable-content" id="_s_120"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_121">platform</span>]</span></li></ul>].
@@ -2056,7 +2042,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
               [<b>selection</b>: <span class="selectable-content" id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</span>, <span class="selectable-content" id="APPAUTH">provide user authorization</span>] based on 
               [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="USEPAS"> a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span></li><li style=""><span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is 
-                   [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and 
+                   [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and 
                   [<b>selection</b>: <span class="selectable-content" id="_s_116">no PIN</span>, <span class="selectable-content" id="_s_117">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="_s_118">a configurable PIN</span>]</span></li><li style=""><span class="selectable-content" id="_s_119">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s),
                    and is providing a submask generated by the 
                    [<b>selection</b>: <span class="selectable-content" id="_s_120"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_121">platform</span>]</span></li></ul>].
