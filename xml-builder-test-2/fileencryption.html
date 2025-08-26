@@ -2361,17 +2361,14 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
           
           <div class="element"><div class="reqid" id="FCS_COP.1.1/KT"><a href="#FCS_COP.1.1/KT" class="abbr">FCS_COP.1.1/KT</a></div><div class="reqdesc">
               The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>key transport</i>] in accordance with a
-              specified cryptographic algorithm [<i>RSA</i>] in the following modes: 
-              <b><li>KTS-OAEP</li></b> 
-              and cryptographic key sizes 
-               [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KT_1">3072</span>, <span class="selectable-content" id="fcs_cop.1.1_KT_2">4096</span>]  that meet the following: [<i>NIST SP 800-56B, Revision 2</i>].
+              specified cryptographic algorithm  [<b>selection</b>: <ul><li style=""><span class="selectable-content" id="fcs_cop.1.1_KT_1">CNSA 2.0 Compliant Algorithms: <ul><li>[<i>Hybrid Key-Transport Method</i>] that meets the following: [Section 9.3 of NIST SP 800-56B, Revision 2] <b>using a key establishment algorithm [ML-KEM] as specified in FCS_CKM.2 (from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>) and a key wrapping algorithm as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></b></li></ul></span></li><li style=""><span class="selectable-content" id="fcs_cop.1.1_KT_2">CNSA 1.0 Compliant Algorithms: <ul><li>[KTS-OAEP] using cryptographic algorithm [RSA] with cryptographic key sizes [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KT_3">3072</span>, <span class="selectable-content" id="fcs_cop.1.1_KT_4">4096</span>] bits that meet the following: [NIST SP 800-56B, Revision 2]</li></ul></span></li></ul>]. 
             <div class="appnote"><span class="note-header">Application
       Note:
-    </span><span class="note">
-              
+    </span><span class="note"><p>
               This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to
               use key transport in the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.
-            </span></div></div></div>
+              </p> <p>
+                When describing the hybrid key-transport methods, Section 9.3 of NIST SP 800-56B only mentions using the key establishment schemes contained in SP800-56B to establish a shared symmetric key encryption key (<abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>) for the transport; however any approved symmetric key establishment method could easily be substituted. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> allows the use of ML-KEM key establishment schemes with the hybrid key-transport methods described in SP800-56B to provide a CNSA2-compliant key-transport method.</p></span></div></div></div>
         <div class="activity_pane hide"><div class="activity_pane_header"><a onclick="toggle(this);return false;" href="#"><span class="activity_pane_label"> Evaluation Activities </span><span class="toggler"></span></a></div><div class="activity_pane_body"><div class="element-activity-header"><a href="#FCS_COP.1.1/KT">FCS_COP.1.1/KT</a></div>
               <div class="eacategory"><abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr></div><div class="ea">The evaluator shall verify the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> provides a high level description of the RSA
                 scheme and the cryptographic key size that is being used, and that the asymmetric
