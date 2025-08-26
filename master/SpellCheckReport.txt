@@ -12,6 +12,8 @@ output/fileencryption-release-linkable.html: AFs
 output/fileencryption-release-linkable.html: AGD
 output/fileencryption-release-linkable.html: CDH
 output/fileencryption-release-linkable.html: CEM
+output/fileencryption-release-linkable.html: CNSA
+output/fileencryption-release-linkable.html: CNSA2
 output/fileencryption-release-linkable.html: CSP
 output/fileencryption-release-linkable.html: CSPs
 output/fileencryption-release-linkable.html: FAKs
@@ -31,6 +33,7 @@ output/fileencryption-release-linkable.html: PCI
 output/fileencryption-release-linkable.html: PRF
 output/fileencryption-release-linkable.html: RSADP
 output/fileencryption-release-linkable.html: SKC
+output/fileencryption-release-linkable.html: SP800
 output/fileencryption-release-linkable.html: STO
 output/fileencryption-release-linkable.html: Sanitization
 output/fileencryption-release-linkable.html: UAU
@@ -59,6 +62,8 @@ output/fileencryption-release.html: AFs
 output/fileencryption-release.html: AGD
 output/fileencryption-release.html: CDH
 output/fileencryption-release.html: CEM
+output/fileencryption-release.html: CNSA
+output/fileencryption-release.html: CNSA2
 output/fileencryption-release.html: CSP
 output/fileencryption-release.html: FAKs
 output/fileencryption-release.html: FEKS
@@ -72,6 +77,7 @@ output/fileencryption-release.html: NIST800
 output/fileencryption-release.html: PBKDF
 output/fileencryption-release.html: PRF
 output/fileencryption-release.html: SKC
+output/fileencryption-release.html: SP800
 output/fileencryption-release.html: STO
 output/fileencryption-release.html: Sanitization
 output/fileencryption-release.html: UAU
@@ -137,6 +143,8 @@ output/fileencryption.html: AFs
 output/fileencryption.html: AGD
 output/fileencryption.html: CDH
 output/fileencryption.html: CEM
+output/fileencryption.html: CNSA
+output/fileencryption.html: CNSA2
 output/fileencryption.html: CSP
 output/fileencryption.html: CSPs
 output/fileencryption.html: FAKs
@@ -156,6 +164,7 @@ output/fileencryption.html: PCI
 output/fileencryption.html: PRF
 output/fileencryption.html: RSADP
 output/fileencryption.html: SKC
+output/fileencryption.html: SP800
 output/fileencryption.html: STO
 output/fileencryption.html: Sanitization
 output/fileencryption.html: UAU
