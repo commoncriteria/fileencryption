@@ -3155,16 +3155,16 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               specified cryptographic algorithm <selectables linebreak="yes">
                 <selectable>CNSA 2.0 Compliant Algorithms:
                 <h:ul>
-                  <h:li>[<h:i>Hybrid Key-Transport Method</h:i>] that meets the following: [Section 9.3 of NIST SP 800-56B, Revision 2] <h:b>using a key establishment algorithm [ML-KEM] as specified in FCS_CKM.2 (from the Base-PP) and a key wrapping algorithm as specified in FCS_COP.1/KW.</h:b></h:li>
+                  <h:li>[<h:i>Hybrid Key-Transport Method</h:i>] that meets the following: [Section 9.3 of NIST SP 800-56B, Revision 2] <h:b>using a key establishment algorithm [ML-KEM] as specified in FCS_CKM.2 (from the Base-PP) and a key wrapping algorithm as specified in FCS_COP.1/KW</h:b></h:li>
                 </h:ul></selectable>
                 <selectable>CNSA 1.0 Compliant Algorithms:
                   <h:ul>
                     <h:li>[KTS-OAEP] using cryptographic algorithm [RSA] with cryptographic key sizes
-                    <selectables><selectable>3072</selectable><selectable>4096</selectable></selectables> bits that meet the following: [NIST SP 800-56B, Revision 2].</h:li>
+                    <selectables><selectable>3072</selectable><selectable>4096</selectable></selectables> bits that meet the following: [NIST SP 800-56B, Revision 2]</h:li>
                   </h:ul>
                   
                 </selectable>
-              </selectables> 
+              </selectables>. 
             </title>
             
             <note role="application">
