@@ -3186,6 +3186,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
               </h:p><h:p>
                 When describing the hybrid key-transport methods, Section 9.3 of NIST SP 800-56B only mentions using the key establishment schemes contained in SP800-56B to establish a shared symmetric key encryption key (KEK) for the transport; however any approved symmetric key establishment method could easily be substituted. This PP-Module allows the use of ML-KEM key establishment schemes with the hybrid key-transport methods described in SP800-56B to provide a CNSA2-compliant key-transport method.</h:p>
+              <h:p>
+              Future versions of this PP-Module may support the use of a key-encapsulation mechanism (KEM) for key transport as defined in NIST SP 800-227 (in draft as of the publication of this PP-Module), sections 5.1 and 6.2.1.
+              </h:p>
             </note>
             <aactivity>
               <TSS>
