@@ -1,4 +1,4 @@
-* https://commoncriteria.github.io/fileencryption/xml-builder-test-2/fileencryption-release.html.pdf[fileencryption-release.html.pdf]
-* https://commoncriteria.github.io/fileencryption/xml-builder-test-2/fileencryption-sd.html.pdf[fileencryption-sd.html.pdf]
 * https://commoncriteria.github.io/fileencryption/xml-builder-test-2/fileencryption.html.pdf[fileencryption.html.pdf]
+* https://commoncriteria.github.io/fileencryption/xml-builder-test-2/fileencryption-sd.html.pdf[fileencryption-sd.html.pdf]
+* https://commoncriteria.github.io/fileencryption/xml-builder-test-2/fileencryption-release.html.pdf[fileencryption-release.html.pdf]
 * https://commoncriteria.github.io/fileencryption/xml-builder-test-2/fileencryption-release-linkable.html.pdf[fileencryption-release-linkable.html.pdf]

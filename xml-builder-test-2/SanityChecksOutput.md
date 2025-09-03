@@ -58,12 +58,6 @@
         /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[2]""/f-element[4]""
 * Error: f-element FCS_CKM_EXT.6.5  appears not to have an associated evaluation activity.:
         /Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[2]""/f-element[5]""
-* Error: Detected dangling id-reference to fia-aut-ext from attribute
-        on-sel/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[2]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling id-reference to fcs-kyc-ext.1.1 from attribute
-        on-sel/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[4]""/depends[1]""/on-sel[1]""
-* Error: Detected dangling id-reference to FCS_KYC_EXT.1.1 from attribute
-        on-sel/Module[1]""/sec:Security_Requirements[1]""/sel-sfrs[1]""/section[1]""/f-component[7]""/depends[1]""/on-sel[1]""
 * Error: Detected multiple elements with an id of 'DRVFEKPAS'.
 * Error: Detected multiple elements with an id of 'DRVFEKPAS'.
 * Error: Detected multiple elements with an id of 'USEKEYWRA'.
