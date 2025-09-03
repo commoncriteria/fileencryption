@@ -24,10 +24,10 @@
   </RevisionHistory>
   <pp-preferences><audit-events-in-sfrs/></pp-preferences>
   <sec:Introduction >
-    <sec:Overview> 
+    <sec:Overview title="Overview"> 
      The scope of the File Encryption PP-Module is to describe the security functionality of a file encryption 
 	    product in terms of [CC] and to define functional and assurance requirements for such products. 
-	    This PP-Module is intended for use with the following Base-PP: <h:ul><h:br/><h:li>Application Software Protection Profile, Version 2.0</h:li></h:ul><h:br/>   
+	    This PP-Module is intended for use with the following Base-PP: <h:br/><h:ul><h:li>Application Software Protection Profile, Version 2.0</h:li></h:ul><h:br/>   
       This Base-PP is valid because a file encryption product is a 3rd party application or application 
       included with a operating system.<h:br/><h:br/>
     
@@ -244,8 +244,7 @@
           <description>The traditional ability to encrypt files without external management and power down the machine and know the data is securely protected.</description>
         </usecase>
         <usecase title="Managed Endpoint" id="usecase2">
-          <description>The traditional ability to encrypt files and power down the machine and know
-            the data is securely protected, while communicating with an enterprise management server.</description>
+          <description>The traditional ability to encrypt files and power down the machine and know the data is securely protected, while communicating with an Enterprise Management server.</description>
         </usecase>
         <usecase title="Encrypted Distribution" id="usecase3">
           <description>The ability to encrypt a file on a machine and then send the encrypted file securely using a non-encrypted data in transit method.</description>
@@ -260,7 +259,8 @@
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
-        <Mod-cc-ref>PP-Module for VPN Client, Version 3.0</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for VPN Client, Version 2.3</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for VPN Client, Version 2.4</Mod-cc-ref>
         <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim/>
@@ -299,7 +299,7 @@
       the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
       operational environment. Together the threats of [AppPP] and those defined in this PP-Module define
       the comprehensive set of security threats addressed by a file encryption TOE. 
-      <threats><threat name="T.KEYING_MATERIAL_COMPROMISE"><description><h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation,             plaintext keys, and other keying material to decrypt an encrypted file. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale><addressed-by>FPT_KYP_EXT.1</addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale></threat><threat name="T.KEYSPACE_EXHAUST"><description><h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data,            allowing access to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale><addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale><addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale><addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale><addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale><addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale></threat><threat name="T.MANAGEMENT_ACCESS"><description><h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform            necessary security operations due to a lack of supported management functionality.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FMT_SMF.1/FE</addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale></threat><threat name="T.PLAINTEXT_COMPROMISE"><description><h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools, allowing access            to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale></threat><threat name="T.UNAUTHORIZED_DATA_ACCESS"><description><h:b>Unauthorized Data Access:</h:b> An attacker that is not permitted to decrypt files             or has no access obtains access to an account and uses forensic tools for examination.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale><addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale><addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale><addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale><addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale><addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale><addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale><addressed-by>FIA_FCT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale></threat><threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION"><description><h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of             the authorization factor, allowing access to secure information. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale><addressed-by>FIA_AUT_EXT.1</addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale></threat></threats></sec:Threats>
+      <threats><threat name="T.KEYING_MATERIAL_COMPROMISE"><description><h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation,             plaintext keys, and other keying material to decrypt an encrypted file. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale><addressed-by>FPT_KYP_EXT.1</addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale></threat><threat name="T.KEYSPACE_EXHAUST"><description><h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data,            allowing access to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale><addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale><addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale><addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale><addressed-by>FCS_KDF_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale><addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale><addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale></threat><threat name="T.MANAGEMENT_ACCESS"><description><h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform            necessary security operations due to a lack of supported management functionality.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FMT_SMF.1/FE</addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale></threat><threat name="T.PLAINTEXT_COMPROMISE"><description><h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools, allowing access            to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale></threat><threat name="T.UNAUTHORIZED_DATA_ACCESS"><description><h:b>Unauthorized Data Access:</h:b> An attacker that is not permitted to decrypt files             or has no access obtains access to an account and uses forensic tools for examination.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale><addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale><addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale><addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale><addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale><addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale><addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale><addressed-by>FIA_FCT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale></threat><threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION"><description><h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of             the authorization factor, allowing access to secure information. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale><addressed-by>FIA_AUT_EXT.1</addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale></threat></threats></sec:Threats>
     <!-- 3.2 Assumptions -->
     <sec:Assumptions>
       <assumptions>
@@ -474,7 +474,7 @@
               This description includes details of how each identified key is introduced into volatile memory (e.g. by derivation 
               from user input, or by unwrapping a wrapped key stored in non-volatile memory) and how they are overwritten.<h:br/><h:br/>
 
-              The evaluator shall check to ensure the KMD lists each type of key that is stored in non-volatile memory, and 
+              The evaluator shall check to ensure the KMD lists each type of key that is stored in in non-volatile memory, and 
               identifies how the TOE interacts with the underlying platform to manage keys (e.g., store, retrieve, destroy). 
               The description includes details on the method of how the TOE interacts with the platform, including an identification 
               and description of the interfaces it uses to manage keys (e.g., file system APIs, platform key store APIs).<h:br/><h:br/>
@@ -527,19 +527,19 @@ Some examples of what is expected to be in the documentation are provided here. 
               upon their deletion. If a RAID array is being used, only set-ups that support TRIM are utilized. If the drive is 
               connected via PCI-Express, the operating system supports TRIM over that channel.<h:br/><h:br/>
 
-              The drive should be healthy and contain minimal corrupted data and should be at
-              end-of-life before a significant 
+              The drive should be healthy and contains minimal corrupted data and should be end of lifed before a significant 
               amount of damage to drive health occurs, this minimizes the risk that small amounts of 
               potentially recoverable data may remain in damaged areas of the drive.<h:br/><h:br/></Guidance>
               <Tests>
-                These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <h:br/> <h:br/>
+                These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key":
                 <testlist>
-                   <h:br/><h:br/>  <h:br/><h:br/> Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the TOE has no visibility into the inner workings and completely relies on the underlying platform. <h:br/><h:br/>  <h:br/><h:br/>  <h:br/><h:br/> 
-                  <test>[Conditional; applies when the application does not perform the zeroization (e.g. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 (assuming the selection "destruction of the reference followed by a request for garbage collection")] <h:br/><h:br/> Applied to each key held in volatile memory and subject to destruction by overwrite by the TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. <h:br/><h:br/>  <h:br/><h:br/> The evaluator shall: <h:br/><h:br/>  <h:br/><h:br/> 1. Record the value of the key in the TOE subject to clearing. <h:br/><h:br/> 2. Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1. <h:br/><h:br/> 3. Cause the TOE to clear the key. <h:br/><h:br/> 4. Cause the TOE to stop the execution but not exit. <h:br/><h:br/> 5. Cause the TOE to dump the entire memory of the TOE into a binary file. <h:br/><h:br/> 6. Search the content of the binary file created in Step #5 for instances of the known key value from Step #1. <h:br/><h:br/> Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</test>
-                  <test>[Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <h:br/><h:br/> Applied to each key held in non-volatile memory and subject to destruction by the TOE. <h:br/><h:br/> The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended. <h:br/><h:br/> 1. Identify the purpose of the key and what access should fail when it is deleted. (e.g. the file encryption key being deleted would cause data decryption to fail.) <h:br/><h:br/> 2. Cause the TOE to clear the key. <h:br/><h:br/> 3. Have the TOE attempt the functionality that the cleared key would be necessary for. <h:br/><h:br/> 4. The test succeeds if Step #3 fails.</test>
-                  <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system): <h:br/><h:br/> 1. Record the value of the key in the TOE subject to clearing. <h:br/><h:br/> 2. Cause the TOE to perform a normal cryptographic processing with the key from Step #1. <h:br/><h:br/> 3. Cause the TOE to clear the key. <h:br/><h:br/> 4. Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails.</test>
-                  <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media: <h:br/><h:br/> 1. Record the logical storage location of the key in the TOE subject to clearing. <h:br/><h:br/> 2. Cause the TOE to perform a normal cryptographic processing with the key from Step #1. <h:br/><h:br/> 3. Cause the TOE to clear the key. <h:br/><h:br/> 4. Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized. <h:br/><h:br/> The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test>
-                   <h:br/><h:br/> 
+                  <test>[Conditional; applies when the application does not perform the zeroization (e.g. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 (assuming the selection "destruction of the reference followed by a request for garbage collection")] <h:br/><h:br/> Applied to each key held in volatile memory and subject to destruction by overwrite by the TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. <h:br/><h:br/> The evaluator shall: <h:ol><h:li>Record the value of the key in the TOE subject to clearing.</h:li> <h:li>Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.</h:li> <h:li>Cause the TOE to clear the key.</h:li> <h:li>Cause the TOE to stop the execution but not exit.</h:li> <h:li>Cause the TOE to dump the entire memory of the TOE into a binary file.</h:li> <h:li>Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.</h:li></h:ol> Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.</test>
+                  <test>[Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <h:br/><h:br/> Applied to each key held in non-volatile memory and subject to destruction by the TOE. <h:br/><h:br/> The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended. <h:ol><h:li>Identify the purpose of the key and what access should fail when it is deleted. (e.g. the file encryption key being deleted would cause data decryption to fail.)</h:li> <h:li>Cause the TOE to clear the key.</h:li> <h:li>Have the TOE attempt the functionality that the cleared key would be necessary for.</h:li> <h:li>The test succeeds if Step #3 fails.</h:li></h:ol> </test>
+                </testlist>
+                <testlist>
+                  Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the TOE has no visibility into the inner workings and completely relies on the underlying platform.
+                  <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system): <h:ol><h:li>Record the value of the key in the TOE subject to clearing.</h:li> <h:li>Cause the TOE to perform a normal cryptographic processing with the key from Step #1.</h:li> <h:li>Cause the TOE to clear the key.</h:li> <h:li>Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails.</h:li></h:ol> </test>
+                  <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media: <h:ol><h:li>Record the logical storage location of the key in the TOE subject to clearing.</h:li> <h:li>Cause the TOE to perform a normal cryptographic processing with the key from Step #1.</h:li> <h:li>Cause the TOE to clear the key.</h:li> <h:li>Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.</h:li></h:ol> The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -678,7 +678,8 @@ Some examples of what is expected to be in the documentation are provided here. 
               of the FEK. For the first selection, the ST author
               selects the method used for the keychain.  <h:br/><h:br/>
 
-              If the second option is chosen ("KEKs originating:"), then the ST author chooses all methods for production and protection of KEKs in the keychain 
+              If the second option is chosen ("KEKs originating:")
+              , then the ST author chooses all methods for production and protection of KEKs in the keychain 
               from the options in the second selection.  For this option, the ST author must also specify the 
               strength of the keys in the keychain.  It should be noted that "maintaining overall strength:
               commensurate with the overall strength of the FEK" is meant to cover the threat for this PP-Module 
@@ -743,7 +744,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             </title></ext-comp-def-title>
             <aactivity level="element">
               <TSS>Conditional: <h:br/>If 'validating' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to determine which authorization factors support validation.<h:br/><h:br/>
-                The evaluator shall examine the TSS to ensure that it contains a high-level description of how the submasks are validated. If multiple submasks are used within the TOE, 
+                The evaluator shall examine the TSS to ensure that it contains a high-level description of how how the submasks are validated. If multiple submasks are used within the TOE, 
                 the evaluator shall verify that the TSS describes how each is validated (e.g., each submask validated before combining, once combined validation takes place). <h:br/><h:br/>
                 
                 Conditional: <h:br/>If 'receiving assertion' is selected in FCS_VAL_EXT.1.1, the evaluator shall examine the TSS to verify that it describes the environments that can be leveraged with the TOE and how each claims to perform validation.
@@ -755,7 +756,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             </aactivity>
           </f-element>
           <f-element id="fcs-val-ext-1e2">
-            <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i>].</title>
+            <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i></title>
             <ext-comp-def-title><title>The TSF shall require validation of the <assignable>subject requiring validation</assignable> prior to <assignable>action requiring validation</assignable>.</title></ext-comp-def-title>
             <note role="application">Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
@@ -908,7 +909,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <Guidance> None. <h:br/><h:br/></Guidance>
               <Tests>
                 <testlist>
-                  <test>If the TSS creates temporary files/resources during file decryption/encryption, the evaluator shall perform the following tests to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file. The evaluator shall use a tool (e.g., procmon for a Windows system) that is capable of monitoring the creation and deletion of files during the decryption/encryption process is performed. A tool that can search the contents of the hard drive (e.g., WinHex) will also be needed. The tools used to perform the monitoring shall be identified in the test report. <h:br/><h:br/> (Creating an encrypted document) <h:ul><h:li>Open an editing application.</h:li> <h:li>Create a special string inside the document. The string could be 5-10 words. It is
+                  <test>If the TSS creates temporary files/resources during file decryption/encryption, the evaluator shall perform the following tests to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file. The evaluator shall use a tool (e.g., procmon for a Windows system) that is capable of monitoring the creation and deletion of files during the decryption/encryption process is performed. A tool that can search the contents of the hard drive (e.g., winhex) will also be needed. The tools used to perform the monitoring shall be identified in the test report. <h:br/><h:br/> (Creating an encrypted document) <h:ul><h:li>Open an editing application.</h:li> <h:li>Create a special string inside the document. The string could be 5-10 words. It is
                     recommended to remove the spaces. This will create a one page document.</h:li> <h:li>Start the file monitoring tool.</h:li> <h:li>Save and close the file.</h:li> <h:li>Encrypt the file using the TOE (if the TOE does not encrypt automatically for the
                     user).</h:li></h:ul>  <h:br/><h:br/>  <h:b>Analysis Steps </h:b>  <h:ul><h:li>If needed, exit/close the TOE.</h:li> <h:li>Stop the file monitoring tool. View the results. Identify any temporary files that
                       were created during the encryption process. Examine to see if the temporary files
@@ -945,13 +946,13 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <f-element id="fia-aut-ext-1e1">
             <title>The TSF shall 
                <selectables><selectable id="PLATAUTH" >implement platform-provided functionality to provide user authorization</selectable><selectable id="APPAUTH" >provide user authorization</selectable></selectables>  based on 
-               <selectables><selectable id="USEPAS" >a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable><selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is <selectables><selectable id="fia_aut_ext.1.1_1" >generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>))</selectable><selectable id="fia_aut_ext.1.1_2" >generated by the platform</selectable></selectables> protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>) with user presence proved by presentation of the smart card and <selectables><selectable id="fia_aut_ext.1.1_3" >no PIN</selectable><selectable id="fia_aut_ext.1.1_4" >an OE defined PIN</selectable><selectable id="fia_aut_ext.1.1_5" >a configurable PIN</selectable></selectables> </selectable><selectable id="fia_aut_ext.1.1_6">an external USB token factor that is at least the same security strength as the FEK(s), and is providing a submask generated by the <selectables><selectable id="fia_aut_ext.1.1_7" >TOE (using the RBG as specified in FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>))</selectable><selectable id="fia_aut_ext.1.1_8" >platform</selectable></selectables> </selectable></selectables>.
+               <selectables><selectable id="USEPAS" >a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable><selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is <selectables><selectable id="fia_aut_ext.1.1_1" >generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>))</selectable><selectable id="fia_aut_ext.1.1_2" >generated by the platform</selectable></selectables> protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>) with user presence proved by presentation of the smart card and <selectables><selectable id="fia_aut_ext.1.1_3" >no PIN</selectable><selectable id="fia_aut_ext.1.1_4" >an OE defined PIN</selectable><selectable id="fia_aut_ext.1.1_5" >a configurable PIN</selectable></selectables> </selectable><selectable id="fia_aut_ext.1.1_6">an external USB token factor that is at least the same security strength as the FEK(s), and is providing a submask generated by the <selectables><selectable id="fia_aut_ext.1.1_7" >TOE (using the RBG as specified in FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>))</selectable><selectable id="fia_aut_ext.1.1_8" >platform</selectable></selectables> </selectable></selectables>.
             </title>
             <ext-comp-def-title><title>The TSF shall 
               <selectables><selectable id="PLATAUTH">implement platform-provided functionality to provide user
                   authorization</selectable><selectable id="APPAUTH">provide user authorization</selectable></selectables> based on 
               <selectables><selectable id="USEPAS"> a password authorization factor conditioned as defined in FCS_CKM_EXT.6</selectable><selectable id="USECAR">an external smart card factor that is at least the same bit-length as the FEK(s), and is protecting a submask that is 
-                   <selectables><selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable><selectable>generated by the platform</selectable></selectables> protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>) with user presence proved by presentation of the smart card and 
+                   <selectables><selectable>generated by the TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable><selectable>generated by the platform</selectable></selectables> protected using assymetric keys as defined in FCS_CKM.1.1/AK (from <xref to="bibAppPP"/>) with user presence proved by presentation of the smart card and 
                   <selectables><selectable>no PIN</selectable><selectable>an OE defined PIN</selectable><selectable>a configurable PIN</selectable></selectables></selectable><selectable>an external USB token factor that is at least the same security strength as the FEK(s),
                    and is providing a submask generated by the 
                    <selectables><selectable>TOE (using the RBG as specified in FCS_RBG_EXT.1)</selectable><selectable>platform</selectable></selectables></selectable></selectables>.
@@ -1023,8 +1024,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                   be passed to cryptographic functionality implement on the TOE platform--then
                   "configure cryptographic functionality" will be included, and the specifics of the
                   functionality offered can either be written in this requirement as bullet points,
-                  or included in the TSS.</h:li> <h:li>If the TOE uses stored FEKS or KEKs (the FEK is not directly derived from a
-                  password), then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2" will be included. 
+                  or included in the TSS.</h:li> <h:li>If the TOE uses stored FEKS or KEKs(the FEK is not directly derived from a password)
+                  , then "perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2" will be included. 
                   This function should be able to be triggered by a user or admin and may be triggered by uninstallation.</h:li> <h:li>If "other management functions" are assigned, a validation authority must be
                   consulted to ensure the evaluation activities and other functionality requirements
                   that may be needed are appropriately specified so that the ST can claim
@@ -1629,7 +1630,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 with the exception of files permitted to be shared under the mechanism described in FIA_FCT_EXT.2.
                 <h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
-              <Guidance>The evaluator shall examine the operation guidance to
+              <Guidance> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to establish multiple accounts and protect resources from other users.
                 If different for different underlying platforms, the evaluator determines that all platforms listed in the ST are addressed.<h:br/><h:br/></Guidance>
               <Tests>The evaluator shall ensure that different users using different authorization factors are unable to decrypt each others protected resources for each type of protected resource identified in the TSS. The test succeeds if the users are unable to decrypt resources not chained to them, with the exception of any resources linked in FIA_FCT_EXT.2.</Tests>
@@ -1686,7 +1687,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
                 product. If different for different underlying platforms, the evaluator determines that
                 all platforms listed in the ST are addressed.<h:br/><h:br/><h:h4>KMD</h:h4>
                  None. <h:br/><h:br/></TSS>
-              <Guidance>The evaluator shall examine the operation guidance to
+              <Guidance> - The evaluator shall examine the operation guidance to
                 determine that it contains instructions on how to set up and share resources
                 with other users, if additional actions are necessary due to use of the
                 encryption product. If different for different underlying platforms, the
@@ -1716,7 +1717,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </ext-comp-def>
         <!-- FCS_CKM_EXT.3 Key Encrypting Key (KEK) Support -->
         <f-component cc-id="fcs_ckm_ext.3" id="fcs-ckm-ext-3" name="Key Encrypting Key (KEK) Support">
-          <depends on-sel="fcs-kyc-ext-1e1"/>
+          <depends on-sel="HASKEK"/>
           <consistency-rationale>This SFR relates to how KEKs are made available to the TSF, which are used for functionality that does not relate to the Base-PP.
         </consistency-rationale>
           <comp-lev> describes the method by which the TSF acquires or generates key encryption keys.</comp-lev>
@@ -1762,9 +1763,9 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
         <!-- FCS_CKM_EXT.6 Cryptographic Password/Passphrase Conditioning -->
         <f-component cc-id="fcs_ckm_ext.6" id="fcs-ckm-ext-6" name="Cryptographic Password/Passphrase Conditioning">
-          <depends on-sel="fia-aut-ext"/>
-          <depends on-sel="fcs-ckm-ext-2e1"/>
-          <depends on-sel="fcs-ckm-ext-3e1"/>
+          <depends on-sel="USEPAS"/>
+          <depends on-sel="DRVFEKPAS"/>
+          <depends on-sel="DRVKEKPAS"/>
           <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 SFR from the Base-PP in its intended manner 
             but otherwise does not relate to the Base-PP's functionality.
           </consistency-rationale>
@@ -1902,7 +1903,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
         <!-- FCS_COP.1/KE Cryptographic operation (Key Encryption) -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-ke" name="Cryptographic operation (Key Encryption)" iteration="KE">
-          <depends on-sel="fcs-kyc-ext-1e1"/>
+          <depends on-sel="USEKEYENC"/>
           <consistency-rationale>This SFR defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
           <f-element id="fcs_cop-1-1_KE">
@@ -1928,19 +1929,22 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
         <!-- FCS_COP.1/KT Cryptographic operation (Key Transport) -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-kt" name="Cryptographic operation (Key Transport)" iteration="KT">
-          <depends on-sel="fcs-kyc-ext.1.1"/>
+          <depends on-sel="USEKEYTRA"/>
           <consistency-rationale>This SFR defines key transport functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
           <f-element id="fcs_cop-1-1_KT">
             <title>
               The TSF shall perform [<h:i>key transport</h:i>] in accordance with a
-              specified cryptographic algorithm  <selectables linebreak="yes"><selectable id="fcs_cop.1.1_KT_1" >CNSA 2.0 Compliant Algorithms: <h:ul><h:li>[<h:i>Hybrid Key-Transport Method</h:i>] that meets the following: [Section 9.3 of NIST SP 800-56B, Revision 2] <h:b>using a key establishment algorithm [ML-KEM] as specified in FCS_CKM.2 (from the Base-PP) and a key wrapping algorithm as specified in FCS_COP.1/KW</h:b></h:li></h:ul></selectable><selectable id="fcs_cop.1.1_KT_2">CNSA 1.0 Compliant Algorithms: <h:ul><h:li>[KTS-OAEP] using cryptographic algorithm [RSA] with cryptographic key sizes <selectables><selectable id="fcs_cop.1.1_KT_3" >3072</selectable><selectable id="fcs_cop.1.1_KT_4" >4096</selectable></selectables> bits that meet the following: [NIST SP 800-56B, Revision 2]</h:li></h:ul></selectable></selectables>. 
+              specified cryptographic algorithm [<h:i>RSA</h:i>] in the following modes: 
+              <h:b><h:li>KTS-OAEP</h:li></h:b> 
+              and cryptographic key sizes 
+               <selectables><selectable id="fcs_cop.1.1_KT_1" >3072</selectable><selectable id="fcs_cop.1.1_KT_2" >4096</selectable></selectables>  that meet the following: [<h:i>NIST SP 800-56B, Revision 2</h:i>].
             </title>
-            <note role="application"><h:p>
+            <note role="application">
+              
               This requirement is used in the body of the ST if the ST author chooses to
               use key transport in the key chaining approach that is specified in FCS_KYC_EXT.1.
-              </h:p> <h:p>
-                When describing the hybrid key-transport methods, Section 9.3 of NIST SP 800-56B only mentions using the key establishment schemes contained in SP800-56B to establish a shared symmetric key encryption key (KEK) for the transport; however any approved symmetric key establishment method could easily be substituted. This PP-Module allows the use of ML-KEM key establishment schemes with the hybrid key-transport methods described in SP800-56B to provide a CNSA2-compliant key-transport method.</h:p></note>
+            </note>
             <aactivity level="element">
               <TSS>The evaluator shall verify the TSS provides a high level description of the RSA
                 scheme and the cryptographic key size that is being used, and that the asymmetric
@@ -1970,7 +1974,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
         <!-- FCS_COP.1/KW Cryptographic operation (Key Wrapping) -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-kw" name="Cryptographic operation (Key Wrapping)" iteration="KW">
-          <depends on-sel="fcs-kyc-ext-1e1"/>
+          <depends on-sel="USEKEYWRA"/>
           <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
             specific to this PP-Module and do not affect the ability of any Base-PP SFRs to be enforced.
           </consistency-rationale>
@@ -2034,7 +2038,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
         <!-- FCS_KDF_EXT.1 Cryptographic Key Derivation Function -->
         <f-component cc-id="fcs_kdf_ext.1" id="fcs-kdf-ext-1" name="Cryptographic Key Derivation Function">
-          <depends on-sel="fcs-kyc-ext-1e1"/>
+          <depends on-sel="USEKEYDER"/>
           <consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the Base-PP 
             as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the Base-PP.
           </consistency-rationale>
@@ -2077,7 +2081,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
         <!-- FCS_SMC_EXT.1 Submask Combining -->
         <f-component cc-id="fcs_smc_ext.1" id="fcs-smc-ext-1" name="Submask Combining">
-          <depends on-sel="FCS_KYC_EXT.1.1"/>
+          <depends on-sel="USEKEYCOM"/>
           <consistency-rationale>This SFR relates to submask combining as a method of generating intermediate keys. Key hierarchy functionality is outside the scope of the Base-PP.
           </consistency-rationale>
           <comp-lev> requires the TSF to implement submask combining in a specific manner to support the generation of intermediate keys.</comp-lev>
