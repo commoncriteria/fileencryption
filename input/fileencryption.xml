@@ -148,7 +148,9 @@
       that element is implemented. It is allowable for some elements in a component to be
       implemented by the TOE, while other elements in that same component may be implemented by
       the platform; in these cases, further guidance is given in the application notes and
-      Supporting Documentation.<h:br/>  <h:br/> In some cases, the TOE vendor will have to provide specific
+      Supporting Documentation.<h:br/>  <h:br/> 
+      
+      <h:b>Operational Guidance (optional)</h:b> <h:br/> In some cases, the TOE vendor will have to provide specific
       configuration guidance for the Operational Environment to enable the TOE to meet its
       security objectives. These include:<h:br/> For non-mobile systems:<h:br/>
       <h:ul>
