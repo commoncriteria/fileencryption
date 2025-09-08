@@ -134,8 +134,8 @@
 
       The PP-Module contains requirements (Section 5 that must be met by either the TOE or the platform
       on which it operates. A "platform" is defined as a separate entity whose functions may be
-      used by the TOE, but is not part of the TOE. A third-party library used by the TOE is not
-      considered part of the TOE's "platform", but (for instance) cryptographic functionality that
+      used by the TOE, but is not part of the TOE. While a third-party library used by the TOE is not
+      considered part of the TOE's "platform", cryptographic functionality (for instance) that
       is built into an Operating System on which the TOE executes can be considered part of the
       platform. Requirements that allow for the platform to provide functionality have selections 
       that identify where it is acceptable.<h:br/> <h:br/> 
