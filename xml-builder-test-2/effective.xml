@@ -909,14 +909,14 @@ Some examples of what is expected to be in the documentation are provided here. 
                     
                     The evaluator shall:<h:br/>
                     
-                    1. Record the value of the key in the TOE subject to clearing.
-                    2. Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.
-                    3. Cause the TOE to clear the key.
-                    4. Cause the TOE to stop the execution but not exit.
-                    5. Cause the TOE to dump the entire memory of the TOE into a binary file.
-                    6. Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.
+                    1. Record the value of the key in the TOE subject to clearing.<h:br/>
+                    2. Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.<h:br/>
+                    3. Cause the TOE to clear the key.<h:br/>
+                    4. Cause the TOE to stop the execution but not exit.<h:br/>
+                    5. Cause the TOE to dump the entire memory of the TOE into a binary file.<h:br/>
+                    6. Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.<h:br/>
 
-                    Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.
+                    Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.<h:br/>
                 </test>
 
                 <test>[Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <h:br/>
@@ -926,7 +926,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     1. Identify the purpose of the key and what access should fail when it is deleted. (e.g. the file encryption key being deleted would cause data decryption to fail.)<h:br/>
                     2. Cause the TOE to clear the key.<h:br/>
                     3. Have the TOE attempt the functionality that the cleared key would be necessary for.<h:br/>
-                    4. The test succeeds if Step #3 fails.
+                    4. The test succeeds if Step #3 fails.<h:br/>
                 </test>
               </testlist>
               <testlist>
@@ -937,7 +937,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     1. Record the value of the key in the TOE subject to clearing.<h:br/>
                     2. Cause the TOE to perform a normal cryptographic processing with the key from Step #1.<h:br/>
                     3. Cause the TOE to clear the key.<h:br/>
-                    4. Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails.
+                    4. Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails.<h:br/>
                 </test>
                 <test>Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. 
                   The evaluator shall use a tool that provides a logical view of the media:<h:br/>
