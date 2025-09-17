@@ -391,6 +391,8 @@
           <rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale>
           <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by>
           <rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale>
+          <addressed-by>FCS_KDF_EXT.1 (selection-based)</addressed-by>
+          <rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale>
           <addressed-by>FCS_KYC_EXT.1</addressed-by>
           <rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale>
           <addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by>
@@ -610,7 +612,7 @@
               key may need to be destroyed when a password is changed. However, there are instances
               when keys are allowed to remain in memory, for example, a device identification key. If a
               PIN was used for a smart card and managed by the TOE, ensuring that the PIN was properly destroyed must be addressed.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall verify the TSS provides a high level description of what it means for keys and key material 
 		            to be no longer needed and when they should be expected to be destroyed.
@@ -792,7 +794,11 @@
               </title>
             </ext-comp-def-title>
             <note role="application">For keys generated from a password, even if referencing NIST SP 800-133r2 for password-based key generation, "derived from a password/passphrase that is conditioned as defined in FCS_CKM_EXT.6" must be selected so that FCS_CKM_EXT.6 is included.</note>
-            <aactivity level="element">
+          </f-element>
+          <f-element id="fcs-ckm-ext-2e2">
+            <title>The TSF shall use a unique FEK for each file (or set of files) using the
+              mechanism on the client as specified in FCS_CKM_EXT.2.1.</title>
+            <aactivity>
               <TSS>
                 FCS_CKM_EXT.2.1: The evaluator shall review the TSS to determine that a
               description covering how and when the FEKs are generated exists. The description must
@@ -858,10 +864,6 @@
               </Guidance>
               <Tests>None.</Tests>
             </aactivity>
-          </f-element>
-          <f-element id="fcs-ckm-ext-2e2">
-            <title>The TSF shall use a unique FEK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_CKM_EXT.2.1.</title>
           </f-element>
         </f-component>
         <!-- FCS_KYC_EXT.1 Key Chaining and Key Storage -->
@@ -960,7 +962,7 @@
               The key management internal to the server is not evaluated here. This permits the enterprise management server to 
             function in the middle of a larger key chain.
             </note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall verify the TSS contains a high level 
               description of all keychains and authorization methods selected in FIA_AUT_EXT.1 
@@ -1026,7 +1028,20 @@
                 .
               </title>
             </ext-comp-def-title>
-            <aactivity level="element">
+          </f-element>
+          <f-element id="fcs-val-ext-1e2">
+            <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i></title>
+            <ext-comp-def-title>
+              <title>The TSF shall require validation of the <assignable>subject requiring validation</assignable> prior to <assignable>action requiring validation</assignable>.</title>
+            </ext-comp-def-title>
+            <note role="application">
+              Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
+              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
+              to easily determine which iteration applies to each TOE component.
+              <h:br/>
+              <h:br/>
+            </note>
+            <aactivity>
               <TSS>
                 Conditional:
                 <h:br/>
@@ -1056,19 +1071,6 @@
               </Guidance>
               <Tests>There are no test activities for this requirement.</Tests>
             </aactivity>
-          </f-element>
-          <f-element id="fcs-val-ext-1e2">
-            <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i></title>
-            <ext-comp-def-title>
-              <title>The TSF shall require validation of the <assignable>subject requiring validation</assignable> prior to <assignable>action requiring validation</assignable>.</title>
-            </ext-comp-def-title>
-            <note role="application">
-              Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
-              If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
-              to easily determine which iteration applies to each TOE component.
-              <h:br/>
-              <h:br/>
-            </note>
           </f-element>
         </f-component>
         <!-- FCS_VAL_EXT.2 Validation Remediation -->
@@ -1118,7 +1120,7 @@
               <h:br/>
               This requirement is used in the body of the ST if the ST author chooses "provide user authorization" in FIA_AUT_EXT.1.1.
             </note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall examine the TSS to determine which remediation options are supported for which authentication options.
                 <h:br/>
@@ -1180,7 +1182,75 @@
             </ext-comp-def-title>
             <note role="application">This is the primary requirement for encrypting and decrypting
               the protected resources (files and sets of files).</note>
-            <aactivity level="element">
+            <aactivity>
+              <TSS>
+                The evaluator shall examine the TSS to determine that it
+              lists each type of resource that can be encrypted (e.g., file, directory) and what
+              "encrypted" means in terms of the resource (e.g., "encrypting a directory" means that
+              all of the files contained in the directory are encrypted, but the data in the
+              directory itself (which are filenames and pointers to the files) are not encrypted).
+                <h:br/>
+                <h:br/>
+                The evaluator shall also confirm that the TSS describes how each type of resource
+              listed is encrypted and decrypted by the TOE. The evaluator shall ensure that this
+              description includes the case where an existing file or set of files is encrypted for
+              the first time; a new file or set of files is created and encrypted; an existing file
+              or set of files is re-encrypted (that is, it had been initially encrypted; it was
+              decrypted (by the TOE) for use by the user, and is then subsequently re-encrypted);
+              and corresponding decryption scenarios. If other scenarios exist due to product
+              implementation/features, the evaluator shall ensure that those scenarios are covered
+              in the TSS as well.
+                <h:br/>
+                <h:br/>
+                <h:h4>KMD</h:h4>
+                None.
+                <h:br/>
+                <h:br/>
+              </TSS>
+              <Guidance>
+                If the TOE creates temporary objects and these
+              objects can be protected through administrative measures (e.g., the TOE creates
+              temporary files in a designated directory that can be protected through configuration
+              of its access control permissions), then the evaluator shall check the Operational
+              Guidance to ensure that these measures are described.
+                <h:br/>
+                <h:br/>
+                If there are special
+              measures necessary to configure the method by which the file or set of files are
+              encrypted (e.g., choice of algorithm used, key size, etc.), then those instructions
+              shall be included in the Operational Guidance and verified by the evaluator. In these
+              cases, the evaluator checks to ensure that all non-TOE products used to satisfy the
+              requirements of the ST that are described in the Operational Guidance are consistent
+              with those listed in the ST, and those tested by the evaluation activities of this PP-Module.
+                <h:br/>
+                <h:br/>
+              </Guidance>
+              <Tests>The evaluator shall also perform the following tests. All instructions for configuring the TOE and each of the environments must be included in the Operational Guidance and used to establish the test configuration. <h:br/> <h:br/>For each resource and decryption/encryption scenario listed in the TSS, the evaluator shall ensure that the TSF is able to successfully encrypt and decrypt the resource using the following methodology: <h:br/>Monitor the temporary resources being created (if any) and deleted by the TSF-the tools used to perform the monitoring (e.g., procmon for a Windows system) shall be identified in the test report. The evaluator shall ensure that these resources are consistent with those identified in the TSS, and that they are protected as specified in the Operational Guidance and are deleted when the decryption/encryption operation is completed.</Tests>
+            </aactivity>
+          </f-element>
+          <f-element id="fdp-prt-ext-1e2">
+            <title>
+              The TSF shall
+              <selectables>
+                <selectable id="fdp_prt_ext.1.2_1">invoke platform-provided functionality</selectable>
+                <selectable id="fdp_prt_ext.1.2_2">implement functionality</selectable>
+              </selectables>
+              to ensure that all sensitive data created by the TOE when
+              decrypting/encrypting the user-selected file (or set of files) are destroyed in
+              volatile and non-volatile memory when the data is no longer needed according to FCS_CKM.6.
+            </title>
+            <note role="application">The intent is that the TSF controls the use and clearing of any data
+              that it manipulates that is not needed by the user (e.g. a temporary file created in non-volatile
+              memory during the encryption/decryption process would be destroyed as soon as the process is completed).
+              This should not prevent expected usage (e.g. the TOE may create a decrypted copy of a file as requested
+              by the user). The TSF is also not responsible for temporary files that  non-TSF application creates 
+              (for example, a text editor may create a "checkpoint" file when editing a file that is protected by the TOE;
+              the TOE does not have to try to keep track of or clean up these "checkpoint" files). An optional
+              requirement on cleaning up the temporary files created by non-TSF application when operating on
+              files protected by the TOE is FDP_PRT_EXT.3.1.
+
+            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM.6.</note>
+            <aactivity>
               <TSS>
                 <h:br/>
                 The evaluator shall examine the TSS to ensure there is a high-level description
@@ -1208,29 +1278,6 @@
                 </testlist>
               </Tests>
             </aactivity>
-          </f-element>
-          <f-element id="fdp-prt-ext-1e2">
-            <title>
-              The TSF shall
-              <selectables>
-                <selectable id="fdp_prt_ext.1.2_1">invoke platform-provided functionality</selectable>
-                <selectable id="fdp_prt_ext.1.2_2">implement functionality</selectable>
-              </selectables>
-              to ensure that all sensitive data created by the TOE when
-              decrypting/encrypting the user-selected file (or set of files) are destroyed in
-              volatile and non-volatile memory when the data is no longer needed according to FCS_CKM.6.
-            </title>
-            <note role="application">The intent is that the TSF controls the use and clearing of any data
-              that it manipulates that is not needed by the user (e.g. a temporary file created in non-volatile
-              memory during the encryption/decryption process would be destroyed as soon as the process is completed).
-              This should not prevent expected usage (e.g. the TOE may create a decrypted copy of a file as requested
-              by the user). The TSF is also not responsible for temporary files that  non-TSF application creates 
-              (for example, a text editor may create a "checkpoint" file when editing a file that is protected by the TOE;
-              the TOE does not have to try to keep track of or clean up these "checkpoint" files). An optional
-              requirement on cleaning up the temporary files created by non-TSF application when operating on
-              files protected by the TOE is FDP_PRT_EXT.3.1.
-
-            While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM.6.</note>
           </f-element>
         </f-component>
         <!-- FDP_PRT_EXT.2 Destruction of Plaintext Data -->
@@ -1272,7 +1319,7 @@
               <h:br/>
               While these data sets are not keys, they can follow the same deletion procedures described in FCS_CKM.6.
             </note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall
             examine the TSS to ensure that it describes all temporary file (or set of files) that
@@ -1407,7 +1454,7 @@
               Use of multiple authorization factors is preferable; if more than one authorization factor is
              used, the submasks produced must be combined using FCS_SMC_EXT.1.
             </note>
-            <aactivity level="element">
+            <aactivity>
               The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
@@ -1509,7 +1556,7 @@
               <h:br/>
               This list is in addition to the list of functions as specified in, FMT_SMF.1 in the AppPP.
             </note>
-            <aactivity level="element">
+            <aactivity>
               The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
               selections in an ST; it should be understood that if a capability is not selected in
@@ -1635,7 +1682,7 @@
               on the TOE or OE, the only methods that allow it to play a security relevant role for
               protecting the FEK is if it is a key split or providing additional layers of wrapping
               or encryption on keys that have already been protected.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall verify the TSS for a high level description of the method(s) used
               to protect keys stored in non-volatile memory.
@@ -1711,7 +1758,41 @@
                 .
               </title>
             </ext-comp-def-title>
-            <aactivity level="element">
+          </f-element>
+          <f-element id="fcs-ckm-ext-5e2">
+            <title>
+              The TSF shall create a unique FAK for each file (or set of files) using the
+              mechanism on the client as specified in FCS_RBG_EXT.1 (from
+              <xref to="bibAppPP"/>
+              ).
+            </title>
+            <ext-comp-def-title>
+              <title>The TSF shall create a unique FAK for each file (or set of files) using the
+              mechanism on the client as specified in FCS_RBG_EXT.1.</title>
+            </ext-comp-def-title>
+          </f-element>
+          <f-element id="fcs-ckm-ext-5e3">
+            <title>The FAKs must be generated by the TOE as specified in FDP_AUT_EXT.2.9.</title>
+          </f-element>
+          <f-element id="fcs-ckm-ext-5e4">
+            <title>The TSF will not write FAKs to non-volatile memory.</title>
+          </f-element>
+          <f-element id="fcs-ckm-ext-5e5">
+            <title>The FAK shall be protected in a manner conformant to FCS_COP_EXT.1.</title>
+            <note role="application">
+              The intent of this requirement is to describe the different
+              methods that a FAK can be created and formed.
+              <h:br/>
+              <h:br/>
+              FCS_CKM_EXT.5.1 details how a FAK is stored.
+              <h:br/>
+              <h:br/>
+              FCS_CKM_EXT.5.2 requires that each resource to be encrypted
+              has a unique FAK, and that this FAK is generated by the TSF. If the encrypted resource
+              is a set of files encrypted under one FAK, additional requirements on the initialization
+              vectors and cipher modes must be adhered to in Section 4.2.
+            </note>
+            <aactivity>
               <TSS>
                 FCS_CKM_EXT.5.1: The evaluator shall examine the TSS to determine how the FAK is stored (or not stored) in memory.
                 <h:br/>
@@ -1752,40 +1833,6 @@
               <Tests>An example ciphertext file generated via the TOE shall be provided to the evaluator with the accompanying FAK and prerequisite authorization information used for encryption. The evaluator will use the TOE in conjunction with a debugging or forensics utility to attempt an authentication of the ciphertext file using the provided authorization information. The evaluator will then terminate processing of the TOE and perform a search through non-volatile memory using the provided FAK string. The evaluator must document each command, program or action taken during this process, and must confirm that the FAK was never written to non-volatile memory. This test must be performed three times to ensure repeatability. If during the course of this testing the evaluator finds that the FAK was written to non-volatile memory, they should be able to identify the cause (i.e. the TOE wrote the FAK to disk, the TOE platform dumped volatile memory as a page file, etc.), and document the reason for failure to comply with the requirement.</Tests>
             </aactivity>
           </f-element>
-          <f-element id="fcs-ckm-ext-5e2">
-            <title>
-              The TSF shall create a unique FAK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_RBG_EXT.1 (from
-              <xref to="bibAppPP"/>
-              ).
-            </title>
-            <ext-comp-def-title>
-              <title>The TSF shall create a unique FAK for each file (or set of files) using the
-              mechanism on the client as specified in FCS_RBG_EXT.1.</title>
-            </ext-comp-def-title>
-          </f-element>
-          <f-element id="fcs-ckm-ext-5e3">
-            <title>The FAKs must be generated by the TOE as specified in FDP_AUT_EXT.2.9.</title>
-          </f-element>
-          <f-element id="fcs-ckm-ext-5e4">
-            <title>The TSF will not write FAKs to non-volatile memory.</title>
-          </f-element>
-          <f-element id="fcs-ckm-ext-5e5">
-            <title>The FAK shall be protected in a manner conformant to FCS_COP_EXT.1.</title>
-            <note role="application">
-              The intent of this requirement is to describe the different
-              methods that a FAK can be created and formed.
-              <h:br/>
-              <h:br/>
-              FCS_CKM_EXT.5.1 details how a FAK is stored.
-              <h:br/>
-              <h:br/>
-              FCS_CKM_EXT.5.2 requires that each resource to be encrypted
-              has a unique FAK, and that this FAK is generated by the TSF. If the encrypted resource
-              is a set of files encrypted under one FAK, additional requirements on the initialization
-              vectors and cipher modes must be adhered to in Section 4.2.
-            </note>
-          </f-element>
         </f-component>
         <!-- FCS_COP_EXT.1 FAK Encryption/Decryption Support -->
         <f-component cc-id="fcs_cop_ext.1" id="fcs-cop-ext-1" name="FAK Encryption/Decryption Support">
@@ -1812,7 +1859,7 @@
             <note role="application">The intent of this requirement is to clarify that, if a FAK is
               to be used, it should be treated as sensitive as the FEK, and thus, follow the same
               encryption and decryption practices.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall follow the evaluation activities as laid out in
                 FCS_COP.1/KW to assert proper FAK protection.
@@ -1864,7 +1911,22 @@
           <f-element id="fdp-aut-ext-1e1">
             <title>The TSF shall perform authentication of the user-selected file (or set of files)
                and provide notification to the user if modification had been detected.</title>
-            <aactivity level="element">
+          </f-element>
+          <f-element id="fdp-aut-ext-1e2">
+            <title> The TSF shall implement a data authentication method based on  <selectables><selectable id="fdp_aut_ext.1.2_1">cryptographic keyed hashing service and verification in accordance with FDP_AUT_EXT.2</selectable><selectable id="fdp_aut_ext.1.2_2">asymmetric signing and verification in accordance with FDP_AUT_EXT.3</selectable></selectables>. </title>
+            <note role="application">
+              This is the primary requirement for authentication of the
+               protected resources (files and sets of files). It is highly encouraged for vendors to
+               utilize a keyed hashing service or asymmetric signing mechanism to ensure data
+               authentication, as these are the only two implementations noted in this PP-Module that prevent
+               decryption if authentication is unsuccessful. Using modes such as XTS or CBC will
+               require additional data authentication measures to be added, such as a keyed hash
+               function or asymmetric signing, because these modes do not come inherently packaged with
+               data authentication or a way to signal to the user that data has been modified.
+              <h:br/>
+              Specific tests are performed in FDP_AUT_EXT.2 or FDP_AUT_EXT.3 depending on the selection made in FDP_AUT_EXT.1.2.
+            </note>
+            <aactivity>
               <TSS>
                 The evaluator shall examine the TSS to determine that it lists each type of
                  resource that can be authenticated (e.g., file, directory) and what "authenticated"
@@ -1914,21 +1976,6 @@
               <Tests>The evaluator shall also perform the following tests. These tests must be performed for each data authentication feature and platform claimed in the ST; all instructions for configuring the TOE and each of the environments must be included in the Operational Guidance and used to establish the test configuration. <h:br/> <h:br/>For each resource and data authentication scenario listed in the TSS, the evaluator shall ensure that the TSF is able to successfully add authentication measures and authenticate the resource using the following methodology. <h:br/> <h:br/>Monitor the temporary resources being created (if any) and deleted by the TSF-the tools used to perform the monitoring (e.g., procmon for a Windows system) shall be identified in the test report. The evaluator shall ensure that these resources are consistent with those identified in the TSS, and that they are protected as specified in the Operational Guidance and are deleted when the decryption/encryption and authentication operations are completed.</Tests>
             </aactivity>
           </f-element>
-          <f-element id="fdp-aut-ext-1e2">
-            <title> The TSF shall implement a data authentication method based on  <selectables><selectable id="fdp_aut_ext.1.2_1">cryptographic keyed hashing service and verification in accordance with FDP_AUT_EXT.2</selectable><selectable id="fdp_aut_ext.1.2_2">asymmetric signing and verification in accordance with FDP_AUT_EXT.3</selectable></selectables>. </title>
-            <note role="application">
-              This is the primary requirement for authentication of the
-               protected resources (files and sets of files). It is highly encouraged for vendors to
-               utilize a keyed hashing service or asymmetric signing mechanism to ensure data
-               authentication, as these are the only two implementations noted in this PP-Module that prevent
-               decryption if authentication is unsuccessful. Using modes such as XTS or CBC will
-               require additional data authentication measures to be added, such as a keyed hash
-               function or asymmetric signing, because these modes do not come inherently packaged with
-               data authentication or a way to signal to the user that data has been modified.
-              <h:br/>
-              Specific tests are performed in FDP_AUT_EXT.2 or FDP_AUT_EXT.3 depending on the selection made in FDP_AUT_EXT.1.2.
-            </note>
-          </f-element>
         </f-component>
         <!-- FDP_AUT_EXT.2 Data Authentication Using cryptographic
                Keyed-Hash Functions -->
@@ -1964,7 +2011,57 @@
               <title>The TSF shall use a cryptographic, keyed hash function in accordance with
                FCS_COP.1.</title>
             </ext-comp-def-title>
-            <aactivity level="element">
+          </f-element>
+          <f-element id="fdp-aut-ext-2e2">
+            <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP_EXT.1
+               and FCS_CKM_EXT.5 as the secret key to the keyed hash function.</title>
+          </f-element>
+          <f-element id="fdp-aut-ext-2e3">
+            <title>The TSF shall use the entirety of the ciphertext file as the message input to the
+               keyed hash function.</title>
+          </f-element>
+          <f-element id="fdp-aut-ext-2e4">
+            <title>The TSF shall concatenate the output of the keyed hash function, the Message
+               Authentication Code (MAC).</title>
+          </f-element>
+          <f-element id="fdp-aut-ext-2e5">
+            <title>The TSF shall authenticate the encrypted file prior to decryption.</title>
+          </f-element>
+          <f-element id="fdp-aut-ext-2e6">
+            <title>The TSF shall authenticate the data by comparing the keyed hash output of the
+               ciphertext against the stored MAC.</title>
+          </f-element>
+          <f-element id="fdp-aut-ext-2e7">
+            <title>The TSF shall notify the user of an unsuccessful authentication and prevent
+               decryption of the ciphertext.</title>
+          </f-element>
+          <f-element id="fdp-aut-ext-2e8">
+            <title>During verification, the TSF shall verify the MAC is at the end of the ciphertext
+               file.</title>
+          </f-element>
+          <f-element id="fdp-aut-ext-2e9">
+            <title>
+              The FAK will be generated using
+              <selectables>
+                <selectable id="fdp_aut_ext.2.9_1">a RBG that meets FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>)</selectable>
+                <selectable id="fdp_aut_ext.2.9_2">key generation methods compliant with NIST SP 800-133r2</selectable>
+              </selectables>
+              .
+            </title>
+            <ext-comp-def-title>
+              <title>
+                The FAK will be generated using
+                <selectables>
+                  <selectable>a RBG that meets FCS_RBG_EXT.1</selectable>
+                  <selectable>key generation methods compliant with NIST SP 800-133r2</selectable>
+                </selectables>
+                .
+              </title>
+            </ext-comp-def-title>
+            <note role="application">The intent of this requirement is to specify the correct way of
+               using a keyed hash function to authenticate the data, and enable authentication of data. 
+               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM.6.</note>
+            <aactivity>
               <TSS>
                 The evaluator shall check the TSS section to confirm that it describes
                  how a request for each type of supported resource (file (or set of files)) will result
@@ -2016,56 +2113,6 @@
               </Tests>
             </aactivity>
           </f-element>
-          <f-element id="fdp-aut-ext-2e2">
-            <title>The TSF shall use a File Authentication Key (FAK) in accordance with FCS_COP_EXT.1
-               and FCS_CKM_EXT.5 as the secret key to the keyed hash function.</title>
-          </f-element>
-          <f-element id="fdp-aut-ext-2e3">
-            <title>The TSF shall use the entirety of the ciphertext file as the message input to the
-               keyed hash function.</title>
-          </f-element>
-          <f-element id="fdp-aut-ext-2e4">
-            <title>The TSF shall concatenate the output of the keyed hash function, the Message
-               Authentication Code (MAC).</title>
-          </f-element>
-          <f-element id="fdp-aut-ext-2e5">
-            <title>The TSF shall authenticate the encrypted file prior to decryption.</title>
-          </f-element>
-          <f-element id="fdp-aut-ext-2e6">
-            <title>The TSF shall authenticate the data by comparing the keyed hash output of the
-               ciphertext against the stored MAC.</title>
-          </f-element>
-          <f-element id="fdp-aut-ext-2e7">
-            <title>The TSF shall notify the user of an unsuccessful authentication and prevent
-               decryption of the ciphertext.</title>
-          </f-element>
-          <f-element id="fdp-aut-ext-2e8">
-            <title>During verification, the TSF shall verify the MAC is at the end of the ciphertext
-               file.</title>
-          </f-element>
-          <f-element id="fdp-aut-ext-2e9">
-            <title>
-              The FAK will be generated using
-              <selectables>
-                <selectable id="fdp_aut_ext.2.9_1">a RBG that meets FCS_RBG_EXT.1 (from <xref to="bibAppPP"/>)</selectable>
-                <selectable id="fdp_aut_ext.2.9_2">key generation methods compliant with NIST SP 800-133r2</selectable>
-              </selectables>
-              .
-            </title>
-            <ext-comp-def-title>
-              <title>
-                The FAK will be generated using
-                <selectables>
-                  <selectable>a RBG that meets FCS_RBG_EXT.1</selectable>
-                  <selectable>key generation methods compliant with NIST SP 800-133r2</selectable>
-                </selectables>
-                .
-              </title>
-            </ext-comp-def-title>
-            <note role="application">The intent of this requirement is to specify the correct way of
-               using a keyed hash function to authenticate the data, and enable authentication of data. 
-               FAKs are considered cryptographic keys and are subject to destruction per FCS_CKM.6.</note>
-          </f-element>
         </f-component>
         <!-- FDP_AUT_EXT.3 Data Authentication Using Asymmetric Signing
                and Verification -->
@@ -2096,33 +2143,6 @@
               <title>The TSF shall use a secure hash function in accordance with FCS_COP.1 with the entire ciphertext file as input to create a
                hash.</title>
             </ext-comp-def-title>
-            <aactivity level="element">
-              <TSS>
-                The evaluator shall check the TSS section to confirm that it describes
-                 how a request for each type of supported resource (file (or set of files)) will result
-                 in data authentication using a secure hash and cryptographic signing process. The
-                 evaluator will confirm that the supplied public and private key pair were generated in
-                 accordance with FCS_CKM.1(1). The evaluator will confirm that the entire ciphertext file
-                 was used to create the hash and that the hash was used as input to the cryptographic
-                 signing function. The evaluator will confirm that the TSF notifies the user of an
-                 unsuccessful authentication and prevents decryption.  The evaluator shall confirm
-                 that the signature is appended to the end of the ciphertext file.
-                <h:br/>
-                <h:br/>
-                <h:h4>KMD</h:h4>
-                None.
-                <h:br/>
-                <h:br/>
-              </TSS>
-              <Guidance> None.<h:br/><h:br/></Guidance>
-              <Tests>
-                The evaluator shall perform the following test:
-                <testlist>
-                  <test>Create an encrypted file and demonstrate that authentication of this file using the correct keying material will be successful.</test>
-                  <test>Modify an arbitrary number of bits of ciphertext and attempt to run the authentication and decryption operations on the file. Assert that the TOE successfully identified the forged ciphertext file and notified the user.</test>
-                </testlist>
-              </Tests>
-            </aactivity>
           </f-element>
           <f-element id="fdp-aut-ext-3e2">
             <title>
@@ -2172,6 +2192,33 @@
             <note role="application">The intent of this requirement is to specify the secure way of
                using a cryptographic signing and hashing function as part of the data authentication
                mechanism.</note>
+            <aactivity>
+              <TSS>
+                The evaluator shall check the TSS section to confirm that it describes
+                 how a request for each type of supported resource (file (or set of files)) will result
+                 in data authentication using a secure hash and cryptographic signing process. The
+                 evaluator will confirm that the supplied public and private key pair were generated in
+                 accordance with FCS_CKM.1(1). The evaluator will confirm that the entire ciphertext file
+                 was used to create the hash and that the hash was used as input to the cryptographic
+                 signing function. The evaluator will confirm that the TSF notifies the user of an
+                 unsuccessful authentication and prevents decryption.  The evaluator shall confirm
+                 that the signature is appended to the end of the ciphertext file.
+                <h:br/>
+                <h:br/>
+                <h:h4>KMD</h:h4>
+                None.
+                <h:br/>
+                <h:br/>
+              </TSS>
+              <Guidance> None.<h:br/><h:br/></Guidance>
+              <Tests>
+                The evaluator shall perform the following test:
+                <testlist>
+                  <test>Create an encrypted file and demonstrate that authentication of this file using the correct keying material will be successful.</test>
+                  <test>Modify an arbitrary number of bits of ciphertext and attempt to run the authentication and decryption operations on the file. Assert that the TOE successfully identified the forged ciphertext file and notified the user.</test>
+                </testlist>
+              </Tests>
+            </aactivity>
           </f-element>
         </f-component>
         <!-- FDP_PM_EXT.1 Protection of Data in Power Managed States -->
@@ -2197,7 +2244,27 @@
               state as
                    per FDP_PRT_EXT.1.1.
             </title>
-            <aactivity level="element">
+          </f-element>
+          <f-element id="fdp-pm-ext-1e2">
+            <title>On the return to a powered-on state from the state(s) indicated in FDP_PM_EXT.1.1,
+                   the TSF shall authorize the user in the manner specified in FIA_AUT_EXT.1.1 once before
+                   any protected data are decrypted.</title>
+          </f-element>
+          <f-element id="fdp-pm-ext-1e3">
+            <title>The TSF shall destroy all key material and authentication factors stored in plaintext when transitioning to a
+                   protected state as defined by FDP_PM_EXT.1.1.</title>
+            <note role="application">
+              For the first assignment, the ST author fills in the state(s) using
+                   the same name used in the Operational Guidance for the state that is appropriately
+                   protected by the TOE.
+              <h:br/>
+              It should be noted that it is not sufficient to use
+                   Operational Environment-based credentials to unlock the TOE from the indicated state;
+                   the intent is that returning from the indicated state is equivalent (from an
+                   authorization point of view) to returning from a completely powered-off state and
+                   re-opening the resources that are protected.
+            </note>
+            <aactivity>
               <TSS>
                 The evaluator shall examine the TSS to ensure that it describes the state(s)
                      that are supported by this capability. For each state, the evaluator ensures that the
@@ -2240,26 +2307,6 @@
               </Tests>
             </aactivity>
           </f-element>
-          <f-element id="fdp-pm-ext-1e2">
-            <title>On the return to a powered-on state from the state(s) indicated in FDP_PM_EXT.1.1,
-                   the TSF shall authorize the user in the manner specified in FIA_AUT_EXT.1.1 once before
-                   any protected data are decrypted.</title>
-          </f-element>
-          <f-element id="fdp-pm-ext-1e3">
-            <title>The TSF shall destroy all key material and authentication factors stored in plaintext when transitioning to a
-                   protected state as defined by FDP_PM_EXT.1.1.</title>
-            <note role="application">
-              For the first assignment, the ST author fills in the state(s) using
-                   the same name used in the Operational Guidance for the state that is appropriately
-                   protected by the TOE.
-              <h:br/>
-              It should be noted that it is not sufficient to use
-                   Operational Environment-based credentials to unlock the TOE from the indicated state;
-                   the intent is that returning from the indicated state is equivalent (from an
-                   authorization point of view) to returning from a completely powered-off state and
-                   re-opening the resources that are protected.
-            </note>
-          </f-element>
         </f-component>
         <!-- FDP_PRT_EXT.3 Protection of Third-Party Data -->
         <f-component cc-id="fdp_prt_ext.3" id="fdp-prt-ext-3" name="Protection of Third-Party Data">
@@ -2287,7 +2334,7 @@
             </title>
             <note role="application">This requirement is to cover the detection and encryption of temporary files created by third party applications.
                    If the FE provides a capability to allow specific applications to leverage it, the applications or method they would use to opt in may be included in the assignment.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall
                      examine the TSS to ensure that it describes how the TOE detects and encrypts temporary files (or set of files) that
@@ -2330,7 +2377,15 @@
           <dependencies>FIA_AUT_EXT.1 User Authorization</dependencies>
           <f-element id="fia-fct-ext-1e1">
             <title>The TSF shall support the use of authorization factors from multiple users that result in unique KEKs.</title>
-            <aactivity level="element">
+          </f-element>
+          <f-element id="fia-fct-ext-1e2">
+            <title>The TSF shall support the ability of each user to have files protected by a key chain tied only to that user's credentials.</title>
+            <note role="application">FIA_FCT_EXT.1.1 requires the TSF to support multiple
+              authorization factors to produce multiple KEKs, the intent is that the TSF supports a
+              system where multiple users have access to files on the underlying platform, and that
+              each user has an authorization factor so that they can protect their own files from
+              other users. This should be accomplished via the methods detailed in FIA_FCT_EXT.1.2.</note>
+            <aactivity>
               <TSS>
                 The evaluator shall examine the TSS to determine that it
                 identifies each of the resource protected in encrypted form and the key chain that protects that resource.
@@ -2354,14 +2409,6 @@
               </Guidance>
               <Tests>The evaluator shall ensure that different users using different authorization factors are unable to decrypt each others protected resources for each type of protected resource identified in the TSS. The test succeeds if the users are unable to decrypt resources not chained to them, with the exception of any resources linked in FIA_FCT_EXT.2.</Tests>
             </aactivity>
-          </f-element>
-          <f-element id="fia-fct-ext-1e2">
-            <title>The TSF shall support the ability of each user to have files protected by a key chain tied only to that user's credentials.</title>
-            <note role="application">FIA_FCT_EXT.1.1 requires the TSF to support multiple
-              authorization factors to produce multiple KEKs, the intent is that the TSF supports a
-              system where multiple users have access to files on the underlying platform, and that
-              each user has an authorization factor so that they can protect their own files from
-              other users. This should be accomplished via the methods detailed in FIA_FCT_EXT.1.2.</note>
           </f-element>
         </f-component>
         <!-- FIA_FCT_EXT.2 Authorized Key Sharing -->
@@ -2403,7 +2450,7 @@
               each user has an authorization factor so that they can protect their own files from
 
               other users. FIA_FCT_EXT.2 created a mechanism to safely share files between users.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall examine the TSS to determine that it
                 identifies each of the resources that is shareable in encrypted form (for instance,
@@ -2485,7 +2532,7 @@
               </title>
             </ext-comp-def-title>
             <note role="application">This requirement must be included in STs in which KEKs originating from is chosen in FCS_KYC_EXT.1.1. </note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall review the TSS to determine that a
             description covering how and when KEK(s) are generated exists. The description must
@@ -2560,82 +2607,6 @@
               </selectables>
               characters used to generate a password authorization factor.
             </title>
-            <aactivity level="element">
-              <TSS>
-                FCS_CKM_EXT.6.1: There are two aspects of this component that require
-                evaluation: passwords/passphrases of the length specified in the requirement (at least
-                64 characters or a length defined by the platform) are supported, and that the characters that are input are subject to the
-                selected conditioning function. These activities are separately addressed in the text
-                below.
-                <h:br/>
-                <h:br/>
-                Support for minimum length: The evaluators shall check to ensure that the 
-                TSS describes the allowable ranges for password/passphrase lengths, and that at least 64 characters or a length defined by the platform 
-		      may be specified by the user.
-                <h:br/>
-                <h:br/>
-                Support for character set: The evaluator shall check to ensure that the 
-                TSS describes the allowable character set and that it contains the characters listed in the SFR.
-                <h:br/>
-                <h:br/>
-                Support for PBKDF: The evaluator shall examine the TSS to ensure
-                that the formation of all KEKs or FEKs (as decided in the FCS_CKM_EXT.3 selection) is
-                described and that the key sizes match that described by the ST author.
-                <h:br/>
-                <h:br/>
-                The
-                evaluator shall check that the TSS describes the method by which the password/passphrase
-                is first encoded and then fed to the SHA algorithm. The settings for the algorithm
-                (padding, blocking, etc.) shall be described, and the evaluator shall verify that these
-                are supported by the selections in this component as well as the selections concerning
-                the hash function itself. The evaluator shall verify that the TSS contains a description
-                of how the output of the hash function is used to form the submask that will be input
-                into the function and is the same length as the KEK as specified in FCS_KYC_EXT.1.
-                <h:br/>
-                <h:br/>
-                For the NIST SP 800-132-based conditioning of the password/passphrase, the required
-                evaluation activities will be performed when doing the evaluation activities for the
-                appropriate requirements (FCS_COP.1.1(4)). If any manipulation of the key is performed
-                in forming the submask that will be used to form the FEK or KEK, that process shall be
-                described in the TSS.
-                <h:br/>
-                <h:br/>
-                No explicit testing of the formation of the submask from the
-                input password is required.
-                <h:br/>
-                <h:br/>
-                FCS_CKM_EXT.6.2: The ST author shall provide a
-                description in the TSS regarding the salt generation. The evaluator shall confirm that
-                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the
-                <xref to="bibAppPP"/>
-                ).
-                <h:br/>
-                <h:br/>
-                <h:h4>KMD</h:h4>
-                None.
-                <h:br/>
-                <h:br/>
-              </TSS>
-              <Guidance>
-                Support for minimum length: The evaluators shall check the Operational Guidance 
-                to determine that there are instructions on how to generate large passwords/passphrases, and
-                instructions on how to configure the password/passphrase length 
-                to provide entropy commensurate with the keys that the authorization factor is protecting.
-                <h:br/>
-                <h:br/>
-              </Guidance>
-              <Tests>
-                Support for Password/Passphrase characteristics: In addition to the analysis above, the evaluator shall also perform the following tests on a TOE configured according to the Operational Guidance:
-                <testlist>
-                  <test>Ensure that the TOE supports password/passphrase lengths as defined in the SFR assignments.</test>
-                  <test>Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.6.1.</test>
-                  <test>Ensure that the TOE does not accept less than the minimum number of characters specified in FCS_CKM_EXT.6.4. If the minimum length is settable by the administrator, the evaluator determines the minimum length or lengths to test.</test>
-                  <test>Ensure that the TOE supports passwords consisting of all characters listed in FCS_CKM_EXT.6.2.</test>
-                </testlist>
-                <h:b>Conditioning:</h:b>
-                No explicit testing of the formation of the authorization factor from the input password/passphrase is required.
-              </Tests>
-            </aactivity>
           </f-element>
           <f-element id="fcs-ckm-ext-6e2">
             <title>
@@ -2747,6 +2718,82 @@
               <h:br/>
               This requirement is selection dependent on FIA_AUT_EXT.1.1.
             </note>
+            <aactivity>
+              <TSS>
+                FCS_CKM_EXT.6.1: There are two aspects of this component that require
+                evaluation: passwords/passphrases of the length specified in the requirement (at least
+                64 characters or a length defined by the platform) are supported, and that the characters that are input are subject to the
+                selected conditioning function. These activities are separately addressed in the text
+                below.
+                <h:br/>
+                <h:br/>
+                Support for minimum length: The evaluators shall check to ensure that the 
+                TSS describes the allowable ranges for password/passphrase lengths, and that at least 64 characters or a length defined by the platform 
+		      may be specified by the user.
+                <h:br/>
+                <h:br/>
+                Support for character set: The evaluator shall check to ensure that the 
+                TSS describes the allowable character set and that it contains the characters listed in the SFR.
+                <h:br/>
+                <h:br/>
+                Support for PBKDF: The evaluator shall examine the TSS to ensure
+                that the formation of all KEKs or FEKs (as decided in the FCS_CKM_EXT.3 selection) is
+                described and that the key sizes match that described by the ST author.
+                <h:br/>
+                <h:br/>
+                The
+                evaluator shall check that the TSS describes the method by which the password/passphrase
+                is first encoded and then fed to the SHA algorithm. The settings for the algorithm
+                (padding, blocking, etc.) shall be described, and the evaluator shall verify that these
+                are supported by the selections in this component as well as the selections concerning
+                the hash function itself. The evaluator shall verify that the TSS contains a description
+                of how the output of the hash function is used to form the submask that will be input
+                into the function and is the same length as the KEK as specified in FCS_KYC_EXT.1.
+                <h:br/>
+                <h:br/>
+                For the NIST SP 800-132-based conditioning of the password/passphrase, the required
+                evaluation activities will be performed when doing the evaluation activities for the
+                appropriate requirements (FCS_COP.1.1(4)). If any manipulation of the key is performed
+                in forming the submask that will be used to form the FEK or KEK, that process shall be
+                described in the TSS.
+                <h:br/>
+                <h:br/>
+                No explicit testing of the formation of the submask from the
+                input password is required.
+                <h:br/>
+                <h:br/>
+                FCS_CKM_EXT.6.2: The ST author shall provide a
+                description in the TSS regarding the salt generation. The evaluator shall confirm that
+                the salt is generated using an RBG described in FCS_RBG_EXT.1 (from the
+                <xref to="bibAppPP"/>
+                ).
+                <h:br/>
+                <h:br/>
+                <h:h4>KMD</h:h4>
+                None.
+                <h:br/>
+                <h:br/>
+              </TSS>
+              <Guidance>
+                Support for minimum length: The evaluators shall check the Operational Guidance 
+                to determine that there are instructions on how to generate large passwords/passphrases, and
+                instructions on how to configure the password/passphrase length 
+                to provide entropy commensurate with the keys that the authorization factor is protecting.
+                <h:br/>
+                <h:br/>
+              </Guidance>
+              <Tests>
+                Support for Password/Passphrase characteristics: In addition to the analysis above, the evaluator shall also perform the following tests on a TOE configured according to the Operational Guidance:
+                <testlist>
+                  <test>Ensure that the TOE supports password/passphrase lengths as defined in the SFR assignments.</test>
+                  <test>Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.6.1.</test>
+                  <test>Ensure that the TOE does not accept less than the minimum number of characters specified in FCS_CKM_EXT.6.4. If the minimum length is settable by the administrator, the evaluator determines the minimum length or lengths to test.</test>
+                  <test>Ensure that the TOE supports passwords consisting of all characters listed in FCS_CKM_EXT.6.2.</test>
+                </testlist>
+                <h:b>Conditioning:</h:b>
+                No explicit testing of the formation of the authorization factor from the input password/passphrase is required.
+              </Tests>
+            </aactivity>
           </f-element>
         </f-component>
         <!-- FCS_COP.1/KE Cryptographic operation (Key Encryption) -->
@@ -2774,7 +2821,7 @@
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use AES encryption/decryption for protecting the keys as part of the key chaining approach
               that is specified in FCS_KYC_EXT.1.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 <h:h4>Requirement met by the platform</h:h4>
                 If the platform provides the FEK
@@ -2819,7 +2866,7 @@
               <h:p>When describing the hybrid key-transport methods, Section 9.3 of NIST SP 800-56B only mentions using the key establishment schemes contained in SP800-56B to establish a shared symmetric key encryption key (KEK) for the transport; however any approved symmetric key establishment method could easily be substituted. This PP-Module allows the use of ML-KEM key establishment schemes with the hybrid key-transport methods described in SP800-56B to provide a CNSA2-compliant key-transport method.</h:p>
               <h:p>Future versions of this PP-Module may support the use of a key-encapsulation mechanism (KEM) for key transport as defined in NIST SP 800-227 (in draft as of the publication of this PP-Module), sections 5.1 and 6.2.1.</h:p>
             </note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall verify the TSS provides a high level description of the RSA
                 scheme and the cryptographic key size that is being used, and that the asymmetric
@@ -2890,7 +2937,7 @@
             </title>
             <note role="application">This requirement is used in the body of the ST if the ST author chooses to
               use key wrapping in the key chaining approach that is specified in FCS_KYC_EXT.1.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 Conditional: If use platform provided functionality was selected, then the evaluator shall examine the TSS to verify that it
                 describes how the FEK encryption/decryption is invoked.
@@ -3011,7 +3058,7 @@
               use key derivation in the key chaining approach that is specified in FCS_KYC_EXT.1.
               This requirement establishes acceptable methods for generating a new random key or an
               existing submask to create a new key along the key chain.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 The evaluator shall verify the TSS includes a description of the key derivation
                 function and shall verify the key derivation uses an approved derivation mode and
@@ -3047,7 +3094,7 @@
             </ext-comp-def-title>
             <note role="application">This requirement specifies the way that a product may combine the
               various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on FCS_KYC_EXT.1.1.</note>
-            <aactivity level="element">
+            <aactivity>
               <TSS>
                 If keys are XORed together to form an intermediate key, the TSS section
                 shall identify how this is performed (e.g., if there are ordering requirements, checks
