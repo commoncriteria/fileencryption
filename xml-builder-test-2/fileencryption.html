@@ -1308,7 +1308,7 @@ Some examples of what is expected to be in the documentation are provided here. 
               <span class="testlist-"><ul>
                 <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.6:1</a>:
        [Conditional; applies when the application does not perform the zeroization (e.g. garbage collecting) for each key held in volatile memory for <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a> 
-                  (assuming the selection "destruction of the reference followed by a request for garbage collection")]<br/><br/>
+                  (assuming the selection "destruction of the reference followed by a request for garbage collection")]<br/>
                   Applied to each key held in volatile memory and subject to destruction by overwrite by the 
                   <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). 
                   In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. <br/><br/>
@@ -1320,13 +1320,12 @@ Some examples of what is expected to be in the documentation are provided here. 
                     3. Cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to clear the key.<br/>
                     4. Cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to stop the execution but not exit.<br/>
                     5. Cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to dump the entire memory of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> into a binary file.<br/>
-                    6. Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.<br/><br/>
+                    6. Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.<br/>
 
                     Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails.<br/>
-                </li>
-
+                </li><br/>
                 <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_CKM.6:2</a>:
-      [Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <br/>
+      [Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <br/><br/>
                   Applied to each key held in non-volatile memory and subject to destruction by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. <br/>
                   The evaluator shall use special tools (as needed), provided by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> developer if necessary, to ensure the tests function as intended.<br/>
                     
@@ -1337,7 +1336,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                 </li>
               </ul></span>
               <span class="testlist-"><ul>
-                Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has no visibility into the inner workings and completely relies on the underlying platform.
+                Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has no visibility into the inner workings and completely relies on the underlying platform.<br/>
 
                 <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_CKM.6:3</a>:
       Applied to each key held in non-volatile memory and subject to destruction by overwrite by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system):<br/>
@@ -1346,7 +1345,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                     2. Cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to perform a normal cryptographic processing with the key from Step #1.<br/>
                     3. Cause the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to clear the key.<br/>
                     4. Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails.<br/>
-                </li>
+                </li><br/>
                 <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_CKM.6:4</a>:
       Applied to each key held in non-volatile memory and subject to destruction by overwrite by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
                   The evaluator shall use a tool that provides a logical view of the media:<br/>
