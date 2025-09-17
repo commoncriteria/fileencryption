@@ -342,7 +342,7 @@
               provides for encryption of data.</rationale>
           </objective-refer> -->
           <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale>
-          <addressed-by>FCS_IV_EXT.1</addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
+          
           <addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale>
           <addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale>
           <addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale>
@@ -399,7 +399,7 @@
             </objective-refer> -->
           <addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale>
           <addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale>
-          <addressed-by>FCS_IV_EXT.1</addressed-by><rationale>Mitigates the threat by generating the IV unpredictably.</rationale>
+          
           <addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale>
           <addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale>
           <addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale>
