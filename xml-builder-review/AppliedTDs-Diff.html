@@ -1120,7 +1120,7 @@
                     <td><a href="#FPT_KYP_EXT.1">FPT_KYP_EXT.1</a></td><td>Mitigates the threat by protecting keys stored on non-volatile memory.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="10"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td>
+                    <td rowspan="11"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_CKM_EXT.3">FCS_CKM_EXT.3</a> (selection-based)</td><td>Mitigates the threat by using or generating secure KEKs.</td>
@@ -1139,6 +1139,9 @@
                 </tr>
                 <tr>
                     <td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_KDF_EXT.1">FCS_KDF_EXT.1</a> (selection-based)</td><td>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a></td><td>Mitigates the threat by maintaining and storing secure key chains.</td>
@@ -1165,7 +1168,7 @@
                     <td><a href="#FDP_PRT_EXT.3">FDP_PRT_EXT.3</a> (optional)</td><td>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="11"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a></td><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (optional)</td><td>Mitigates the threat by authenticating data using a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>.</td>
+                    <td rowspan="12"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a></td><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (optional)</td><td>Mitigates the threat by authenticating data using a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_COP_EXT.1">FCS_COP_EXT.1</a> (optional)</td><td>Mitigates the threat by protecting a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> with the same protections as a <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>.</td>
@@ -1190,6 +1193,9 @@
                 </tr>
                 <tr>
                     <td><a href="#FDP_PRT_EXT.2">FDP_PRT_EXT.2</a></td><td>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_PRT_EXT.3">FDP_PRT_EXT.3</a> (optional)</td><td>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</td>
                 </tr>
                 <tr>
                     <td><a href="#FIA_FCT_EXT.1">FIA_FCT_EXT.1</a> (optional)</td><td>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</td>
@@ -1730,7 +1736,9 @@
         <h2 id="fcs-selectionBased" class="indexable" data-level="2">B.1 Cryptographic Support (FCS)</h2>
         <div class="comp" id="FCS_CKM_EXT.3">
             <h4>FCS_CKM_EXT.3 Key Encrypting Key (KEK) Support</h4>
-            <div class="statustag"></div>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
             <div class="element">
                 <div class="reqid" id="FCS_CKM_EXT.3.1">
                     <a href="#FCS_CKM_EXT.3.1" class="abbr">FCS_CKM_EXT.3.1</a>
@@ -1763,7 +1771,9 @@
         </div>
         <div class="comp" id="FCS_CKM_EXT.6">
             <h4>FCS_CKM_EXT.6 Cryptographic Password/Passphrase Conditioning</h4>
-            <div class="statustag"></div>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_CKM_EXT.2.1">FCS_CKM_EXT.2.1</a>, <a href="#FIA_AUT_EXT.1.1">FIA_AUT_EXT.1.1</a>, <a href="#FCS_CKM_EXT.3.1">FCS_CKM_EXT.3.1</a>. </i></b>
+            </div>
             <div class="element">
                 <div class="reqid" id="FCS_CKM_EXT.6.1">
                     <a href="#FCS_CKM_EXT.6.1" class="abbr">FCS_CKM_EXT.6.1</a>
@@ -1831,7 +1841,9 @@
         </div>
         <div class="comp" id="FCS_COP.1/KE">
             <h4>FCS_COP.1/KE Cryptographic operation (Key Encryption)</h4>
-            <div class="statustag"></div>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
             <div class="element">
                 <div class="reqid" id="FCS_COP.1.1/KE">
                     <a href="#FCS_COP.1.1/KE" class="abbr">FCS_COP.1.1/KE</a>
@@ -1846,7 +1858,9 @@
         </div>
         <div class="comp" id="FCS_COP.1/KT">
             <h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4>
-            <div class="statustag"></div>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
             <div class="element">
                 <div class="reqid" id="FCS_COP.1.1/KT">
                     <a href="#FCS_COP.1.1/KT" class="abbr">FCS_COP.1.1/KT</a>
@@ -1892,7 +1906,9 @@
         </div>
         <div class="comp" id="FCS_COP.1/KW">
             <h4>FCS_COP.1/KW Cryptographic operation (Key Wrapping)</h4>
-            <div class="statustag"></div>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
             <div class="element">
                 <div class="reqid" id="FCS_COP.1.1/KW">
                     <a href="#FCS_COP.1.1/KW" class="abbr">FCS_COP.1.1/KW</a>
@@ -1934,7 +1950,9 @@
         </div>
         <div class="comp" id="FCS_KDF_EXT.1">
             <h4>FCS_KDF_EXT.1 Cryptographic Key Derivation Function</h4>
-            <div class="statustag"></div>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
             <div class="element">
                 <div class="reqid" id="FCS_KDF_EXT.1.1">
                     <a href="#FCS_KDF_EXT.1.1" class="abbr">FCS_KDF_EXT.1.1</a>
@@ -1958,7 +1976,9 @@
         </div>
         <div class="comp" id="FCS_SMC_EXT.1">
             <h4>FCS_SMC_EXT.1 Submask Combining</h4>
-            <div class="statustag"></div>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
             <div class="element">
                 <div class="reqid" id="FCS_SMC_EXT.1.1">
                     <a href="#FCS_SMC_EXT.1.1" class="abbr">FCS_SMC_EXT.1.1</a>
