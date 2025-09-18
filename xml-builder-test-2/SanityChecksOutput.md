@@ -10,7 +10,6 @@
 * Error: Detected multiple elements with an id of 'APPAUTH'.
 * Error: Detected multiple elements with an id of 'USEPAS'.
 * Error: Detected multiple elements with an id of 'USECAR'.
- Failed to find a reference to spd.
 * Warning: Since FCS_CKM_EXT.6.1 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.
                        
 * Warning: Since FCS_CKM_EXT.6.2 has an 'id' attribute in a descendant node in the title, you probably need to define an alternative 'ext-comp-def-title'.

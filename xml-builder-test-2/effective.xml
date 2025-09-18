@@ -266,78 +266,34 @@
   <!-- 3.0 Security Problem Definition-->
   <sec:Security_Problem_Definition>
     
-  The primary asset that is being protected
-    is the sensitive user data stored on a system. The threat model thus focuses on a host machine
-    that has been compromised by an unauthorized user. This section addresses threats to the TOE
-    only. 
-
+    The security problem is described in terms
+    of the threats that the TOE is expected to address, assumptions about the
+    operational environment, and any organizational security policies that the TOE
+    is expected to enforce.
     
+
     <!-- 3.1 Threats -->
     <sec:Threats>
-      A threat consists of a threat agent, an asset, and
-      an adverse action of that threat agent on that asset. The model in this PP-Module only addresses
-      risks that arise from the host machine being compromised by an unauthorized user.<h:br/><h:br/>
-
-      For this PP-Module, the TOE is not expected to defend against all threats related to malicious software
-      that may reside in user data files. For instance, the TOE is not responsible for detecting
-      malware in the data selected by the user for encryption (that is a responsibility of the host
-      environment). Once the file encryption product is operational in a host system, the threats
-      against the data from potentially malicious software on the host are also not in the threat
-      model of this PP-Module. For example, there are no requirements in this PP-Module addressing a malicious
-      host capturing a password-based authorization factor, nor a malicious process reading the
-      memory of an application program that is operating on a decrypted file.<h:br/><h:br/> 
-
-      Note that this PP-Module
-      does not repeat the threats identified in the [AppPP], though they all
-      apply given the conformance and hence dependence of this PP-Module on the [AppPP].
-      <h:br/><h:br/>
-
-      Note also that while the [AppPP] contains only threats to the ability of
-      the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
-      operational environment. Together the threats of [AppPP] and those defined in this PP-Module define
-      the comprehensive set of security threats addressed by a file encryption TOE. 
-      <threats><threat name="T.KEYING_MATERIAL_COMPROMISE"><description><h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation,             plaintext keys, and other keying material to decrypt an encrypted file. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale><addressed-by>FPT_KYP_EXT.1</addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale></threat><threat name="T.KEYSPACE_EXHAUST"><description><h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data,            allowing access to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale><addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale><addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale><addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FCS_KDF_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale><addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale><addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale></threat><threat name="T.MANAGEMENT_ACCESS"><description><h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform            necessary security operations due to a lack of supported management functionality.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FMT_MEC_EXT.1 (from Base-PP)</addressed-by><rationale>Mitigates the threat by storing configuration in a protected manner.</rationale><addressed-by>FMT_SMF.1/FE</addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale></threat><threat name="T.PLAINTEXT_COMPROMISE"><description><h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools, allowing access            to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale></threat><threat name="T.UNAUTHORIZED_DATA_ACCESS"><description><h:b>Unauthorized Data Access:</h:b> An attacker that is not permitted to decrypt files             or has no access obtains access to an account and uses forensic tools for examination.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale><addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale><addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale><addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale><addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale><addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale><addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale><addressed-by>FIA_FCT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale></threat><threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION"><description><h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of             the authorization factor, allowing access to secure information. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale><addressed-by>FIA_AUT_EXT.1</addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale></threat></threats></sec:Threats>
+      <threats>
+        <threat name="T.QQQQ">
+          <!-- Repeatable -->
+          <description>QQQQ</description>
+          <objective-refer ref="O.QQQQ">
+            <!-- Repeatable -->
+            <rationale>QQQQ</rationale>
+          </objective-refer>
+        </threat>
+      </threats>
+    </sec:Threats>
     <!-- 3.2 Assumptions -->
     <sec:Assumptions>
       <assumptions>
-        <assumption name="A.AUTH_FACTOR">
-          <description>An authorized user will be responsible for ensuring that all externally
-              derived authorization factors have sufficient strength and entropy to reflect the
-              sensitivity of the data being protected. This can apply to password- or
-              passphrase-based, ECC CDH, and RSA authorization factors.</description>
-          <objective-refer ref="OE.AUTHORIZATION_FACTOR_STRENGTH">
-            <rationale>The operational environment objective OE.AUTHORIZATION_FACTOR_STRENGTH is realized through A.AUTH_FACTOR.</rationale>
-          </objective-refer>
-        </assumption>
-        <assumption name="A.EXTERNAL_FEK_PROTECTION">
-          <description>External entities that implement ECC CDH or RSA that are used to encrypt
-              and decrypt a FEK have the following characteristics: 
-              <h:li>meet national requirements for the cryptographic mechanisms implemented</h:li> <h:li>require authentication via a pin or other mechanisms prior to allowing access to protected information (the decrypted FEK, or the private key)</h:li> <h:li>implement anti-hammer provisions where appropriate (for example, when a pin is the authentication factor).</h:li></description>
-          <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
-            <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.EXTERNAL_FEK_PROTECTION.</rationale>
-          </objective-refer>
-        </assumption>
-        <assumption name="A.FILE_INTEGRITY">
-          <description>When the file is in transit, it is not modified, otherwise if that
-              possibility exists, the appropriate selections in Appendix B are chosen for Data
-              Authentication.</description>
-          <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
-            <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.STRONG_OE_CRYPTO.</rationale>
-          </objective-refer>
-        </assumption>
-        <assumption name="A.SHUTDOWN">
-          <description>An authorized user will not leave the machine in a mode where sensitive
-              information persists in non-volatile storage.</description>
-          <objective-refer ref="OE.POWER_SAVE">
-            <rationale>The operational environment objective OE.POWER_SAVE is realized through A.SHUTDOWN.</rationale>
-          </objective-refer>
-        </assumption>
-        <assumption name="A.STRONG_OE_CRYPTO">
-          <description>All cryptography implemented in the Operational Environment and used by the
-              TOE will meet the requirements listed in this PP-Module. This includes
-              generation of external token authorization factors by a RBG.</description>
-          <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
-            <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.STRONG_OE_CRYPTO.</rationale>
+        <assumption name="A.QQQQ">
+          <!-- Repeatable -->
+          <description>QQQQ</description>
+          <objective-refer ref="OE.QQQQ">
+            <!-- Repeatable -->
+            <rationale>QQQQ</rationale>
           </objective-refer>
         </assumption>
       </assumptions>
@@ -345,6 +301,13 @@
     <!-- 3.3 Organizational Security Policies -->
     <sec:Organizational_Security_Policies>
       <OSPs/>
+      <!--     <OSP id="P.QQQQ"> 
+        <description>QQQQ</description>
+        <objective-refer ref="O.QQQQ">
+            <rationale>QQQQ</rationale>
+        </objective-refer>
+    </OSP>
+    </OSPs> -->
     </sec:Organizational_Security_Policies>
   </sec:Security_Problem_Definition>
   <!-- 4.0 Security Objectives -->
@@ -2222,4 +2185,87 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           Operation: Methods for Key Wrapping, December 2012 </description>
     </entry>
   </bibliography>
+  <sec:spd title="Security Problem Definition">
+    
+  The primary asset that is being protected
+    is the sensitive user data stored on a system. The threat model thus focuses on a host machine
+    that has been compromised by an unauthorized user. This section addresses threats to the TOE
+    only. 
+
+    
+    <!-- 3.1 Threats -->
+    <sec:Threats>
+      A threat consists of a threat agent, an asset, and
+      an adverse action of that threat agent on that asset. The model in this PP-Module only addresses
+      risks that arise from the host machine being compromised by an unauthorized user.<h:br/><h:br/>
+
+      For this PP-Module, the TOE is not expected to defend against all threats related to malicious software
+      that may reside in user data files. For instance, the TOE is not responsible for detecting
+      malware in the data selected by the user for encryption (that is a responsibility of the host
+      environment). Once the file encryption product is operational in a host system, the threats
+      against the data from potentially malicious software on the host are also not in the threat
+      model of this PP-Module. For example, there are no requirements in this PP-Module addressing a malicious
+      host capturing a password-based authorization factor, nor a malicious process reading the
+      memory of an application program that is operating on a decrypted file.<h:br/><h:br/> 
+
+      Note that this PP-Module
+      does not repeat the threats identified in the [AppPP], though they all
+      apply given the conformance and hence dependence of this PP-Module on the [AppPP].
+      <h:br/><h:br/>
+
+      Note also that while the [AppPP] contains only threats to the ability of
+      the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
+      operational environment. Together the threats of [AppPP] and those defined in this PP-Module define
+      the comprehensive set of security threats addressed by a file encryption TOE. 
+      <threats><threat name="T.KEYING_MATERIAL_COMPROMISE"><description><h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation,             plaintext keys, and other keying material to decrypt an encrypted file. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale><addressed-by>FPT_KYP_EXT.1</addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale></threat><threat name="T.KEYSPACE_EXHAUST"><description><h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data,            allowing access to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale><addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale><addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale><addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FCS_KDF_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale><addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale><addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale></threat><threat name="T.MANAGEMENT_ACCESS"><description><h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform            necessary security operations due to a lack of supported management functionality.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FMT_MEC_EXT.1 (from Base-PP)</addressed-by><rationale>Mitigates the threat by storing configuration in a protected manner.</rationale><addressed-by>FMT_SMF.1/FE</addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale></threat><threat name="T.PLAINTEXT_COMPROMISE"><description><h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools, allowing access            to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale></threat><threat name="T.UNAUTHORIZED_DATA_ACCESS"><description><h:b>Unauthorized Data Access:</h:b> An attacker that is not permitted to decrypt files             or has no access obtains access to an account and uses forensic tools for examination.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale><addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale><addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale><addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale><addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale><addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale><addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale><addressed-by>FIA_FCT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale></threat><threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION"><description><h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of             the authorization factor, allowing access to secure information. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale><addressed-by>FIA_AUT_EXT.1</addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale></threat></threats></sec:Threats>
+    <!-- 3.2 Assumptions -->
+    <sec:Assumptions>
+      <assumptions>
+        <assumption name="A.AUTH_FACTOR">
+          <description>An authorized user will be responsible for ensuring that all externally
+              derived authorization factors have sufficient strength and entropy to reflect the
+              sensitivity of the data being protected. This can apply to password- or
+              passphrase-based, ECC CDH, and RSA authorization factors.</description>
+          <objective-refer ref="OE.AUTHORIZATION_FACTOR_STRENGTH">
+            <rationale>The operational environment objective OE.AUTHORIZATION_FACTOR_STRENGTH is realized through A.AUTH_FACTOR.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption name="A.EXTERNAL_FEK_PROTECTION">
+          <description>External entities that implement ECC CDH or RSA that are used to encrypt
+              and decrypt a FEK have the following characteristics: 
+              <h:li>meet national requirements for the cryptographic mechanisms implemented</h:li> <h:li>require authentication via a pin or other mechanisms prior to allowing access to protected information (the decrypted FEK, or the private key)</h:li> <h:li>implement anti-hammer provisions where appropriate (for example, when a pin is the authentication factor).</h:li></description>
+          <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
+            <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.EXTERNAL_FEK_PROTECTION.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption name="A.FILE_INTEGRITY">
+          <description>When the file is in transit, it is not modified, otherwise if that
+              possibility exists, the appropriate selections in Appendix B are chosen for Data
+              Authentication.</description>
+          <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
+            <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.STRONG_OE_CRYPTO.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption name="A.SHUTDOWN">
+          <description>An authorized user will not leave the machine in a mode where sensitive
+              information persists in non-volatile storage.</description>
+          <objective-refer ref="OE.POWER_SAVE">
+            <rationale>The operational environment objective OE.POWER_SAVE is realized through A.SHUTDOWN.</rationale>
+          </objective-refer>
+        </assumption>
+        <assumption name="A.STRONG_OE_CRYPTO">
+          <description>All cryptography implemented in the Operational Environment and used by the
+              TOE will meet the requirements listed in this PP-Module. This includes
+              generation of external token authorization factors by a RBG.</description>
+          <objective-refer ref="OE.STRONG_ENVIRONMENT_CRYPTO">
+            <rationale>The operational environment objective OE.STRONG_ENVIRONMENT_CRYPTO is realized through A.STRONG_OE_CRYPTO.</rationale>
+          </objective-refer>
+        </assumption>
+      </assumptions>
+    </sec:Assumptions>
+    <!-- 3.3 Organizational Security Policies -->
+    <sec:Organizational_Security_Policies>
+      <OSPs/>
+    </sec:Organizational_Security_Policies>
+  </sec:spd>
 </Module>
