@@ -744,7 +744,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             </title></ext-comp-def-title>
           </f-element>
           <f-element id="fcs-val-ext-1e2">
-            <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i></title>
+            <title>The TSF shall require validation of the [<h:i>user</h:i>] prior to [<h:i>decrypting any FEK</h:i>].</title>
             <ext-comp-def-title><title>The TSF shall require validation of the <assignable>subject requiring validation</assignable> prior to <assignable>action requiring validation</assignable>.</title></ext-comp-def-title>
             <note role="application">Two iterations of this SFR are also defined in PP-Module for File Encryption Enterprise Management. 
               If the TOE also claims this module, the ST author should iterate these SFRs by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader
