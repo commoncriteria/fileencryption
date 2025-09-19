@@ -46,7 +46,7 @@
         </h3>
         <h2>Contents</h2>
         <div class="toc" id="toc">
-            <a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#Complianttargets" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#usecases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#ccl" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#spd" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-b-appp" style="text-indent:10px">5.1<span> Protection Profile for Application Software Security Functional Requirements Direction </span></a><a href="#modsfr-b-appp" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#fau" style="text-indent:20px">5.2.1<span>Cryptographic Support (FCS)</span></a><a href="#fdp" style="text-indent:20px">5.2.2<span>User Data Protection (FDP)</span></a><a href="#fia" style="text-indent:20px">5.2.3<span>Identification and Authentication (FIA)</span></a><a href="#fmt" style="text-indent:20px">5.2.4<span>Security Management (FMT)</span></a><a href="#fpt" style="text-indent:20px">5.2.5<span>Protection of the TSF (FPT)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-b-appp" style="text-indent:10px">6.1<span> Protection Profile for Application Software</span></a><a href="#contoe-b-appp" style="text-indent:20px">6.1.1<span> Consistency of TOE Type </span></a><a href="#consecprob-b-appp" style="text-indent:20px">6.1.2<span> Consistency of Security Problem Definition </span></a><a href="#conobj-b-appp" style="text-indent:20px">6.1.3<span> Consistency of OE Objectives </span></a><a href="#conreq-b-appp" style="text-indent:20px">6.1.4<span> Consistency of Requirements </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements </span></a><a href="#fcs" style="text-indent:20px">A.1.1<span>Cryptographic Support (FCS)</span></a><a href="#fdp" style="text-indent:20px">A.1.2<span>User Data Protection (FDP)</span></a><a href="#fia" style="text-indent:20px">A.1.3<span>Identification and Authentication (FIA)</span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements </span></a><a href="#fcs" style="text-indent:10px">B.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCS" style="text-indent:20px">C.2.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_CKM_EXT" style="text-indent:30px">C.2.1.1<span>FCS_CKM_EXT Cryptographic Key Management</span></a><a href="#ext-comp-FCS_KYC_EXT" style="text-indent:30px">C.2.1.2<span>FCS_KYC_EXT Key Chaining and Key Storage</span></a><a href="#ext-comp-FCS_VAL_EXT" style="text-indent:30px">C.2.1.3<span>FCS_VAL_EXT Validation</span></a><a href="#ext-comp-FCS_COP_EXT" style="text-indent:30px">C.2.1.4<span>FCS_COP_EXT Cryptographic Operation</span></a><a href="#ext-comp-FCS_KDF_EXT" style="text-indent:30px">C.2.1.5<span>FCS_KDF_EXT Cryptographic Key Derivation Function</span></a><a href="#ext-comp-FCS_SMC_EXT" style="text-indent:30px">C.2.1.6<span>FCS_SMC_EXT Submask Combining</span></a><a href="#ext-comp-FIA" style="text-indent:20px">C.2.2<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-FIA_AUT_EXT" style="text-indent:30px">C.2.2.1<span>FIA_AUT_EXT Authorization</span></a><a href="#ext-comp-FIA_FCT_EXT" style="text-indent:30px">C.2.2.2<span>FIA_FCT_EXT Authorization Factors</span></a><a href="#ext-comp-FPT" style="text-indent:20px">C.2.3<span>Protection of the TSF (FPT)</span></a><a href="#ext-comp-FPT_KYP_EXT" style="text-indent:30px">C.2.3.1<span>FPT_KYP_EXT Protection of Key and Key Material</span></a><a href="#ext-comp-FDP" style="text-indent:20px">C.2.4<span>User Data Protection (FDP)</span></a><a href="#ext-comp-FDP_PRT_EXT" style="text-indent:30px">C.2.4.1<span>FDP_PRT_EXT Protection of Selected User Data</span></a><a href="#ext-comp-FDP_AUT_EXT" style="text-indent:30px">C.2.4.2<span>FDP_AUT_EXT User Data Authentication</span></a><a href="#ext-comp-FDP_PM_EXT" style="text-indent:30px">C.2.4.3<span>FDP_PM_EXT Protection of Data in Power Managed States</span></a><a href="#KMD" style="text-indent:0px">Appendix D - <span>Key Management Description</span></a><a href="#acronyms" style="text-indent:0px">Appendix E - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix F - <span>Bibliography</span></a>
+            <a href="#Introduction" style="text-indent:0px">1<span>Introduction</span></a><a href="#Overview" style="text-indent:10px">1.1<span>Overview</span></a><a href="#glossary" style="text-indent:10px">1.2<span>Terms</span></a><a href="#cc-terms" style="text-indent:20px">1.2.1<span>Common Criteria Terms</span></a><a href="#tech-terms" style="text-indent:20px">1.2.2<span>Technical Terms</span></a><a href="#TOEdescription" style="text-indent:10px">1.3<span>Compliant Targets of Evaluation</span></a><a href="#TOE_Boundary" style="text-indent:20px">1.3.1<span>TOE Boundary</span></a><a href="#Use_Cases" style="text-indent:10px">1.4<span>Use Cases</span></a><a href="#ccl" style="text-indent:0px">2<span>Conformance Claims</span></a><a href="#spd" style="text-indent:0px">3<span>Security Problem Definition</span></a><a href="#Threats" style="text-indent:10px">3.1<span>Threats</span></a><a href="#Assumptions" style="text-indent:10px">3.2<span>Assumptions</span></a><a href="#Organizational_Security_Policies" style="text-indent:10px">3.3<span>Organizational Security Policies</span></a><a href="#Security_Objectives" style="text-indent:0px">4<span>Security Objectives</span></a><a href="#Security_Objectives_for_the_Operational_Environment" style="text-indent:10px">4.1<span>Security Objectives for the Operational Environment</span></a><a href="#" style="text-indent:10px">4.2<span>Security Objectives Rationale</span></a><a href="#Security_Requirements" style="text-indent:0px">5<span>Security Requirements</span></a><a href="#secreq-b-appp" style="text-indent:10px">5.1<span> Protection Profile for Application Software Security Functional Requirements Direction </span></a><a href="#modsfr-b-appp" style="text-indent:20px">5.1.1<span> Modified SFRs </span></a><a href="#man-sfrs" style="text-indent:10px">5.2<span>TOE Security Functional Requirements</span></a><a href="#fcs-mandatory" style="text-indent:20px">5.2.1<span>Cryptographic Support (FCS)</span></a><a href="#fdp-mandatory" style="text-indent:20px">5.2.2<span>User Data Protection (FDP)</span></a><a href="#fia-mandatory" style="text-indent:20px">5.2.3<span>Identification and Authentication (FIA)</span></a><a href="#fmt-mandatory" style="text-indent:20px">5.2.4<span>Security Management (FMT)</span></a><a href="#fpt-mandatory" style="text-indent:20px">5.2.5<span>Protection of the TSF (FPT)</span></a><a href="#obj-req-map" style="text-indent:10px">5.3<span>TOE Security Functional Requirements Rationale</span></a><a href="#mod-conrat" style="text-indent:0px">6<span>Consistency Rationale</span></a><a href="#conrat-b-appp" style="text-indent:10px">6.1<span> Protection Profile for Application Software</span></a><a href="#contoe-b-appp" style="text-indent:20px">6.1.1<span> Consistency of TOE Type </span></a><a href="#consecprob-b-appp" style="text-indent:20px">6.1.2<span> Consistency of Security Problem Definition </span></a><a href="#conobj-b-appp" style="text-indent:20px">6.1.3<span> Consistency of OE Objectives </span></a><a href="#conreq-b-appp" style="text-indent:20px">6.1.4<span> Consistency of Requirements </span></a><a href="#opt-sfrs" style="text-indent:0px">Appendix A - <span>Optional SFRs</span></a><a href="#opt-sfrs" style="text-indent:10px">A.1<span>Strictly Optional Requirements </span></a><a href="#fcs-optional" style="text-indent:20px">A.1.1<span>Cryptographic Support (FCS)</span></a><a href="#fdp-optional" style="text-indent:20px">A.1.2<span>User Data Protection (FDP)</span></a><a href="#fia-optional" style="text-indent:20px">A.1.3<span>Identification and Authentication (FIA)</span></a><a href="#obj-sfrs" style="text-indent:10px">A.2<span>Objective Requirements </span></a><a href="#impl-dep-sfrs" style="text-indent:10px">A.3<span>Implementation-dependent Requirements </span></a><a href="#sel-sfrs" style="text-indent:0px">Appendix B - <span>Selection-based Requirements </span></a><a href="#fcs-selectionBased" style="text-indent:10px">B.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-defs" style="text-indent:0px">Appendix C - <span>Extended Component Definitions</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.1<span>Extended Components Table</span></a><a href="#ext-comp-defs-bg" style="text-indent:10px">C.2<span>Extended Component Definitions</span></a><a href="#ext-comp-FCS" style="text-indent:20px">C.2.1<span>Cryptographic Support (FCS)</span></a><a href="#ext-comp-FCS_CKM_EXT" style="text-indent:30px">C.2.1.1<span>FCS_CKM_EXT Cryptographic Key Management</span></a><a href="#ext-comp-FCS_KYC_EXT" style="text-indent:30px">C.2.1.2<span>FCS_KYC_EXT Key Chaining and Key Storage</span></a><a href="#ext-comp-FCS_VAL_EXT" style="text-indent:30px">C.2.1.3<span>FCS_VAL_EXT Validation</span></a><a href="#ext-comp-FCS_COP_EXT" style="text-indent:30px">C.2.1.4<span>FCS_COP_EXT Cryptographic Operation</span></a><a href="#ext-comp-FCS_KDF_EXT" style="text-indent:30px">C.2.1.5<span>FCS_KDF_EXT Cryptographic Key Derivation Function</span></a><a href="#ext-comp-FCS_SMC_EXT" style="text-indent:30px">C.2.1.6<span>FCS_SMC_EXT Submask Combining</span></a><a href="#ext-comp-FIA" style="text-indent:20px">C.2.2<span>Identification and Authentication (FIA)</span></a><a href="#ext-comp-FIA_AUT_EXT" style="text-indent:30px">C.2.2.1<span>FIA_AUT_EXT Authorization</span></a><a href="#ext-comp-FIA_FCT_EXT" style="text-indent:30px">C.2.2.2<span>FIA_FCT_EXT Authorization Factors</span></a><a href="#ext-comp-FPT" style="text-indent:20px">C.2.3<span>Protection of the TSF (FPT)</span></a><a href="#ext-comp-FPT_KYP_EXT" style="text-indent:30px">C.2.3.1<span>FPT_KYP_EXT Protection of Key and Key Material</span></a><a href="#ext-comp-FDP" style="text-indent:20px">C.2.4<span>User Data Protection (FDP)</span></a><a href="#ext-comp-FDP_PRT_EXT" style="text-indent:30px">C.2.4.1<span>FDP_PRT_EXT Protection of Selected User Data</span></a><a href="#ext-comp-FDP_AUT_EXT" style="text-indent:30px">C.2.4.2<span>FDP_AUT_EXT User Data Authentication</span></a><a href="#ext-comp-FDP_PM_EXT" style="text-indent:30px">C.2.4.3<span>FDP_PM_EXT Protection of Data in Power Managed States</span></a><a href="#KMD" style="text-indent:0px">Appendix D - <span>Appendix - Key Management Description</span></a><a href="#acronyms" style="text-indent:0px">Appendix E - <span>Acronyms</span></a><a href="#appendix-bibliography" style="text-indent:0px">Appendix F - <span>Bibliography</span></a>
         </div>
         <h1 class="indexable" data-level="1" id="Introduction">1 Introduction</h1>
         <h2 class="indexable" data-level="2" id="Overview">1.1 Overview</h2>
@@ -85,7 +85,7 @@
          The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be capable of supporting multiple users with different authorization factors, such that different users are able to use the same platform and not be able to read each other's encrypted files. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may also support the ability for users to share an encrypted file without sharing an authorization factor, but this is not required. In order to claim this capability, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must allow sharing of at least one encrypted resource among different users of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> who possess different authorization factors (e.g., two different smart cards, two different passwords, one using a password and another using a smart card). If this capability is supported, then the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author adds <a href="#FIA_FCT_EXT.1.1">FIA_FCT_EXT.1.1</a>.
         <br>
         <br>
-         <b>Authorization</b> 
+        <b>Authorization</b>
         <br>
          One or more authorization factors must be established before data can be encrypted. This authorization factor(s) must be presented to the file encryption product in order for the user to request that the product decrypt the data. Authorization factors may be uniquely associated with individual users or may be associated with a community of users. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not required to support multiple types of authorization factors (e.g., both passphrases and external authorization factors). If the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author defines additional authorization factors, they must be fully documented and cannot diminish the strength of the passphrase and/or external token authorization factors. 
         <br>
@@ -93,12 +93,12 @@
          The password/passphrase authorization factors must be conditioned such that they are at least the same size (bit length) as the key they are protecting. While this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not dictate how these authentication factors are created, a good operational practice is for an administrator to generate the password or passphrase to ensure sufficient entropy. Passphrases are preferred over passwords, since it is easier for users to remember and type in a sequence of words than recall a password and type in a long string of random characters.
         <br>
         <br>
-         <b>Administration</b> 
+        <b>Administration</b>
         <br>
          The base requirements of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> do not require the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to maintain an administrative role. Typically, administrators possess privilege to invoke functionality on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that is not available to general users. For stand alone file encryption products, however, once the product is installed there should be little need for administrative involvement. For enterprise managed file encryption products, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may be remotely administered. 
         <br>
         <br>
-         <b>Data Authentication (optional)</b> 
+        <b>Data Authentication (optional)</b>
         <br>
          Because modification of ciphertext data for certain modes of encryption will enable unidentified plaintext manipulation, care must be taken by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to mitigate against forged or maliciously modified ciphertext data. The <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines requirements for how the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> must provide data authentication services, allowing the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to implement authenticated block cipher, keyed hash function or asymmetric signing features. Depending on the implementation, the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will be responsible for meeting at least one of the aforementioned requirements. In all cases, unsuccessful authentication of the data should not allow the user to see the decrypted ciphertext and notification should be provided to the user if such an event were to occur.
         <br>
@@ -109,7 +109,7 @@
          Lastly, asymmetric signing in conjunction with a secure hash function may be used to authenticate the data. The implementation must use an approved signing algorithm in accordance with FCS_COP.1/Sig (from the [AppPP]) and an approved secure hashing function in accordance with FCS_COP.1/Hash (from the [AppPP]). The primary requirement addressing data authentication via asymmetric signing is <a href="#FDP_AUT_EXT.3">FDP_AUT_EXT.3</a>. 
         <br>
         <br>
-         <b>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and Its Supporting Environment:</b>
+        <b>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and Its Supporting Environment:</b>
         <br>
          Since the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is purely a software solution, it must rely on the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> Operational Environment (system hardware, firmware, and operating system) for its execution domain and its proper usage. The vendor is expected to provide sufficient installation and configuration instructions (for each platform listed in the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>) to identify Operational Environment(s) with the necessary features and to provide instructions for how to configure it correctly and securely. 
         <br>
@@ -392,7 +392,7 @@
                 </tr>
             </table>
         </div>
-        <h2 class="indexable" data-level="2" id="Complianttargets">1.3 Compliant Targets of Evaluation</h2>
+        <h2 class="indexable" data-level="2" id="TOEdescription">1.3 Compliant Targets of Evaluation</h2>
          This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> specifically addresses encryption of a set of data. This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> addresses the primary threat that an unauthorized user will obtain access to a host machine containing encrypted information and be able to extract the sensitive data through the process of decryption. The Target of Evaluation (<abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>) defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> is an encryption product that will inherently encrypt all of that data that the user selects to encrypt. For ease of explanation, "file" will frequently be used to refer to the object that is encrypted (however, it could be any number of things - folders, volumes, containers, etc.).
         <br>
         <br>
@@ -400,8 +400,8 @@
          The application, which consists of the software provided by its vendor, is installed onto the platform(s) it operates on. It executes on the platform, which may be an operating system, hardware environment, a software based execution environment, or some combination of these. Those platforms may themselves run within other environments, such as virtual machines or operating systems, that completely abstract away the underlying hardware from the application. The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is not accountable for security functionality that is implemented by platform layers that are abstracted away. Some evaluation activities are specific to the particular platform on which the application runs, in order to provide precision and repeatability. The only platforms currently recognized by [AppPP] and this module are those specified in <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Evaluation Activities. To test on a platform for which there are no EAs, a Vendor should contact NIAP with recommended EAs. NIAP will determine if the proposed platform is appropriate for the <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr> and accept, reject, or develop EAs as necessary in coordination with the technical community.
         <br>
         <br>
-         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes any software in the application installation package, even those pieces that may extend or modify the functionality of the underlying platform, such as kernel drivers. Some platforms come bundled with file encryption product and these too should be considered subject to the requirements defined in this document although the expectation of formal Common Criteria evaluation depends upon the national scheme. <abbr title="Basic Input/Output             System">BIOS</abbr> and other firmware, the operating system kernel, and other systems software (and drivers) provided as part of the platform are outside the scope of this document. 
-        <h2 class="indexable" data-level="2" id="usecases">1.4 Use Cases</h2>
+         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> includes any software in the application installation package, even those pieces that may extend or modify the functionality of the underlying platform, such as kernel drivers. Some platforms come bundled with file encryption product and these too should be considered subject to the requirements defined in this document although the expectation of formal Common Criteria evaluation depends upon the national scheme. and other firmware, the operating system kernel, and other systems software (and drivers) provided as part of the platform are outside the scope of this document. 
+        <h2 class="indexable" data-level="2" id="Use_Cases">1.4 Use Cases</h2>
          
         <dl>
             <dt id="usecase1"> [USE CASE 1] Unmanaged Endpoint</dt>
@@ -473,29 +473,29 @@
         <br>
          Note also that while the [AppPP] contains only threats to the ability of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> to provide its security functions, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> focuses on threats to resources in the operational environment. Together the threats of [AppPP] and those defined in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> define the comprehensive set of security threats addressed by a file encryption <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
         <dl>
-            <dt class="threat defined" id="T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_DATA_ACCESS</dt>
-            <dd>
-                <span class="description"> <b>Unauthorized Data Access:</b> An attacker that is not permitted to decrypt files or has no access obtains access to an account and uses forensic tools for examination.</span>
-            </dd>
-            <dt class="threat defined" id="T.MANAGEMENT_ACCESS">T.MANAGEMENT_ACCESS</dt>
-            <dd>
-                <span class="description"> <b>Management Access:</b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform necessary security operations due to a lack of supported management functionality.</span>
-            </dd>
             <dt class="threat defined" id="T.KEYING_MATERIAL_COMPROMISE">T.KEYING_MATERIAL_COMPROMISE</dt>
             <dd>
-                <span class="description"> <b>Compromise of Keying Material:</b> An attacker exploits a weakness in the random number generation, plaintext keys, and other keying material to decrypt an encrypted file. </span>
-            </dd>
-            <dt class="threat defined" id="T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_AUTHFACTOR_VERIFICATION</dt>
-            <dd>
-                <span class="description"> <b>Flawed Authentication Factor Verification:</b> An attacker exploits a flaw in the validation or conditioning of the authorization factor, allowing access to secure information. </span>
+                <span class="description"><b>Compromise of Keying Material:</b> An attacker exploits a weakness in the random number generation, plaintext keys, and other keying material to decrypt an encrypted file. </span>
             </dd>
             <dt class="threat defined" id="T.KEYSPACE_EXHAUST">T.KEYSPACE_EXHAUST</dt>
             <dd>
-                <span class="description"> <b>Brute Force Attack:</b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data, allowing access to secure information. </span>
+                <span class="description"><b>Brute Force Attack:</b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data, allowing access to secure information. </span>
+            </dd>
+            <dt class="threat defined" id="T.MANAGEMENT_ACCESS">T.MANAGEMENT_ACCESS</dt>
+            <dd>
+                <span class="description"><b>Management Access:</b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform necessary security operations due to a lack of supported management functionality.</span>
             </dd>
             <dt class="threat defined" id="T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_COMPROMISE</dt>
             <dd>
-                <span class="description"> <b>Plaintext Compromise:</b> An attacker is able to uncover plaintext remains with forensic tools, allowing access to secure information. </span>
+                <span class="description"><b>Plaintext Compromise:</b> An attacker is able to uncover plaintext remains with forensic tools, allowing access to secure information. </span>
+            </dd>
+            <dt class="threat defined" id="T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_DATA_ACCESS</dt>
+            <dd>
+                <span class="description"><b>Unauthorized Data Access:</b> An attacker that is not permitted to decrypt files or has no access obtains access to an account and uses forensic tools for examination.</span>
+            </dd>
+            <dt class="threat defined" id="T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_AUTHFACTOR_VERIFICATION</dt>
+            <dd>
+                <span class="description"><b>Flawed Authentication Factor Verification:</b> An attacker exploits a flaw in the validation or conditioning of the authorization factor, allowing access to secure information. </span>
             </dd>
         </dl>
          
@@ -516,6 +516,10 @@
                     <li>implement anti-hammer provisions where appropriate (for example, when a pin is the authentication factor).</li>
                 </span>
             </dd>
+            <dt class="assumption defined" id="A.FILE_INTEGRITY">A.FILE_INTEGRITY</dt>
+            <dd>
+                <span class="description">When the file is in transit, it is not modified, otherwise if that possibility exists, the appropriate selections in Appendix B are chosen for Data Authentication.</span>
+            </dd>
             <dt class="assumption defined" id="A.SHUTDOWN">A.SHUTDOWN</dt>
             <dd>
                 <span class="description">An authorized user will not leave the machine in a mode where sensitive information persists in non-volatile storage.</span>
@@ -523,10 +527,6 @@
             <dt class="assumption defined" id="A.STRONG_OE_CRYPTO">A.STRONG_OE_CRYPTO</dt>
             <dd>
                 <span class="description">All cryptography implemented in the Operational Environment and used by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> will meet the requirements listed in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. This includes generation of external token authorization factors by a <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr>.</span>
-            </dd>
-            <dt class="assumption defined" id="A.FILE_INTEGRITY">A.FILE_INTEGRITY</dt>
-            <dd>
-                <span class="description">When the file is in transit, it is not modified, otherwise if that possibility exists, the appropriate selections in Appendix B are chosen for Data Authentication.</span>
             </dd>
         </dl>
          
@@ -571,13 +571,13 @@
                 <td rowspan="1"><a href="#A.EXTERNAL_FEK_PROTECTION">A.EXTERNAL_​FEK_​PROTECTION</a></td><td><a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_​ENVIRONMENT_​CRYPTO</a></td><td>The operational environment objective <a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_ENVIRONMENT_CRYPTO</a> is realized through <a href="#A.EXTERNAL_FEK_PROTECTION">A.EXTERNAL_FEK_PROTECTION</a>.</td>
             </tr>
             <tr class="major-row">
+                <td rowspan="1"><a href="#A.FILE_INTEGRITY">A.FILE_​INTEGRITY</a></td><td><a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_​ENVIRONMENT_​CRYPTO</a></td><td>The operational environment objective <a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_ENVIRONMENT_CRYPTO</a> is realized through <a href="#A.STRONG_OE_CRYPTO">A.STRONG_OE_CRYPTO</a>.</td>
+            </tr>
+            <tr class="major-row">
                 <td rowspan="1"><a href="#A.SHUTDOWN">A.SHUTDOWN</a></td><td><a href="#OE.POWER_SAVE">OE.POWER_​SAVE</a></td><td>The operational environment objective <a href="#OE.POWER_SAVE">OE.POWER_SAVE</a> is realized through <a href="#A.SHUTDOWN">A.SHUTDOWN</a>.</td>
             </tr>
             <tr class="major-row">
                 <td rowspan="1"><a href="#A.STRONG_OE_CRYPTO">A.STRONG_​OE_​CRYPTO</a></td><td><a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_​ENVIRONMENT_​CRYPTO</a></td><td>The operational environment objective <a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_ENVIRONMENT_CRYPTO</a> is realized through <a href="#A.STRONG_OE_CRYPTO">A.STRONG_OE_CRYPTO</a>.</td>
-            </tr>
-            <tr class="major-row">
-                <td rowspan="1"><a href="#A.FILE_INTEGRITY">A.FILE_​INTEGRITY</a></td><td><a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_​ENVIRONMENT_​CRYPTO</a></td><td>The operational environment objective <a href="#OE.STRONG_ENVIRONMENT_CRYPTO">OE.STRONG_ENVIRONMENT_CRYPTO</a> is realized through <a href="#A.STRONG_OE_CRYPTO">A.STRONG_OE_CRYPTO</a>.</td>
             </tr>
         </table>
         <h1 id="Security_Requirements" class="indexable" data-level="1">5 Security Requirements</h1>
@@ -597,12 +597,79 @@
             </li>
         </ul>
         <h2 id="secreq-b-appp" class="indexable" data-level="2">5.1 Protection Profile for Application Software Security Functional Requirements Direction </h2>
-         The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to rely on some of the security functions implemented by the application as a whole and evaluated against <a href="#bibAppPP">[AppPP]</a>. The following section describes any modifications that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must make to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in addition to what is mandated by section 5.2. 
+        The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to rely on some of the security functions implemented by the application as a whole and evaluated against . The following section describes any modifications that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must make to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in addition to what is mandated by section 5.2.
         <h3 id="modsfr-b-appp" class="indexable" data-level="3">5.1.1 Modified SFRs </h3>
          This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>. 
         <h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
          The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>. These <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> must be claimed regardless of which <abbr class="dyn-abbr"><a href="#abbr_PP-Configuration">PP-Configuration</a></abbr> is used to define the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. 
-        <h3 id="fau" class="indexable" data-level="3">5.2.1 Cryptographic Support (FCS)</h3>
+        <h3 id="fcs-mandatory" class="indexable" data-level="3">5.2.1 Cryptographic Support (FCS)</h3>
+        <div class="comp" id="FCS_CKM.6">
+            <h4>FCS_CKM.6 Timing and event of cryptographic key destruction</h4>
+            <div class="element">
+                <div class="reqid" id="FCS_CKM.6.1">
+                    <a href="#FCS_CKM.6.1" class="abbr">FCS_CKM.6.1</a>
+                </div>
+                <div class="reqdesc">
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy [<i>all keys and key material</i>] when <i>no longer needed</i>.
+                    <div class="appnote">
+                        <span class="note-header">Application Note: </span><span class="note"> Keys, including intermediate keys and key material that are no longer needed are destroyed by using an approved method, <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a>. Examples of keys are intermediate keys, submasks. There may be instances where keys or key material that are contained in persistent storage are no longer needed and require destruction. Base on their implementation, vendors will explain when certain keys are no longer needed. There are multiple situations in which key material is no longer necessary, for example, a wrapped key may need to be destroyed when a password is changed. However, there are instances when keys are allowed to remain in memory, for example, a device identification key. If a PIN was used for a smart card and managed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, ensuring that the PIN was properly destroyed must be addressed. </span>
+                    </div>
+                </div>
+            </div>
+            <div class="element">
+                <div class="reqid" id="FCS_CKM.6.2">
+                    <a href="#FCS_CKM.6.2" class="abbr">FCS_CKM.6.2</a>
+                </div>
+                <div class="reqdesc">
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy cryptographic keys and keying material specified by <a href="#FCS_CKM.6.1">FCS_CKM.6.1</a> in accordance with a specified cryptographic key destruction method [<i>[<b>selection</b>: 
+                        <ul>
+                            <li style="">
+                                <span class="selectable-content" id="fcs_ckm.6.2_1">For volatile memory, the destruction shall be executed by a [<b>selection</b>: 
+                                    <ul>
+                                        <li style="">
+                                            <span class="selectable-content" id="fcs_ckm.6.2_2">single overwrite consisting of [<b>selection</b>: <span class="selectable-content" id="fcs_ckm.6.2_3">a pseudo-random pattern using the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr></span>, <span class="selectable-content" id="fcs_ckm.6.2_4">zeroes</span>, <span class="selectable-content" id="fcs_ckm.6.2_5">ones</span>, <span class="selectable-content" id="fcs_ckm.6.2_6">new value of a key</span>, <span class="selectable-content" id="fcs_ckm.6.2_8">[<b>assignment</b>: <span class="assignable-content">any value that does not contain any CSP</span>]</span>] </span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="fcs_ckm.6.2_9">removal of power to the memory</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="fcs_ckm.6.2_10">destruction of reference to the key directly followed by a request for garbage collection</span>
+                                        </li>
+                                    </ul>
+                                    ] </span>
+                            </li>
+                            <li style="">
+                                <span class="selectable-content" id="fcs_ckm.6.2_11">For non-volatile memory, the destruction shall be executed by [<b>selection</b>: 
+                                    <ul>
+                                        <li style="">
+                                            <span class="selectable-content" id="fcs_ckm.6.2_12">destruction of all KEKs protecting the target key, where none of the KEKs protecting the target key are derived</span>
+                                        </li>
+                                        <li style="">
+                                            <span class="selectable-content" id="fcs_ckm.6.2_13">the invocation of an interface provided by the underlying platform that [<b>selection</b>: 
+                                                <ul>
+                                                    <li style="">
+                                                        <span class="selectable-content" id="fcs_ckm.6.2_14">logically addresses the storage location of the key and performs a [<b>selection</b>: <span class="selectable-content" id="fcs_ckm.6.2_15">single</span>, <span class="selectable-content" id="fcs_ckm.6.2_17">[<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author defined multi-pass</span>]</span>] overwrite consisting of [<b>selection</b>: <span class="selectable-content" id="fcs_ckm.6.2_18">a pseudo-random pattern using the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr></span>, <span class="selectable-content" id="fcs_ckm.6.2_19">zeroes</span>, <span class="selectable-content" id="fcs_ckm.6.2_20">ones</span>, <span class="selectable-content" id="fcs_ckm.6.2_21">new value of a key</span>, <span class="selectable-content" id="fcs_ckm.6.2_23">[<b>assignment</b>: <span class="assignable-content">any value that does not contain any CSP</span>]</span>] </span>
+                                                    </li>
+                                                    <li style="">
+                                                        <span class="selectable-content" id="fcs_ckm.6.2_24">instructs the underlying platform to destroy the abstraction that represents the key</span>
+                                                    </li>
+                                                </ul>
+                                                ] </span>
+                                        </li>
+                                    </ul>
+                                    ] </span>
+                            </li>
+                        </ul>
+                        ]]</i> that meets the following: [<i>no standard</i>]. 
+                    <div class="appnote">
+                        <span class="note-header">Application Note: </span><span class="note"> The interface referenced in the requirement could take different forms, the most likely of which is an application programming interface to an OS kernel. There may be various levels of abstraction visible. For instance, in a given implementation that overwrites a key stored in non-volatile memory, the application may have access to the file system details and may be able to logically address specific memory locations. In another implementation that instructs the underlying platform to destroy the representation of a key stored in non-volatile memory, the application may simply have a handle to a resource and can only ask the platform to delete the resource, as may be the case with a platforms secure key store. The latter implementation should only be used for the most restricted access. The level of detail to which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has access will be reflected in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> section of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Several selections allow assignment of a 'value that does not contain any CSP'. This means that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses some other specified data not drawn from a source that may contain key material or reveal information about key material, and not being any of the particular values listed as other selection options. The point of the phrase 'does not contain any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might contain current or residual data that itself requires confidentiality protection.
+                            <br>
+                            <br>
+                             For the selection "destruction of all KEKs protecting target key, where none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory type involved, will suffice. For example, if a product uses a Key Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>) to encrypt a File Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>), destroying the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> using one of the methods in <a href="#FCS_CKM.6">FCS_CKM.6</a> is sufficient, since the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would no longer be usable (of course, presumes the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is still encrypted and the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cannot be recovered or re-derived). </span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="comp" id="FCS_CKM_EXT.2">
             <h4>FCS_CKM_EXT.2 File Encryption Key (FEK) Generation</h4>
             <div class="element">
@@ -613,21 +680,19 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_1"> accept <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> from an enterprise management server</span>
+                            <span class="selectable-content" id="fcs_ckm_ext.2.1_1">accept <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> from an enterprise management server</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_2"> generate <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> cryptographic keys 
-                                <br>
-                                 [<b>selection</b>: 
+                            <span class="selectable-content" id="fcs_ckm_ext.2.1_2">generate <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> cryptographic keys [<b>selection</b>: 
                                 <ul>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_3"> using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>) and with entropy corresponding to the security strength of AES key sizes <i>[256-bit]</i></span>
+                                        <span class="selectable-content" id="fcs_ckm_ext.2.1_3">using a Random Bit Generator as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>) and with entropy corresponding to the security strength of AES key sizes <i>[256-bit]</i></span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_4">using key generation methods compliant with NIST SP 800-133r2,</span>
+                                        <span class="selectable-content" id="fcs_ckm_ext.2.1_4">using key generation methods compliant with NIST SP 800-133r2,</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> </span>
+                                        <span class="selectable-content" id="DRVFEKPAS">derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span>
                                     </li>
                                 </ul>
                                 ] </span>
@@ -648,73 +713,6 @@
                 </div>
             </div>
         </div>
-        <div class="comp" id="FCS_CKM.6">
-            <h4>FCS_CKM.6 Timing and event of cryptographic key destruction</h4>
-            <div class="element">
-                <div class="reqid" id="FCS_CKM.6.1">
-                    <a href="#FCS_CKM.6.1" class="abbr">FCS_CKM.6.1</a>
-                </div>
-                <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy [<i>all keys and key material</i>] when <i>no longer needed</i>.
-                    <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> Keys, including intermediate keys and key material that are no longer needed are destroyed by using an approved method, <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a>. Examples of keys are intermediate keys, submasks. There may be instances where keys or key material that are contained in persistent storage are no longer needed and require destruction. Base on their implementation, vendors will explain when certain keys are no longer needed. There are multiple situations in which key material is no longer necessary, for example, a wrapped key may need to be destroyed when a password is changed. However, there are instances when keys are allowed to remain in memory, for example, a device identification key. If a PIN was used for a smart card and managed by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, ensuring that the PIN was properly destroyed must be addressed. </span>
-                    </div>
-                </div>
-            </div>
-            <div class="element">
-                <div class="reqid" id="FCS_CKM.6.2">
-                    <a href="#FCS_CKM.6.2" class="abbr">FCS_CKM.6.2</a>
-                </div>
-                <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall destroy cryptographic keys and keying material specified by <a href="#FCS_CKM.6.1">FCS_CKM.6.1</a> in accordance with a specified cryptographic key destruction method [<i> [<b>selection</b>: 
-                        <ul>
-                            <li style="">
-                                <span class="selectable-content" id="_s_11"> For volatile memory, the destruction shall be executed by a [<b>selection</b>: 
-                                    <ul>
-                                        <li style="">
-                                            <span class="selectable-content" id="_s_12">single overwrite consisting of [<b>selection</b>: <span class="selectable-content" id="_s_13">a pseudo-random pattern using the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr></span>, <span class="selectable-content" id="_s_14">zeroes</span>, <span class="selectable-content" id="_s_15">ones</span>, <span class="selectable-content" id="_s_16">new value of a key</span>, <span class="selectable-content" id="_s_17">[<b>assignment</b>: <span class="assignable-content">any value that does not contain any CSP</span>]</span>] </span>
-                                        </li>
-                                        <li style="">
-                                            <span class="selectable-content" id="_s_18">removal of power to the memory</span>
-                                        </li>
-                                        <li style="">
-                                            <span class="selectable-content" id="_s_19">destruction of reference to the key directly followed by a request for garbage collection</span>
-                                        </li>
-                                    </ul>
-                                    ] </span>
-                            </li>
-                            <li style="">
-                                <span class="selectable-content" id="_s_20"> For non-volatile memory, the destruction shall be executed by [<b>selection</b>: 
-                                    <ul>
-                                        <li style="">
-                                            <span class="selectable-content" id="_s_21">destruction of all KEKs protecting the target key, where none of the KEKs protecting the target key are derived </span>
-                                        </li>
-                                        <li style="">
-                                            <span class="selectable-content" id="_s_22"> the invocation of an interface provided by the underlying platform that [<b>selection</b>: 
-                                                <ul>
-                                                    <li style="">
-                                                        <span class="selectable-content" id="_s_23">logically addresses the storage location of the key and performs a [<b>selection</b>: <span class="selectable-content" id="_s_24">single</span>, <span class="selectable-content" id="_s_25">[<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author defined multi-pass</span>]</span>] overwrite consisting of [<b>selection</b>: <span class="selectable-content" id="_s_26">a pseudo-random pattern using the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>'s <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr></span>, <span class="selectable-content" id="_s_27">zeroes</span>, <span class="selectable-content" id="_s_28">ones</span>, <span class="selectable-content" id="_s_29">new value of a key</span>, <span class="selectable-content" id="_s_30">[<b>assignment</b>: <span class="assignable-content">any value that does not contain any CSP</span>]</span>] </span>
-                                                    </li>
-                                                    <li style="">
-                                                        <span class="selectable-content" id="_s_31">instructs the underlying platform to destroy the abstraction that represents the key</span>
-                                                    </li>
-                                                </ul>
-                                                ] </span>
-                                        </li>
-                                    </ul>
-                                    ] </span>
-                            </li>
-                        </ul>
-                        ]]</i> that meets the following: [<i>no standard</i>]. 
-                    <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> The interface referenced in the requirement could take different forms, the most likely of which is an application programming interface to an OS kernel. There may be various levels of abstraction visible. For instance, in a given implementation that overwrites a key stored in non-volatile memory, the application may have access to the file system details and may be able to logically address specific memory locations. In another implementation that instructs the underlying platform to destroy the representation of a key stored in non-volatile memory, the application may simply have a handle to a resource and can only ask the platform to delete the resource, as may be the case with a platforms secure key store. The latter implementation should only be used for the most restricted access. The level of detail to which the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> has access will be reflected in the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> section of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr>. Several selections allow assignment of a 'value that does not contain any CSP'. This means that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> uses some other specified data not drawn from a source that may contain key material or reveal information about key material, and not being any of the particular values listed as other selection options. The point of the phrase 'does not contain any CSP' is to ensure that the overwritten data is carefully selected, and not taken from a general 'pool' that might contain current or residual data that itself requires confidentiality protection.
-                            <br>
-                            <br>
-                             For the selection "destruction of all KEKs protecting target key, where none of the KEKs protecting the target key are derived", a key can be considered destroyed by destroying the key that protects the key. If a key is wrapped or encrypted it is not necessary to "overwrite" that key, overwriting the key that is used to wrap or encrypt the key used to encrypt/decrypt data, using the appropriate method for the memory type involved, will suffice. For example, if a product uses a Key Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr>) to encrypt a File Encryption Key (<abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>), destroying the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> using one of the methods in <a href="#FCS_CKM.6">FCS_CKM.6</a> is sufficient, since the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> would no longer be usable (of course, presumes the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> is still encrypted and the <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cannot be recovered or re-derived). </span>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="comp" id="FCS_KYC_EXT.1">
             <h4>FCS_KYC_EXT.1 Key Chaining and Key Storage</h4>
             <div class="element">
@@ -725,16 +723,16 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall maintain a key chain of: [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_32">a conditioned password as the [<i><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></i>]</span>
+                            <span class="selectable-content" id="fcs_kyc_ext.1.1_1">a conditioned password as the [<i><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></i>]</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="HASKEK">[<i>KEKs</i>] originating from [<b>selection</b>: <span class="selectable-content" id="_s_34">one or more authorization factors(s)</span>, <span class="selectable-content" id="_s_35">a file encryption enterprise management server</span>] to [<b>selection</b>: <span class="selectable-content" id="_s_36">the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s)</span>, <span class="selectable-content" id="_s_37">a file encryption enterprise management server</span>] using the following method(s): [<b>selection</b>: 
+                            <span class="selectable-content" id="HASKEK">[<i>KEKs</i>] originating from [<b>selection</b>: <span class="selectable-content" id="fcs_kyc_ext.1.1_2">one or more authorization factors(s)</span>, <span class="selectable-content" id="fcs_kyc_ext.1.1_3">a file encryption enterprise management server</span>] to [<b>selection</b>: <span class="selectable-content" id="fcs_kyc_ext.1.1_4">the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s)</span>, <span class="selectable-content" id="fcs_kyc_ext.1.1_5">a file encryption enterprise management server</span>] using the following method(s): [<b>selection</b>: 
                                 <ul>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_38">utilization of the platform key storage</span>
+                                        <span class="selectable-content" id="fcs_kyc_ext.1.1_6">utilization of the platform key storage</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_39">utilization of platform key storage that performs key wrap with a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provided key</span>
+                                        <span class="selectable-content" id="fcs_kyc_ext.1.1_7">utilization of platform key storage that performs key wrap with a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provided key</span>
                                     </li>
                                     <li style="">
                                         <span class="selectable-content" id="USEKEYWRA">implementation of key establishment as specified in FCS_CKM.2 (from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</span>
@@ -755,22 +753,22 @@
                                         <span class="selectable-content" id="USEKEYTRA">implementation of key transport as specified in <a href="#FCS_COP.1/KT">FCS_COP.1/KT</a></span>
                                     </li>
                                 </ul>
-                                ] while maintaining an effective strength of commensurate with the strength of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> </span>
+                                ] while maintaining an effective strength of commensurate with the strength of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></span>
                         </li>
                     </ul>
                     ] and [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_46"> no supplemental key chains</span>
+                            <span class="selectable-content" id="fcs_kyc_ext.1.1_8">no supplemental key chains</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_47"> other supplemental key chains that protect a key or keys in the primary key chain using the following method(s): [<b>selection</b>: 
+                            <span class="selectable-content" id="fcs_kyc_ext.1.1_9">other supplemental key chains that protect a key or keys in the primary key chain using the following method(s): [<b>selection</b>: 
                                 <ul>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_48">utilization of the platform key storage</span>
+                                        <span class="selectable-content" id="fcs_kyc_ext.1.1_10">utilization of the platform key storage</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_49">utilization of platform key storage that performs key wrap with a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provided key</span>
+                                        <span class="selectable-content" id="fcs_kyc_ext.1.1_11">utilization of platform key storage that performs key wrap with a <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> provided key</span>
                                     </li>
                                     <li style="">
                                         <span class="selectable-content" id="SUPPKEYEST">implementation of key establishment as specified in FCS_CKM.2 (from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</span>
@@ -791,7 +789,7 @@
                                         <span class="selectable-content" id="SUPPKEYCOM">implementation of key combining as specified in <a href="#FCS_SMC_EXT.1">FCS_SMC_EXT.1</a></span>
                                     </li>
                                 </ul>
-                                ]</span>
+                                ] </span>
                         </li>
                     </ul>
                     ]. 
@@ -832,22 +830,22 @@
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform validation of the [<i>user</i>] by [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_60">receiving assertion of the subject's validity from [<b>assignment</b>: <span class="assignable-content">Operational Environment component responsible for authentication</span>]</span>
+                            <span class="selectable-content" id="fcs_val_ext.1.1_1">receiving assertion of the subject's validity from [<b>assignment</b>: <span class="assignable-content">Operational Environment component responsible for authentication</span>]</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_61">validating the [<b>selection</b>: <span class="selectable-content" id="_s_62">submask</span>, <span class="selectable-content" id="_s_63">intermediate key</span>] using the following methods: [<b>selection</b>: 
+                            <span class="selectable-content" id="fcs_val_ext.1.1_3">validating the [<b>selection</b>: <span class="selectable-content" id="fcs_val_ext.1.1_4">submask</span>, <span class="selectable-content" id="fcs_val_ext.1.1_5">intermediate key</span>] using the following methods: [<b>selection</b>: 
                                 <ul>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_64">key wrap as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
+                                        <span class="selectable-content" id="fcs_val_ext.1.1_6">key wrap as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_65">hash the [<b>selection</b>: <span class="selectable-content" id="_s_66">submask</span>, <span class="selectable-content" id="_s_67">intermediate key</span>, <span class="selectable-content" id="_s_68"><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></span>] as specified in FCS_COP.1/Hash (from <a href="#bibAppPP">[AppPP]</a>) and compare it to a stored hash</span>
+                                        <span class="selectable-content" id="fcs_val_ext.1.1_7">hash the [<b>selection</b>: <span class="selectable-content" id="fcs_val_ext.1.1_8">submask</span>, <span class="selectable-content" id="fcs_val_ext.1.1_9">intermediate key</span>, <span class="selectable-content" id="fcs_val_ext.1.1_10"><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></span>] as specified in FCS_COP.1/Hash (from <a href="#bibAppPP">[AppPP]</a>) and compare it to a stored hash</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_69">decrypt a known value using the [<b>selection</b>: <span class="selectable-content" id="_s_70">submask</span>, <span class="selectable-content" id="_s_71">intermediate key</span>, <span class="selectable-content" id="_s_72"><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></span>] as specified in FCS_COP.1/SKC (from <a href="#bibAppPP">[AppPP]</a>) and compare it against a stored known value</span>
+                                        <span class="selectable-content" id="fcs_val_ext.1.1_11">decrypt a known value using the [<b>selection</b>: <span class="selectable-content" id="fcs_val_ext.1.1_12">submask</span>, <span class="selectable-content" id="fcs_val_ext.1.1_13">intermediate key</span>, <span class="selectable-content" id="fcs_val_ext.1.1_14"><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></span>] as specified in FCS_COP.1/SKC (from <a href="#bibAppPP">[AppPP]</a>) and compare it against a stored known value</span>
                                     </li>
                                 </ul>
-                                ]</span>
+                                ] </span>
                         </li>
                     </ul>
                     ]. 
@@ -858,7 +856,7 @@
                     <a href="#FCS_VAL_EXT.1.2" class="abbr">FCS_VAL_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require validation of the [<i>user</i>] prior to [<i>decrypting any <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></i>].
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall require validation of the [<i>user</i>] prior to [<i>decrypting any <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></i>
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> are also defined in <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> for File Encryption Enterprise Management. If the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> also claims this module, the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author should iterate these <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> by using "/FE" and "/EM" as unique identifiers for the iterations. This will allow the reader to easily determine which iteration applies to each <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> component.
                             <br>
@@ -878,16 +876,16 @@
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_86">perform a key destruction of the [<i><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s)</i>] upon a configurable number of consecutive failed validation attempts</span>
+                            <span class="selectable-content" id="fcs_val_ext.2.1_1">perform a key destruction of the [<i><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s)</i>] upon a configurable number of consecutive failed validation attempts</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_87">institute a delay such that only [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specified number of attempts</span>] can be made within a 24 hour period</span>
+                            <span class="selectable-content" id="fcs_val_ext.2.1_2">institute a delay such that only [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specified number of attempts</span>] can be made within a 24 hour period</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_88">block validation after [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specified number of attempts</span>] of consecutive failed validation attempts</span>
+                            <span class="selectable-content" id="fcs_val_ext.2.1_4">block validation after [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specified number of attempts</span>] of consecutive failed validation attempts</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_89">require power cycle/reset the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> after [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specified number of attempts</span>] of consecutive failed validation attempts</span>
+                            <span class="selectable-content" id="fcs_val_ext.2.1_6">require power cycle/reset the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> after [<b>assignment</b>: <span class="assignable-content"><abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author specified number of attempts</span>] of consecutive failed validation attempts</span>
                         </li>
                     </ul>
                     ]. 
@@ -903,7 +901,7 @@
                 </div>
             </div>
         </div>
-        <h3 id="fdp" class="indexable" data-level="3">5.2.2 User Data Protection (FDP)</h3>
+        <h3 id="fdp-mandatory" class="indexable" data-level="3">5.2.2 User Data Protection (FDP)</h3>
         <div class="comp" id="FDP_PRT_EXT.1">
             <h4>FDP_PRT_EXT.1 Protection of Selected User Data</h4>
             <div class="element">
@@ -922,7 +920,7 @@
                     <a href="#FDP_PRT_EXT.1.2" class="abbr">FDP_PRT_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_94">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_95">implement functionality</span>] to ensure that all sensitive data created by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory when the data is no longer needed according to <a href="#FCS_CKM.6">FCS_CKM.6</a>. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="fdp_prt_ext.1.2_1">invoke platform-provided functionality</span>, <span class="selectable-content" id="fdp_prt_ext.1.2_2">implement functionality</span>] to ensure that all sensitive data created by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory when the data is no longer needed according to <a href="#FCS_CKM.6">FCS_CKM.6</a>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The intent is that the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> controls the use and clearing of any data that it manipulates that is not needed by the user (e.g. a temporary file created in non-volatile memory during the encryption/decryption process would be destroyed as soon as the process is completed). This should not prevent expected usage (e.g. the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may create a decrypted copy of a file as requested by the user). The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> is also not responsible for temporary files that non-TSF application creates (for example, a text editor may create a "checkpoint" file when editing a file that is protected by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>; the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> does not have to try to keep track of or clean up these "checkpoint" files). An optional requirement on cleaning up the temporary files created by non-TSF application when operating on files protected by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is <a href="#FDP_PRT_EXT.3.1">FDP_PRT_EXT.3.1</a>. While these data sets are not keys, they can follow the same deletion procedures described in <a href="#FCS_CKM.6">FCS_CKM.6</a>.</span>
                     </div>
@@ -936,7 +934,7 @@
                     <a href="#FDP_PRT_EXT.2.1" class="abbr">FDP_PRT_EXT.2.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_96">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_97">implement functionality</span>] to ensure that all original plaintext data created when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory according to <a href="#FCS_CKM.6">FCS_CKM.6</a> upon completion of the decryption/encryption operation. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="fdp_prt_ext.2.1_1">invoke platform-provided functionality</span>, <span class="selectable-content" id="fdp_prt_ext.2.1_2">implement functionality</span>] to ensure that all original plaintext data created when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory according to <a href="#FCS_CKM.6">FCS_CKM.6</a> upon completion of the decryption/encryption operation. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This is the primary requirement for encrypting and decrypting the protected resources (file or set of files). 
                             <br>
@@ -949,7 +947,7 @@
                 </div>
             </div>
         </div>
-        <h3 id="fia" class="indexable" data-level="3">5.2.3 Identification and Authentication (FIA)</h3>
+        <h3 id="fia-mandatory" class="indexable" data-level="3">5.2.3 Identification and Authentication (FIA)</h3>
         <div class="comp" id="FIA_AUT_EXT.1">
             <h4>FIA_AUT_EXT.1 Subject Authorization</h4>
             <div class="element">
@@ -960,13 +958,13 @@
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="PLATAUTH">implement platform-provided functionality to provide user authorization</span>, <span class="selectable-content" id="APPAUTH">provide user authorization</span>] based on [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="USEPAS"> a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span>
+                            <span class="selectable-content" id="USEPAS">a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is [<b>selection</b>: <span class="selectable-content" id="_s_102">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="_s_103">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and [<b>selection</b>: <span class="selectable-content" id="_s_104">no PIN</span>, <span class="selectable-content" id="_s_105">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="_s_106">a configurable PIN</span>] </span>
+                            <span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_1">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="fia_aut_ext.1.1_2">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_3">no PIN</span>, <span class="selectable-content" id="fia_aut_ext.1.1_4">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="fia_aut_ext.1.1_5">a configurable PIN</span>] </span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_107">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is providing a submask generated by the [<b>selection</b>: <span class="selectable-content" id="_s_108"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="_s_109">platform</span>] </span>
+                            <span class="selectable-content" id="fia_aut_ext.1.1_6">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is providing a submask generated by the [<b>selection</b>: <span class="selectable-content" id="fia_aut_ext.1.1_7"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>))</span>, <span class="selectable-content" id="fia_aut_ext.1.1_8">platform</span>] </span>
                         </li>
                     </ul>
                     ]. 
@@ -985,7 +983,7 @@
                 </div>
             </div>
         </div>
-        <h3 id="fmt" class="indexable" data-level="3">5.2.4 Security Management (FMT)</h3>
+        <h3 id="fmt-mandatory" class="indexable" data-level="3">5.2.4 Security Management (FMT)</h3>
         <div class="comp" id="FMT_SMF.1/FE">
             <h4>FMT_SMF.1/FE Specification of File Encryption Management Functions</h4>
             <div class="element">
@@ -993,31 +991,31 @@
                     <a href="#FMT_SMF.1.1/FE" class="abbr">FMT_SMF.1.1/FE</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions: <b> [<b>selection</b>: 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall be capable of performing the following management functions: <b>[<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_122">configure cryptographic functionality</span>
+                                <span class="selectable-content" id="fmt_smf.1.1_FE_1">configure cryptographic functionality</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_123">change authentication factors</span>
+                                <span class="selectable-content" id="fmt_smf.1.1_FE_2">change authentication factors</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_124">perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a></span>
+                                <span class="selectable-content" id="fmt_smf.1.1_FE_3">perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in <a href="#FCS_CKM.6.2">FCS_CKM.6.2</a></span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_125">configure the number of failed validation attempts required to trigger corrective behavior </span>
+                                <span class="selectable-content" id="fmt_smf.1.1_FE_4">configure the number of failed validation attempts required to trigger corrective behavior</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_126">configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</span>
+                                <span class="selectable-content" id="fmt_smf.1.1_FE_5">configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_127">disable cryptographic functionality</span>
+                                <span class="selectable-content" id="fmt_smf.1.1_FE_6">disable cryptographic functionality</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_128">[<b>assignment</b>: <span class="assignable-content">other management functions provided by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>]</span>
+                                <span class="selectable-content" id="fmt_smf.1.1_FE_8">[<b>assignment</b>: <span class="assignable-content">other management functions provided by the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr></span>]</span>
                             </li>
                         </ul>
-                        ]</b>. 
+                        ] </b>. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> The intent of this requirement is to express the management capabilities that may be included in the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>. Several common options are given:
                             <br>
@@ -1038,7 +1036,7 @@
                 </div>
             </div>
         </div>
-        <h3 id="fpt" class="indexable" data-level="3">5.2.5 Protection of the TSF (FPT)</h3>
+        <h3 id="fpt-mandatory" class="indexable" data-level="3">5.2.5 Protection of the TSF (FPT)</h3>
         <div class="comp" id="FPT_KYP_EXT.1">
             <h4>FPT_KYP_EXT.1 Protection of Keys and Key Material</h4>
             <div class="element">
@@ -1049,49 +1047,49 @@
                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_129">not store keys in non-volatile memory</span>
+                            <span class="selectable-content" id="fpt_kyp_ext.1.1_1">not store keys in non-volatile memory</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_130">store keys in non-volatile memory only when [<b>selection</b>: 
+                            <span class="selectable-content" id="fpt_kyp_ext.1.1_2">store keys in non-volatile memory only when [<b>selection</b>: 
                                 <ul>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_131">wrapped, as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_3">wrapped, as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_132">encrypted, as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a></span>
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_4">encrypted, as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a></span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_133">the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_5">the plaintext key is stored in the underlying platform's keystore as specified by FCS_STO_EXT.1.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_134">the plaintext key is not part of the key chain as specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_6">the plaintext key is not part of the key chain as specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_135">the plaintext key will no longer provide access to the encrypted data after initial provisioning</span>
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_7">the plaintext key will no longer provide access to the encrypted data after initial provisioning</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_136">the plaintext key is a key split that is combined as specified in <a href="#FCS_SMC_EXT.1">FCS_SMC_EXT.1</a> and another contribution to the split is [<b>selection</b>: 
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_8">the plaintext key is a key split that is combined as specified in <a href="#FCS_SMC_EXT.1">FCS_SMC_EXT.1</a> and another contribution to the split is [<b>selection</b>: 
                                             <ul>
                                                 <li style="">
-                                                    <span class="selectable-content" id="_s_137">wrapped as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
+                                                    <span class="selectable-content" id="fpt_kyp_ext.1.1_9">wrapped as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
                                                 </li>
                                                 <li style="">
-                                                    <span class="selectable-content" id="_s_138">encrypted as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a></span>
+                                                    <span class="selectable-content" id="fpt_kyp_ext.1.1_10">encrypted as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a></span>
                                                 </li>
                                                 <li style="">
-                                                    <span class="selectable-content" id="_s_139">derived as specified in <a href="#FCS_KDF_EXT.1.1">FCS_KDF_EXT.1.1</a> and not stored in non-volatile memory</span>
+                                                    <span class="selectable-content" id="fpt_kyp_ext.1.1_11">derived as specified in <a href="#FCS_KDF_EXT.1.1">FCS_KDF_EXT.1.1</a> and not stored in non-volatile memory</span>
                                                 </li>
                                                 <li style="">
-                                                    <span class="selectable-content" id="_s_140">supplied by the enterprise management server</span>
+                                                    <span class="selectable-content" id="fpt_kyp_ext.1.1_12">supplied by the enterprise management server</span>
                                                 </li>
                                             </ul>
                                             ] </span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_141">the plaintext key is stored on an external storage device for use as an authorization factor.</span>
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_13">the plaintext key is stored on an external storage device for use as an authorization factor.</span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_142">the plaintext key is used to encrypt a key as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> or wrap a key as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a> that is already encrypted as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> or wrapped as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
+                                        <span class="selectable-content" id="fpt_kyp_ext.1.1_14">the plaintext key is used to encrypt a key as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> or wrap a key as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a> that is already encrypted as specified in <a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> or wrapped as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></span>
                                     </li>
                                 </ul>
                                 ] </span>
@@ -1116,70 +1114,13 @@
                     <th>Threat</th><th>Addressed by</th><th>Rationale</th>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="12"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FDP_PRT_EXT.2">FDP_PRT_EXT.2</a></td><td>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (optional)</td><td>Mitigates the threat by authenticating data using a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FCS_COP_EXT.1">FCS_COP_EXT.1</a> (optional)</td><td>Mitigates the threat by protecting a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> with the same protections as a <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FDP_AUT_EXT.1">FDP_AUT_EXT.1</a> (optional)</td><td>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FDP_AUT_EXT.2">FDP_AUT_EXT.2</a> (optional)</td><td>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FDP_AUT_EXT.3">FDP_AUT_EXT.3</a> (optional)</td><td>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FDP_PM_EXT.1">FDP_PM_EXT.1</a> (optional)</td><td>Mitigates the threat by encrypting data during a power-managed state.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FDP_PRT_EXT.3">FDP_PRT_EXT.3</a> (optional)</td><td>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FIA_FCT_EXT.1">FIA_FCT_EXT.1</a> (optional)</td><td>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a> (optional)</td><td>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</td>
-                </tr>
-                <tr class="major-row">
-                    <td rowspan="2"><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_​ACCESS</a></td><td>FMT_MEC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by storing configuration in a protected manner.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FMT_SMF.1/FE">FMT_SMF.1/FE</a></td><td>Mitigates the threat by enumerating and protecting management functions.</td>
-                </tr>
-                <tr class="major-row">
                     <td rowspan="2"><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_​MATERIAL_​COMPROMISE</a></td><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by destroying keys and key material when not needed.</td>
                 </tr>
                 <tr>
                     <td><a href="#FPT_KYP_EXT.1">FPT_KYP_EXT.1</a></td><td>Mitigates the threat by protecting keys stored on non-volatile memory.</td>
                 </tr>
                 <tr class="major-row">
-                    <td rowspan="2"><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_​AUTHFACTOR_​VERIFICATION</a></td><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></td><td>Mitigates the threat by authorizing the user using an appropriate authorization factor.</td>
-                </tr>
-                <tr class="major-row">
-                    <td rowspan="12"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a></td><td>Mitigates the threat by maintaining and storing secure key chains.</td>
-                </tr>
-                <tr>
-                    <td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</td>
+                    <td rowspan="11"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_CKM_EXT.3">FCS_CKM_EXT.3</a> (selection-based)</td><td>Mitigates the threat by using or generating secure KEKs.</td>
@@ -1197,13 +1138,25 @@
                     <td><a href="#FCS_COP.1/KW">FCS_COP.1/KW</a> (selection-based)</td><td>Mitigates the threat by wrapping keys using a specified secure algorithm.</td>
                 </tr>
                 <tr>
+                    <td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
+                </tr>
+                <tr>
                     <td><a href="#FCS_KDF_EXT.1">FCS_KDF_EXT.1</a> (selection-based)</td><td>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a></td><td>Mitigates the threat by maintaining and storing secure key chains.</td>
                 </tr>
                 <tr>
                     <td><a href="#FCS_SMC_EXT.1">FCS_SMC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by combining submasks using a secure method.</td>
                 </tr>
                 <tr>
-                    <td><a href="#FCS_VAL_EXT.2">FCS_VAL_EXT.2</a> (selection-based)</td><td>Mitigates the threat by limiting the amount or rate of failed validation attempts.</td>
+                    <td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="2"><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_​ACCESS</a></td><td>FMT_MEC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by storing configuration in a protected manner.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FMT_SMF.1/FE">FMT_SMF.1/FE</a></td><td>Mitigates the threat by enumerating and protecting management functions.</td>
                 </tr>
                 <tr class="major-row">
                     <td rowspan="3"><a href="#T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_​COMPROMISE</a></td><td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files.</td>
@@ -1213,6 +1166,48 @@
                 </tr>
                 <tr>
                     <td><a href="#FDP_PRT_EXT.3">FDP_PRT_EXT.3</a> (optional)</td><td>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="12"><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_​DATA_​ACCESS</a></td><td><a href="#FCS_CKM_EXT.5">FCS_CKM_EXT.5</a> (optional)</td><td>Mitigates the threat by authenticating data using a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr>.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FCS_COP_EXT.1">FCS_COP_EXT.1</a> (optional)</td><td>Mitigates the threat by protecting a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> with the same protections as a <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>.</td>
+                </tr>
+                <tr>
+                    <td>FCS_COP.1/SKC (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_AUT_EXT.1">FDP_AUT_EXT.1</a> (optional)</td><td>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_AUT_EXT.2">FDP_AUT_EXT.2</a> (optional)</td><td>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_AUT_EXT.3">FDP_AUT_EXT.3</a> (optional)</td><td>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_PM_EXT.1">FDP_PM_EXT.1</a> (optional)</td><td>Mitigates the threat by encrypting data during a power-managed state.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_PRT_EXT.2">FDP_PRT_EXT.2</a></td><td>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FDP_PRT_EXT.3">FDP_PRT_EXT.3</a> (optional)</td><td>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FIA_FCT_EXT.1">FIA_FCT_EXT.1</a> (optional)</td><td>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a> (optional)</td><td>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</td>
+                </tr>
+                <tr class="major-row">
+                    <td rowspan="2"><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_​AUTHFACTOR_​VERIFICATION</a></td><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</td>
+                </tr>
+                <tr>
+                    <td><a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></td><td>Mitigates the threat by authorizing the user using an appropriate authorization factor.</td>
                 </tr>
             </table>
         </p>
@@ -1229,22 +1224,22 @@
                 <th><abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> Threat, Assumption, OSP</th><th>Consistency Rationale</th>
             </tr>
             <tr>
-                <td><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_DATA_ACCESS</a></td><td>This threat is a variation on T.PHYSICAL_ACCESS defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. In this case, the "sensitive data at rest" is the data that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is intended to protect.</td>
-            </tr>
-            <tr>
-                <td><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_ACCESS</a></td><td>This threat is a variation on T.LOCAL_ATTACK defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define access-controlled management functions so this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> goes beyond it by specifying misuse of the management interface, or inability to fully use the management interface, as threats to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td>
-            </tr>
-            <tr>
                 <td><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_MATERIAL_COMPROMISE</a></td><td>This threat is a specific example of T.PHYSICAL_ACCESS defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. Specifically, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
-            </tr>
-            <tr>
-                <td><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_AUTHFACTOR_VERIFICATION</a></td><td>This threat is a specific example of T.PHYSICAL_ACCESS defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. Specifically, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
             <tr>
                 <td><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_EXHAUST</a></td><td>This threat is a specific example of T.PHYSICAL_ACCESS defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. Specifically, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
             <tr>
+                <td><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_ACCESS</a></td><td>This threat is a variation on T.LOCAL_ATTACK defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> does not define access-controlled management functions so this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> goes beyond it by specifying misuse of the management interface, or inability to fully use the management interface, as threats to the <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr>.</td>
+            </tr>
+            <tr>
                 <td><a href="#T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_COMPROMISE</a></td><td>This threat is a specific example of T.PHYSICAL_ACCESS defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. Specifically, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
+            </tr>
+            <tr>
+                <td><a href="#T.UNAUTHORIZED_DATA_ACCESS">T.UNAUTHORIZED_DATA_ACCESS</a></td><td>This threat is a variation on T.PHYSICAL_ACCESS defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. In this case, the "sensitive data at rest" is the data that the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is intended to protect.</td>
+            </tr>
+            <tr>
+                <td><a href="#T.UNSAFE_AUTHFACTOR_VERIFICATION">T.UNSAFE_AUTHFACTOR_VERIFICATION</a></td><td>This threat is a specific example of T.PHYSICAL_ACCESS defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. Specifically, this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.</td>
             </tr>
             <tr>
                 <td><a href="#A.AUTH_FACTOR">A.AUTH_FACTOR</a></td><td></td>
@@ -1253,13 +1248,13 @@
                 <td><a href="#A.EXTERNAL_FEK_PROTECTION">A.EXTERNAL_FEK_PROTECTION</a></td><td></td>
             </tr>
             <tr>
+                <td><a href="#A.FILE_INTEGRITY">A.FILE_INTEGRITY</a></td><td></td>
+            </tr>
+            <tr>
                 <td><a href="#A.SHUTDOWN">A.SHUTDOWN</a></td><td></td>
             </tr>
             <tr>
                 <td><a href="#A.STRONG_OE_CRYPTO">A.STRONG_OE_CRYPTO</a></td><td></td>
-            </tr>
-            <tr>
-                <td><a href="#A.FILE_INTEGRITY">A.FILE_INTEGRITY</a></td><td></td>
             </tr>
         </table>
         <h3 id="conobj-b-appp" class="indexable" data-level="3">6.1.3 Consistency of OE Objectives </h3>
@@ -1307,10 +1302,10 @@
                 <th colspan="2"> Mandatory <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr></th>
             </tr>
             <tr>
-                <td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> describes behavior that is not in scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. It is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it may use the same random bit generation function defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
+                <td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> extends the cryptographic functionality defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> by specifying a method for key destruction. It is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because keys generated by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> portion of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may also be destroyed in the manner specified by this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. </td>
             </tr>
             <tr>
-                <td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> extends the cryptographic functionality defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> by specifying a method for key destruction. It is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because keys generated by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> portion of the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> may also be destroyed in the manner specified by this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>. </td>
+                <td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> describes behavior that is not in scope of the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. It is consistent with the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> because it may use the same random bit generation function defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
                 <td><a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a></td><td>The <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> defines how stored keys are protected. This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> extends that functionality by defining the logical hierarchy of how keys are logically protected by other keys or other secret data. </td>
@@ -1388,10 +1383,10 @@
                 <td><a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in its intended manner but otherwise does not relate to the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>'s functionality. </td>
             </tr>
             <tr>
-                <td><a href="#FCS_COP.1/KT">FCS_COP.1/KT</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key transport functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
+                <td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
-                <td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
+                <td><a href="#FCS_COP.1/KT">FCS_COP.1/KT</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines key transport functionality that is outside the scope of the original cryptographic operations defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. </td>
             </tr>
             <tr>
                 <td><a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></td><td>This <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> defines usage of AES functionality not defined by the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>. However, this functionality is only used in certain situations that are specific to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> and do not affect the ability of any <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> to be enforced. </td>
@@ -1405,7 +1400,7 @@
         </table>
         <h1 id="opt-sfrs" class="indexable" data-level="A">Appendix A - Optional SFRs</h1>
         <h2 id="opt-sfrs" class="indexable" data-level="2">A.1 Strictly Optional Requirements </h2>
-        <h3 id="fcs" class="indexable" data-level="3">A.1.1 Cryptographic Support (FCS)</h3>
+        <h3 id="fcs-optional" class="indexable" data-level="3">A.1.1 Cryptographic Support (FCS)</h3>
         <div class="comp" id="FCS_CKM_EXT.5">
             <h4>FCS_CKM_EXT.5 File Authentication Key (FAK) Support</h4>
             <div class="element">
@@ -1416,10 +1411,10 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall use a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> to authenticate sensitive data when a cryptographic, keyed hashing function is used for data authentication and shall be supported in the following manner: [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_157">A <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> conditioned from a password/passphrase shall never be stored in non-volatile memory</span>
+                            <span class="selectable-content" id="fcs_ckm_ext.5.1_1">A <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> conditioned from a password/passphrase shall never be stored in non-volatile memory</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_158">a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> will be stored in non-volatile memory encrypted with a <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> as specified in FCS_COP.1<b>/KW</b> using authorization factors as specified in <a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a> </span>
+                            <span class="selectable-content" id="fcs_ckm_ext.5.1_2">a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> will be stored in non-volatile memory encrypted with a <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> as specified in FCS_COP.1<b>/KW</b> using authorization factors as specified in <a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></span>
                         </li>
                     </ul>
                     ]. 
@@ -1481,7 +1476,7 @@
                 </div>
             </div>
         </div>
-        <h3 id="fdp" class="indexable" data-level="3">A.1.2 User Data Protection (FDP)</h3>
+        <h3 id="fdp-optional" class="indexable" data-level="3">A.1.2 User Data Protection (FDP)</h3>
         <div class="comp" id="FDP_AUT_EXT.1">
             <h4>FDP_AUT_EXT.1 Authentication of Selected User Data</h4>
             <div class="element">
@@ -1497,7 +1492,7 @@
                     <a href="#FDP_AUT_EXT.1.2" class="abbr">FDP_AUT_EXT.1.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a data authentication method based on [<b>selection</b>: <span class="selectable-content" id="_s_161">cryptographic keyed hashing service and verification in accordance with <a href="#FDP_AUT_EXT.2">FDP_AUT_EXT.2</a></span>, <span class="selectable-content" id="_s_162">asymmetric signing and verification in accordance with <a href="#FDP_AUT_EXT.3">FDP_AUT_EXT.3</a></span>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a data authentication method based on [<b>selection</b>: <span class="selectable-content" id="fdp_aut_ext.1.2_1">cryptographic keyed hashing service and verification in accordance with <a href="#FDP_AUT_EXT.2">FDP_AUT_EXT.2</a></span>, <span class="selectable-content" id="fdp_aut_ext.1.2_2">asymmetric signing and verification in accordance with <a href="#FDP_AUT_EXT.3">FDP_AUT_EXT.3</a></span>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">This is the primary requirement for authentication of the protected resources (files and sets of files). It is highly encouraged for vendors to utilize a keyed hashing service or asymmetric signing mechanism to ensure data authentication, as these are the only two implementations noted in this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> that prevent decryption if authentication is unsuccessful. Using modes such as XTS or CBC will require additional data authentication measures to be added, such as a keyed hash function or asymmetric signing, because these modes do not come inherently packaged with data authentication or a way to signal to the user that data has been modified.
                             <br>
@@ -1577,7 +1572,7 @@
                     <a href="#FDP_AUT_EXT.2.9" class="abbr">FDP_AUT_EXT.2.9</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> will be generated using [<b>selection</b>: <span class="selectable-content" id="_s_163">a <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="_s_164">key generation methods compliant with NIST SP 800-133r2</span>].
+                    The <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> will be generated using [<b>selection</b>: <span class="selectable-content" id="fdp_aut_ext.2.9_1">a <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="fdp_aut_ext.2.9_2">key generation methods compliant with NIST SP 800-133r2</span>].
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note">The intent of this requirement is to specify the correct way of using a keyed hash function to authenticate the data, and enable authentication of data. FAKs are considered cryptographic keys and are subject to destruction per <a href="#FCS_CKM.6">FCS_CKM.6</a>.</span>
                     </div>
@@ -1685,14 +1680,14 @@
                     <a href="#FDP_PRT_EXT.3.1" class="abbr">FDP_PRT_EXT.3.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all temporary files created by [<b>selection</b>: <span class="selectable-content" id="_s_167">all applications</span>, <span class="selectable-content" id="_s_168">[<b>assignment</b>: <span class="assignable-content">subset of applications that can integrate with the FE</span>]</span>]when decrypting/encrypting the user-selected file (or set of files) are removed or encrypted upon completion of the decryption/encryption operation.
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all temporary files created by [<b>selection</b>: <span class="selectable-content" id="fdp_prt_ext.3.1_1">all applications</span>, <span class="selectable-content" id="fdp_prt_ext.3.1_3">[<b>assignment</b>: <span class="assignable-content">subset of applications that can integrate with the FE</span>]</span>] when decrypting/encrypting the user-selected file (or set of files) are removed or encrypted upon completion of the decryption/encryption operation.
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement is to cover the detection and encryption of temporary files created by third party applications. If the FE provides a capability to allow specific applications to leverage it, the applications or method they would use to opt in may be included in the assignment. </span>
                     </div>
                 </div>
             </div>
         </div>
-        <h3 id="fia" class="indexable" data-level="3">A.1.3 Identification and Authentication (FIA)</h3>
+        <h3 id="fia-optional" class="indexable" data-level="3">A.1.3 Identification and Authentication (FIA)</h3>
         <div class="comp" id="FIA_FCT_EXT.1">
             <h4>FIA_FCT_EXT.1 Multi-User Authorization</h4>
             <div class="element">
@@ -1722,7 +1717,7 @@
                     <a href="#FIA_FCT_EXT.2.1" class="abbr">FIA_FCT_EXT.2.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="_s_169">Authorized User Key sharing via key transport as specified in FCS_COP.1<b>/KT</b></span>, <span class="selectable-content" id="_s_170">Authorized User Key sharing via key wrapping as specified in FCS_COP.1<b>/KW</b></span>, <span class="selectable-content" id="_s_171">Distribution of a shared key from [<i>an enterprise management server</i>] as specified in FCS_CKM.2 <b>(from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</b></span>]. 
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support [<b>selection</b>: <span class="selectable-content" id="fia_fct_ext.2.1_1">Authorized User Key sharing via key transport as specified in FCS_COP.1<b>/KT</b></span>, <span class="selectable-content" id="fia_fct_ext.2.1_2">Authorized User Key sharing via key wrapping as specified in FCS_COP.1<b>/KW</b></span>, <span class="selectable-content" id="fia_fct_ext.2.1_3">Distribution of a shared key from [<i>an enterprise management server</i>] as specified in FCS_CKM.2 <b>(from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</b></span>]. 
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> While <a href="#FIA_FCT_EXT.1">FIA_FCT_EXT.1</a> requires that each user has an authorization factor so that they can protect their own files from other users. <a href="#FIA_FCT_EXT.2">FIA_FCT_EXT.2</a> created a mechanism to safely share files between users. </span>
                     </div>
@@ -1738,7 +1733,7 @@
             This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not define any Implementation-dependent <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr>.
         </p>
         <h1 id="sel-sfrs" class="indexable" data-level="1">Appendix B - Selection-based Requirements </h1>
-        <h2 id="fcs" class="indexable" data-level="2">B.1 Cryptographic Support (FCS)</h2>
+        <h2 id="fcs-selectionBased" class="indexable" data-level="2">B.1 Cryptographic Support (FCS)</h2>
         <div class="comp" id="FCS_CKM_EXT.3">
             <h4>FCS_CKM_EXT.3 Key Encrypting Key (KEK) Support</h4>
             <div class="statustag">
@@ -1752,18 +1747,16 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_175">accept <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> from an enterprise management server</span>
+                            <span class="selectable-content" id="fcs_ckm_ext.3.1_1">accept <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> from an enterprise management server</span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_176"> generate <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cryptographic keys 
-                                <br>
-                                 [<b>selection</b>: 
+                            <span class="selectable-content" id="fcs_ckm_ext.3.1_2">generate <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cryptographic keys [<b>selection</b>: 
                                 <ul>
                                     <li style="">
-                                        <span class="selectable-content" id="_s_177"> using a Random Bit Generator as specified in FCS_RBG_EXT.1 and with entropy corresponding to the security strength of AES key sizes of <i>256 bit</i></span>
+                                        <span class="selectable-content" id="fcs_ckm_ext.3.1_3">using a Random Bit Generator as specified in FCS_RBG_EXT.1 and with entropy corresponding to the security strength of AES key sizes of <i>256 bit</i></span>
                                     </li>
                                     <li style="">
-                                        <span class="selectable-content" id="DRVKEKPAS"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> </span>
+                                        <span class="selectable-content" id="DRVKEKPAS">derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span>
                                     </li>
                                 </ul>
                                 ] </span>
@@ -1786,7 +1779,7 @@
                     <a href="#FCS_CKM_EXT.6.1" class="abbr">FCS_CKM_EXT.6.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support a password/passphrase of up to [<b>selection</b>: <span class="selectable-content" id="_s_183">[<b>assignment</b>: <span class="assignable-content">maximum value supported by the platform</span>]</span>, <span class="selectable-content" id="_s_184">[<b>assignment</b>: <span class="assignable-content">maximum password size, positive integer of 64 or more</span>]</span>] characters used to generate a password authorization factor. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support a password/passphrase of up to [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.1_2">[<b>assignment</b>: <span class="assignable-content">maximum value supported by the platform</span>]</span>, <span class="selectable-content" id="fcs_ckm_ext.6.1_4">[<b>assignment</b>: <span class="assignable-content">maximum password size, positive integer of 64 or more</span>]</span>] characters used to generate a password authorization factor. 
                 </div>
             </div>
             <div class="element">
@@ -1794,7 +1787,7 @@
                     <a href="#FCS_CKM_EXT.6.2" class="abbr">FCS_CKM_EXT.6.2</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow passwords to be composed of any combination of upper case characters, lower case characters, numbers, and the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")", and [<b>selection</b>: <span class="selectable-content" id="_s_185">[<b>assignment</b>: <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_186">no other characters</span>].
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow passwords to be composed of any combination of upper case characters, lower case characters, numbers, and the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")", and [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.2_2">[<b>assignment</b>: <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="fcs_ckm_ext.6.2_3">no other characters</span>].
                 </div>
             </div>
             <div class="element">
@@ -1802,7 +1795,7 @@
                     <a href="#FCS_CKM_EXT.6.3" class="abbr">FCS_CKM_EXT.6.3</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<b>selection</b>: <span class="selectable-content" id="_s_187">HMAC-<i>SHA-384</i></span>, <span class="selectable-content" id="_s_188">HMAC-<i>SHA-512</i></span>], with [<b>selection</b>: <span class="selectable-content" id="_s_189">[<b>assignment</b>: <span class="assignable-content">positive integer of 10,000 or more</span>] iterations</span>, <span class="selectable-content" id="_s_190">value supported by the platform, greater than 1000</span>], and output cryptographic key sizes <i>256</i> that meet the following: [<i>NIST SP 800-132</i>]. 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.3_1">HMAC-<i>SHA-384</i></span>, <span class="selectable-content" id="fcs_ckm_ext.6.3_2">HMAC-<i>SHA-512</i></span>], with [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.3_3"> [<b>assignment</b>: <span class="assignable-content">positive integer of 10,000 or more</span>] iterations</span>, <span class="selectable-content" id="fcs_ckm_ext.6.3_5">value supported by the platform, greater than 1000</span>], and output cryptographic key sizes <i>256</i> that meet the following: [<i>NIST SP 800-132</i>]. 
                 </div>
             </div>
             <div class="element">
@@ -1810,7 +1803,7 @@
                     <a href="#FCS_CKM_EXT.6.4" class="abbr">FCS_CKM_EXT.6.4</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="_s_195">a value settable by the administrator</span>, <span class="selectable-content" id="_s_196">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1 </span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.4_1">a value settable by the administrator</span>, <span class="selectable-content" id="fcs_ckm_ext.6.4_3">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1</span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
                 </div>
             </div>
             <div class="element">
@@ -1846,6 +1839,23 @@
                 </div>
             </div>
         </div>
+        <div class="comp" id="FCS_COP.1/KE">
+            <h4>FCS_COP.1/KE Cryptographic operation (Key Encryption)</h4>
+            <div class="statustag">
+                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
+            </div>
+            <div class="element">
+                <div class="reqid" id="FCS_COP.1.1/KE">
+                    <a href="#FCS_COP.1.1/KE" class="abbr">FCS_COP.1.1/KE</a>
+                </div>
+                <div class="reqdesc">
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>[<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KE_1">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="fcs_cop.1.1_KE_2">perform key encryption and decryption</span>] </b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
+                    <div class="appnote">
+                        <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use AES encryption/decryption for protecting the keys as part of the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="comp" id="FCS_COP.1/KT">
             <h4>FCS_COP.1/KT Cryptographic operation (Key Transport)</h4>
             <div class="statustag">
@@ -1859,7 +1869,7 @@
                      The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform [<i>key transport</i>] in accordance with a specified cryptographic algorithm [<b>selection</b>: 
                     <ul>
                         <li style="">
-                            <span class="selectable-content" id="_s_197">CNSA 2.0 Compliant Algorithms: 
+                            <span class="selectable-content" id="fcs_cop.1.1_KT_1">CNSA 2.0 Compliant Algorithms: 
                                 <ul>
                                     <li>
                                         [<i>Hybrid Key-Transport Method</i>] that meets the following: [Section 9.3 of NIST SP 800-56B, Revision 2] <b>using a key establishment algorithm [ML-KEM] as specified in FCS_CKM.2 (from the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>) and a key wrapping algorithm as specified in <a href="#FCS_COP.1/KW">FCS_COP.1/KW</a></b>
@@ -1868,10 +1878,10 @@
                             </span>
                         </li>
                         <li style="">
-                            <span class="selectable-content" id="_s_198">CNSA 1.0 Compliant Algorithms: 
+                            <span class="selectable-content" id="fcs_cop.1.1_KT_2">CNSA 1.0 Compliant Algorithms: 
                                 <ul>
                                     <li>
-                                        [KTS-OAEP] using cryptographic algorithm [RSA] with cryptographic key sizes [<b>selection</b>: <span class="selectable-content" id="_s_199">3072</span>, <span class="selectable-content" id="_s_200">4096</span>] bits that meet the following: [NIST SP 800-56B, Revision 2]
+                                        [KTS-OAEP] using cryptographic algorithm [RSA] with cryptographic key sizes [<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KT_3">3072</span>, <span class="selectable-content" id="fcs_cop.1.1_KT_4">4096</span>] bits that meet the following: [NIST SP 800-56B, Revision 2]
                                     </li>
                                 </ul>
                             </span>
@@ -1894,23 +1904,6 @@
                 </div>
             </div>
         </div>
-        <div class="comp" id="FCS_COP.1/KE">
-            <h4>FCS_COP.1/KE Cryptographic operation (Key Encryption)</h4>
-            <div class="statustag">
-                <b><i>The inclusion of this selection-based component depends upon selection in <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>. </i></b>
-            </div>
-            <div class="element">
-                <div class="reqid" id="FCS_COP.1.1/KE">
-                    <a href="#FCS_COP.1.1/KE" class="abbr">FCS_COP.1.1/KE</a>
-                </div>
-                <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_201">use platform-provided functionality to perform Key Encryption</span>, <span class="selectable-content" id="_s_202">perform key encryption and decryption</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES used in CBC mode</i>] and cryptographic key sizes [<i>256 bits</i>] that meet the following: [<i>AES as specified in SP 800-38A</i>]. 
-                    <div class="appnote">
-                        <span class="note-header">Application Note: </span><span class="note"> This requirement is used in the body of the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> if the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author chooses to use AES encryption/decryption for protecting the keys as part of the key chaining approach that is specified in <a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a>.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="comp" id="FCS_COP.1/KW">
             <h4>FCS_COP.1/KW Cryptographic operation (Key Wrapping)</h4>
             <div class="statustag">
@@ -1921,31 +1914,31 @@
                     <a href="#FCS_COP.1.1/KW" class="abbr">FCS_COP.1.1/KW</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b> [<b>selection</b>: <span class="selectable-content" id="_s_203">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="_s_204">implement functionality to perform Key Wrapping</span>]</b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall <b>[<b>selection</b>: <span class="selectable-content" id="fcs_cop.1.1_KW_1">use platform-provided functionality to perform Key Wrapping</span>, <span class="selectable-content" id="fcs_cop.1.1_KW_2">implement functionality to perform Key Wrapping</span>] </b> in accordance with a specified cryptographic algorithm [<i>AES</i>] <b>in the following modes [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_205">Key Wrap</span>
+                                <span class="selectable-content" id="fcs_cop.1.1_KW_3">Key Wrap</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_206">Key Wrap with Padding</span>
+                                <span class="selectable-content" id="fcs_cop.1.1_KW_4">Key Wrap with Padding</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_207">GCM mode</span>
+                                <span class="selectable-content" id="fcs_cop.1.1_KW_5">GCM mode</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_208">CCM mode</span>
+                                <span class="selectable-content" id="fcs_cop.1.1_KW_6">CCM mode</span>
                             </li>
                         </ul>
-                        ]</b> and cryptographic key sizes [<i>256 bits (AES)</i>] that meet the following: <b> [<b>selection</b>: 
+                        ] </b> and cryptographic key sizes [<i>256 bits (AES)</i>] that meet the following: <b>[<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_209">"NIST SP 800-38C"</span>
+                                <span class="selectable-content" id="fcs_cop.1.1_KW_7">"NIST SP 800-38C"</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_210">"NIST SP 800-38D"</span>
+                                <span class="selectable-content" id="fcs_cop.1.1_KW_8">"NIST SP 800-38D"</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_211">"NIST SP 800-38F"</span>
+                                <span class="selectable-content" id="fcs_cop.1.1_KW_9">"NIST SP 800-38F"</span>
                             </li>
                         </ul>
                         ] and no other standards</b>. 
@@ -1965,13 +1958,13 @@
                     <a href="#FCS_KDF_EXT.1.1" class="abbr">FCS_KDF_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>accept [<b>selection</b>: <span class="selectable-content" id="_s_212">a submask generated by an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="_s_213">a conditioned password</span>, <span class="selectable-content" id="_s_214">an imported submask</span>]</i>] to derive an intermediate key, as defined in [<i> [<b>selection</b>: 
+                     The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<i>accept [<b>selection</b>: <span class="selectable-content" id="fcs_kdf_ext.1.1_1">a submask generated by an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1 (from <a href="#bibAppPP">[AppPP]</a>)</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_2">a conditioned password</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_3">an imported submask</span>]</i>] to derive an intermediate key, as defined in [<i>[<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_215">NIST SP 800-108 [<b>selection</b>: <span class="selectable-content" id="_s_216">KDF in Counter Mode</span>, <span class="selectable-content" id="_s_217">KDF in Feedback Mode</span>, <span class="selectable-content" id="_s_218">KDF in Double-Pipeline Iteration Mode</span>] </span>
+                                <span class="selectable-content" id="fcs_kdf_ext.1.1_4">NIST SP 800-108 [<b>selection</b>: <span class="selectable-content" id="fcs_kdf_ext.1.1_5">KDF in Counter Mode</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_6">KDF in Feedback Mode</span>, <span class="selectable-content" id="fcs_kdf_ext.1.1_7">KDF in Double-Pipeline Iteration Mode</span>] </span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_219">NIST SP 800-132</span>
+                                <span class="selectable-content" id="fcs_kdf_ext.1.1_8">NIST SP 800-132</span>
                             </li>
                         </ul>
                         ]</i>] using the keyed-hash functions specified in FCS_COP.1<b>/KeyedHash</b> (from <a href="#bibAppPP">[AppPP]</a>), such that the output is at least of equivalent security strength (in number of bits) to the [<i><abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></i>]. 
@@ -1991,7 +1984,7 @@
                     <a href="#FCS_SMC_EXT.1.1" class="abbr">FCS_SMC_EXT.1.1</a>
                 </div>
                 <div class="reqdesc">
-                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall combine submasks using the following method [<i>[<b>selection</b>: <span class="selectable-content" id="_s_220">exclusive OR (XOR)</span>, <span class="selectable-content" id="_s_221">SHA-384</span>, <span class="selectable-content" id="_s_222">SHA-512</span>, <span class="selectable-content" id="_s_223">HMAC-SHA-384</span>, <span class="selectable-content" id="_s_224">HMAC-SHA-512</span>]</i>] to generate an intermediate key.
+                    The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall combine submasks using the following method [<i>[<b>selection</b>: <span class="selectable-content" id="fcs_smc_ext.1.1_1">exclusive OR (XOR)</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_2">SHA-384</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_3">SHA-512</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_4">HMAC-SHA-384</span>, <span class="selectable-content" id="fcs_smc_ext.1.1_5">HMAC-SHA-512</span>]</i>] to generate an intermediate key.
                     <div class="appnote">
                         <span class="note-header">Application Note: </span><span class="note"> This requirement specifies the way that a product may combine the various submasks by using either an XOR or an approved SHA-hash. This requirement is selection dependent on <a href="#FCS_KYC_EXT.1.1">FCS_KYC_EXT.1.1</a>.</span>
                     </div>
@@ -2054,7 +2047,7 @@
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
                     <div>
-                        Components in this family define requirements for key management activities that are beyond the scope of what is defined in the FCS_CKM family in <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2. 
+                        Components in this family define requirements for key management activities that are beyond the scope of what is defined in the FCS_CKM family in <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2.
                     </div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 90px;">
@@ -2103,24 +2096,24 @@
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: 
                         <ul>
                             <li style="">
-                                <span class="selectable-content" id="_s_6"> accept <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> from an enterprise management server</span>
+                                <span class="selectable-content" id="_s_27"> accept <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> from an enterprise management server</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_7"> generate <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> cryptographic keys 
+                                <span class="selectable-content" id="_s_28"> generate <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> cryptographic keys 
                                     <br>
-                                     [<b>selection</b>: 
+                                    [<b>selection</b>: 
                                     <ul>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_8"> using a Random Bit Generator as specified in FCS_RBG_EXT.1 and with entropy corresponding to the security strength of AES key sizes [<b>assignment</b>: <span class="assignable-content">supported key size</span>]</span>
+                                            <span class="selectable-content" id="_s_29"> using a Random Bit Generator as specified in FCS_RBG_EXT.1 and with entropy corresponding to the security strength of AES key sizes [<b>assignment</b>: <span class="assignable-content">supported key size</span>]</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_9">using key generation methods compliant with NIST SP 800-133r2,</span>
+                                            <span class="selectable-content" id="_s_30">using key generation methods compliant with NIST SP 800-133r2,</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> </span>
+                                            <span class="selectable-content" id="DRVFEKPAS"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span>
                                         </li>
                                     </ul>
-                                    ] </span>
+                                    ]</span>
                             </li>
                         </ul>
                         ]. 
@@ -2152,7 +2145,7 @@
                                 <span class="selectable-content" id="_s_159">A <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> conditioned from a password/passphrase shall never be stored in non-volatile memory</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_160">a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> will be stored in non-volatile memory encrypted with a <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> as specified in FCS_COP.1 using authorization factors as specified in <a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a> </span>
+                                <span class="selectable-content" id="_s_160">a <abbr class="dyn-abbr"><a href="#abbr_FAK">FAK</a></abbr> will be stored in non-volatile memory encrypted with a <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> as specified in FCS_COP.1 using authorization factors as specified in <a href="#FIA_AUT_EXT.1">FIA_AUT_EXT.1</a></span>
                             </li>
                         </ul>
                         ]. 
@@ -2188,16 +2181,16 @@
                             <li style="">
                                 <span class="selectable-content" id="_s_180"> generate <abbr class="dyn-abbr"><a href="#abbr_KEK">KEK</a></abbr> cryptographic keys 
                                     <br>
-                                     [<b>selection</b>: 
+                                    [<b>selection</b>: 
                                     <ul>
                                         <li style="">
                                             <span class="selectable-content" id="_s_181"> using a Random Bit Generator as specified in FCS_RBG_EXT.1 and with entropy corresponding to the security strength of AES key sizes of 256 bits</span>
                                         </li>
                                         <li style="">
-                                            <span class="selectable-content" id="_s_182"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> </span>
+                                            <span class="selectable-content" id="_s_182"> derived from a password/passphrase that is conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span>
                                         </li>
                                     </ul>
-                                    ] </span>
+                                    ]</span>
                             </li>
                         </ul>
                         ]. 
@@ -2219,13 +2212,13 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support a password/passphrase of up to [<b>selection</b>: <span class="selectable-content" id="_s_183">[<b>assignment</b>: <span class="assignable-content">maximum value supported by the platform</span>]</span>, <span class="selectable-content" id="_s_184">[<b>assignment</b>: <span class="assignable-content">maximum password size, positive integer of 64 or more</span>]</span>] characters used to generate a password authorization factor. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall support a password/passphrase of up to [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.1_2">[<b>assignment</b>: <span class="assignable-content">maximum value supported by the platform</span>]</span>, <span class="selectable-content" id="fcs_ckm_ext.6.1_4">[<b>assignment</b>: <span class="assignable-content">maximum password size, positive integer of 64 or more</span>]</span>] characters used to generate a password authorization factor. 
                         <h4 id="ext-comp-FCS_CKM_EXT.6.2">FCS_CKM_EXT.6.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow passwords to be composed of any combination of upper case characters, lower case characters, numbers, and the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")", and [<b>selection</b>: <span class="selectable-content" id="_s_185">[<b>assignment</b>: <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="_s_186">no other characters</span>].
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall allow passwords to be composed of any combination of upper case characters, lower case characters, numbers, and the following special characters: "!", "@", "#", "$", "%", "^", "&amp;", "*", "(", and ")", and [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.2_2">[<b>assignment</b>: <span class="assignable-content">other supported special characters</span>]</span>, <span class="selectable-content" id="fcs_ckm_ext.6.2_3">no other characters</span>].
                         <h4 id="ext-comp-FCS_CKM_EXT.6.3">FCS_CKM_EXT.6.3</h4>
                          The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform Password-based Key Derivation Functions in accordance with a specified cryptographic algorithm HMAC-[<b>selection</b>: <span class="selectable-content" id="_s_191">SHA-384</span>, <span class="selectable-content" id="_s_192">SHA-512</span>], with [<b>selection</b>: <span class="selectable-content" id="_s_193">[<b>assignment</b>: <span class="assignable-content">positive integer of 4096 or more</span>] iterations</span>, <span class="selectable-content" id="_s_194">value supported by the platform, greater than 1000</span>], and output cryptographic key sizes [<b>assignment</b>: <span class="assignable-content">output key size</span>] that meet the following: [<b>assignment</b>: <span class="assignable-content">applicable standard</span>]. 
                         <h4 id="ext-comp-FCS_CKM_EXT.6.4">FCS_CKM_EXT.6.4</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="_s_195">a value settable by the administrator</span>, <span class="selectable-content" id="_s_196">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1 </span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall not accept passwords less than [<b>selection</b>: <span class="selectable-content" id="fcs_ckm_ext.6.4_1">a value settable by the administrator</span>, <span class="selectable-content" id="fcs_ckm_ext.6.4_3">[<b>assignment</b>: <span class="assignable-content">minimum password length accepted by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, must be &gt;= 1</span>]</span>] and greater than the maximum password length defined in <a href="#FCS_CKM_EXT.6.1">FCS_CKM_EXT.6.1</a>.
                         <h4 id="ext-comp-FCS_CKM_EXT.6.5">FCS_CKM_EXT.6.5</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall generate all salts using an <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> that meets FCS_RBG_EXT.1 and with entropy corresponding to the security strength selected for PBKDF in <a href="#FCS_CKM_EXT.6.3">FCS_CKM_EXT.6.3</a>.
                     </div>
@@ -2233,7 +2226,7 @@
                 <h3 id="ext-comp-FCS_KYC_EXT" class="indexable" data-level="4">C.2.1.2 FCS_KYC_EXT Key Chaining and Key Storage</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for the secure storage of keys through the use of a logical key chain. </div>
+                    <div>Components in this family define requirements for the secure storage of keys through the use of a logical key chain.</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 30px;">
                         <text x="4" fill="black" font-size="15" y="24">FCS_KYC_EXT</text>
@@ -2275,17 +2268,17 @@
                                 <span class="selectable-content" id="_s_56">a conditioned password as the [<b>assignment</b>: <span class="assignable-content">key type</span>]</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_57"> [<b>assignment</b>: <span class="assignable-content">key type</span>] originating from [<b>assignment</b>: <span class="assignable-content">origin of key</span>] to [<b>assignment</b>: <span class="assignable-content">end point of key chain</span>] using the following method(s): [<b>assignment</b>: <span class="assignable-content">list of supported key protection methods</span>] while maintaining an effective strength of commensurate with the strength of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr> </span>
+                                <span class="selectable-content" id="_s_57">[<b>assignment</b>: <span class="assignable-content">key type</span>] originating from [<b>assignment</b>: <span class="assignable-content">origin of key</span>] to [<b>assignment</b>: <span class="assignable-content">end point of key chain</span>] using the following method(s): [<b>assignment</b>: <span class="assignable-content">list of supported key protection methods</span>] while maintaining an effective strength of commensurate with the strength of the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr></span>
                             </li>
                         </ul>
-                        ] and [<b>selection</b>: <span class="selectable-content" id="_s_58"> no supplemental key chains</span>, <span class="selectable-content" id="_s_59"> other supplemental key chains that protect a key or keys in the primary key chain using the following method(s): [<b>assignment</b>: <span class="assignable-content">list of supported key protection methods</span>] </span>]. 
+                        ] and [<b>selection</b>: <span class="selectable-content" id="_s_58"> no supplemental key chains</span>, <span class="selectable-content" id="_s_59"> other supplemental key chains that protect a key or keys in the primary key chain using the following method(s): [<b>assignment</b>: <span class="assignable-content">list of supported key protection methods</span>]</span>]. 
                     </div>
                 </div>
                 <h3 id="ext-comp-FCS_VAL_EXT" class="indexable" data-level="4">C.2.1.3 FCS_VAL_EXT Validation</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
                     <div>
-                        Components in this family define requirements for validation of data supplied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and any consequences resulting from failed validation attempts. 
+                        Components in this family define requirements for validation of data supplied to the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> and any consequences resulting from failed validation attempts.
                     </div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 50px;">
@@ -2396,7 +2389,7 @@
                 <h3 id="ext-comp-FCS_COP_EXT" class="indexable" data-level="4">C.2.1.4 FCS_COP_EXT Cryptographic Operation</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for cryptographic operations specific to file encryption. </div>
+                    <div>Components in this family define requirements for cryptographic operations specific to file encryption.</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 30px;">
                         <text x="4" fill="black" font-size="15" y="24">FCS_COP_EXT</text>
@@ -2434,7 +2427,7 @@
                 <h3 id="ext-comp-FCS_KDF_EXT" class="indexable" data-level="4">C.2.1.5 FCS_KDF_EXT Cryptographic Key Derivation Function</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for the implementation of cryptographic key derivation functions </div>
+                    <div>Components in this family define requirements for the implementation of cryptographic key derivation functions</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 30px;">
                         <text x="4" fill="black" font-size="15" y="24">FCS_KDF_EXT</text>
@@ -2476,7 +2469,7 @@
                 <h3 id="ext-comp-FCS_SMC_EXT" class="indexable" data-level="4">C.2.1.6 FCS_SMC_EXT Submask Combining</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for generation of intermediate keys via submask combining. </div>
+                    <div>Components in this family define requirements for generation of intermediate keys via submask combining.</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 30px;">
                         <text x="4" fill="black" font-size="15" y="24">FCS_SMC_EXT</text>
@@ -2518,7 +2511,7 @@
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
                     <div>
-                        Components in this family define requirements for how subject authorization is performed. Where FIA_UAU in <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2 defines circumstances where authentication is required, this family describes the specific computational methods used to determine whether a subject&rsquo;s presented authentication data is valid. 
+                        Components in this family define requirements for how subject authorization is performed. Where FIA_UAU in <abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr> Part 2 defines circumstances where authentication is required, this family describes the specific computational methods used to determine whether a subject&rsquo;s presented authentication data is valid.
                     </div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 30px;">
@@ -2565,10 +2558,10 @@
                                 <span class="selectable-content" id="USEPAS"> a password authorization factor conditioned as defined in <a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a></span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and [<b>selection</b>: <span class="selectable-content" id="_s_116">no PIN</span>, <span class="selectable-content" id="_s_117">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="_s_118">a configurable PIN</span>] </span>
+                                <span class="selectable-content" id="USECAR">an external smart card factor that is at least the same bit-length as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is protecting a submask that is [<b>selection</b>: <span class="selectable-content" id="_s_114">generated by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_115">generated by the platform</span>] protected using asymmetric keys as defined in FCS_CKM.1.1/AK (from <a href="#bibAppPP">[AppPP]</a>) with user presence proved by presentation of the smart card and [<b>selection</b>: <span class="selectable-content" id="_s_116">no PIN</span>, <span class="selectable-content" id="_s_117">an <abbr class="dyn-abbr"><a href="#abbr_OE">OE</a></abbr> defined PIN</span>, <span class="selectable-content" id="_s_118">a configurable PIN</span>]</span>
                             </li>
                             <li style="">
-                                <span class="selectable-content" id="_s_119">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is providing a submask generated by the [<b>selection</b>: <span class="selectable-content" id="_s_120"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_121">platform</span>] </span>
+                                <span class="selectable-content" id="_s_119">an external USB token factor that is at least the same security strength as the <abbr class="dyn-abbr"><a href="#abbr_FEK">FEK</a></abbr>(s), and is providing a submask generated by the [<b>selection</b>: <span class="selectable-content" id="_s_120"><abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> (using the <abbr class="dyn-abbr"><a href="#abbr_RBG">RBG</a></abbr> as specified in FCS_RBG_EXT.1)</span>, <span class="selectable-content" id="_s_121">platform</span>]</span>
                             </li>
                         </ul>
                         ]. 
@@ -2577,7 +2570,7 @@
                 <h3 id="ext-comp-FIA_FCT_EXT" class="indexable" data-level="4">C.2.2.2 FIA_FCT_EXT Authorization Factors</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for the use of alternative authorization factors for users to access protected data. </div>
+                    <div>Components in this family define requirements for the use of alternative authorization factors for users to access protected data.</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 50px;">
                         <text x="4" fill="black" font-size="15" y="44">FIA_FCT_EXT</text>
@@ -2640,7 +2633,7 @@
                 <h3 id="ext-comp-FPT_KYP_EXT" class="indexable" data-level="4">C.2.3.1 FPT_KYP_EXT Protection of Key and Key Material</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for secure storage of keys. </div>
+                    <div>Components in this family define requirements for secure storage of keys.</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 30px;">
                         <text x="4" fill="black" font-size="15" y="24">FPT_KYP_EXT</text>
@@ -2719,7 +2712,7 @@
                                                         <span class="selectable-content" id="_s_154">supplied by the enterprise management server</span>
                                                     </li>
                                                 </ul>
-                                                ] </span>
+                                                ]</span>
                                         </li>
                                         <li style="">
                                             <span class="selectable-content" id="_s_155">the plaintext key is stored on an external storage device for use as an authorization factor.</span>
@@ -2728,7 +2721,7 @@
                                             <span class="selectable-content" id="_s_156">the plaintext key is used to encrypt a key as specified in FCS_COP.1 or wrap a key as specified in FCS_COP.1 that is already encrypted as specified in FCS_COP.1 or wrapped as specified in FCS_COP.1</span>
                                         </li>
                                     </ul>
-                                    ] </span>
+                                    ]</span>
                             </li>
                         </ul>
                         ]. 
@@ -2741,7 +2734,7 @@
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
                     <div>
-                        Components in this family define requirements for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s ability to protect sensitive data at rest. 
+                        Components in this family define requirements for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>'s ability to protect sensitive data at rest.
                     </div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 70px;">
@@ -2785,7 +2778,7 @@
                         <h4 id="ext-comp-FDP_PRT_EXT.1.1">FDP_PRT_EXT.1.1</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform encryption and decryption of the user-selected file (or set of files) in accordance with FCS_COP.1. 
                         <h4 id="ext-comp-FDP_PRT_EXT.1.2">FDP_PRT_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_94">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_95">implement functionality</span>] to ensure that all sensitive data created by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory when the data is no longer needed according to <a href="#FCS_CKM.6">FCS_CKM.6</a>. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="fdp_prt_ext.1.2_1">invoke platform-provided functionality</span>, <span class="selectable-content" id="fdp_prt_ext.1.2_2">implement functionality</span>] to ensure that all sensitive data created by the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory when the data is no longer needed according to <a href="#FCS_CKM.6">FCS_CKM.6</a>. 
                     </div>
                     <h4>Management: FDP_PRT_EXT.2</h4>
                     <p>There are no specific management functions identified. </p>
@@ -2804,7 +2797,7 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FDP_PRT_EXT.2.1">FDP_PRT_EXT.2.1</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="_s_96">invoke platform-provided functionality</span>, <span class="selectable-content" id="_s_97">implement functionality</span>] to ensure that all original plaintext data created when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory according to <a href="#FCS_CKM.6">FCS_CKM.6</a> upon completion of the decryption/encryption operation. 
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall [<b>selection</b>: <span class="selectable-content" id="fdp_prt_ext.2.1_1">invoke platform-provided functionality</span>, <span class="selectable-content" id="fdp_prt_ext.2.1_2">implement functionality</span>] to ensure that all original plaintext data created when decrypting/encrypting the user-selected file (or set of files) are destroyed in volatile and non-volatile memory according to <a href="#FCS_CKM.6">FCS_CKM.6</a> upon completion of the decryption/encryption operation. 
                     </div>
                     <h4>Management: FDP_PRT_EXT.3</h4>
                     <p>There are no specific management functions identified. </p>
@@ -2821,13 +2814,13 @@
                             </tr>
                         </table>
                         <h4 id="ext-comp-FDP_PRT_EXT.3.1">FDP_PRT_EXT.3.1</h4>
-                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all temporary files created by [<b>selection</b>: <span class="selectable-content" id="_s_167">all applications</span>, <span class="selectable-content" id="_s_168">[<b>assignment</b>: <span class="assignable-content">subset of applications that can integrate with the FE</span>]</span>]when decrypting/encrypting the user-selected file (or set of files) are removed or encrypted upon completion of the decryption/encryption operation.
+                        The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall ensure that all temporary files created by [<b>selection</b>: <span class="selectable-content" id="fdp_prt_ext.3.1_1">all applications</span>, <span class="selectable-content" id="fdp_prt_ext.3.1_3">[<b>assignment</b>: <span class="assignable-content">subset of applications that can integrate with the FE</span>]</span>] when decrypting/encrypting the user-selected file (or set of files) are removed or encrypted upon completion of the decryption/encryption operation.
                     </div>
                 </div>
                 <h3 id="ext-comp-FDP_AUT_EXT" class="indexable" data-level="4">C.2.4.2 FDP_AUT_EXT User Data Authentication</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for authentication of protected user data. </div>
+                    <div>Components in this family define requirements for authentication of protected user data.</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 70px;">
                         <text x="4" fill="black" font-size="15" y="44">FDP_AUT_EXT</text>
@@ -2876,7 +2869,7 @@
                         <h4 id="ext-comp-FDP_AUT_EXT.1.1">FDP_AUT_EXT.1.1</h4>
                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall perform authentication of the user-selected file (or set of files) and provide notification to the user if modification had been detected. 
                         <h4 id="ext-comp-FDP_AUT_EXT.1.2">FDP_AUT_EXT.1.2</h4>
-                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a data authentication method based on [<b>selection</b>: <span class="selectable-content" id="_s_161">cryptographic keyed hashing service and verification in accordance with <a href="#FDP_AUT_EXT.2">FDP_AUT_EXT.2</a></span>, <span class="selectable-content" id="_s_162">asymmetric signing and verification in accordance with <a href="#FDP_AUT_EXT.3">FDP_AUT_EXT.3</a></span>]. 
+                         The <abbr class="dyn-abbr"><a href="#abbr_TSF">TSF</a></abbr> shall implement a data authentication method based on [<b>selection</b>: <span class="selectable-content" id="fdp_aut_ext.1.2_1">cryptographic keyed hashing service and verification in accordance with <a href="#FDP_AUT_EXT.2">FDP_AUT_EXT.2</a></span>, <span class="selectable-content" id="fdp_aut_ext.1.2_2">asymmetric signing and verification in accordance with <a href="#FDP_AUT_EXT.3">FDP_AUT_EXT.3</a></span>]. 
                     </div>
                     <h4>Management: FDP_AUT_EXT.2</h4>
                     <p>There are no specific management functions identified. </p>
@@ -2954,7 +2947,7 @@
                 <h3 id="ext-comp-FDP_PM_EXT" class="indexable" data-level="4">C.2.4.3 FDP_PM_EXT Protection of Data in Power Managed States</h3>
                 <div style="margin-left: 1em;">
                     <h4>Family Behavior</h4>
-                    <div>Components in this family define requirements for the protection of data in cases where the host platform becomes locked or unpowered. </div>
+                    <div>Components in this family define requirements for the protection of data in cases where the host platform becomes locked or unpowered.</div>
                     <h4>Component Leveling</h4>
                     <svg style="max-height: 30px;">
                         <text x="4" fill="black" font-size="15" y="24">FDP_PM_EXT</text>
@@ -2991,7 +2984,7 @@
                     </div>
                 </div>
             </span></span>
-        <h1 id="KMD" class="indexable" data-level="A">Appendix D - Key Management Description</h1>
+        <h1 id="KMD" class="indexable" data-level="A">Appendix D - Appendix - Key Management Description</h1>
          The documentation of the product&rsquo;s encryption key management should be detailed enough that, after reading, the evaluator will thoroughly understand the product&rsquo;s key management and how it meets the requirements to ensure the keys are adequately protected. This documentation should include an essay and diagram(s). This documentation is not required to be part of the <abbr class="dyn-abbr"><a href="#abbr_TSS">TSS</a></abbr> - it can be submitted as a separate document and marked as developer proprietary. 
         <br>
         <br>
@@ -3121,9 +3114,6 @@
                 <th>Identifier</th><th>Title</th>
             </tr>
             <tr>
-                <td><span id="bibAppPP">[AppPP]</span></td><td><span class="description"> <a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software, Version 2.0, June 16, 2025</a> </span></td>
-            </tr>
-            <tr>
                 <td><span id="bibCC">[<abbr class="dyn-abbr"><a href="#abbr_CC">CC</a></abbr>]</span></td><td><span class="description">Common Criteria for Information Technology Security Evaluation - 
                         <ul>
                             <li>
@@ -3152,6 +3142,9 @@
                             </li>
                         </ul>
                     </span></td>
+            </tr>
+            <tr>
+                <td><span id="bibAppPP">[AppPP]</span></td><td><span class="description"><a href="https://www.niap-ccevs.org/protectionprofiles/516">Protection Profile for Application Software, Version 2.0, June 16, 2025</a></span></td>
             </tr>
             <tr>
                 <td><span id="FIPS140-2">[FIPS140-2]</span></td><td><span class="description"> Federal Information Processing Standard Publication (FIPS-PUB) 140-2, Security Requirements for Cryptographic Modules, National Institute of Standards and Technology, March 19, 2007 </span></td>
