@@ -1028,9 +1028,11 @@ provide all of its security functionality.
    <h2 id="secreq-b-appp" class="indexable" data-level="2">5.1 
     Protection Profile for Application Software
        Security Functional Requirements Direction
-    </h2>The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to rely on some of the security functions implemented by the application
-        as a whole and evaluated against .
-        The following section describes any modifications that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must make to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in addition to what is mandated by section 5.2.<h3 id="modsfr-b-appp" class="indexable" data-level="3">5.1.1  Modified SFRs </h3>
+    </h2>
+        The <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> is expected to rely on some of the security functions implemented by the application
+        as a whole and evaluated against <a href="#bibAppPP">[AppPP]</a>.
+        The following section describes any modifications that the <abbr class="dyn-abbr"><a href="#abbr_ST">ST</a></abbr> author must make to the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined in the <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr> in addition to what is mandated by section 5.2.       
+      <h3 id="modsfr-b-appp" class="indexable" data-level="3">5.1.1  Modified SFRs </h3>
       This <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr> does not modify any <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> defined by the App <abbr class="dyn-abbr"><a href="#abbr_PP">PP</a></abbr>.
     <h2 id="man-sfrs" class="indexable" data-level="2">5.2 TOE Security Functional Requirements</h2>
 	The following section describes the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> that must be satisfied by any <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr> that claims conformance to this <abbr class="dyn-abbr"><a href="#abbr_PP-Module">PP-Module</a></abbr>.
@@ -1650,7 +1652,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
     <h2 id="obj-req-map" class="indexable" data-level="2">5.3 TOE Security Functional Requirements Rationale</h2><p>The following rationale provides justification for each <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> for the <abbr class="dyn-abbr"><a href="#abbr_TOE">TOE</a></abbr>, 
     showing that the <abbr class="dyn-abbr"><a href="#abbr_SFR">SFRs</a></abbr> are suitable to address the specified threats:<br/><table><caption><span class="ctr" data-myid="t-obj_map" data-counter-type="ct-Table" id="t-obj_map">Table <span class="counter">2</span></span>: <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr> Rationale</caption><tr><th>Threat</th><th>Addressed by</th><th>Rationale</th></tr><tr class="major-row"><td rowspan="2"><a href="#T.KEYING_MATERIAL_COMPROMISE">T.KEYING_​MATERIAL_​COMPROMISE</a></td><td><a href="#FCS_CKM.6">FCS_CKM.6</a></td><td>Mitigates the threat by destroying keys and key material when not needed.</td></tr>
 <tr><td><a href="#FPT_KYP_EXT.1">FPT_KYP_EXT.1</a></td><td>Mitigates the threat by protecting keys stored on non-volatile memory.</td></tr>
-<tr class="major-row"><td rowspan="11"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td></tr>
+<tr class="major-row"><td rowspan="12"><a href="#T.KEYSPACE_EXHAUST">T.KEYSPACE_​EXHAUST</a></td><td><a href="#FCS_CKM_EXT.2">FCS_CKM_EXT.2</a></td><td>Mitigates the threat by generating FEKs in a secure manner.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.3">FCS_CKM_EXT.3</a> (selection-based)</td><td>Mitigates the threat by using or generating secure KEKs.</td></tr>
 <tr><td><a href="#FCS_CKM_EXT.6">FCS_CKM_EXT.6</a> (selection-based)</td><td>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</td></tr>
 <tr><td><a href="#FCS_COP.1/KE">FCS_COP.1/KE</a> (selection-based)</td><td>Mitigates the threat by encrypting keys using a specified secure algorithm.</td></tr>
@@ -1661,6 +1663,7 @@ Two iterations of this <abbr class="dyn-abbr"><a href="#abbr_SFR">SFR</a></abbr>
 <tr><td><a href="#FCS_KYC_EXT.1">FCS_KYC_EXT.1</a></td><td>Mitigates the threat by maintaining and storing secure key chains.</td></tr>
 <tr><td><a href="#FCS_SMC_EXT.1">FCS_SMC_EXT.1</a> (selection-based)</td><td>Mitigates the threat by combining submasks using a secure method.</td></tr>
 <tr><td><a href="#FCS_VAL_EXT.1">FCS_VAL_EXT.1</a></td><td>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</td></tr>
+<tr><td><a href="#FCS_VAL_EXT.2">FCS_VAL_EXT.2</a></td><td>Mitigates the threat by limiting the amount or rate of failed validation attempts.</td></tr>
 <tr class="major-row"><td rowspan="2"><a href="#T.MANAGEMENT_ACCESS">T.MANAGEMENT_​ACCESS</a></td><td>FMT_MEC_EXT.1 (from <abbr class="dyn-abbr"><a href="#abbr_Base-PP">Base-PP</a></abbr>)</td><td>Mitigates the threat by storing configuration in a protected manner.</td></tr>
 <tr><td><a href="#FMT_SMF.1/FE">FMT_SMF.1/FE</a></td><td>Mitigates the threat by enumerating and protecting management functions.</td></tr>
 <tr class="major-row"><td rowspan="3"><a href="#T.PLAINTEXT_COMPROMISE">T.PLAINTEXT_​COMPROMISE</a></td><td><a href="#FDP_PRT_EXT.1">FDP_PRT_EXT.1</a></td><td>Mitigates the threat by encrypting a file or files.</td></tr>
