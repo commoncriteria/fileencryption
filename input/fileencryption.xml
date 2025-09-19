@@ -889,7 +889,11 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
               <Guidance><h:br/>There are no additional guidance evaluation activities for FDP_PRT_EXT.1.2. <h:br/><h:br/></Guidance>
               <Tests>
                 <testlist>
-                  <test>This test only applies for application provided functionality. <h:br/><h:br/> 1. Using a file editor, create and save a text file that is encrypted per the evaluation configured encryption policy. The contents of the file will be limited to a known text pattern to ensure that the text pattern will be present in all encryption/decryption operations performed by the TOE. <h:br/><h:br/> 2. Exit the file editor so that the file (including its known text pattern) has "completed the decryption/encryption operation" and process memory containing the known text pattern is released. <h:br/><h:br/> 3. The evaluator will take a dump of volatile memory and search the retrieved dump for the known pattern. The test fails if the known plaintext pattern is found in the memory dump. <h:br/><h:br/> 4. The evaluator will search the underlying non-volatile storage for the known pattern. The test fails if the known plaintext pattern is found in the search. <h:br/><h:br/> </test>
+                  <test>This test only applies for application provided functionality. <h:ol><h:li>Using a file editor, create and save a text file that is encrypted per the evaluation configured encryption policy.
+                    The contents of the file will be limited to a known text pattern to ensure that the text pattern will be present in all encryption/decryption operations performed by the TOE.</h:li> <h:li>Exit the file editor so that the file (including its known text pattern) has "completed the decryption/encryption operation"
+                    and process memory containing the known text pattern is released.</h:li> <h:li>The evaluator will take a dump of volatile memory and search the retrieved dump for the known pattern.
+                    The test fails if the known plaintext pattern is found in the memory dump.</h:li> <h:li>The evaluator will search the underlying non-volatile storage for the known pattern.
+                    The test fails if the known plaintext pattern is found in the search.</h:li></h:ol> </test>
                 </testlist>
               </Tests>
             </aactivity>
@@ -2122,7 +2126,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
     <obj-sfrs/>
     <impl-dep-sfrs/>
   </sec:Security_Requirements>
-  <appendix title="Appendix - Key Management Description" id="KMD">
+  <appendix title="Key Management Description" id="KMD">
       The documentation of the product’s encryption key management should be detailed enough
       that, after reading, the evaluator will thoroughly understand the product’s key management and
       how it meets the requirements to ensure the keys are adequately protected. This documentation
