@@ -6,7 +6,7 @@
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2025-04-29</PPPubDate>
+      <PPPubDate>2025-09-22</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -18,7 +18,7 @@
     </entry>
     <entry>
       <version>2.0</version>
-      <date>2025-01-31</date>
+      <date>2025-09-22</date>
       <subject>Update to CC:2022</subject>
     </entry>
   </RevisionHistory>
@@ -233,7 +233,8 @@
           Some platforms come bundled with file encryption product and these too
           should be considered subject to the requirements defined in this
           document although the expectation of formal Common Criteria evaluation
-          depends upon the national scheme.  and other firmware, the operating system kernel,
+          depends upon the national scheme. <h:abbr title="Basic Input/Output
+            System">BIOS</h:abbr> and other firmware, the operating system kernel,
           and other systems software (and drivers) provided as part of the
           platform are outside the scope of this document.
       </sec:TOE_Boundary>
@@ -261,7 +262,7 @@
       <cc-pp-conf/>
       <cc-pp-config-with>
         <Mod-cc-ref>PP-Module for VPN Client, Version 3.0</Mod-cc-ref>
-        <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 1.0</Mod-cc-ref>
+        <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 2.0</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim/>
     </CClaimsInfo>
