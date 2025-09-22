@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="..\transformspp2html.xsl"?>
-<?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCProtectionProfile.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/xsl" href="..\transforms\module2html.xsl"?>
+<?xml-model href="https://raw.githubusercontent.com/commoncriteria/transforms/master/schemas/CCModule.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <Module name="PP-Module for File Encryption" target-product="File Encryption" target-products="File Encryption" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
   <PPReference>
     <ReferenceTable>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
-      <PPPubDate>2025-09-22</PPPubDate>
+      <PPPubDate>2025-09-29</PPPubDate>
       <Keywords>file encryption; encryption</Keywords>
     </ReferenceTable>
   </PPReference>
@@ -18,7 +18,7 @@
     </entry>
     <entry>
       <version>2.0</version>
-      <date>2025-09-22</date>
+      <date>2025-09-29</date>
       <subject>Update to CC:2022</subject>
     </entry>
   </RevisionHistory>
