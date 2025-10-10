@@ -15,7 +15,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: debian:stable # Use a Debian Docker image
     name: Quick Build
     steps:
     - name: Checkout project and transforms
@@ -25,7 +24,7 @@ jobs:
 
     - name: Install Build Packages
 #      run: "sudo apt-get update && sudo apt-get install -y xsltproc hunspell pandoc"
-      run: "sudo apt-get update && sudo apt-get install -y build-essential git hunspell python3-lxml wget xsltproc"
+      run: "sudo apt-get update && sudo apt-get install -y hunspell python3-lxml xsltproc"
 
     - name: Install Jing
       run: wget -O - https://github.com/relaxng/jing-trang/releases/download/V20181222/jing-20181222.zip | jar -x
