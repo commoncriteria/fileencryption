@@ -43,7 +43,7 @@ issues Open]]
 * https://commoncriteria.github.io/fileencryption/master/fileencryption-release.html[PP Module for File Encryption] (html)
 
 === Release Version
-
+* https://www.niap-ccevs.org/protectionprofiles/520[PP Module for File Encryption Version 2.0]
 * https://www.niap-ccevs.org/protectionprofiles/415[PP Module for File Encryption Version 1.0]
 
 === Contributing
