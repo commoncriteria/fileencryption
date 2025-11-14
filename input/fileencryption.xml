@@ -2172,60 +2172,60 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
       when a user or administrator first provisions the product.</h:li></appendix>
   <bibliography>
     <entry id="FIPS140-2">
-      <tag>FIPS140-2</tag>
+      <tag>FIPS 140-2</tag>
       <description> Federal Information Processing Standard Publication (FIPS-PUB) 140-2, Security
           Requirements for Cryptographic Modules, National Institute of Standards and Technology,
           March 19, 2007 </description>
     </entry>
     <entry id="FIPS180-4">
-      <tag>FIPS180-4</tag>
+      <tag>FIPS 180-4</tag>
       <description> Federal Information Processing Standards Publication (FIPS-PUB) 180-4, Secure
           Hash Standard, March, 2012 </description>
     </entry>
     <entry id="FIPS186-5">
-      <tag>FIPS186-5</tag>
+      <tag>FIPS 186-5</tag>
       <description> Federal Information Processing Standard Publication (FIPS-PUB) 186-5, Digital
           Signature Standard (DSS), National Institute of Standards and Technology, February 2023
         </description>
     </entry>
     <entry id="FIPS197">
-      <tag>FIPS197</tag>
+      <tag>FIPS 197</tag>
       <description>Federal Information Processing Standards Publication (FIPS-PUB) 197,
           Specification for the Advanced Encryption Standard (AES), November 26, 2001 </description>
     </entry>
     <entry id="FIPS198-1">
-      <tag>FIPS198-1</tag>
+      <tag>FIPS 198-1</tag>
       <description>Federal Information Processing Standards Publication (FIPS-PUB) 198-1, The
           Keyed-Hash Message Authentication Code (HMAC), July 2008 </description>
     </entry>
     <entry id="SP800-38A">
-      <tag>NIST800-38A</tag>
+      <tag>NIST 800-38A</tag>
       <description>NIST Special Publication 800-38A, Recommendation for Block Cipher Modes of
           Operation: Methods and Techniques, 2001 Edition </description>
     </entry>
     <entry id="SP800-56A">
-      <tag>NIST800-56A</tag>
+      <tag>NIST 800-56A</tag>
       <description>NIST Special Publication 800-56A, Recommendation for Pair-Wise Key
           Establishment Schemes Using Discrete Logarithm Cryptography (Revised), March 2007
         </description>
     </entry>
     <entry id="SP800-56B">
-      <tag>NIST800-56B</tag>
+      <tag>NIST 800-56B</tag>
       <description>NIST Special Publication 800-56B, Recommendation for Pair-Wise Key
           Establishment Schemes Using Integer Factorization Cryptography, August 2009 </description>
     </entry>
     <entry id="SP800-90">
-      <tag>NIST800-90</tag>
+      <tag>NIST 800-90</tag>
       <description>NIST Special Publication 800-90, Recommendation for Random Number Generation
           Using Deterministic Random Bit Generators (Revised), March 2007 </description>
     </entry>
     <entry id="SP800-132">
-      <tag>NIST800-132</tag>
+      <tag>NIST 800-132</tag>
       <description>NIST Special Publication 800-132, Recommendation for Password-Based Key
           Derivation, December 2010 </description>
     </entry>
     <entry id="SP800-38F">
-      <tag>NIST800-38F</tag>
+      <tag>NIST 800-38F</tag>
       <description>NIST Special Publication 800-38F,Recommendation for Block Cipher Modes of
           Operation: Methods for Key Wrapping, December 2012 </description>
     </entry>
