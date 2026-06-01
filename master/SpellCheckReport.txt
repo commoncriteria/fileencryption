@@ -30,6 +30,7 @@ output/fileencryption-release-linkable.html: PRF
 output/fileencryption-release-linkable.html: RSADP
 output/fileencryption-release-linkable.html: SKC
 output/fileencryption-release-linkable.html: SP800
+output/fileencryption-release-linkable.html: SPD
 output/fileencryption-release-linkable.html: STO
 output/fileencryption-release-linkable.html: Sanitization
 output/fileencryption-release-linkable.html: UAU
@@ -70,6 +71,7 @@ output/fileencryption-release.html: PBKDF
 output/fileencryption-release.html: PRF
 output/fileencryption-release.html: SKC
 output/fileencryption-release.html: SP800
+output/fileencryption-release.html: SPD
 output/fileencryption-release.html: STO
 output/fileencryption-release.html: Sanitization
 output/fileencryption-release.html: UAU
@@ -104,6 +106,7 @@ output/fileencryption-sd.html: PBKDF
 output/fileencryption-sd.html: PCI
 output/fileencryption-sd.html: RSADP
 output/fileencryption-sd.html: SKC
+output/fileencryption-sd.html: SPD
 output/fileencryption-sd.html: Sanitization
 output/fileencryption-sd.html: WinHex
 output/fileencryption-sd.html: Zeroize
@@ -148,6 +151,7 @@ output/fileencryption.html: PRF
 output/fileencryption.html: RSADP
 output/fileencryption.html: SKC
 output/fileencryption.html: SP800
+output/fileencryption.html: SPD
 output/fileencryption.html: STO
 output/fileencryption.html: Sanitization
 output/fileencryption.html: UAU

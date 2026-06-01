@@ -272,7 +272,7 @@
     }    
    
    </style></head><body><div style="text-align: center; margin-left: auto; margin-right: auto;"><h1 class="title" style="page-break-before:auto;">Supporting Document<br/>
-        Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
+        Mandatory Technical Document</h1><img src="images/niaplogo.png" alt="NIAP Logo"></img><hr width="50%"></hr><noscript><h1 style="text-align:center; border-style: dashed; border-width: medium; border-color: red;">This page is best viewed with JavaScript enabled!</h1></noscript><br/>
     PP-Module for File Encryption<br/>
       Version: 2.0<br/>2025-09-29<br/><b>National Information Assurance Partnership</b></div><div class="foreword"><h1 style="text-align: center">Foreword</h1><p>This is a Supporting Document (SD), intended to complement the Common Criteria version 3
       and the associated Common Evaluation Methodology for
@@ -342,6 +342,12 @@ The following sections list Common Criteria and technology terms used in this do
       accredited by the National Voluntary Laboratory Accreditation Program (NVLAP) and approved by the NIAP Validation Body to conduct Common Criteria-based evaluations.
     </td></tr>
 <tr><td><div id="Common_Evaluation_Methodology">Common Evaluation Methodology (CEM)</div></td><td>Common Evaluation Methodology for Information Technology Security Evaluation.</td></tr>
+<tr><td><div id="Direct_Rationale">Direct Rationale</div></td><td>
+		A type of Protection Profile, PP-Module, or Security Target in which the security
+		problem definition (SPD) elements are mapped directly to the SFRs and possibly to the 
+		security objectives for the operational environment. There are no security objectives
+		for the TOE.
+	</td></tr>
 <tr><td><div id="Distributed_TOE">Distributed TOE</div></td><td>A TOE composed of multiple components operating as a logical whole.</td></tr>
 <tr><td><div id="Extended_Package">Extended Package (EP)</div></td><td>A deprecated document form for collecting SFRs that implement a particular protocol, technology,
 	    or functionality. See Functional Packages.</td></tr>
@@ -517,19 +523,13 @@ Some examples of what is expected to be in the documentation are provided here. 
               amount of damage to drive health occurs, this minimizes the risk that small amounts of 
               potentially recoverable data may remain in damaged areas of the drive.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 These tests are only for key destruction provided by the application, test 2 does not apply to any keys using the selection "new value of a key": <br/>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.6:1</a>:
-      [Conditional; applies when the application does not perform the zeroization (e.g. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 (assuming the selection "destruction of the reference followed by a request for garbage collection")] <br/><br/> Applied to each key held in volatile memory and subject to destruction by overwrite by the TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. <br/><br/> The evaluator shall: <ol><li>Record the value of the key in the TOE subject to clearing.</li> <li>Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.</li> <li>Cause the TOE to clear the key.</li> <li>Cause the TOE to stop the execution but not exit.</li> <li>Cause the TOE to dump the entire memory of the TOE into a binary file.</li> <li>Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.</li></ol>  <br/><br/> Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails. <br/><br/> </li>
-                  <li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_CKM.6:2</a>:
-      [Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <br/><br/> Applied to each key held in non-volatile memory and subject to destruction by the TOE. <br/><br/> The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended. <ol><li>Identify the purpose of the key and what access should fail when it is deleted. (e.g. the file encryption key being deleted would cause data decryption to fail.)</li> <li>Cause the TOE to clear the key.</li> <li>Have the TOE attempt the functionality that the cleared key would be necessary for.</li> <li>The test succeeds if Step #3 fails.</li></ol> </li>
-                </ul></span>
-                <span class="testlist-"><ul>
-                  Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the TOE has no visibility into the inner workings and completely relies on the underlying platform. <br/><br/> 
-                  <li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_CKM.6:3</a>:
-      Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system): <br/><br/>  <ol><li>Record the value of the key in the TOE subject to clearing.</li> <li>Cause the TOE to perform a normal cryptographic processing with the key from Step #1.</li> <li>Cause the TOE to clear the key.</li> <li>Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails.</li></ol>  <br/><br/> </li>
-                  <li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_CKM.6:4</a>:
-      Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media: <br/><br/>  <ol><li>Record the logical storage location of the key in the TOE subject to clearing.</li> <li>Cause the TOE to perform a normal cryptographic processing with the key from Step #1.</li> <li>Cause the TOE to clear the key.</li> <li>Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.</li></ol>  <br/><br/> The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_1" class="defined" href="#_t_1">Test FCS_CKM.6:1</a>:
+      [Conditional; applies when the application does not perform the zeroization (e.g. garbage collecting) for each key held in volatile memory for FCS_CKM.6.2 (assuming the selection "destruction of the reference followed by a request for garbage collection")] <br/><br/> Applied to each key held in volatile memory and subject to destruction by overwrite by the TOE (whether or not the value is subsequently encrypted for storage in volatile or non-volatile memory). In the case where the only selection made for the key destruction method was removal of power, then this test is unnecessary. <br/><br/> The evaluator shall: <ol><li>Record the value of the key in the TOE subject to clearing.</li> <li>Cause the cause the TOE or the underlying platform to dump to perform a normal cryptographic processing with the key from Step #1.</li> <li>Cause the TOE to clear the key.</li> <li>Cause the TOE to stop the execution but not exit.</li> <li>Cause the TOE to dump the entire memory of the TOE into a binary file.</li> <li>Search the content of the binary file created in Step #5 for instances of the known key value from Step #1.</li></ol>  <br/><br/> Steps #1-6 ensure that the complete key does not exist anywhere in volatile memory. If a copy is found, then the test fails. <br/><br/> </li><li class="test-"><a id="_t_2" class="defined" href="#_t_2">Test FCS_CKM.6:2</a>:
+      [Conditional; applies when instructing the underlying platform to destroy the key] If new value of a key is selected this test does not apply. <br/><br/> Applied to each key held in non-volatile memory and subject to destruction by the TOE. <br/><br/> The evaluator shall use special tools (as needed), provided by the TOE developer if necessary, to ensure the tests function as intended. <ol><li>Identify the purpose of the key and what access should fail when it is deleted. (e.g. the file encryption key being deleted would cause data decryption to fail.)</li> <li>Cause the TOE to clear the key.</li> <li>Have the TOE attempt the functionality that the cleared key would be necessary for.</li> <li>The test succeeds if Step #3 fails.</li></ol> </li></ul></span>
+                <span class="testlist-">
+                  Tests 3 and 4 do not apply for the selection instructing the underlying platform to destroy the representation of the key, as the TOE has no visibility into the inner workings and completely relies on the underlying platform. <br/><br/><ul><li class="test-"><a id="_t_3" class="defined" href="#_t_3">Test FCS_CKM.6:3</a>:
+      Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media (e.g., MBR file system): <br/><br/>  <ol><li>Record the value of the key in the TOE subject to clearing.</li> <li>Cause the TOE to perform a normal cryptographic processing with the key from Step #1.</li> <li>Cause the TOE to clear the key.</li> <li>Search the logical view that the key was stored in for instances of the known key value from Step #1. If a copy is found, then the test fails.</li></ol>  <br/><br/> </li><li class="test-"><a id="_t_4" class="defined" href="#_t_4">Test FCS_CKM.6:4</a>:
+      Applied to each key held in non-volatile memory and subject to destruction by overwrite by the TOE. The evaluator shall use a tool that provides a logical view of the media: <br/><br/>  <ol><li>Record the logical storage location of the key in the TOE subject to clearing.</li> <li>Cause the TOE to perform a normal cryptographic processing with the key from Step #1.</li> <li>Cause the TOE to clear the key.</li> <li>Read the logical storage location in Step #1 of non-volatile memory to ensure the appropriate pattern is utilized.</li></ol>  <br/><br/> The test succeeds if correct pattern is used to overwrite the key in the memory location. If the pattern is not found the test fails.</li></ul></span>
               </div></div></span></div><div class="comp" id="FCS-CKM-EXT-2"><h4>FCS_CKM_EXT.2 File Encryption Key (FEK) Generation</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_CKM_EXT.2</div>
               
               
@@ -606,10 +606,8 @@ Some examples of what is expected to be in the documentation are provided here. 
                   None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea">If the remediation functionality is configurable, the evaluator shall examine the operational guidance
                   to ensure it describes how to configure the TOE to ensure the limits regarding validation attempts can be established.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following tests: <br/>
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FCS_VAL_EXT.2:1</a>:
-      The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts. For each authentication factor supported, the evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such period. Then the evaluator will verify that the TOE behaves as described in the TSS.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_5" class="defined" href="#_t_5">Test FCS_VAL_EXT.2:1</a>:
+      The evaluator shall determine the limit on the average rate of the number of consecutive failed authorization attempts. For each authentication factor supported, the evaluator will test the TOE by entering that number of incorrect authorization factors in consecutive attempts to access the protected data. If the limit mechanism includes any "lockout" period, the time period tested should include at least one such period. Then the evaluator will verify that the TOE behaves as described in the TSS.</li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="fdp-mandatory">2.2.2 Class FDP: User Data Protection</h2><div class="comp" id="FDP-PRT-EXT-1"><h4>FDP_PRT_EXT.1 Protection of Selected User Data</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_PRT_EXT.1</div>
               
               
@@ -656,14 +654,12 @@ Some examples of what is expected to be in the documentation are provided here. 
               cases, the evaluator checks to ensure that all non-TOE products used to satisfy the
               requirements of the ST that are described in the Operational Guidance are consistent
               with those listed in the ST, and those tested by the evaluation activities of this PP-Module.<br/><br/></div><div class="ea"><br/>There are no additional guidance evaluation activities for FDP_PRT_EXT.1.2. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">The evaluator shall also perform the following tests. All instructions for configuring the TOE and each of the environments must be included in the Operational Guidance and used to establish the test configuration. <br/> <br/>For each resource and decryption/encryption scenario listed in the TSS, the evaluator shall ensure that the TSF is able to successfully encrypt and decrypt the resource using the following methodology: <br/>Monitor the temporary resources being created (if any) and deleted by the TSF-the tools used to perform the monitoring (e.g., procmon for a Windows system) shall be identified in the test report. The evaluator shall ensure that these resources are consistent with those identified in the TSS, and that they are protected as specified in the Operational Guidance and are deleted when the decryption/encryption operation is completed.</div><div class="ea">
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FDP_PRT_EXT.1:1</a>:
+                <span class="testlist-"><ul><li class="test-"><a id="_t_6" class="defined" href="#_t_6">Test FDP_PRT_EXT.1:1</a>:
       This test only applies for application provided functionality. <ol><li>Using a file editor, create and save a text file that is encrypted per the evaluation configured encryption policy.
                     The contents of the file will be limited to a known text pattern to ensure that the text pattern will be present in all encryption/decryption operations performed by the TOE.</li> <li>Exit the file editor so that the file (including its known text pattern) has "completed the decryption/encryption operation"
                     and process memory containing the known text pattern is released.</li> <li>The evaluator will take a dump of volatile memory and search the retrieved dump for the known pattern.
                     The test fails if the known plaintext pattern is found in the memory dump.</li> <li>The evaluator will search the underlying non-volatile storage for the known pattern.
-                    The test fails if the known plaintext pattern is found in the search.</li></ol> </li>
-                </ul></span>
+                    The test fails if the known plaintext pattern is found in the search.</li></ol> </li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-PRT-EXT-2"><h4>FDP_PRT_EXT.2 Destruction of Plaintext Data</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_PRT_EXT.2</div>
               
               
@@ -676,8 +672,7 @@ Some examples of what is expected to be in the documentation are provided here. 
             host that are 1) persistent and 2) visible to other processes (users) on that host that
             are not filesystem objects, those objects shall be identified and described in the TSS
             as well. <br/><br/><h4>KMD</h4>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FDP_PRT_EXT.2:1</a>:
+                <span class="testlist-"><ul><li class="test-"><a id="_t_7" class="defined" href="#_t_7">Test FDP_PRT_EXT.2:1</a>:
       If the TSS creates temporary files/resources during file decryption/encryption, the evaluator shall perform the following tests to verify that the temporary files/resources are destroyed. If the product supported shared files per FIA_FCT_EXT.2, this test must be repeated with a shared file. The evaluator shall use a tool (e.g., procmon for a Windows system) that is capable of monitoring the creation and deletion of files during the decryption/encryption process is performed. A tool that can search the contents of the hard drive (e.g., WinHex) will also be needed. The tools used to perform the monitoring shall be identified in the test report. <br/><br/> (Creating an encrypted document) <ul><li>Open an editing application.</li> <li>Create a special string inside the document. The string could be 5-10 words. It is
                     recommended to remove the spaces. This will create a one page document.</li> <li>Start the file monitoring tool.</li> <li>Save and close the file.</li> <li>Encrypt the file using the TOE (if the TOE does not encrypt automatically for the
                     user).</li></ul>  <br/><br/>  <b>Analysis Steps </b>  <ul><li>If needed, exit/close the TOE.</li> <li>Stop the file monitoring tool. View the results. Identify any temporary files that
@@ -686,8 +681,7 @@ Some examples of what is expected to be in the documentation are provided here. 
                       no plaintext data remains. If plaintext data is found in these files, the test fails.</li> <li>Search the contents of the hard drive (using the second tool) for the plaintext
                       string used above. (The search should be performed using both ASCII and Unicode
                       formats.)</li> <li>If the string is found, this means that plaintext from the test fails. </li><br/></ul> (Creating, encrypting a blank document and then adding text): <ul><li>Encrypt a blank document using the tool.</li> <li>Create a special string inside the document. The string could be 5-10 words. It is
-                      recommended to remove the spaces. This will create a one page document.</li> <li>Start the file monitoring tool.</li> <li>Save and close the file. </li> <li>Perform the "Analysis Steps" listed above.</li></ul>  <br/><br/> </li>
-                </ul></span>
+                      recommended to remove the spaces. This will create a one page document.</li> <li>Start the file monitoring tool.</li> <li>Save and close the file. </li> <li>Perform the "Analysis Steps" listed above.</li></ul>  <br/><br/> </li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="2" id="fia-mandatory">2.2.3 Class FIA: Identification and Authentication</h2><div class="comp" id="FIA-AUT-EXT-1"><h4>FIA_AUT_EXT.1 Subject Authorization</h4><span class="activity_pane_body"><div class="component-activity-header">FIA_AUT_EXT.1</div>
               The evaluation activities for this component will be driven by the selections
               made by the ST author. This section describes evaluation activities for all possible
@@ -858,12 +852,9 @@ Some examples of what is expected to be in the documentation are provided here. 
                  every implementation to use a FAK that is wholly different and independently generated
                  from the FEK.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FDP_AUT_EXT.2:1</a>:
-      Create an encrypted file and confirm that authentication of this file using the correct FAK will result in a successful decryption.</li>
-                  <li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FDP_AUT_EXT.2:2</a>:
-      Modify an arbitrary number of bits of ciphertext and attempt to run the authentication and decryption operations on the file. Assert that the TOE successfully identified the forged ciphertext file and notified the user.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_8" class="defined" href="#_t_8">Test FDP_AUT_EXT.2:1</a>:
+      Create an encrypted file and confirm that authentication of this file using the correct FAK will result in a successful decryption.</li><li class="test-"><a id="_t_9" class="defined" href="#_t_9">Test FDP_AUT_EXT.2:2</a>:
+      Modify an arbitrary number of bits of ciphertext and attempt to run the authentication and decryption operations on the file. Assert that the TOE successfully identified the forged ciphertext file and notified the user.</li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-AUT-EXT-3"><h4>FDP_AUT_EXT.3 Data Authentication Using Asymmetric Signing                and Verification</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_AUT_EXT.3</div>
               
               
@@ -879,12 +870,9 @@ Some examples of what is expected to be in the documentation are provided here. 
                  that the signature is appended to the end of the ciphertext file.<br/><br/><h4>KMD</h4>
                  None. <br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The evaluator shall perform the following test:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FDP_AUT_EXT.3:1</a>:
-      Create an encrypted file and demonstrate that authentication of this file using the correct keying material will be successful.</li>
-                  <li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FDP_AUT_EXT.3:2</a>:
-      Modify an arbitrary number of bits of ciphertext and attempt to run the authentication and decryption operations on the file. Assert that the TOE successfully identified the forged ciphertext file and notified the user.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_10" class="defined" href="#_t_10">Test FDP_AUT_EXT.3:1</a>:
+      Create an encrypted file and demonstrate that authentication of this file using the correct keying material will be successful.</li><li class="test-"><a id="_t_11" class="defined" href="#_t_11">Test FDP_AUT_EXT.3:2</a>:
+      Modify an arbitrary number of bits of ciphertext and attempt to run the authentication and decryption operations on the file. Assert that the TOE successfully identified the forged ciphertext file and notified the user.</li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-PM-EXT-1"><h4>FDP_PM_EXT.1 Protection of Data in Power Managed States</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_PM_EXT.1</div>
               
               
@@ -908,10 +896,8 @@ Some examples of what is expected to be in the documentation are provided here. 
                      The evaluator shall validate that guidance documentation contains clear warnings and information on conditions in which the TOE
                      may end up in a non-protected state. In that case it must contain mitigation instructions on what to do in such scenarios.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 The following tests must be performed by the evaluator for each supported State, type of resource, platform, and authorization factor:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FDP_PM_EXT.1:1</a>:
-      Following the Operational guidance, configure the Operational Environment and the TOE so that the lower power state of the platform is enabled and protected by the TOE. Open several resources (documented in the test report) that are protected. Invoke the lower power state. On resumption of normal power attempt to access a previously-opened protected resource, observe that an incorrect entry of the authorization factor(s) does not result in access to the system, and that correct entry of the authorization factor(s) does result in access to the resources.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_12" class="defined" href="#_t_12">Test FDP_PM_EXT.1:1</a>:
+      Following the Operational guidance, configure the Operational Environment and the TOE so that the lower power state of the platform is enabled and protected by the TOE. Open several resources (documented in the test report) that are protected. Invoke the lower power state. On resumption of normal power attempt to access a previously-opened protected resource, observe that an incorrect entry of the authorization factor(s) does not result in access to the system, and that correct entry of the authorization factor(s) does result in access to the resources.</li></ul></span>
               </div></div></span></div><div class="comp" id="FDP-PRT-EXT-3"><h4>FDP_PRT_EXT.3 Protection of Third-Party Data</h4><span class="activity_pane_body"><div class="component-activity-header">FDP_PRT_EXT.3</div>
               
               
@@ -952,12 +938,9 @@ Some examples of what is expected to be in the documentation are provided here. 
                 with other users, if additional actions are necessary due to use of the
                 encryption product. If different for different underlying platforms, the
                 evaluator determines that all platforms listed in the ST are addressed.<br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FIA_FCT_EXT.2:1</a>:
-      For each type of resource that is identified in the TSS as sharable in its encrypted form, the evaluator shall ensure that different users using different authorization factors are able to successfully access the resource using different authorization factors. This should include making changes to the resource to ensure that the same resource is being shared, and that a per-user copy of the resource is not being made.</li>
-                  <li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FIA_FCT_EXT.2:2</a>:
-      For each type of resource that is identified in the TSS as sharable in its encrypted form, the evaluator shall ensure that a different unauthorized user is unable to access the encrypted file shared. This test succeeds if the unauthorized user is unable to access a file shared between other authorized users.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_13" class="defined" href="#_t_13">Test FIA_FCT_EXT.2:1</a>:
+      For each type of resource that is identified in the TSS as sharable in its encrypted form, the evaluator shall ensure that different users using different authorization factors are able to successfully access the resource using different authorization factors. This should include making changes to the resource to ensure that the same resource is being shared, and that a per-user copy of the resource is not being made.</li><li class="test-"><a id="_t_14" class="defined" href="#_t_14">Test FIA_FCT_EXT.2:2</a>:
+      For each type of resource that is identified in the TSS as sharable in its encrypted form, the evaluator shall ensure that a different unauthorized user is unable to access the encrypted file shared. This test succeeds if the unauthorized user is unable to access a file shared between other authorized users.</li></ul></span>
               </div></div></span></div><h2 class="indexable" data-level="1" id="sel-sfrs">2.4 Evaluation Activities for Selection-Based SFRs</h2><h2 class="indexable" data-level="2" id="fcs-selectionBased">2.4.1 Class FCS: Cryptographic Support</h2><div class="comp" id="FCS-CKM-EXT-3"><h4>FCS_CKM_EXT.3 Key Encrypting Key (KEK) Support</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_CKM_EXT.3</div>
               
               
@@ -1030,16 +1013,11 @@ Some examples of what is expected to be in the documentation are provided here. 
                 instructions on how to configure the password/passphrase length 
                 to provide entropy commensurate with the keys that the authorization factor is protecting.  <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 Support for Password/Passphrase characteristics: In addition to the analysis above, the evaluator shall also perform the following tests on a TOE configured according to the Operational Guidance:
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_CKM_EXT.6:1</a>:
-      Ensure that the TOE supports password/passphrase lengths as defined in the SFR assignments.</li>
-                  <li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_CKM_EXT.6:2</a>:
-      Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.6.1.</li>
-                  <li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCS_CKM_EXT.6:3</a>:
-      Ensure that the TOE does not accept less than the minimum number of characters specified in FCS_CKM_EXT.6.4. If the minimum length is settable by the administrator, the evaluator determines the minimum length or lengths to test.</li>
-                  <li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCS_CKM_EXT.6:4</a>:
-      Ensure that the TOE supports passwords consisting of all characters listed in FCS_CKM_EXT.6.2.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_15" class="defined" href="#_t_15">Test FCS_CKM_EXT.6:1</a>:
+      Ensure that the TOE supports password/passphrase lengths as defined in the SFR assignments.</li><li class="test-"><a id="_t_16" class="defined" href="#_t_16">Test FCS_CKM_EXT.6:2</a>:
+      Ensure that the TOE does not accept more than the maximum number of characters specified in FCS_CKM_EXT.6.1.</li><li class="test-"><a id="_t_17" class="defined" href="#_t_17">Test FCS_CKM_EXT.6:3</a>:
+      Ensure that the TOE does not accept less than the minimum number of characters specified in FCS_CKM_EXT.6.4. If the minimum length is settable by the administrator, the evaluator determines the minimum length or lengths to test.</li><li class="test-"><a id="_t_18" class="defined" href="#_t_18">Test FCS_CKM_EXT.6:4</a>:
+      Ensure that the TOE supports passwords consisting of all characters listed in FCS_CKM_EXT.6.2.</li></ul></span>
                  <b>Conditioning:</b>No explicit testing of the formation of the authorization factor from the input password/passphrase is required.
               </div></div></span></div><div class="comp" id="FCS-COP-1-KE"><h4>FCS_COP.1/KE Cryptographic operation (Key Encryption)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/KE</div>
               
@@ -1064,18 +1042,12 @@ Some examples of what is expected to be in the documentation are provided here. 
                 the encryption primitive and decryption primitive.
                  <br/><br/><h4>KMD</h4>None.<br/><br/></div></div><div class="eacategory">Guidance</div><div class="ea"><div class="ea"> None. <br/><br/></div></div><div class="eacategory">Tests</div><div class="ea"><div class="ea">
                 For each supported key transport schema, the evaluator shall initiate at least 25 sessions that require key transport with an independently developed remote instance of a key transport entity, using known RSA key-pairs. The evaluator shall observe traffic passed from the sender-side and to the receiver-side of the TOE, and shall perform the following tests, specific to which key transport scheme was employed.
-                <span class="testlist-"><ul>
-                  <li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCS_COP.1/KT:1</a>:
-      The evaluator shall inspect each cipher text, C, produced by the RSA-OAEP encryption operation of the TOE and make sure it is the correct length, either 256 or 384 bytes depending on RSA key size. The evaluator shall also feed into the TOE's RSA-OEAP decryption operation some cipher texts that are the wrong length and verify that the erroneous input is detected and that the decryption operation exits with an error code.</li>
-                  <li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FCS_COP.1/KT:2</a>:
-      The evaluator shall convert each cipher text, C, produced by the RSA-OAEP encryption operation of the TOE to the correct cipher text integer, c, and use the decryption primitive to compute em = RSADP((n,d),c) and convert em to the encoded message EM. The evaluator shall then check that the first byte of EM is 0x00. The evaluator shall also feed into the TOE's RSA-OEAP decryption operation some cipher texts where the first byte of EM was set to a value other than 0x00, and verify that the erroneous input is detected and that the decryption operation exits with an error code.</li>
-                  <li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCS_COP.1/KT:3</a>:
-      The evaluator shall decrypt each cipher text, C, produced by the RSA-OAEP encryption operation of the TOE using RSADP, and perform the OAEP decoding operation (described in NIST SP 800-56B section 7.2.2.4) to recover HA' || X. For each HA', the evaluator shall take the corresponding A and the specified hash algorithm and verify that HA' = Hash(A). The evaluator shall also force the TOE to perform some RSA-OAEP decryption where the A value is passed incorrectly, and the evaluator shall verify that an error is detected.</li>
-                  <li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FCS_COP.1/KT:4</a>:
-      The evaluator shall check the format of the 'X' string recovered in OAEP.Test.3 to ensure that the format is of the form PS || 01 || K, where PS consists of zero or more consecutive 0x00 bytes and K is the transported keying material. The evaluator shall also feed into the TOE's RSA-OEAP decryption operation some cipher texts for which the resulting 'X' strings do not have the correct format (i.e., the leftmost non-zero byte is not 0x01). These incorrectly formatted 'X' variables shall be detected by the RSA-OEAP decrypt function.</li>
-                  <li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FCS_COP.1/KT:5</a>:
-      The evaluator shall trigger all detectable decryption errors and validate that the returned error codes are the same and that no information is given back to the sender on which type of error occurred. The evaluator shall also validate that no intermediate results from the TOE's receiver-side operations are revealed to the sender.</li>
-                </ul></span>
+                <span class="testlist-"><ul><li class="test-"><a id="_t_19" class="defined" href="#_t_19">Test FCS_COP.1/KT:1</a>:
+      The evaluator shall inspect each cipher text, C, produced by the RSA-OAEP encryption operation of the TOE and make sure it is the correct length, either 256 or 384 bytes depending on RSA key size. The evaluator shall also feed into the TOE's RSA-OEAP decryption operation some cipher texts that are the wrong length and verify that the erroneous input is detected and that the decryption operation exits with an error code.</li><li class="test-"><a id="_t_20" class="defined" href="#_t_20">Test FCS_COP.1/KT:2</a>:
+      The evaluator shall convert each cipher text, C, produced by the RSA-OAEP encryption operation of the TOE to the correct cipher text integer, c, and use the decryption primitive to compute em = RSADP((n,d),c) and convert em to the encoded message EM. The evaluator shall then check that the first byte of EM is 0x00. The evaluator shall also feed into the TOE's RSA-OEAP decryption operation some cipher texts where the first byte of EM was set to a value other than 0x00, and verify that the erroneous input is detected and that the decryption operation exits with an error code.</li><li class="test-"><a id="_t_21" class="defined" href="#_t_21">Test FCS_COP.1/KT:3</a>:
+      The evaluator shall decrypt each cipher text, C, produced by the RSA-OAEP encryption operation of the TOE using RSADP, and perform the OAEP decoding operation (described in NIST SP 800-56B section 7.2.2.4) to recover HA' || X. For each HA', the evaluator shall take the corresponding A and the specified hash algorithm and verify that HA' = Hash(A). The evaluator shall also force the TOE to perform some RSA-OAEP decryption where the A value is passed incorrectly, and the evaluator shall verify that an error is detected.</li><li class="test-"><a id="_t_22" class="defined" href="#_t_22">Test FCS_COP.1/KT:4</a>:
+      The evaluator shall check the format of the 'X' string recovered in OAEP.Test.3 to ensure that the format is of the form PS || 01 || K, where PS consists of zero or more consecutive 0x00 bytes and K is the transported keying material. The evaluator shall also feed into the TOE's RSA-OEAP decryption operation some cipher texts for which the resulting 'X' strings do not have the correct format (i.e., the leftmost non-zero byte is not 0x01). These incorrectly formatted 'X' variables shall be detected by the RSA-OEAP decrypt function.</li><li class="test-"><a id="_t_23" class="defined" href="#_t_23">Test FCS_COP.1/KT:5</a>:
+      The evaluator shall trigger all detectable decryption errors and validate that the returned error codes are the same and that no information is given back to the sender on which type of error occurred. The evaluator shall also validate that no intermediate results from the TOE's receiver-side operations are revealed to the sender.</li></ul></span>
                  <br/>
               </div></div></span></div><div class="comp" id="FCS-COP-1-KW"><h4>FCS_COP.1/KW Cryptographic operation (Key Wrapping)</h4><span class="activity_pane_body"><div class="component-activity-header">FCS_COP.1/KW</div>
               
