@@ -27,8 +27,8 @@
     <sec:Overview title="Overview"> 
      The scope of the File Encryption PP-Module is to describe the security functionality of a file encryption 
 	    product in terms of [CC] and to define functional and assurance requirements for such products. 
-	    This PP-Module is intended for use with the following Base-PP: <h:ul><h:br/><h:li>Application Software Protection Profile, Version 2.0</h:li></h:ul><h:br/>   
-      This Base-PP is valid because a file encryption product is a 3rd party application or application 
+	    This PP-Module is intended for use with the following base PP: <h:ul><h:br/><h:li>Application Software Protection Profile, Version 2.0</h:li></h:ul><h:br/>   
+      This base PP is valid because a file encryption product is a 3rd party application or application 
       included with a operating system.<h:br/><h:br/>
     
       File encryption is the process of encrypting individual files or sets of
@@ -300,7 +300,7 @@
       the TOE to provide its security functions, this PP-Module focuses on threats to resources in the
       operational environment. Together the threats of [AppPP] and those defined in this PP-Module define
       the comprehensive set of security threats addressed by a file encryption TOE. 
-      <threats><threat name="T.KEYING_MATERIAL_COMPROMISE"><description><h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation,             plaintext keys, and other keying material to decrypt an encrypted file. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale><addressed-by>FPT_KYP_EXT.1</addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale></threat><threat name="T.KEYSPACE_EXHAUST"><description><h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data,            allowing access to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale><addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale><addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale><addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FCS_KDF_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale><addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale><addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale><addressed-by>FCS_VAL_EXT.2</addressed-by><rationale>Mitigates the threat by limiting the amount or rate of failed validation attempts.</rationale></threat><threat name="T.MANAGEMENT_ACCESS"><description><h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform            necessary security operations due to a lack of supported management functionality.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FMT_MEC_EXT.1 (from Base-PP)</addressed-by><rationale>Mitigates the threat by storing configuration in a protected manner.</rationale><addressed-by>FMT_SMF.1/FE</addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale></threat><threat name="T.PLAINTEXT_COMPROMISE"><description><h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools, allowing access            to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale></threat><threat name="T.UNAUTHORIZED_DATA_ACCESS"><description><h:b>Unauthorized Data Access:</h:b> An attacker that is not permitted to decrypt files             or has no access obtains access to an account and uses forensic tools for examination.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale><addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale><addressed-by>FCS_COP.1/SKC (from Base-PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale><addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale><addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale><addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale><addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale><addressed-by>FIA_FCT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale></threat><threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION"><description><h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of             the authorization factor, allowing access to secure information. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale><addressed-by>FIA_AUT_EXT.1</addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale></threat></threats></sec:Threats>
+      <threats><threat name="T.KEYING_MATERIAL_COMPROMISE"><description><h:b>Compromise of Keying Material:</h:b> An attacker exploits a weakness in the random number generation,             plaintext keys, and other keying material to decrypt an encrypted file. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM.6</addressed-by><rationale>Mitigates the threat by destroying keys and key material when not needed.</rationale><addressed-by>FPT_KYP_EXT.1</addressed-by><rationale>Mitigates the threat by protecting keys stored on non-volatile memory.</rationale></threat><threat name="T.KEYSPACE_EXHAUST"><description><h:b>Brute Force Attack:</h:b> An attacker is able to brute force the keyspace of the algorithms used to force disclosure of sensitive data,            allowing access to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.2</addressed-by><rationale>Mitigates the threat by generating FEKs in a secure manner.</rationale><addressed-by>FCS_CKM_EXT.3 (selection-based)</addressed-by><rationale>Mitigates the threat by using or generating secure KEKs.</rationale><addressed-by>FCS_CKM_EXT.6 (selection-based)</addressed-by><rationale>Mitigates the threat by conditioning a password or passphrase before using it for key-related functions.</rationale><addressed-by>FCS_COP.1/KE (selection-based)</addressed-by><rationale>Mitigates the threat by encrypting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KT (selection-based)</addressed-by><rationale>Mitigates the threat by transporting keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/KW (selection-based)</addressed-by><rationale>Mitigates the threat by wrapping keys using a specified secure algorithm.</rationale><addressed-by>FCS_COP.1/SKC (from base PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FCS_KDF_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by creating intermediate keys from source material through a secure derivation method.</rationale><addressed-by>FCS_KYC_EXT.1</addressed-by><rationale>Mitigates the threat by maintaining and storing secure key chains.</rationale><addressed-by>FCS_SMC_EXT.1 (selection-based)</addressed-by><rationale>Mitigates the threat by combining submasks using a secure method.</rationale><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by using validation elements that are generated or protected in a secure manner.</rationale><addressed-by>FCS_VAL_EXT.2</addressed-by><rationale>Mitigates the threat by limiting the amount or rate of failed validation attempts.</rationale></threat><threat name="T.MANAGEMENT_ACCESS"><description><h:b>Management Access:</h:b> An authorized user may perform sensitive management functions without proper permissions or a legitimate user may lack the ability to perform            necessary security operations due to a lack of supported management functionality.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FMT_MEC_EXT.1 (from base PP)</addressed-by><rationale>Mitigates the threat by storing configuration in a protected manner.</rationale><addressed-by>FMT_SMF.1/FE</addressed-by><rationale>Mitigates the threat by enumerating and protecting management functions.</rationale></threat><threat name="T.PLAINTEXT_COMPROMISE"><description><h:b>Plaintext Compromise:</h:b> An attacker is able to uncover plaintext remains with forensic tools, allowing access            to secure information.          </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by destroying original plaintext data is once the original data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by destroying or encrypting temporary files when decrypting or encryption of files are completed.</rationale></threat><threat name="T.UNAUTHORIZED_DATA_ACCESS"><description><h:b>Unauthorized Data Access:</h:b> An attacker that is not permitted to decrypt files             or has no access obtains access to an account and uses forensic tools for examination.</description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_CKM_EXT.5 (optional)</addressed-by><rationale>Mitigates the threat by authenticating data using a FAK.</rationale><addressed-by>FCS_COP_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by protecting a FAK with the same protections as a FEK.</rationale><addressed-by>FCS_COP.1/SKC (from base PP)</addressed-by><rationale>Mitigates the threat by encrypting/decrypting according to a specified approved algorithm.</rationale><addressed-by>FDP_AUT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by verifying the authenticity of files and providing notice if modification is detected.</rationale><addressed-by>FDP_AUT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using a keyed-hash function.</rationale><addressed-by>FDP_AUT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by authenticating the encrypted data using an asymmetric signing and verification function.</rationale><addressed-by>FDP_PM_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by encrypting data during a power-managed state.</rationale><addressed-by>FDP_PRT_EXT.1</addressed-by><rationale>Mitigates the threat by encrypting a file or files in accordance with a specified algorithm.</rationale><addressed-by>FDP_PRT_EXT.2</addressed-by><rationale>Mitigates the threat by ensuring original plaintext data is destroyed once the data is decrypted or encrypted.</rationale><addressed-by>FDP_PRT_EXT.3 (optional)</addressed-by><rationale>Mitigates the threat by removing or encrypting temporary files created during encryption/decryption upon completion of the encryption/decryption.</rationale><addressed-by>FIA_FCT_EXT.1 (optional)</addressed-by><rationale>Mitigates the threat by ensuring that files can be encrypted with unique KEKs per user.</rationale><addressed-by>FIA_FCT_EXT.2 (optional)</addressed-by><rationale>Mitigates the threat by providing a key sharing mechanism to safely share files between users.</rationale></threat><threat name="T.UNSAFE_AUTHFACTOR_VERIFICATION"><description><h:b>Flawed Authentication Factor Verification:</h:b> An attacker exploits a flaw in the validation or conditioning of             the authorization factor, allowing access to secure information. </description><!-- New mapping to build updated threat mapping table. --><addressed-by>FCS_VAL_EXT.1</addressed-by><rationale>Mitigates the threat by requiring the user be validated using an appropriate validation factor before any decryption occurs.</rationale><addressed-by>FIA_AUT_EXT.1</addressed-by><rationale>Mitigates the threat by authorizing the user using an appropriate authorization factor.</rationale></threat></threats></sec:Threats>
     <!-- 3.2 Assumptions -->
     <sec:Assumptions>
       <assumptions>
@@ -369,8 +369,8 @@
             sensitivity of the data being protected. This can apply to password or
             passphrase based, ECC CDH, and RSA authorization factors.</description>
           <consistency-rationale>
-            This objective is consistent with the Base-PP because this functionality is beyond the scope of what the Base-PP defines. Therefore, the use and strength of 
-            external authorization factors does not affect the ability of any Base-PP SFRs or objectives to be satisfied.
+            This objective is consistent with the base PP because this functionality is beyond the scope of what the base PP defines. Therefore, the use and strength of 
+            external authorization factors does not affect the ability of any base PP SFRs or objectives to be satisfied.
           </consistency-rationale>
         </SOE>
         <SOE name="OE.POWER_SAVE">
@@ -381,14 +381,14 @@
             configurable such that there exists at least one mechanism that will cause the system to
             lock upon a period of time. </description>
           <consistency-rationale>
-            This objective is consistent with the Base-PP because it is an extension of the Base-PP's OE.PLATFORM objective that is specific to this technology type.
+            This objective is consistent with the base PP because it is an extension of the base PP's OE.PLATFORM objective that is specific to this technology type.
           </consistency-rationale>
         </SOE>
         <SOE name="OE.STRONG_ENVIRONMENT_CRYPTO">
           <description>The Operating environment will provide a cryptographic function capability
             that is commensurate with the requirements and capabilities of the TOE.</description>
           <consistency-rationale>
-            This objective is consistent with the Base-PP because the Base-PP allows for the TOE to use platform-provided cryptography.
+            This objective is consistent with the base PP because the base PP allows for the TOE to use platform-provided cryptography.
           </consistency-rationale>
         </SOE>
       </SOEs>
@@ -408,7 +408,7 @@
       <sec-func-req-dir>
         The TOE is expected to rely on some of the security functions implemented by the application
         as a whole and evaluated against <xref to="bibAppPP"/>.
-        The following section describes any modifications that the ST author must make to the SFRs defined in the Base-PP in addition to what is mandated by section 5.2.       
+        The following section describes any modifications that the ST author must make to the SFRs defined in the base PP in addition to what is mandated by section 5.2.       
       </sec-func-req-dir>
       <!-- 5.1.1 Modified SFRs -->
       <modified-sfrs/>
@@ -418,18 +418,18 @@
       <con-sec-prob/>
       <con-obj/>
       <con-op-en/>
-      <con-mod ref="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.PHYSICAL_ACCESS defined in the Base-PP.
+      <con-mod ref="T.UNAUTHORIZED_DATA_ACCESS">This threat is a variation on T.PHYSICAL_ACCESS defined in the base PP.
         In this case, the "sensitive data at rest" is the data that the TOE is intended to protect.</con-mod>
-      <con-mod ref="T.MANAGEMENT_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the Base-PP.
-        The Base-PP does not define access-controlled management functions so this PP-Module goes beyond it by specifying misuse of the management interface, or
+      <con-mod ref="T.MANAGEMENT_ACCESS">This threat is a variation on T.LOCAL_ATTACK defined in the base PP.
+        The base PP does not define access-controlled management functions so this PP-Module goes beyond it by specifying misuse of the management interface, or
         inability to fully use the management interface, as threats to the TSF.</con-mod>
-      <con-mod ref="T.KEYING_MATERIAL_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.KEYING_MATERIAL_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the base PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>
-      <con-mod ref="T.UNSAFE_AUTHFACTOR_VERIFICATION">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.UNSAFE_AUTHFACTOR_VERIFICATION">This threat is a specific example of T.PHYSICAL_ACCESS defined in the base PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>
-      <con-mod ref="T.KEYSPACE_EXHAUST">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.KEYSPACE_EXHAUST">This threat is a specific example of T.PHYSICAL_ACCESS defined in the base PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>
-      <con-mod ref="T.PLAINTEXT_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
+      <con-mod ref="T.PLAINTEXT_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the base PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>
       <con-mod ref="A.AUTH_FACTOR">A.PROPER_USER in the base PP assumes that users will do what they are supposed to do and A.AUTH_FACTOR makes users responsible for ensuring that externally-derived authentication factors have appropriate strength to ensure data protection based on the sensitivity of the data being produced. If A.PROPER_USER is in effect, then so is A.AUTH_FACTOR.</con-mod>
       <con-mod ref="A.EXTERNAL_FEK_PROTECTION">A.PLATFORM in the base PP ensures that the TOE runs on a trustworthy computing platform. This assumption is an example of a way a trustworthy computing platform would behave; therefore, the association is appropriate.</con-mod>
@@ -452,8 +452,8 @@
         </ext-comp-def>
         <!-- FCS_CKM.6 Timing and event of cryptographic key destruction -->
         <f-component cc-id="fcs_ckm.6" id="fcs-ckm-6" name="Timing and event of cryptographic key destruction">
-          <consistency-rationale>This SFR extends the cryptographic functionality defined in the Base-PP by specifying a method for key destruction. 
-            It is consistent with the Base-PP because keys generated by the Base-PP portion of the TOE may also be destroyed in the manner specified by this SFR.
+          <consistency-rationale>This SFR extends the cryptographic functionality defined in the base PP by specifying a method for key destruction. 
+            It is consistent with the base PP because keys generated by the base PP portion of the TOE may also be destroyed in the manner specified by this SFR.
           </consistency-rationale>
           <f-element id="fcs-ckm-6e1">
             <title>The TSF shall destroy [<h:i>all keys and key material</h:i>] when <h:i>no longer needed</h:i>.</title>
@@ -585,8 +585,8 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
         <!-- FCS_CKM_EXT.2 File Encryption Key (FEK) Generation -->
         <f-component cc-id="fcs_ckm_ext.2" id="fcs-ckm-ext-2" name="File Encryption Key (FEK) Generation">
-          <consistency-rationale>This SFR describes behavior that is not in scope of the Base-PP. 
-            It is consistent with the Base-PP because it may use the same random bit generation function defined in the Base-PP.
+          <consistency-rationale>This SFR describes behavior that is not in scope of the base PP. 
+            It is consistent with the base PP because it may use the same random bit generation function defined in the base PP.
           </consistency-rationale>
           <comp-lev> describes the method by which the TSF acquires or generates file encryption keys.</comp-lev>
           <management>There are no specific management functions identified.</management>
@@ -651,7 +651,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
         <!-- FCS_KYC_EXT.1 Key Chaining and Key Storage -->
         <f-component cc-id="fcs_kyc_ext.1" id="fcs-kyc-ext-1" name="Key Chaining and Key Storage">
-          <consistency-rationale>The Base-PP defines how stored keys are protected. This SFR extends that functionality by defining the logical hierarchy of how keys are logically
+          <consistency-rationale>The base PP defines how stored keys are protected. This SFR extends that functionality by defining the logical hierarchy of how keys are logically
             protected by other keys or other secret data. 
           </consistency-rationale>
           <comp-lev> requires the TSF to specify how it implements key chaining.</comp-lev>
@@ -663,9 +663,9 @@ Some examples of what is expected to be in the documentation are provided here. 
           FCS_SMC_EXT.1 Submask Combining</dependencies>
           <f-element id="fcs-kyc-ext-1e1">
             <title> The TSF shall maintain a key chain of: 
-               <selectables linebreak="yes"><selectable id="fcs_kyc_ext.1.1_1" >a conditioned password as the [<h:i>FEK</h:i>]</selectable><selectable id="HASKEK">[<h:i>KEKs</h:i>] originating from <selectables><selectable id="fcs_kyc_ext.1.1_2" >one or more authorization factors(s)</selectable><selectable id="fcs_kyc_ext.1.1_3" >a file encryption enterprise management server</selectable></selectables> to <selectables><selectable id="fcs_kyc_ext.1.1_4" >the FEK(s)</selectable><selectable id="fcs_kyc_ext.1.1_5" >a file encryption enterprise management server</selectable></selectables> using the following method(s): <selectables linebreak="yes"><selectable id="fcs_kyc_ext.1.1_6" >utilization of the platform key storage</selectable><selectable id="fcs_kyc_ext.1.1_7" >utilization of platform key storage that performs key wrap with a TSF provided key</selectable><selectable id="USEKEYWRA" >implementation of key establishment as specified in FCS_CKM.2 (from the Base-PP)</selectable><selectable id="USEKEYDER" >implementation of key derivation as specified in FCS_KDF_EXT.1</selectable><selectable id="USEKEYWRA" >implementation of key wrapping as specified in FCS_COP.1/KW</selectable><selectable id="USEKEYENC" >implementation of key encryption as specified in FCS_COP.1/KE</selectable><selectable id="USEKEYCOM" >implementation of key combining as specified in FCS_SMC_EXT.1</selectable><selectable id="USEKEYTRA" >implementation of key transport as specified in FCS_COP.1/KT</selectable></selectables> while maintaining an effective strength of commensurate with the strength of the FEK</selectable></selectables>  
+               <selectables linebreak="yes"><selectable id="fcs_kyc_ext.1.1_1" >a conditioned password as the [<h:i>FEK</h:i>]</selectable><selectable id="HASKEK">[<h:i>KEKs</h:i>] originating from <selectables><selectable id="fcs_kyc_ext.1.1_2" >one or more authorization factors(s)</selectable><selectable id="fcs_kyc_ext.1.1_3" >a file encryption enterprise management server</selectable></selectables> to <selectables><selectable id="fcs_kyc_ext.1.1_4" >the FEK(s)</selectable><selectable id="fcs_kyc_ext.1.1_5" >a file encryption enterprise management server</selectable></selectables> using the following method(s): <selectables linebreak="yes"><selectable id="fcs_kyc_ext.1.1_6" >utilization of the platform key storage</selectable><selectable id="fcs_kyc_ext.1.1_7" >utilization of platform key storage that performs key wrap with a TSF provided key</selectable><selectable id="USEKEYWRA" >implementation of key establishment as specified in FCS_CKM.2 (from the base PP)</selectable><selectable id="USEKEYDER" >implementation of key derivation as specified in FCS_KDF_EXT.1</selectable><selectable id="USEKEYWRA" >implementation of key wrapping as specified in FCS_COP.1/KW</selectable><selectable id="USEKEYENC" >implementation of key encryption as specified in FCS_COP.1/KE</selectable><selectable id="USEKEYCOM" >implementation of key combining as specified in FCS_SMC_EXT.1</selectable><selectable id="USEKEYTRA" >implementation of key transport as specified in FCS_COP.1/KT</selectable></selectables> while maintaining an effective strength of commensurate with the strength of the FEK</selectable></selectables>  
               and 
-               <selectables><selectable id="fcs_kyc_ext.1.1_8" >no supplemental key chains</selectable><selectable id="fcs_kyc_ext.1.1_9">other supplemental key chains that protect a key or keys in the primary key chain using the following method(s): <selectables linebreak="yes"><selectable id="fcs_kyc_ext.1.1_10" >utilization of the platform key storage</selectable><selectable id="fcs_kyc_ext.1.1_11" >utilization of platform key storage that performs key wrap with a TSF provided key</selectable><selectable id="SUPPKEYEST" >implementation of key establishment as specified in FCS_CKM.2 (from the Base-PP)</selectable><selectable id="SUPPKEYENC" >implementation of key encryption as specified in FCS_COP.1/KE</selectable><selectable id="SUPPKEYTRA" >implementation of key transport as specified in FCS_COP.1/KT</selectable><selectable id="SUPPKEYWRA" >implementation of key wrapping as specified in FCS_COP.1/KW</selectable><selectable id="SUPPKEYDER" >implementation of key derivation as specified in FCS_KDF_EXT.1</selectable><selectable id="SUPPKEYCOM" >implementation of key combining as specified in FCS_SMC_EXT.1</selectable></selectables> </selectable></selectables>.
+               <selectables><selectable id="fcs_kyc_ext.1.1_8" >no supplemental key chains</selectable><selectable id="fcs_kyc_ext.1.1_9">other supplemental key chains that protect a key or keys in the primary key chain using the following method(s): <selectables linebreak="yes"><selectable id="fcs_kyc_ext.1.1_10" >utilization of the platform key storage</selectable><selectable id="fcs_kyc_ext.1.1_11" >utilization of platform key storage that performs key wrap with a TSF provided key</selectable><selectable id="SUPPKEYEST" >implementation of key establishment as specified in FCS_CKM.2 (from the base PP)</selectable><selectable id="SUPPKEYENC" >implementation of key encryption as specified in FCS_COP.1/KE</selectable><selectable id="SUPPKEYTRA" >implementation of key transport as specified in FCS_COP.1/KT</selectable><selectable id="SUPPKEYWRA" >implementation of key wrapping as specified in FCS_COP.1/KW</selectable><selectable id="SUPPKEYDER" >implementation of key derivation as specified in FCS_KDF_EXT.1</selectable><selectable id="SUPPKEYCOM" >implementation of key combining as specified in FCS_SMC_EXT.1</selectable></selectables> </selectable></selectables>.
             </title>
             <ext-comp-def-title><title> The TSF shall maintain a key chain of: 
               <selectables linebreak="yes"><selectable>a conditioned password as the <assignable>key type</assignable></selectable><selectable><assignable>key type</assignable> originating from
@@ -733,7 +733,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
         <!-- FCS_VAL_EXT.1 Validation -->
         <f-component cc-id="fcs_val_ext.1" id="fcs-val-ext-1" name="Validation">
-          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can validate the correctness of data input to it.
+          <consistency-rationale>This SFR goes beyond the functionality defined by the base PP by defining a method by which the TSF can validate the correctness of data input to it.
           </consistency-rationale>
           <comp-lev> requires the TSF to specify what data is being validated and how the validation is performed.</comp-lev>
           <management>There are no specific management functions identified.
@@ -773,7 +773,7 @@ Some examples of what is expected to be in the documentation are provided here. 
         </f-component>
         <!-- FCS_VAL_EXT.2 Validation Remediation -->
         <f-component cc-id="fcs_val_ext.2" id="fcs-val-ext-2" name="Validation Remediation">
-          <consistency-rationale>This SFR goes beyond the functionality defined by the Base-PP by defining a method by which the TSF can take security-relevant action if some data input to it is invalid.
+          <consistency-rationale>This SFR goes beyond the functionality defined by the base PP by defining a method by which the TSF can take security-relevant action if some data input to it is invalid.
             </consistency-rationale>
           <comp-lev> requires the TSF to specify what the TOE’s response is in the event of a data validation failure.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul><h:li>Configuration of the number of failed validation attempts required to trigger corrective behavior.</h:li> <h:li>Configuration of the corrective behavior to issue in the event of an excessive number of failed validation attempts.</h:li></h:ul></management>
@@ -816,7 +816,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </ext-comp-def>
         <!-- FDP_PRT_EXT.1 Protection of Selected User Data -->
         <f-component cc-id="fdp_prt_ext.1" id="fdp-prt-ext-1" name="Protection of Selected User Data">
-          <consistency-rationale>This SFR is consistent with the Base-PP because it is a specific application of the FCS_COP.1/SKC function defined in the Base-PP.
+          <consistency-rationale>This SFR is consistent with the base PP because it is a specific application of the FCS_COP.1/SKC function defined in the base PP.
           </consistency-rationale>
           <comp-lev> requires the TOE to encrypt and decrypt sensitive data using a specified cryptographic algorithm.</comp-lev>
           <management>There are no specific management functions identified.
@@ -907,7 +907,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </f-component>
         <!-- FDP_PRT_EXT.2 Destruction of Plaintext Data -->
         <f-component cc-id="fdp_prt_ext.2" id="fdp-prt-ext-2" name="Destruction of Plaintext Data">
-          <consistency-rationale>This SFR relates to the destruction of key data, which is beyond the scope defined by the Base-PP and does not affect the ability of the Base-PP 
+          <consistency-rationale>This SFR relates to the destruction of key data, which is beyond the scope defined by the base PP and does not affect the ability of the base PP 
            SFRs to be enforced.
           </consistency-rationale>
           <comp-lev> requires the TOE to destroy any plaintext data that is created as a result of the encryption/decryption process for sensitive data.</comp-lev>
@@ -969,8 +969,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </ext-comp-def>
         <!-- FIA_AUT_EXT.1 Subject Authorization -->
         <f-component cc-id="fia_aut_ext.1" id="fia-aut-ext-1" name="Subject Authorization">
-          <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG_EXT.1 from the Base-PP in a manner consistent with its 
-            definition, but otherwise does not relate to functionality defined by the Base-PP.
+          <consistency-rationale>This SFR defines how user requests to access protected data are authorized. It uses FCS_RBG_EXT.1 from the base PP in a manner consistent with its 
+            definition, but otherwise does not relate to functionality defined by the base PP.
           </consistency-rationale>
           <comp-lev> specifies the manner in which the TSF performs user authorization.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul><h:li>Configuration of authentication factors.</h:li></h:ul></management>
@@ -1046,7 +1046,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <f-component cc-id="fmt_smf.1" id="fmt-smf-1-fe" name="Specification of File Encryption Management
           Functions" iteration="FE">
           <consistency-rationale>This SFR defines management functions for the TOE for functionality specific to this PP-Module. These functions are defined in addition to what 
-            the Base-PP defines for its own operation.
+            the base PP defines for its own operation.
           </consistency-rationale>
           <f-element id="fmt_smf-1-1_FE">
             <title>The TSF shall be capable of performing the following management functions: <h:b><selectables linebreak="yes"><selectable id="fmt_smf.1.1_FE_1" >configure cryptographic functionality</selectable><selectable id="fmt_smf.1.1_FE_2" >change authentication factors</selectable><selectable id="fmt_smf.1.1_FE_3" >perform a cryptographic erase of the data by the destruction of FEKs or KEKs protecting the FEKs as described in FCS_CKM.6.2</selectable><selectable id="fmt_smf.1.1_FE_4" >configure the number of failed validation attempts required to trigger corrective behavior</selectable><selectable id="fmt_smf.1.1_FE_5" >configure the corrective behavior to issue in the event of an excessive number of failed validation attempts</selectable><selectable id="fmt_smf.1.1_FE_6" >disable cryptographic functionality</selectable><selectable id="fmt_smf.1.1_FE_8" ><assignable>other management functions provided by the TSF</assignable></selectable></selectables> </h:b>.
@@ -1114,7 +1114,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         </ext-comp-def>
         <!-- FPT_KYP_EXT.1 Protection of Keys and Key Material -->
         <f-component cc-id="fpt_kyp_ext.1" id="fpt-kyp-ext-1" name="Protection of Keys and Key Material">
-          <consistency-rationale>The Base-PP defines an SFR for secure storage of sensitive data. This SFR expands on that definition by describing the supported logical methods 
+          <consistency-rationale>The base PP defines an SFR for secure storage of sensitive data. This SFR expands on that definition by describing the supported logical methods 
             for storage of key data.
           </consistency-rationale>
           <comp-lev> requires the TSF to protect stored key data in a specified manner.</comp-lev>
@@ -1169,7 +1169,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR supports the PP-Module's data authentication function, which does not relate to any functionality defined in the Base-PP.
+          <consistency-rationale>This SFR supports the PP-Module's data authentication function, which does not relate to any functionality defined in the base PP.
           </consistency-rationale>
           <comp-lev> describes the secure storage of file encryption keys.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1251,8 +1251,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
-            specific to this PP-Module and do not affect the ability for any Base-PP SFRs to be enforced.
+          <consistency-rationale>This SFR defines usage of AES functionality not defined by the base PP. However, this functionality is only used in certain situations that are 
+            specific to this PP-Module and do not affect the ability for any base PP SFRs to be enforced.
           </consistency-rationale>
           <comp-lev> defines requirements for how to protect a file encryption key.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul><h:li>Configuration of the cryptographic functionality.</h:li></h:ul></management>
@@ -1289,7 +1289,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR relates to data authentication, which does not relate to any functionality defined in the Base-PP.
+          <consistency-rationale>This SFR relates to data authentication, which does not relate to any functionality defined in the base PP.
            </consistency-rationale>
           <comp-lev> requires the TSF to support data authentication and to specify the particular data authentication method that is supported.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1362,8 +1362,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
-             defined in the Base-PP.
+          <consistency-rationale>This SFR relies on cryptographic functionality defined by the base PP. However, the function itself does not relate to any behavior 
+             defined in the base PP.
            </consistency-rationale>
           <comp-lev> requires the TOE to implement data authentication using a keyed hash function with a FAK as its key.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1453,8 +1453,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR relies on cryptographic functionality defined by the Base-PP. However, the function itself does not relate to any behavior 
-             defined in the Base-PP.
+          <consistency-rationale>This SFR relies on cryptographic functionality defined by the base PP. However, the function itself does not relate to any behavior 
+             defined in the base PP.
            </consistency-rationale>
           <comp-lev> requires the TOE to implement data authentication using a cryptographic signature and hash.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1532,7 +1532,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
             <optional/>
           </depends>
           <consistency-rationale>This SFR describes the behavior of the TSF when its host platform is in a locked or unpowered state, which does not relate to any functionality 
-                 defined in the Base-PP.
+                 defined in the base PP.
                </consistency-rationale>
           <comp-lev> requires the TOE to ensure that TSF-protected data does not lose its protections if the host platform is placed in a locked or unpowered state.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1596,8 +1596,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the Base-PP but 
-                 does not prevent the Base-PP functions from being enforced.
+          <consistency-rationale>This SFR relates to the PP-Module's file encryption capability. This goes beyond the sensitive data protection defined in the base PP but 
+                 does not prevent the base PP functions from being enforced.
                </consistency-rationale>
           <comp-lev> requires the TOE to destroy temporary files that may be created during the encryption or decryption process to prevent the inadvertent disclosure of sensitive data.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1635,7 +1635,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR relates to the use of authorization factors, which does not relate to any behavior described in the Base-PP.
+          <consistency-rationale>This SFR relates to the use of authorization factors, which does not relate to any behavior described in the base PP.
           </consistency-rationale>
           <comp-lev> requires the TSF to maintain differing authorization factors for multiple users.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1675,7 +1675,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends>
             <optional/>
           </depends>
-          <consistency-rationale>This SFR relates to key sharing, which does not relate to any behavior described in the Base-PP.
+          <consistency-rationale>This SFR relates to key sharing, which does not relate to any behavior described in the base PP.
           </consistency-rationale>
           <comp-lev> requires the TSF to support some mechanism to share a valid authorization factor between different users.</comp-lev>
           <management>There are no specific management functions identified.
@@ -1686,7 +1686,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           FCS_COP.1 Cryptographic Operation</dependencies>
           <f-element id="fia-fct-est-2e1">
             <title>The TSF shall support
-               <selectables><selectable id="fia_fct_ext.2.1_1" >Authorized User Key sharing via key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable><selectable id="fia_fct_ext.2.1_2" >Authorized User Key sharing via key wrapping as specified in FCS_COP.1<h:b>/KW</h:b></selectable><selectable id="fia_fct_ext.2.1_3" >Distribution of a shared key from [<h:i>an enterprise management server</h:i>] as specified in FCS_CKM.2 <h:b>(from Base-PP)</h:b></selectable></selectables>.
+               <selectables><selectable id="fia_fct_ext.2.1_1" >Authorized User Key sharing via key transport as specified in FCS_COP.1<h:b>/KT</h:b></selectable><selectable id="fia_fct_ext.2.1_2" >Authorized User Key sharing via key wrapping as specified in FCS_COP.1<h:b>/KW</h:b></selectable><selectable id="fia_fct_ext.2.1_3" >Distribution of a shared key from [<h:i>an enterprise management server</h:i>] as specified in FCS_CKM.2 <h:b>(from base PP)</h:b></selectable></selectables>.
             </title>
             <ext-comp-def-title><title>The TSF shall support
               <selectables><selectable>Authorized User Key sharing via key transport as specified in FCS_COP.1</selectable><selectable>Authorized User Key sharing via key wrapping as specified in FCS_COP.1</selectable><selectable>Distribution of a shared key from <assignable>external IT entity</assignable> as specified in FCS_CKM.2</selectable></selectables>.
@@ -1738,7 +1738,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <!-- FCS_CKM_EXT.3 Key Encrypting Key (KEK) Support -->
         <f-component cc-id="fcs_ckm_ext.3" id="fcs-ckm-ext-3" name="Key Encrypting Key (KEK) Support">
           <depends on-sel="HASKEK"/>
-          <consistency-rationale>This SFR relates to how KEKs are made available to the TSF, which are used for functionality that does not relate to the Base-PP.
+          <consistency-rationale>This SFR relates to how KEKs are made available to the TSF, which are used for functionality that does not relate to the base PP.
         </consistency-rationale>
           <comp-lev> describes the method by which the TSF acquires or generates key encryption keys.</comp-lev>
           <management>There are no specific management functions identified.</management>
@@ -1786,8 +1786,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
           <depends on-sel="USEPAS"/>
           <depends on-sel="DRVFEKPAS"/>
           <depends on-sel="DRVKEKPAS"/>
-          <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 SFR from the Base-PP in its intended manner 
-            but otherwise does not relate to the Base-PP's functionality.
+          <consistency-rationale>This SFR defines a key derivation method based on passphrase conditioning. It uses the FCS_RBG_EXT.1 SFR from the base PP in its intended manner 
+            but otherwise does not relate to the base PP's functionality.
           </consistency-rationale>
           <comp-lev> requires the TSF to implement password/passphrase conditioning using a specified algorithm and with specific constraints on the password/passphrase composition.</comp-lev>
           <management>There are no specific management functions identified.</management>
@@ -1924,7 +1924,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <!-- FCS_COP.1/KE Cryptographic operation (Key Encryption) -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-ke" name="Cryptographic operation (Key Encryption)" iteration="KE">
           <depends on-sel="USEKEYENC"/>
-          <consistency-rationale>This SFR defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
+          <consistency-rationale>This SFR defines key encryption functionality that is outside the scope of the original cryptographic operations defined in the base PP.
           </consistency-rationale>
           <f-element id="fcs_cop-1-1_KE">
             <title>
@@ -1950,12 +1950,12 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <!-- FCS_COP.1/KT Cryptographic operation (Key Transport) -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-kt" name="Cryptographic operation (Key Transport)" iteration="KT">
           <depends on-sel="USEKEYTRA"/>
-          <consistency-rationale>This SFR defines key transport functionality that is outside the scope of the original cryptographic operations defined in the Base-PP.
+          <consistency-rationale>This SFR defines key transport functionality that is outside the scope of the original cryptographic operations defined in the base PP.
           </consistency-rationale>
           <f-element id="fcs_cop-1-1_KT">
             <title>
               The TSF shall perform [<h:i>key transport</h:i>] in accordance with a
-              specified cryptographic algorithm  <selectables linebreak="yes"><selectable id="fcs_cop.1.1_KT_1" >CNSA 2.0 Compliant Algorithms: <h:ul><h:li>[<h:i>Hybrid Key-Transport Method</h:i>] that meets the following: [Section 9.3 of NIST SP 800-56B, Revision 2] <h:b>using a key establishment algorithm [ML-KEM] as specified in FCS_CKM.2 (from the Base-PP) and a key wrapping algorithm as specified in FCS_COP.1/KW</h:b></h:li></h:ul></selectable><selectable id="fcs_cop.1.1_KT_2">CNSA 1.0 Compliant Algorithms: <h:ul><h:li>[KTS-OAEP] using cryptographic algorithm [RSA] with cryptographic key sizes <selectables><selectable id="fcs_cop.1.1_KT_3" >3072</selectable><selectable id="fcs_cop.1.1_KT_4" >4096</selectable></selectables> bits that meet the following: [NIST SP 800-56B, Revision 2]</h:li></h:ul></selectable></selectables>. 
+              specified cryptographic algorithm  <selectables linebreak="yes"><selectable id="fcs_cop.1.1_KT_1" >CNSA 2.0 Compliant Algorithms: <h:ul><h:li>[<h:i>Hybrid Key-Transport Method</h:i>] that meets the following: [Section 9.3 of NIST SP 800-56B, Revision 2] <h:b>using a key establishment algorithm [ML-KEM] as specified in FCS_CKM.2 (from the base PP) and a key wrapping algorithm as specified in FCS_COP.1/KW</h:b></h:li></h:ul></selectable><selectable id="fcs_cop.1.1_KT_2">CNSA 1.0 Compliant Algorithms: <h:ul><h:li>[KTS-OAEP] using cryptographic algorithm [RSA] with cryptographic key sizes <selectables><selectable id="fcs_cop.1.1_KT_3" >3072</selectable><selectable id="fcs_cop.1.1_KT_4" >4096</selectable></selectables> bits that meet the following: [NIST SP 800-56B, Revision 2]</h:li></h:ul></selectable></selectables>. 
             </title>
             <note role="application"><h:p>
               This requirement is used in the body of the ST if the ST author chooses to
@@ -1994,8 +1994,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <!-- FCS_COP.1/KW Cryptographic operation (Key Wrapping) -->
         <f-component cc-id="fcs_cop.1" id="fcs-cop-1-kw" name="Cryptographic operation (Key Wrapping)" iteration="KW">
           <depends on-sel="USEKEYWRA"/>
-          <consistency-rationale>This SFR defines usage of AES functionality not defined by the Base-PP. However, this functionality is only used in certain situations that are 
-            specific to this PP-Module and do not affect the ability of any Base-PP SFRs to be enforced.
+          <consistency-rationale>This SFR defines usage of AES functionality not defined by the base PP. However, this functionality is only used in certain situations that are 
+            specific to this PP-Module and do not affect the ability of any base PP SFRs to be enforced.
           </consistency-rationale>
           <f-element id="fcs_cop-1-1_KW">
             <title>
@@ -2058,8 +2058,8 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <!-- FCS_KDF_EXT.1 Cryptographic Key Derivation Function -->
         <f-component cc-id="fcs_kdf_ext.1" id="fcs-kdf-ext-1" name="Cryptographic Key Derivation Function">
           <depends on-sel="USEKEYDER"/>
-          <consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the Base-PP 
-            as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the Base-PP.
+          <consistency-rationale>This SFR defines key transport functionality. It uses random bit generation and keyed-hash message authentication functionality from the base PP 
+            as they are intended but is otherwise outside the scope of the original cryptographic operations defined in the base PP.
           </consistency-rationale>
           <comp-lev> requires the TSF to specify how it performs key derivation.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul><h:li>Configuration of the cryptographic functionality.</h:li></h:ul></management>
@@ -2101,7 +2101,7 @@ Two iterations of this SFR are also defined in PP-Module for File Encryption Ent
         <!-- FCS_SMC_EXT.1 Submask Combining -->
         <f-component cc-id="fcs_smc_ext.1" id="fcs-smc-ext-1" name="Submask Combining">
           <depends on-sel="USEKEYCOM"/>
-          <consistency-rationale>This SFR relates to submask combining as a method of generating intermediate keys. Key hierarchy functionality is outside the scope of the Base-PP.
+          <consistency-rationale>This SFR relates to submask combining as a method of generating intermediate keys. Key hierarchy functionality is outside the scope of the base PP.
           </consistency-rationale>
           <comp-lev> requires the TSF to implement submask combining in a specific manner to support the generation of intermediate keys.</comp-lev>
           <management>The following actions could be considered for the management functions in FMT: <h:ul><h:li>Configuration of the cryptographic functionality.</h:li></h:ul></management>
