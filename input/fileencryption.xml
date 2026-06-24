@@ -431,6 +431,11 @@
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>
       <con-mod ref="T.PLAINTEXT_COMPROMISE">This threat is a specific example of T.PHYSICAL_ACCESS defined in the Base-PP. 
         Specifically, this PP-Module defines a method of maliciously gaining access to sensitive data at rest that is particular to the technology type of this PP-Module.</con-mod>
+      <con-mod ref="A.AUTH_FACTOR">A.PROPER_USER in the base PP assumes that users will do what they are supposed to do and A.AUTH_FACTOR makes users responsible for ensuring that externally-derived authentication factors have appropriate strength to ensure data protection based on the sensitivity of the data being produced. If A.PROPER_USER is in effect, then so is A.AUTH_FACTOR.</con-mod>
+      <con-mod ref="A.EXTERNAL_FEK_PROTECTION">A.PLATFORM in the base PP ensures that the TOE runs on a trustworthy computing platform. This assumption is an example of a way a trustworthy computing platform would behave; therefore, the association is appropriate.</con-mod>
+      <con-mod ref="A.FILE_INTEGRITY">A.FILE_INTEGRITY relates to the integrity of a file in transit, which maps to the threat of T.NETWORK_ATTACK in the base PP. In order to assume assurance of file integrity, T.NETWORK_ATTACK must be adequately mitigated.</con-mod>
+      <con-mod ref="A.SHUTDOWN">A.PROPER_USER in the base PP covers this same scenario because a user leaving an unattended session is not an example of a proper user.</con-mod>
+      <con-mod ref="A.STRONG_OE_CRYPTO">This assumption is consistent with the A.PLATFORM assumption in the base PP, as this would be an exact of something a trustworthy computing platform can be expected to perform.</con-mod>
     </base-pp>
     <!-- 5.2 TOE Security Functional Requirements -->
     <man-sfrs>
