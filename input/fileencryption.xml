@@ -4,6 +4,7 @@
 <Module name="PP-Module for File Encryption" target-product="File Encryption" target-products="File Encryption" xmlns="https://niap-ccevs.org/cc/v1" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:sec="https://niap-ccevs.org/cc/v1/section">
   <PPReference>
     <ReferenceTable>
+	  <PPTitle>PP-Module for File Encryption</PPTitle>
       <PPVersion>2.0</PPVersion>
       <PPAuthor>National Information Assurance Partnership</PPAuthor>
       <PPPubDate>2025-09-29</PPPubDate>
