@@ -15,9 +15,6 @@ xsltStylePreCompute: unknown xsl:apply-template
 * Error: Detected multiple elements with an id of 'APPAUTH'.
 * Error: Detected multiple elements with an id of 'USEPAS'.
 * Error: Detected multiple elements with an id of 'USECAR'.
-warning: failed to load external entity "output/vpnclient.xml"
-warning: failed to load external entity "output/vpnclient.xml"
-warning: failed to load external entity "output/vpnclient.xml"
  Failed to find a reference to bibAppPP.
  Failed to find a reference to bibAppPP.
  Failed to find a reference to bibAppPP.
