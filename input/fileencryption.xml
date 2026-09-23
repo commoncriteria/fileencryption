@@ -262,8 +262,35 @@
       <cc-pt3-conf>extended</cc-pt3-conf>
       <cc-pp-conf/>
       <cc-pp-config-with>
-        <Mod-cc-ref>PP-Module for VPN Client, Version 3.0</Mod-cc-ref>
-        <Mod-cc-ref>PP-Module for File Encryption Enterprise Management, Version 2.0</Mod-cc-ref>
+		<PP-cc-ref>
+			<cc-doc-ref id="application">
+				<git>
+					<url>https://github.com/commoncriteria/application</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/516</url>
+			</cc-doc-ref>
+		</PP-cc-ref>
+        <Mod-cc-ref>
+			<!-- PP-Module for VPN Client, Version 3.0 -->
+			<cc-doc-ref id="vpnclient">
+				<git>
+					<url>https://github.com/commoncriteria/vpnclient</url>
+					<branch>v3.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/522</url>
+			</cc-doc-ref>		
+		</Mod-cc-ref>
+        <Mod-cc-ref>
+			<!-- PP-Module for File Encryption Enterprise Management, Version 2.0 -->
+			<cc-doc-ref id="fileencryption-enterprisemgmt">
+				<git>
+					<url>https://github.com/commoncriteria/fileencryption-enterprisemgmt</url>
+					<branch>release-2.0</branch>
+				</git>
+				<url>https://www.niap-ccevs.org/protectionprofiles/521</url>
+			</cc-doc-ref>
+		</Mod-cc-ref>
       </cc-pp-config-with>
       <cc-pkg-claim/>
     </CClaimsInfo>
@@ -400,12 +427,7 @@
   <!-- 5.0 Security Requirements -->
   <sec:Security_Requirements title="Security Requirements">
     <!-- 5.1 App PP Security Functional Requirements Direction -->
-    <base-pp id="b-appp" name="Application Software" product="application" short="App" version="2.0">
-      <git>
-        <url/>
-        <branch/>
-      </git>
-      <url>https://www.niap-ccevs.org/protectionprofiles/516</url>
+    <base-pp ref="application">
       <sec-func-req-dir>
         The TOE is expected to rely on some of the security functions implemented by the application
         as a whole and evaluated against <xref to="bibAppPP"/>.
